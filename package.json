@@ -1,0 +1,30 @@
+{
+  "name": "dnd-stat-block-creator",
+  "version": "1.0.0",
+  "description": "A custom stat-block generator for Dungeons & Dragons",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server --mode development"
+  },
+  "author": "Joe Ziemba",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "npm": "^6.7.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
