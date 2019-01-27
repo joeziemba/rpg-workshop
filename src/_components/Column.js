@@ -6,6 +6,9 @@ const Column = (props) => {
     case 'small':
       sizeClass = 'col-sm';
       break;
+    case 'med':
+      sizeClass = 'col-md';
+      break;
     default:
       break;
   }
