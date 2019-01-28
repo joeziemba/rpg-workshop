@@ -1,12 +1,14 @@
 {
   "name": "dnd-stat-block-creator",
   "version": "1.0.0",
+  "homepage": "https://joeziemba.github.io/dnd-stat-block-creator/",
   "description": "A custom stat-block generator for Dungeons & Dragons",
   "main": "index.js",
   "scripts": {
     "test": "test",
     "start": "webpack-dev-server --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "npm": "^6.7.0",
     "react": "^16.7.0",
