@@ -10,11 +10,12 @@ const Column = (props) => {
       sizeClass = 'col-md';
       break;
     default:
+      sizeClass = 'col-sm';
       break;
   }
 
   return (
-    <div className={`${sizeClass}`}>
+    <div className={`col ${props.className}`}>
       {props.children}
     </div>
   );

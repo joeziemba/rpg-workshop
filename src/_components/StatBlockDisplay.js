@@ -24,15 +24,15 @@ class StatBlockDisplay extends React.Component {
     });
   }
 
-  renderOtherProperties() {
-    let { otherProperties } = this.props.stats;
+  renderFeatures() {
+    let { features } = this.props.stats;
 
-    return otherProperties.map(property => {
+    return features.map(feature => {
       return (
-        <PropertyBlock 
-          key={property.title}
-          title={property.title}
-          content={property.content}
+        <PropertyBlock
+          key={feature.title}
+          title={feature.title}
+          content={feature.content}
         />
       )
     });
@@ -46,37 +46,37 @@ class StatBlockDisplay extends React.Component {
     let { actions } = this.props.stats;
 
     return actions.map((action, i) => {
-      if(action.attack) {
-        let {dieNum, dmgDie, prof, finess, reach, targets, dmgType} = action.attack;
-        
+      if (action.attack) {
+        let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } = action.attack;
+        debugger;
         // Get hit mod
         let toHit;
-        if (finess) {
+        if (dex) {
           toHit = this.getAbilityMod(this.props.stats.abilities.dex);
         } else {
           toHit = this.getAbilityMod(this.props.stats.abilities.str);
         }
-        
+
         // Get Damage Mod
 
         let avg = ((dieNum * dmgDie) / 2) + toHit;
         let damage = `${avg} (${dieNum}d${dmgDie} + ${toHit}) ${dmgType} damage.`
-        
-        if(prof) toHit += this.props.stats.proficiency;
+
+        if (prof) toHit += parseInt(this.props.stats.proficiency);
 
         return (
           <div className='property property--block' key={i}>
             <span className="property-name italic">{action.title}. </span>
             <span className='italic'>{action.attack.type} Weapon Attack.  </span>
-            +{toHit} to Hit&nbsp;&nbsp;|&nbsp;&nbsp;
-            Reach {reach}ft&nbsp;&nbsp;|&nbsp;&nbsp;
-            {targets} target&nbsp;&nbsp;|&nbsp;&nbsp;
+            {`${toHit >= 0 ? '+' : ''}${toHit}`} to Hit&nbsp;&nbsp;|&nbsp;&nbsp;
+            {action.attack.type === 'Ranged' ? 'Range' : 'Reach'} {reach}ft&nbsp;&nbsp;|&nbsp;&nbsp;
+            {targets} target{targets > 1 ? 's' : ''}&nbsp;&nbsp;|&nbsp;&nbsp;
             {damage}
           </div>
         )
       }
 
-      if(action.content) {
+      if (!action.attack) {
         return (
           <PropertyBlock
             key={i}
@@ -102,8 +102,8 @@ class StatBlockDisplay extends React.Component {
     return (
       <div id="StatBlockDisplay" className="statBlock">
         <div id="creatureHeading" className="creature-heading">
-          <h1 id="monsterName">Monster Name</h1>
-          <h2 id="monsterDetails">Monster Description</h2>
+          <h1 id="monsterName">{this.props.stats.name}</h1>
+          <h2 id="monsterDetails">{this.props.stats.size} {this.props.stats.creatureType}</h2>
         </div>
 
         <div className='section red'>
@@ -118,8 +118,11 @@ class StatBlockDisplay extends React.Component {
             <span className="property-name">Hit Points</span> {manualHp ? manualHp : hitPoints}
           </div>
           <div className='property'>
-            <span className="property-name">Speed</span> {stats.speed}ft
-        </div>
+            <span className="property-name">Speed</span>
+            {stats.speed}ft
+            {stats.flySpeed > 0 ? `, ${stats.flySpeed}ft (Fly)` : ''}
+            {stats.swimSpeed > 0 ? `, ${stats.swimSpeed}ft (Swim)` : ''}
+          </div>
         </div>
 
         <div className='section red'>
@@ -166,7 +169,7 @@ class StatBlockDisplay extends React.Component {
         </div>
 
         <div className='section'>
-          {this.renderOtherProperties()}
+          {this.renderFeatures()}
         </div>
 
         <div className='section section--with-heading'>
