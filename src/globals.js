@@ -131,3 +131,21 @@ global.languages = [
   'Sylvan',
   'Undercommon'
 ]
+
+global.conditions = [
+  'Blinded',
+  'Charmed',
+  'Deafened',
+  'Exhaustion',
+  'Fatigued',
+  'Frightened',
+  'Grappled',
+  'Incapacitated',
+  'Paralyzed',
+  'Petrified',
+  'Poisoned',
+  'Prone',
+  'Restrained',
+  'Stunned',
+  'Unconscious'
+]

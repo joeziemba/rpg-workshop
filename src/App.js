@@ -29,6 +29,7 @@ const testState = {
   flySpeed: 0,
   swimSpeed: 0,
   skills: [],
+  conditionImmune: [],
   immune: [],
   resists: [],
   vulnerable: [],
@@ -241,8 +242,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container App">
-        <Row >
+      <div className="flex-container App">
+        <Row>
           <Column stackSize='med' className="">
             <StatBlockForm
               stats={this.state}

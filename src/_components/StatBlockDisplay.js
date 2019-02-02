@@ -3,12 +3,6 @@ import React from 'react';
 import { Property, PropertyBlock } from './index';
 
 class StatBlockDisplay extends React.Component {
-  constructor(props) {
-    super(props)
-
-
-  }
-
   renderAbilities() {
     let { abilities } = this.props.stats;
     return Object.keys(abilities).map(ability => {
@@ -48,7 +42,6 @@ class StatBlockDisplay extends React.Component {
     return actions.map((action, i) => {
       if (action.attack) {
         let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } = action.attack;
-        debugger;
         // Get hit mod
         let toHit;
         if (dex) {
@@ -85,6 +78,7 @@ class StatBlockDisplay extends React.Component {
           />
         )
       }
+      return
     });
   }
 
@@ -130,6 +124,12 @@ class StatBlockDisplay extends React.Component {
         </div>
 
         <div className='section red'>
+          {stats.conditionImmune.length > 0 &&
+            <Property
+              title='Condition Immunities'
+              content={stats.conditionImmune.join(', ')}
+            />
+          }
           {stats.immune.length > 0 &&
             <Property
               title='Damage Immunities'

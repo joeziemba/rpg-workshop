@@ -161,7 +161,16 @@ class StatBlockForm extends React.Component {
         </Accordian>
         <Accordian title="Properties">
           <div className="feature-block">
-            <label>Immunities</label>
+            <label>Condition Immunities</label>
+            <Typeahead
+              multiple
+              options={global.conditions}
+              selected={this.props.stats.conditionImmune}
+              onChange={(selected) => this.props.updatePropertyList(selected, 'conditionImmune')}
+            />
+          </div>
+          <div className="feature-block">
+            <label>Damage Immunities</label>
             <Typeahead
               multiple
               options={global.damageTypes}
