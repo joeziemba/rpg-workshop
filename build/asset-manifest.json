@@ -1,7 +1,7 @@
 {
   "main.css": "/dnd-stat-block-creator/static/css/main.e61c5990.chunk.css",
-  "main.js": "/dnd-stat-block-creator/static/js/main.961f58f7.chunk.js",
-  "main.js.map": "/dnd-stat-block-creator/static/js/main.961f58f7.chunk.js.map",
+  "main.js": "/dnd-stat-block-creator/static/js/main.39dfe5c1.chunk.js",
+  "main.js.map": "/dnd-stat-block-creator/static/js/main.39dfe5c1.chunk.js.map",
   "static/css/1.ced8fdde.chunk.css": "/dnd-stat-block-creator/static/css/1.ced8fdde.chunk.css",
   "static/js/1.51356ba2.chunk.js": "/dnd-stat-block-creator/static/js/1.51356ba2.chunk.js",
   "static/js/1.51356ba2.chunk.js.map": "/dnd-stat-block-creator/static/js/1.51356ba2.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.ced8fdde.chunk.css.map": "/dnd-stat-block-creator/static/css/1.ced8fdde.chunk.css.map",
   "static/css/main.e61c5990.chunk.css.map": "/dnd-stat-block-creator/static/css/main.e61c5990.chunk.css.map",
   "index.html": "/dnd-stat-block-creator/index.html",
-  "precache-manifest.3f548ddf87b5b4e642b07133a1ec837b.js": "/dnd-stat-block-creator/precache-manifest.3f548ddf87b5b4e642b07133a1ec837b.js",
+  "precache-manifest.f4ab00fc63aadf445ecd5f039615e6a8.js": "/dnd-stat-block-creator/precache-manifest.f4ab00fc63aadf445ecd5f039615e6a8.js",
   "service-worker.js": "/dnd-stat-block-creator/service-worker.js"
 }
