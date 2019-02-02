@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700);
+
 .App {
   margin: 1rem;
   font-family: "Lato", Helvetica, sans-serif;
@@ -43,7 +45,7 @@
 }
 
 .creature-heading h1 {
-  font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
+  font-family: 'Lora', Georgia, serif;
   color: #922610;
   font-size: 2rem;
   line-height: 1.2em;
