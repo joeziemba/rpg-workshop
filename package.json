@@ -1,7 +1,7 @@
 {
   "name": "dnd-stat-block-creator",
   "version": "1.0.0",
-  "homepage": "https://joeziemba.github.io/dnd-stat-block-creator/",
+  "homepage": "https://dnd-stat-block-creator.firebaseapp.com/",
   "description": "A custom stat-block generator for Dungeons & Dragons",
   "main": "index.js",
   "scripts": {
