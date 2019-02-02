@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dnd-stat-block-creator/precache-manifest.c887637a70f0b2b0b2f75bd4bd4ee4a4.js"
+  "/dnd-stat-block-creator/precache-manifest.a45b579ca79cbbbe553f624d4ca1e0b5.js"
 );
 
 workbox.clientsClaim();

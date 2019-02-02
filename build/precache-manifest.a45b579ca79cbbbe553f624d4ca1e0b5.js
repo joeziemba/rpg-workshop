@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/dnd-stat-block-creator/static/css/1.eb66c1fe.chunk.css"
   },
   {
-    "revision": "0b59db54af4e12f82c4df2a93c02f80c",
+    "revision": "f7d86ed39078944c124500c15ca73315",
     "url": "/dnd-stat-block-creator/index.html"
   }
 ];
