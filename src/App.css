@@ -218,6 +218,7 @@ h4.form-header::after {
   border: 1px solid #eee;
   border-left: 3px solid #922610;
   padding: 16px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,.1);
 }
 
 input {
