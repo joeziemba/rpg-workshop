@@ -342,40 +342,45 @@ class App extends Component {
 
   render() {
     return (
-      <div className="flex-container App">
-        <Row>
-          <div className="col-md col-md-5 min-width">
-            <div className='statblock-form-container'>
-              <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
-              <StatBlockForm
-                stats={this.state}
-                updateState={this.updateState}
-                updateAbility={this.updateAbility}
-                updateAC={this.updateAC}
-                updateHP={this.updateHP}
-                updatePropertyList={this.updatePropertyList}
-                addFeature={this.addFeature}
-                updateFeature={this.updateFeature}
-                addAction={this.addAction}
-                updateAction={this.updateAction}
-                deleteAction={this.deleteAction}
-                deleteFeature={this.deleteFeature}
-                addLegendaryAction={this.addLegendaryAction}
-              />
-            </div>
-
-          </div>
-          <div className="col-md col-md-7">
-            <div className='statblock-container'>
-              <div className='statblock-container__inner'>
-                <StatBlockDisplay
+      <React.Fragment>
+        <nav class="navbar fixed-top">
+          <span class="navbar-brand mb-0 h1">Statblock Generator</span> 
+          <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
+        </nav>
+        <div className="flex-container App">
+          <Row>
+            <div className="col-md col-md-5 min-width">
+              <div className='statblock-form-container'>
+                <StatBlockForm
                   stats={this.state}
+                  updateState={this.updateState}
+                  updateAbility={this.updateAbility}
+                  updateAC={this.updateAC}
+                  updateHP={this.updateHP}
+                  updatePropertyList={this.updatePropertyList}
+                  addFeature={this.addFeature}
+                  updateFeature={this.updateFeature}
+                  addAction={this.addAction}
+                  updateAction={this.updateAction}
+                  deleteAction={this.deleteAction}
+                  deleteFeature={this.deleteFeature}
+                  addLegendaryAction={this.addLegendaryAction}
                 />
               </div>
+
             </div>
-          </div>
-        </Row>
-      </div>
+            <div className="col-md col-md-7">
+              <div className='statblock-container'>
+                <div className='statblock-container__inner'>
+                  <StatBlockDisplay
+                    stats={this.state}
+                  />
+                </div>
+              </div>
+            </div>
+          </Row>
+        </div>
+      </React.Fragment>
     );
   }
 }
