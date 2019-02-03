@@ -19,6 +19,9 @@ class Features extends React.Component {
       return (
         <div className='feature-block' key={i}>
           <Row >
+            <button className='delete-btn' onClick={() => this.props.deleteFeature(feature.id)}>
+              x
+          </button>
             <Column className='col-4'>
               <Input
                 type='text'

@@ -233,3 +233,38 @@ label {
   background-color: #922610;
   border-color: #4d1308;
 }
+
+.delete-btn {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  color: #ddd;
+  font-weight: bold;
+  z-index: 100;
+  border: none;
+  background: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  padding: 0 6px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #922610;
+}
+
+.delete-btn:after {
+  content: '';
+  height: 1px;
+  width: 7px;
+  background: #ddd;
+  position: absolute;
+  bottom: 3px;
+  right: 6px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover:after {
+  background-color: #922610;
+  bottom: 1px;
+}

@@ -222,6 +222,7 @@ class StatBlockForm extends React.Component {
             features={this.props.stats.features}
             addFeature={this.props.addFeature}
             updateFeature={this.props.updateFeature}
+            deleteFeature={this.props.deleteFeature}
           />
         </Accordian>
 
@@ -230,6 +231,7 @@ class StatBlockForm extends React.Component {
             actions={this.props.stats.actions}
             addAction={this.props.addAction}
             updateAction={this.props.updateAction}
+            deleteAction={this.props.deleteAction}
           />
         </Accordian>
 

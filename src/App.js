@@ -98,11 +98,12 @@ class App extends Component {
     this.updateFeature = this.updateFeature.bind(this);
     this.addAction = this.addAction.bind(this);
     this.updateAction = this.updateAction.bind(this);
+    this.deleteAction = this.deleteAction.bind(this);
+    this.deleteFeature = this.deleteFeature.bind(this);
   }
 
   updateState(e) {
     let { name, value } = e.target;
-    debugger;
     this.setState({
       [name]: value
     });
@@ -142,7 +143,6 @@ class App extends Component {
 
   updatePropertyList(selected, arrayToUpdate) {
     let sorted = selected.sort();
-    debugger;
     this.setState({
       [arrayToUpdate]: sorted
     });
@@ -178,7 +178,6 @@ class App extends Component {
   }
 
   addAction(actionType) {
-    debugger;
     let newActions = [].concat(this.state.actions);
 
     let newAction;
@@ -236,7 +235,6 @@ class App extends Component {
 
   updateAction(e, actionId) {
     let { name, value } = e.target;
-    debugger;
 
     let newActions = this.state.actions.map((action, i) => {
       if (action.id === actionId) {
@@ -256,6 +254,22 @@ class App extends Component {
     });
   }
 
+  deleteAction(actionId) {
+    let newActions = this.state.actions.filter(action => action.id !== actionId);
+
+    this.setState({
+      actions:newActions
+    })
+  }
+
+  deleteFeature(featureId) {
+    let newFeats = this.state.features.filter(f => f.id !== featureId);
+
+    this.setState({
+      features: newFeats
+    })
+  }
+
   render() {
     return (
       <div className="container App">
@@ -272,12 +286,16 @@ class App extends Component {
               updateFeature={this.updateFeature}
               addAction={this.addAction}
               updateAction={this.updateAction}
+              deleteAction={this.deleteAction}
+              deleteFeature={this.deleteFeature}
             />
           </Column>
           <Column className="col-12 col-md-6">
-            <StatBlockDisplay
-              stats={this.state}
-            />
+            <div style={{ 'margin': 'auto' }}>
+              <StatBlockDisplay
+                stats={this.state}
+              />
+            </div>
           </Column>
         </Row>
       </div>

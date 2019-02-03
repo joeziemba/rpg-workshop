@@ -21,6 +21,9 @@ class Actions extends React.Component {
       if (!action.attack) {
         return (
           <div className='feature-block' key={i} >
+          <button className='delete-btn' onClick={() => this.props.deleteAction(action.id)}>
+            x
+          </button>
 
             <Row >
               <Column className='col-4'>
@@ -53,7 +56,7 @@ class Actions extends React.Component {
 
       if (action.attack) {
         return (
-          <AttackForm action={action} key={i} updateAction={this.props.updateAction} />
+          <AttackForm action={action} key={i} updateAction={this.props.updateAction} deleteAction={this.props.deleteAction} />
         )
       }
     })

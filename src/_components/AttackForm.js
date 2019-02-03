@@ -8,6 +8,9 @@ const AttackForm = (props) => {
   return (
     <div className="feature-block">
       <Row>
+        <button className='delete-btn' onClick={() => props.deleteAction(props.action.id)}>
+          x
+        </button>
         <Column className='col-4-md col-12-sm'>
           <Input
             type='text'
