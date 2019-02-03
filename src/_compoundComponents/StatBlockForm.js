@@ -1,11 +1,12 @@
 import React from 'react';
-import { Input, Row, Features } from './index'
-import SelectField from './SelectField';
-import Column from './Column';
+import { Input, Row } from '../_components/'
+import SelectField from '../_components/SelectField';
+import Column from '../_components/Column';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import Accordian from './Accordian';
+import Accordian from '../_components/Accordian';
 import Actions from './Actions';
+import Features from './Features'
 
 class StatBlockForm extends React.Component {
   renderAbilityFields() {

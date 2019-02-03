@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './App.css';
 
-import { Row, StatBlockDisplay, StatBlockForm } from './_components/';
+import { Row } from './_components/';
+import { StatBlockDisplay, StatBlockForm } from './_compoundComponents';
 
 const initialState = {
   name: 'Monster Name',
@@ -344,7 +345,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <nav class="navbar fixed-top">
-          <span class="navbar-brand mb-0 h1">Statblock Generator</span> 
+          <span class="navbar-brand mb-0 h1">Statblock Generator</span>
           <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
         </nav>
         <div className="flex-container App">

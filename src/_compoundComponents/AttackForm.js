@@ -1,8 +1,5 @@
 import React from 'react';
-import Row from './Row';
-import Column from './Column';
-import { Input } from '.';
-import SelectField from './SelectField';
+import { Row, Column, Input, SelectField } from '../_components';
 
 const AttackForm = (props) => {
   return (
