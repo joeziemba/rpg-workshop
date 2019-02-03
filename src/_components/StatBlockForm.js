@@ -46,7 +46,7 @@ class StatBlockForm extends React.Component {
             <Column stackSize='small'>
               <SelectField
                 label={'Size'}
-                options={['Small', 'Medium', 'Large', 'Huge', 'Giant']}
+                options={['Small', 'Medium', 'Large', 'Huge', 'Gargantuan']}
                 value={this.props.stats.size}
                 fieldName='size'
                 onChange={this.props.updateState}
@@ -103,7 +103,7 @@ class StatBlockForm extends React.Component {
                 <Column stackSize='small'>
                   <SelectField
                     label={'Hit Die'}
-                    options={[4, 6, 8, 10, 12]}
+                    options={[4, 6, 8, 10, 12, 20]}
                     value={this.props.stats.hp.hitDie}
                     fieldName='hitDie'
                     onChange={this.props.updateHP}
