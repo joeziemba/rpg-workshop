@@ -103,7 +103,6 @@ class StatBlockDisplay extends React.Component {
     dieNum = parseInt(dieNum);
 
     let totalHp = ((hitDie * dieNum) / 2) + (Math.ceil(dieNum * .5)) + (dieNum * conMod);
-    debugger;
 
     let mod = dieNum * conMod
 

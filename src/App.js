@@ -87,7 +87,7 @@ class App extends Component {
 
     this.state = {
       ...testState
-    }
+    };
 
     this.updateState = this.updateState.bind(this);
     this.updateAbility = this.updateAbility.bind(this);
@@ -100,6 +100,29 @@ class App extends Component {
     this.updateAction = this.updateAction.bind(this);
     this.deleteAction = this.deleteAction.bind(this);
     this.deleteFeature = this.deleteFeature.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+
+  componentDidMount() {
+    let stats = localStorage.getItem("stats");
+    debugger;
+
+    if (stats) {
+      stats = JSON.parse(stats);
+      this.setState({
+        ...stats
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("stats", JSON.stringify(this.state));
+  }
+
+  reset() {
+    this.setState({
+      ...testState
+    })
   }
 
   updateState(e) {
@@ -258,7 +281,7 @@ class App extends Component {
     let newActions = this.state.actions.filter(action => action.id !== actionId);
 
     this.setState({
-      actions:newActions
+      actions: newActions
     })
   }
 
@@ -273,6 +296,7 @@ class App extends Component {
   render() {
     return (
       <div className="container App">
+      <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
         <Row>
           <Column className="col-sm">
             <StatBlockForm
