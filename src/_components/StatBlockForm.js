@@ -18,7 +18,7 @@ class StatBlockForm extends React.Component {
         <Column stackSize='small' key={ability}>
           <SelectField
             label={ability.toUpperCase()}
-            options={global.array120}
+            options={global.abilityScores}
             value={this.props.stats.abilities[ability]}
             fieldName={ability}
             onChange={(e) => this.props.updateAbility(ability, e.target.value)}

@@ -55,11 +55,13 @@ class StatBlockDisplay extends React.Component {
         let avg = ((dieNum * dmgDie) / 2) + toHit;
 
         let operator = '+'
+        let dmgMod = toHit;
         if (toHit < 0) {
           operator = '-'
+          dmgMod = toHit *= -1
         }
 
-        let dmgMod = toHit * -1;
+
 
         let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType} damage.`
 
@@ -97,9 +99,15 @@ class StatBlockDisplay extends React.Component {
 
     let conMod = Math.floor((abilities.con - 10) / 2);
 
-    let totalHp = ((hitDie * dieNum) / 2) + conMod;
+    hitDie = parseInt(hitDie);
+    dieNum = parseInt(dieNum);
 
-    let hitPoints = `${totalHp} (${dieNum}d${hitDie} + ${conMod})`;
+    let totalHp = ((hitDie * dieNum) / 2) + (Math.ceil(dieNum * .5)) + (dieNum * conMod);
+    debugger;
+
+    let mod = dieNum * conMod
+
+    let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${mod < 0 ? '-' : '+'} ${mod < 0 ? mod * -1 : mod})`;
 
     return (
       <div id="StatBlockDisplay" className="statBlock">
