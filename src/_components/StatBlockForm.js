@@ -32,7 +32,7 @@ class StatBlockForm extends React.Component {
   render() {
     return (
       <div id="StatBlockForm">
-        <Accordian title="Basic Details">
+        <Accordian title="Basic Details" open>
           <Input
             type='text'
             label={'Name'}

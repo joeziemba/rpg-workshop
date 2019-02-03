@@ -242,9 +242,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="flex-container App">
+      <div className="container App">
         <Row>
-          <Column stackSize='med' className="">
+          <Column className="col-sm">
             <StatBlockForm
               stats={this.state}
               updateState={this.updateState}
@@ -258,7 +258,7 @@ class App extends Component {
               updateAction={this.updateAction}
             />
           </Column>
-          <Column stackSize='med' className="">
+          <Column className="col-12 col-md-6">
             <StatBlockDisplay
               stats={this.state}
             />

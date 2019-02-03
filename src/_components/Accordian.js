@@ -5,7 +5,7 @@ class Accordian extends React.Component {
     super(props);
 
     this.state = {
-      open: false
+      open: this.props.open
     }
 
     this.toggleAccordian = this.toggleAccordian.bind(this);
