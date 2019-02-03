@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <title>D&D Stat Block Generator</title>
-<!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -16,6 +16,19 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyATu16TjcThXIe1eywsqE4H6FxIxMQSx7c",
+      authDomain: "dnd-stat-block-creator.firebaseapp.com",
+      databaseURL: "https://dnd-stat-block-creator.firebaseio.com",
+      projectId: "dnd-stat-block-creator",
+      storageBucket: "dnd-stat-block-creator.appspot.com",
+      messagingSenderId: "1046666201888"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
 
 </html>
