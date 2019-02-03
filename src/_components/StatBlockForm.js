@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Row, InputFlat, Features } from './index'
+import { Input, Row, Features } from './index'
 import SelectField from './SelectField';
 import Column from './Column';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
@@ -8,10 +8,6 @@ import Accordian from './Accordian';
 import Actions from './Actions';
 
 class StatBlockForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderAbilityFields() {
     return Object.keys(this.props.stats.abilities).map(ability => {
       return (

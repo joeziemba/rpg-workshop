@@ -3,7 +3,6 @@ import Row from './Row';
 import Input from './Input';
 import Column from './Column';
 import Textarea from './Textarea';
-import SelectField from './SelectField';
 import AttackForm from './AttackForm';
 
 class Actions extends React.Component {
@@ -50,9 +49,7 @@ class Actions extends React.Component {
               </Column>
             </Row>
           </div>
-
         )
-
       }
 
       if (action.attack) {
@@ -60,6 +57,8 @@ class Actions extends React.Component {
           <AttackForm action={action} key={i} updateAction={this.props.updateAction} deleteAction={this.props.deleteAction} legendary={legendary} />
         )
       }
+
+      return null;
     })
   }
 

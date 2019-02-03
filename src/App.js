@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
 
-import { Row, Column, StatBlockDisplay, StatBlockForm } from './_components/';
+import { Row, StatBlockDisplay, StatBlockForm } from './_components/';
 
 const initialState = {
   name: 'Monster Name',

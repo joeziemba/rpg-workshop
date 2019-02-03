@@ -92,7 +92,7 @@ class StatBlockDisplay extends React.Component {
           />
         )
       }
-      return
+      return null;
     });
   }
 
