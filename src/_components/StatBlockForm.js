@@ -64,7 +64,7 @@ class StatBlockForm extends React.Component {
             <Column stackSize='small'>
               <Input
                 type='number'
-                label={'Proficiency Bonus'}
+                label={'Proficiency'}
                 placeholder={''}
                 value={this.props.stats.proficiency}
                 fieldName='proficiency'

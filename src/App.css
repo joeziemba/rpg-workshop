@@ -1,8 +1,25 @@
-@import url(//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700);
+@import url(//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700);
+
+html, body, #root, .row {
+  height: 100%;
+}
 
 .App {
-  margin: 1rem;
   font-family: "Lato", Helvetica, sans-serif;
+  height: 100%;
+}
+
+.statblock-form-container {
+  margin: 1rem;
+  margin-right: 0;
+}
+
+.statblock-container {
+  background: #fff;
+  box-shadow: inset 2px -20px 40px rgba(0,0,0,.2);
+  padding: 4rem;
+  height: 100%;
+  position: fixed;
 }
 
 .statBlock {
@@ -45,14 +62,15 @@
 }
 
 .creature-heading h1 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Vollkorn', Georgia, serif;
   color: #922610;
-  font-size: 2rem;
-  line-height: 1.2em;
+  font-size: 2.1rem;
+  line-height: 2.2rem;
   letter-spacing: 1px;
   font-variant: small-caps;
-  font-weight: 900;
+  font-weight: 600;
   margin: 0;
+  margin-top: .3rem
 }
 
 .creature-heading h2 {
@@ -174,11 +192,11 @@ h4.form-header::after {
   visibility: hidden;
   max-height: 0;
   opacity: 0;
-  transition: all .2s ease;
+  transition: all .5s ease;
 }
 
 .show {
-  padding: 10px;
+  /* padding: 10px; */
   visibility: visible;
   max-height: 1000px;
   opacity: 1;

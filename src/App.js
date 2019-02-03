@@ -105,7 +105,6 @@ class App extends Component {
 
   componentDidMount() {
     let stats = localStorage.getItem("stats");
-    debugger;
 
     if (stats) {
       stats = JSON.parse(stats);
@@ -295,32 +294,35 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container App">
-      <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
+      <div className="flex-container App">
         <Row>
-          <Column className="col-sm">
-            <StatBlockForm
-              stats={this.state}
-              updateState={this.updateState}
-              updateAbility={this.updateAbility}
-              updateAC={this.updateAC}
-              updateHP={this.updateHP}
-              updatePropertyList={this.updatePropertyList}
-              addFeature={this.addFeature}
-              updateFeature={this.updateFeature}
-              addAction={this.addAction}
-              updateAction={this.updateAction}
-              deleteAction={this.deleteAction}
-              deleteFeature={this.deleteFeature}
-            />
-          </Column>
-          <Column className="col-12 col-md-6">
-            <div style={{ 'margin': 'auto' }}>
+          <div className="col-md col-md-5 min-width">
+            <div className='statblock-form-container'>
+              <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
+              <StatBlockForm
+                stats={this.state}
+                updateState={this.updateState}
+                updateAbility={this.updateAbility}
+                updateAC={this.updateAC}
+                updateHP={this.updateHP}
+                updatePropertyList={this.updatePropertyList}
+                addFeature={this.addFeature}
+                updateFeature={this.updateFeature}
+                addAction={this.addAction}
+                updateAction={this.updateAction}
+                deleteAction={this.deleteAction}
+                deleteFeature={this.deleteFeature}
+              />
+            </div>
+
+          </div>
+          <div className="col-md col-md-7">
+            <div className='statblock-container'>
               <StatBlockDisplay
                 stats={this.state}
               />
             </div>
-          </Column>
+          </div>
         </Row>
       </div>
     );
