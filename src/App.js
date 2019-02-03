@@ -207,6 +207,22 @@ class App extends Component {
           }
         }
         break;
+      case ('Ranged'):
+        newAction = {
+          id: newActions.length + 1,
+          title: '',
+          attack: {
+            type: 'Ranged',
+            prof: true,
+            reach: 0,
+            targets: 0,
+            dmgDie: 4,
+            dieNum: 0,
+            dmgType: '',
+            dex: true
+          }
+        }
+        break;
       default:
         break;
     }

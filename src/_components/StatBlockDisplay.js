@@ -12,7 +12,7 @@ class StatBlockDisplay extends React.Component {
       return (
         <div className='ability' key={ability}>
           <h4>{ability}</h4>
-          <span>{score} ({mod < 0 ? '-' : '+'}{mod})</span>
+          <span>{score} ({mod < 0 ? '' : '+'}{mod})</span>
         </div>
       );
     });
@@ -53,7 +53,15 @@ class StatBlockDisplay extends React.Component {
         // Get Damage Mod
 
         let avg = ((dieNum * dmgDie) / 2) + toHit;
-        let damage = `${avg} (${dieNum}d${dmgDie} + ${toHit}) ${dmgType} damage.`
+
+        let operator = '+'
+        if (toHit < 0) {
+          operator = '-'
+        }
+
+        let dmgMod = toHit * -1;
+
+        let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType} damage.`
 
         if (prof) toHit += parseInt(this.props.stats.proficiency);
 
