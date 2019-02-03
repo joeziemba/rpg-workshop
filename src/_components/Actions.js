@@ -17,12 +17,13 @@ class Actions extends React.Component {
   }
 
   renderActions() {
+    let legendary = this.props.legendary
     return this.props.actions.map((action, i) => {
       if (!action.attack) {
         return (
           <div className='feature-block' key={i} >
-          <button className='delete-btn' onClick={() => this.props.deleteAction(action.id)}>
-            x
+            <button className='delete-btn' onClick={() => this.props.deleteAction(action.id, legendary)}>
+              x
           </button>
 
             <Row >
@@ -33,7 +34,7 @@ class Actions extends React.Component {
                   placeholder={''}
                   value={action.title}
                   fieldName='title'
-                  onChange={(e) => this.props.updateAction(e, action.id)}
+                  onChange={(e) => this.props.updateAction(e, action.id, legendary)}
                 />
               </Column>
               <Column className='col-8'>
@@ -44,7 +45,7 @@ class Actions extends React.Component {
                   value={action.content}
                   fieldName='content'
                   rows={3}
-                  onChange={(e) => this.props.updateAction(e, action.id)}
+                  onChange={(e) => this.props.updateAction(e, action.id, legendary)}
                 />
               </Column>
             </Row>
@@ -56,7 +57,7 @@ class Actions extends React.Component {
 
       if (action.attack) {
         return (
-          <AttackForm action={action} key={i} updateAction={this.props.updateAction} deleteAction={this.props.deleteAction} />
+          <AttackForm action={action} key={i} updateAction={this.props.updateAction} deleteAction={this.props.deleteAction} legendary={legendary} />
         )
       }
     })
@@ -67,20 +68,24 @@ class Actions extends React.Component {
       <React.Fragment>
         {this.renderActions()}
         <button type="button" className="btn btn-primary" onClick={() => this.props.addAction('General')}>Add Action</button>
-        <button
-          type="button"
-          className="btn btn-primary ml-2"
-          onClick={() => this.props.addAction('Melee')}
-        >
-          Add Melee Attack
+        {!this.props.legendary &&
+          <React.Fragment>
+            <button
+              type="button"
+              className="btn btn-primary ml-2"
+              onClick={() => this.props.addAction('Melee')}
+            >
+              Add Melee Attack
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary ml-2"
+              onClick={() => this.props.addAction('Ranged')}
+            >
+              Add Ranged Attack
         </button>
-        <button
-          type="button"
-          className="btn btn-primary ml-2"
-          onClick={() => this.props.addAction('Ranged')}
-        >
-          Add Ranged Attack
-        </button>
+          </React.Fragment>
+        }
       </React.Fragment>
     );
   }

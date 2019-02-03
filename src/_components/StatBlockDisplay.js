@@ -36,8 +36,12 @@ class StatBlockDisplay extends React.Component {
     return Math.floor((score - 10) / 2);
   }
 
-  renderActions() {
+  renderActions(legendary) {
     let { actions } = this.props.stats;
+
+    if (legendary) {
+      actions = this.props.stats.legendaryActions
+    }
 
     return actions.map((action, i) => {
       if (action.attack) {
@@ -63,18 +67,18 @@ class StatBlockDisplay extends React.Component {
 
 
 
-        let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType} damage.`
+        let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType.toLowerCase()}.`
 
         if (prof) toHit += parseInt(this.props.stats.proficiency);
 
         return (
           <div className='property property--block' key={i}>
             <span className="property-name italic">{action.title}. </span>
-            <span className='italic'>{action.attack.type} Weapon Attack.  </span>
-            {`${toHit >= 0 ? '+' : ''}${toHit}`} to Hit&nbsp;&nbsp;|&nbsp;&nbsp;
-            {action.attack.type === 'Ranged' ? 'Range' : 'Reach'} {reach}ft&nbsp;&nbsp;|&nbsp;&nbsp;
-            {targets} target{targets > 1 ? 's' : ''}&nbsp;&nbsp;|&nbsp;&nbsp;
-            {damage}
+            <span className='italic'>{action.attack.type} Weapon Attack. </span>
+            {`${toHit >= 0 ? '+' : ''}${toHit}`} to Hit.&ensp;
+            {action.attack.type === 'Ranged' ? 'Range' : 'Reach'} {reach}ft.&ensp;
+            {targets} target{targets > 1 ? 's' : ''}.&ensp;
+            Damage:&ensp;{damage}
           </div>
         )
       }
@@ -192,8 +196,14 @@ class StatBlockDisplay extends React.Component {
           {this.renderActions()}
         </div>
 
-
-      </div >
+        {this.props.stats.legendaryActions.length > 0 &&
+          <div className='section section--with-heading'>
+            <h3>Legendary Actions</h3>
+            <p>{this.props.stats.name} can take {this.props.stats.legendaryActions.length} legendary action{this.props.stats.legendaryActions.length === 1 ? '' : 's'}, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. They regain spent legendary actions at the start of their turn.</p>
+            {this.renderActions('legendary')}
+          </div>
+        }
+      </div>
     )
   }
 }

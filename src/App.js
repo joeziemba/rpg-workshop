@@ -3,7 +3,7 @@ import './App.css';
 
 import { Row, Column, StatBlockDisplay, StatBlockForm } from './_components/';
 
-const testState = {
+const initialState = {
   name: 'Monster Name',
   size: 'Medium',
   creatureType: 'Humanoid',
@@ -72,12 +72,14 @@ const testState = {
         dmgType: 'Piercing',
         dex: true
       }
-    },
-    // {
-    //   id: 3,
-    //   title: 'Fey Charm',
-    //   content: "The dryad targets one humanoid or beast that she can see within 30 feet of her. If the target can see the dryad, it must succeed on a DC 14 Wisdom saving throw or be magically charmed. The charmed creature regards the dryad as a trusted friend to be heeded and protected. Although the target isn't under the dryad's control, it takes the dryad's requests or actions in the most favorable way it can."
-    // }
+    }
+  ],
+  legendaryActions: [
+    {
+      id: '1',
+      title: 'Sample',
+      content: 'This is a sample feature, change my content!'
+    }
   ]
 }
 
@@ -86,7 +88,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      ...testState
+      ...initialState
     };
 
     this.updateState = this.updateState.bind(this);
@@ -101,6 +103,8 @@ class App extends Component {
     this.deleteAction = this.deleteAction.bind(this);
     this.deleteFeature = this.deleteFeature.bind(this);
     this.reset = this.reset.bind(this);
+    this.addLegendaryAction = this.addLegendaryAction.bind(this);
+
   }
 
   componentDidMount() {
@@ -120,7 +124,7 @@ class App extends Component {
 
   reset() {
     this.setState({
-      ...testState
+      ...initialState
     })
   }
 
@@ -255,10 +259,18 @@ class App extends Component {
     });
   }
 
-  updateAction(e, actionId) {
+  updateAction(e, actionId, legendary) {
     let { name, value } = e.target;
 
-    let newActions = this.state.actions.map((action, i) => {
+    let actions;
+
+    if (legendary) {
+      actions = [].concat(this.state.legendaryActions)
+    } else {
+      actions = [].concat(this.state.actions)
+    }
+
+    let newActions = actions.map((action, i) => {
       if (action.id === actionId) {
         if (name === 'content') {
           action[name] = value;
@@ -271,17 +283,37 @@ class App extends Component {
       return action;
     });
 
-    this.setState({
-      actions: newActions
-    });
+    if (legendary) {
+      this.setState({
+        legendaryActions: newActions
+      });
+    } else {
+      this.setState({
+        actions: newActions
+      });
+    }
   }
 
-  deleteAction(actionId) {
-    let newActions = this.state.actions.filter(action => action.id !== actionId);
+  deleteAction(actionId, legendary) {
+    let actions;
 
-    this.setState({
-      actions: newActions
-    })
+    if (legendary) {
+      actions = [].concat(this.state.legendaryActions)
+    } else {
+      actions = [].concat(this.state.actions)
+    }
+
+    let newActions = actions.filter(action => action.id !== actionId);
+
+    if (legendary) {
+      this.setState({
+        legendaryActions: newActions
+      });
+    } else {
+      this.setState({
+        actions: newActions
+      });
+    }
   }
 
   deleteFeature(featureId) {
@@ -290,6 +322,22 @@ class App extends Component {
     this.setState({
       features: newFeats
     })
+  }
+
+  addLegendaryAction() {
+    let newActions = [].concat(this.state.legendaryActions);
+
+    let newAction = {
+      id: newActions.length + 1,
+      title: '',
+      content: ''
+    }
+
+    newActions.push(newAction);
+
+    this.setState({
+      legendaryActions: newActions
+    });
   }
 
   render() {
@@ -312,15 +360,18 @@ class App extends Component {
                 updateAction={this.updateAction}
                 deleteAction={this.deleteAction}
                 deleteFeature={this.deleteFeature}
+                addLegendaryAction={this.addLegendaryAction}
               />
             </div>
 
           </div>
           <div className="col-md col-md-7">
             <div className='statblock-container'>
-              <StatBlockDisplay
-                stats={this.state}
-              />
+              <div className='statblock-container__inner'>
+                <StatBlockDisplay
+                  stats={this.state}
+                />
+              </div>
             </div>
           </div>
         </Row>

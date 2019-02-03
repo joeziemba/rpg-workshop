@@ -8,7 +8,7 @@ const AttackForm = (props) => {
   return (
     <div className="feature-block">
       <Row>
-        <button className='delete-btn' onClick={() => props.deleteAction(props.action.id)}>
+        <button className='delete-btn' onClick={() => props.deleteAction(props.action.id, props.legendary)}>
           x
         </button>
         <Column className='col-4-md col-12-sm'>
@@ -18,7 +18,7 @@ const AttackForm = (props) => {
             placeholder={''}
             value={props.action.title}
             fieldName='title'
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-md-4 col-sm-12'>
@@ -27,7 +27,7 @@ const AttackForm = (props) => {
             fieldName={'type'}
             options={['Melee', 'Ranged']}
             value={props.action.attack.type}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-md-2 col-sm-12'>
@@ -36,7 +36,7 @@ const AttackForm = (props) => {
             fieldName={'targets'}
             type='number'
             value={props.action.attack.targets}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-md-2 col-sm-12'>
@@ -45,7 +45,7 @@ const AttackForm = (props) => {
             fieldName={'reach'}
             type='number'
             value={props.action.attack.reach}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
       </Row>
@@ -56,7 +56,7 @@ const AttackForm = (props) => {
             type='number'
             fieldName={'dieNum'}
             value={props.action.attack.dieNum}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-md-3 col-sm-12'>
@@ -65,7 +65,7 @@ const AttackForm = (props) => {
             fieldName={'dmgDie'}
             options={[4, 6, 8, 10, 12]}
             value={props.action.attack.dmgDie}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-md-4 col-sm-12'>
@@ -74,7 +74,7 @@ const AttackForm = (props) => {
             fieldName={'dmgType'}
             options={global.damageTypes}
             value={props.action.attack.dmgType}
-            onChange={(e) => props.updateAction(e, props.action.id)}
+            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
           />
         </Column>
         <Column className='col-2 col-12-sm'>
@@ -84,7 +84,7 @@ const AttackForm = (props) => {
               className={`dex-check ${props.action.attack.dex ? 'checked' : ''}`}
               name='dex'
               value={!props.action.attack.dex}
-              onClick={(e) => props.updateAction({ target: { name: 'dex', value: !props.action.attack.dex } }, props.action.id)} ></div>
+              onClick={(e) => props.updateAction({ target: { name: 'dex', value: !props.action.attack.dex } }, props.action.id, props.legendary)} ></div>
           </div>
         </Column>
       </Row>
