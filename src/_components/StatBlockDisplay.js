@@ -113,7 +113,7 @@ class StatBlockDisplay extends React.Component {
     let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${mod < 0 ? '-' : '+'} ${mod < 0 ? mod * -1 : mod})`;
 
     return (
-      <div id="StatBlockDisplay" className="statBlock">
+      <div id="StatBlockDisplay" className={`statBlock ${this.props.export ? 'statBlock--export' : ''}`}>
         <div id="creatureHeading" className="creature-heading">
           <h1 id="monsterName">{this.props.stats.name}</h1>
           <h2 id="monsterDetails">{this.props.stats.size} {this.props.stats.creatureType}</h2>

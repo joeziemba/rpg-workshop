@@ -1,14 +1,12 @@
 @import url(//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700);
 
 html, body, #root, .row {
-  height: 100%;
+  /* height: 100%; */
 }
 
 .App {
   font-family: "Lato", Helvetica, sans-serif;
   font-size: .9rem;
-  height: 100%;
-  margin-top: 50px;
 }
 
 .navbar {
@@ -24,8 +22,7 @@ html, body, #root, .row {
 .statblock-form-container {
   margin: .9rem;
   margin-right: 0;
-  margin-top: 30px;
-  /* overflow-x:hidden; */
+  margin-top: 5rem;
 }
 
 .statblock-container {
@@ -38,10 +35,19 @@ html, body, #root, .row {
   width: inherit;
   max-width: inherit;
   padding: 0 4rem;
+  margin-top: 3rem;
+}
+
+.statblock-container--export {
+  /* margin-top: -50px; */
 }
 
 .statblock-container__inner {
   margin: 4rem auto;
+}
+
+.statblock-container__inner--export {
+  margin: 5rem;
 }
 
 .statBlock {
@@ -54,6 +60,10 @@ html, body, #root, .row {
   position: relative;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.statBlock--export {
+  margin: 0;
 }
 
 .statBlock::before {
@@ -219,7 +229,7 @@ h4.form-header::after {
 .show {
   /* padding: 10px; */
   visibility: visible;
-  max-height: 1000px;
+  max-height: 10000px;
   opacity: 1;
 }
 
@@ -307,4 +317,18 @@ label {
 .delete-btn:hover:after {
   background-color: #922610;
   bottom: 1px;
+}
+
+#exportInstructions {
+  position: fixed;
+  left:40rem;
+  top: 7rem;
+  color: #999999;
+  font-size: 2rem;
+}
+
+@media print {
+  #exportInstructions {
+    display: none;
+  }
 }
