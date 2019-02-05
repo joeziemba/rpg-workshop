@@ -4,6 +4,7 @@ import './App.css';
 import { Row, StatBlockDisplay, StatBlockForm } from './_components/';
 
 const initialState = {
+  exportView: false,
   name: 'Monster Name',
   size: 'Medium',
   creatureType: 'Humanoid',
@@ -104,7 +105,7 @@ class App extends Component {
     this.deleteFeature = this.deleteFeature.bind(this);
     this.reset = this.reset.bind(this);
     this.addLegendaryAction = this.addLegendaryAction.bind(this);
-
+    this.toggleExportView = this.toggleExportView.bind(this);
   }
 
   componentDidMount() {
@@ -116,10 +117,20 @@ class App extends Component {
         ...stats
       });
     }
+
+    this.setState({
+      exportView: false
+    })
   }
 
   componentDidUpdate() {
     localStorage.setItem("stats", JSON.stringify(this.state));
+  }
+
+  toggleExportView() {
+    this.setState({
+      exportView: !this.state.exportView
+    });
   }
 
   reset() {
@@ -344,41 +355,62 @@ class App extends Component {
     return (
       <React.Fragment>
         <nav class="navbar fixed-top">
-          <span class="navbar-brand mb-0 h1">Statblock Generator</span> 
-          <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
+          <span class="navbar-brand mb-0 h1">Statblock Generator</span>
+          <button className='btn btn-primary' onClick={this.reset}>Reset to Default</button>
+          <button className='btn btn-primary' onClick={this.toggleExportView}>Toggle Export View</button>
         </nav>
         <div className="flex-container App">
-          <Row>
-            <div className="col-md col-md-5 min-width">
-              <div className='statblock-form-container'>
-                <StatBlockForm
-                  stats={this.state}
-                  updateState={this.updateState}
-                  updateAbility={this.updateAbility}
-                  updateAC={this.updateAC}
-                  updateHP={this.updateHP}
-                  updatePropertyList={this.updatePropertyList}
-                  addFeature={this.addFeature}
-                  updateFeature={this.updateFeature}
-                  addAction={this.addAction}
-                  updateAction={this.updateAction}
-                  deleteAction={this.deleteAction}
-                  deleteFeature={this.deleteFeature}
-                  addLegendaryAction={this.addLegendaryAction}
-                />
-              </div>
-
-            </div>
-            <div className="col-md col-md-7">
-              <div className='statblock-container'>
-                <div className='statblock-container__inner'>
-                  <StatBlockDisplay
-                    stats={this.state}
-                  />
+          {this.state.exportView &&
+            <Row>
+              <div className="col">
+                <div className='statblock-container--export'>
+                  <div className='statblock-container__inner--export'>
+                    <StatBlockDisplay
+                      stats={this.state}
+                      export
+                    />
+                  </div>
+                </div>
+                <div id='exportInstructions'>
+                  Recommended method of export:<br/>
+                  <i>File 'Print' > 'Save as PDF'</i>
                 </div>
               </div>
-            </div>
-          </Row>
+            </Row>
+          }
+          {!this.state.exportView &&
+            <Row>
+              <div className="col-md col-md-5 min-width">
+                <div className='statblock-form-container'>
+                  <StatBlockForm
+                    stats={this.state}
+                    updateState={this.updateState}
+                    updateAbility={this.updateAbility}
+                    updateAC={this.updateAC}
+                    updateHP={this.updateHP}
+                    updatePropertyList={this.updatePropertyList}
+                    addFeature={this.addFeature}
+                    updateFeature={this.updateFeature}
+                    addAction={this.addAction}
+                    updateAction={this.updateAction}
+                    deleteAction={this.deleteAction}
+                    deleteFeature={this.deleteFeature}
+                    addLegendaryAction={this.addLegendaryAction}
+                  />
+                </div>
+
+              </div>
+              <div className="col-md col-md-7">
+                <div className='statblock-container'>
+                  <div className='statblock-container__inner'>
+                    <StatBlockDisplay
+                      stats={this.state}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Row>
+          }
         </div>
       </React.Fragment>
     );
