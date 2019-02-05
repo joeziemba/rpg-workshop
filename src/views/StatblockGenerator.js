@@ -4,9 +4,93 @@ import './App.css';
 import { Row } from './_components/';
 import { StatBlockDisplay, StatBlockForm } from './_compoundComponents';
 
+const initialState = {
+  name: 'Monster Name',
+  size: 'Medium',
+  creatureType: 'Humanoid',
+  abilities: {
+    str: 10,
+    dex: 10,
+    con: 10,
+    int: 10,
+    wis: 10,
+    cha: 10
+  },
+  ac: {
+    score: 10,
+    support: ''
+  },
+  hp: {
+    hitDie: 4,
+    dieNum: 1,
+    manualHp: ''
+  },
+  proficiency: 1,
+  speed: 30,
+  flySpeed: 0,
+  swimSpeed: 0,
+  skills: [],
+  conditionImmune: [],
+  immune: [],
+  resists: [],
+  vulnerable: [],
+  senses: [],
+  langs: ['Common'],
+  challenge: '',
+  xp: '',
+  features: [
+    {
+      id: '1',
+      title: 'Sample',
+      content: 'This is a sample feature, change my content!'
+    }
+  ],
+  actions: [
+    {
+      id: 1,
+      title: 'Longsword',
+      attack: {
+        type: 'Melee',
+        prof: true,
+        reach: 5,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: 'Slashing',
+        dex: false
+      }
+    },
+    {
+      id: 2,
+      title: 'Longbow',
+      attack: {
+        type: 'Ranged',
+        prof: true,
+        reach: 120,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: 'Piercing',
+        dex: true
+      }
+    }
+  ],
+  legendaryActions: [
+    {
+      id: '1',
+      title: 'Sample',
+      content: 'This is a sample feature, change my content!'
+    }
+  ]
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      ...initialState
+    };
 
     this.updateState = this.updateState.bind(this);
     this.updateAbility = this.updateAbility.bind(this);
