@@ -19,6 +19,10 @@ html, body, #root, .row {
   font-family: 'Lato', sans-serif;
 }
 
+.navbar-brand:hover {
+  color: #ffffff;
+}
+
 .statblock-form-container {
   margin: .9rem;
   margin-right: 0;
@@ -331,4 +335,8 @@ label {
   #exportInstructions {
     display: none;
   }
+}
+
+.page-container {
+  margin: 6rem 3rem;
 }

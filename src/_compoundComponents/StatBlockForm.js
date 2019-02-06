@@ -235,6 +235,8 @@ class StatBlockForm extends React.Component {
         <Accordian title="Legendary Actions">
           <Actions
             actions={this.props.stats.legendaryActions}
+            legendaryActPerRound={this.props.stats.legendaryActPerRound}
+            updateState={this.props.updateState}
             addAction={this.props.addLegendaryAction}
             updateAction={this.props.updateAction}
             deleteAction={this.props.deleteAction}
