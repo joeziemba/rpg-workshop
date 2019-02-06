@@ -4,6 +4,87 @@ import './App.css';
 import { Row } from './_components/';
 import { StatBlockDisplay, StatBlockForm } from './_compoundComponents';
 
+const initialState = {
+  exportView: false,
+  name: 'Monster Name',
+  size: 'Medium',
+  creatureType: 'Humanoid',
+  abilities: {
+    str: 10,
+    dex: 10,
+    con: 10,
+    int: 10,
+    wis: 10,
+    cha: 10
+  },
+  ac: {
+    score: 10,
+    support: ''
+  },
+  hp: {
+    hitDie: 4,
+    dieNum: 1,
+    manualHp: ''
+  },
+  proficiency: 1,
+  speed: 30,
+  flySpeed: 0,
+  swimSpeed: 0,
+  skills: [],
+  conditionImmune: [],
+  immune: [],
+  resists: [],
+  vulnerable: [],
+  senses: [],
+  langs: ['Common'],
+  challenge: '',
+  xp: '',
+  features: [
+    {
+      id: '1',
+      title: 'Sample',
+      content: 'This is a sample feature, change my content!'
+    }
+  ],
+  actions: [
+    {
+      id: 1,
+      title: 'Longsword',
+      attack: {
+        type: 'Melee',
+        prof: true,
+        reach: 5,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: 'Slashing',
+        dex: false
+      }
+    },
+    {
+      id: 2,
+      title: 'Longbow',
+      attack: {
+        type: 'Ranged',
+        prof: true,
+        reach: 120,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: 'Piercing',
+        dex: true
+      }
+    }
+  ],
+  legendaryActions: [
+    {
+      id: '1',
+      title: 'Sample',
+      content: 'This is a sample feature, change my content!'
+    }
+  ]
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +102,7 @@ class App extends Component {
     this.deleteFeature = this.deleteFeature.bind(this);
     this.reset = this.reset.bind(this);
     this.addLegendaryAction = this.addLegendaryAction.bind(this);
-
+    this.toggleExportView = this.toggleExportView.bind(this);
   }
 
   componentDidMount() {
@@ -33,10 +114,20 @@ class App extends Component {
         ...stats
       });
     }
+
+    this.setState({
+      exportView: false
+    })
   }
 
   componentDidUpdate() {
     localStorage.setItem("stats", JSON.stringify(this.state));
+  }
+
+  toggleExportView() {
+    this.setState({
+      exportView: !this.state.exportView
+    });
   }
 
   reset() {
@@ -262,40 +353,61 @@ class App extends Component {
       <React.Fragment>
         <nav class="navbar fixed-top">
           <span class="navbar-brand mb-0 h1">Statblock Generator</span>
-          <div className='btn btn-primary' onClick={this.reset}>Reset to Default</div>
+          <button className='btn btn-primary' onClick={this.reset}>Reset to Default</button>
+          <button className='btn btn-primary' onClick={this.toggleExportView}>Toggle Export View</button>
         </nav>
         <div className="flex-container App">
-          <Row>
-            <div className="col-md col-md-5 min-width">
-              <div className='statblock-form-container'>
-                <StatBlockForm
-                  stats={this.state}
-                  updateState={this.updateState}
-                  updateAbility={this.updateAbility}
-                  updateAC={this.updateAC}
-                  updateHP={this.updateHP}
-                  updatePropertyList={this.updatePropertyList}
-                  addFeature={this.addFeature}
-                  updateFeature={this.updateFeature}
-                  addAction={this.addAction}
-                  updateAction={this.updateAction}
-                  deleteAction={this.deleteAction}
-                  deleteFeature={this.deleteFeature}
-                  addLegendaryAction={this.addLegendaryAction}
-                />
-              </div>
-
-            </div>
-            <div className="col-md col-md-7">
-              <div className='statblock-container'>
-                <div className='statblock-container__inner'>
-                  <StatBlockDisplay
-                    stats={this.state}
-                  />
+          {this.state.exportView &&
+            <Row>
+              <div className="col">
+                <div className='statblock-container--export'>
+                  <div className='statblock-container__inner--export'>
+                    <StatBlockDisplay
+                      stats={this.state}
+                      export
+                    />
+                  </div>
+                </div>
+                <div id='exportInstructions'>
+                  Recommended method of export:<br/>
+                  <i>File 'Print' > 'Save as PDF'</i>
                 </div>
               </div>
-            </div>
-          </Row>
+            </Row>
+          }
+          {!this.state.exportView &&
+            <Row>
+              <div className="col-md col-md-5 min-width">
+                <div className='statblock-form-container'>
+                  <StatBlockForm
+                    stats={this.state}
+                    updateState={this.updateState}
+                    updateAbility={this.updateAbility}
+                    updateAC={this.updateAC}
+                    updateHP={this.updateHP}
+                    updatePropertyList={this.updatePropertyList}
+                    addFeature={this.addFeature}
+                    updateFeature={this.updateFeature}
+                    addAction={this.addAction}
+                    updateAction={this.updateAction}
+                    deleteAction={this.deleteAction}
+                    deleteFeature={this.deleteFeature}
+                    addLegendaryAction={this.addLegendaryAction}
+                  />
+                </div>
+
+              </div>
+              <div className="col-md col-md-7">
+                <div className='statblock-container'>
+                  <div className='statblock-container__inner'>
+                    <StatBlockDisplay
+                      stats={this.state}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Row>
+          }
         </div>
       </React.Fragment>
     );
