@@ -1,9 +1,10 @@
 import React from 'react';
-import Row from './Row';
-import Input from './Input';
-import Column from './Column';
-import Textarea from './Textarea';
+import Row from '../_components/Row';
+import Input from '../_components/Input';
+import Column from '../_components/Column';
+import Textarea from '../_components/Textarea';
 import AttackForm from './AttackForm';
+import { InputFlat } from '../_components';
 
 class Actions extends React.Component {
   constructor(props) {
@@ -65,6 +66,9 @@ class Actions extends React.Component {
   render() {
     return (
       <React.Fragment>
+        {this.props.legendary &&
+          <InputFlat value={this.props.legendaryActPerRound} onChange={this.props.updateState} fieldName='legendaryActPerRound' label='Legendary Actions Per Round:' type='number'/>
+        }
         {this.renderActions()}
         <button type="button" className="btn btn-primary" onClick={() => this.props.addAction('General')}>Add Action</button>
         {!this.props.legendary &&

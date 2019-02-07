@@ -1,8 +1,8 @@
 import React from 'react';
-import Row from './Row';
-import Input from './Input';
-import Column from './Column';
-import Textarea from './Textarea';
+import Row from '../_components/Row';
+import Input from '../_components/Input';
+import Column from '../_components/Column';
+import Textarea from '../_components/Textarea';
 
 class Features extends React.Component {
   constructor(props) {

@@ -6,12 +6,12 @@ const InputFlat = (props) => {
   return (
     <div className="form-group">
       <Row>
-        <Column className='col-3'>
+        <Column className='col'>
           <label htmlFor={props.id}>{props.label}</label>
         </Column>
-        <Column className='col-9'>
+        <Column className='col'>
           <input
-            type="email"
+            type={props.type || 'text'}
             className="form-control form-control-sm"
             id={props.id}
             aria-describedby={`${props.id}Help`}
