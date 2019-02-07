@@ -6,10 +6,6 @@ import StatblockGenerator from './views/StatblockGenerator';
 import About from './views/About';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>
