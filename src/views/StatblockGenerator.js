@@ -355,12 +355,12 @@ class StatblockGenerator extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav class="navbar fixed-top">
-          <span class="navbar-brand mb-0 h1">Statblock Generator</span>
-          <button className='btn btn-primary' onClick={this.reset}>Reset to Default</button>
-          <button className='btn btn-primary' onClick={this.toggleExportView}>{this.state.exportView ? 'Generator' : 'Export'} View</button>
-        </nav>
         <div className="flex-container App">
+          <nav className="navbar secondary-nav fixed-top">
+            <span className="navbar-brand mb-0 h1">Statblock Generator</span>
+            <button className='btn btn-primary' onClick={this.reset}>Reset to Default</button>
+            <button className='btn btn-primary' onClick={this.toggleExportView}>{this.state.exportView ? 'Generator' : 'Export'} View</button>
+          </nav>
           {this.state.exportView &&
             <Row>
               <div className="col">
