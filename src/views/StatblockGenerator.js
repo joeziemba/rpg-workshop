@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-import { Row } from '../_components/';
-import { StatBlockDisplay, StatBlockForm } from '../_compoundComponents';
+import { Row } from "../_components/";
+import { StatBlockDisplay, StatBlockForm } from "../_compoundComponents";
 
 const initialState = {
   exportView: false,
-  name: 'Monster Name',
-  size: 'Medium',
-  creatureType: 'Humanoid',
+  name: "Monster Name",
+  size: "Medium",
+  creatureType: "Humanoid",
   abilities: {
     str: 10,
     dex: 10,
@@ -18,12 +18,12 @@ const initialState = {
   },
   ac: {
     score: 10,
-    support: ''
+    support: ""
   },
   hp: {
     hitDie: 4,
     dieNum: 1,
-    manualHp: ''
+    manualHp: ""
   },
   proficiency: 1,
   speed: 30,
@@ -35,42 +35,42 @@ const initialState = {
   resists: [],
   vulnerable: [],
   senses: [],
-  langs: ['Common'],
-  challenge: '',
-  xp: '',
+  langs: ["Common"],
+  challenge: "",
+  xp: "",
   features: [
     {
-      id: '1',
-      title: 'Sample',
-      content: 'This is a sample feature, change my content!'
+      id: "1",
+      title: "Sample",
+      content: "This is a sample feature, change my content!"
     }
   ],
   actions: [
     {
       id: 1,
-      title: 'Longsword',
+      title: "Longsword",
       attack: {
-        type: 'Melee',
+        type: "Melee",
         prof: true,
         reach: 5,
         targets: 1,
         dmgDie: 8,
         dieNum: 1,
-        dmgType: 'Slashing',
+        dmgType: "Slashing",
         dex: false
       }
     },
     {
       id: 2,
-      title: 'Longbow',
+      title: "Longbow",
       attack: {
-        type: 'Ranged',
+        type: "Ranged",
         prof: true,
         reach: 120,
         targets: 1,
         dmgDie: 8,
         dieNum: 1,
-        dmgType: 'Piercing',
+        dmgType: "Piercing",
         dex: true
       }
     }
@@ -78,19 +78,19 @@ const initialState = {
   legendaryActPerRound: 1,
   legendaryActions: [
     {
-      id: '1',
-      title: 'Sample',
-      content: 'This is a sample feature, change my content!'
+      id: "1",
+      title: "Sample",
+      content: "This is a sample feature, change my content!"
     }
   ]
-}
+};
 class StatblockGenerator extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       ...initialState
-    }
+    };
 
     this.updateState = this.updateState.bind(this);
     this.updateAbility = this.updateAbility.bind(this);
@@ -120,7 +120,7 @@ class StatblockGenerator extends Component {
     } else {
       this.setState({
         ...initialState
-      })
+      });
     }
   }
 
@@ -137,7 +137,7 @@ class StatblockGenerator extends Component {
   reset() {
     this.setState({
       ...initialState
-    })
+    });
   }
 
   updateState(e) {
@@ -162,7 +162,7 @@ class StatblockGenerator extends Component {
     let newAC = {
       ...this.state.ac,
       [fieldName]: e.target.value
-    }
+    };
     this.setState({
       ac: newAC
     });
@@ -173,7 +173,7 @@ class StatblockGenerator extends Component {
     let newHP = {
       ...this.state.hp,
       [fieldName]: e.target.value
-    }
+    };
     this.setState({
       hp: newHP
     });
@@ -191,8 +191,8 @@ class StatblockGenerator extends Component {
 
     newFeatures.push({
       id: newFeatures.length + 1,
-      title: '',
-      content: ''
+      title: "",
+      content: ""
     });
 
     this.setState({
@@ -211,8 +211,7 @@ class StatblockGenerator extends Component {
 
     this.setState({
       features: newFeatures
-    })
-
+    });
   }
 
   addAction(actionType) {
@@ -221,44 +220,44 @@ class StatblockGenerator extends Component {
     let newAction;
 
     switch (actionType) {
-      case ('General'):
+      case "General":
         newAction = {
           id: newActions.length + 1,
-          title: '',
-          content: ''
-        }
+          title: "",
+          content: ""
+        };
         break;
-      case ('Melee'):
+      case "Melee":
         newAction = {
           id: newActions.length + 1,
-          title: '',
+          title: "",
           attack: {
-            type: 'Melee',
+            type: "Melee",
             prof: true,
             reach: 0,
             targets: 0,
             dmgDie: 4,
             dieNum: 0,
-            dmgType: '',
+            dmgType: "",
             dex: false
           }
-        }
+        };
         break;
-      case ('Ranged'):
+      case "Ranged":
         newAction = {
           id: newActions.length + 1,
-          title: '',
+          title: "",
           attack: {
-            type: 'Ranged',
+            type: "Ranged",
             prof: true,
             reach: 0,
             targets: 0,
             dmgDie: 4,
             dieNum: 0,
-            dmgType: '',
+            dmgType: "",
             dex: true
           }
-        }
+        };
         break;
       default:
         break;
@@ -277,16 +276,16 @@ class StatblockGenerator extends Component {
     let actions;
 
     if (legendary) {
-      actions = [].concat(this.state.legendaryActions)
+      actions = [].concat(this.state.legendaryActions);
     } else {
-      actions = [].concat(this.state.actions)
+      actions = [].concat(this.state.actions);
     }
 
     let newActions = actions.map((action, i) => {
       if (action.id === actionId) {
-        if (name === 'content') {
+        if (name === "content") {
           action[name] = value;
-        } else if (name === 'title') {
+        } else if (name === "title") {
           action[name] = value;
         } else {
           action.attack[name] = value;
@@ -310,9 +309,9 @@ class StatblockGenerator extends Component {
     let actions;
 
     if (legendary) {
-      actions = [].concat(this.state.legendaryActions)
+      actions = [].concat(this.state.legendaryActions);
     } else {
-      actions = [].concat(this.state.actions)
+      actions = [].concat(this.state.actions);
     }
 
     let newActions = actions.filter(action => action.id !== actionId);
@@ -333,7 +332,7 @@ class StatblockGenerator extends Component {
 
     this.setState({
       features: newFeats
-    })
+    });
   }
 
   addLegendaryAction() {
@@ -341,9 +340,9 @@ class StatblockGenerator extends Component {
 
     let newAction = {
       id: newActions.length + 1,
-      title: '',
-      content: ''
-    }
+      title: "",
+      content: ""
+    };
 
     newActions.push(newAction);
 
@@ -355,34 +354,52 @@ class StatblockGenerator extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav class="navbar fixed-top">
-          <span class="navbar-brand mb-0 h1">Statblock Generator</span>
-          <button className='btn btn-primary' onClick={this.reset}>Reset to Default</button>
-          <button className='btn btn-primary' onClick={this.toggleExportView}>{this.state.exportView ? 'Generator' : 'Export'} View</button>
-        </nav>
         <div className="flex-container App">
-          {this.state.exportView &&
+          <nav className="navbar navbar-expand secondary-nav fixed-top">
+            <span className="navbar-brand mb-0 h1">
+              Statblock Generator
+            </span>
+            <div class=" navbar-collapse " id="navbarNavDropdown">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <button
+                    className="btn btn-primary btn-sm mr-3 mt-1"
+                    onClick={this.reset}
+                  >
+                    Reset to Default
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-primary btn-sm mr-3 mt-1"
+                    onClick={this.toggleExportView}
+                  >
+                    {this.state.exportView ? "Generator" : "Export"} View
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          {this.state.exportView && (
             <Row>
               <div className="col">
-                <div className='statblock-container--export'>
-                  <div className='statblock-container__inner--export'>
-                    <StatBlockDisplay
-                      stats={this.state}
-                      export
-                    />
+                <div className="statblock-container--export">
+                  <div className="statblock-container__inner--export">
+                    <StatBlockDisplay stats={this.state} export />
                   </div>
                 </div>
-                <div id='exportInstructions'>
-                  Recommended method of export:<br />
+                <div id="exportInstructions">
+                  Recommended method of export:
+                  <br />
                   <i>File 'Print' > 'Save as PDF'</i>
                 </div>
               </div>
             </Row>
-          }
-          {!this.state.exportView &&
+          )}
+          {!this.state.exportView && (
             <Row>
               <div className="col-md col-md-5 min-width">
-                <div className='statblock-form-container'>
+                <div className="statblock-form-container">
                   <StatBlockForm
                     stats={this.state}
                     updateState={this.updateState}
@@ -399,19 +416,16 @@ class StatblockGenerator extends Component {
                     addLegendaryAction={this.addLegendaryAction}
                   />
                 </div>
-
               </div>
               <div className="col-md col-md-7">
-                <div className='statblock-container'>
-                  <div className='statblock-container__inner'>
-                    <StatBlockDisplay
-                      stats={this.state}
-                    />
+                <div className="statblock-container">
+                  <div className="statblock-container__inner">
+                    <StatBlockDisplay stats={this.state} />
                   </div>
                 </div>
               </div>
             </Row>
-          }
+          )}
         </div>
       </React.Fragment>
     );

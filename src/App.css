@@ -1,22 +1,74 @@
-@import url(//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700);
+@import url("//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700");
 
-html, body, #root, .row {
+html,
+body,
+#root,
+.row {
   /* height: 100%; */
 }
 
 .App {
   font-family: "Lato", Helvetica, sans-serif;
-  font-size: .9rem;
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
 }
 
 .navbar {
   background-color: #4d1308;
   color: white;
+  padding-left: 2rem;
   padding-right: 2rem;
 }
 
+.topbar {
+  background-color: #333333;
+  height: 2.5rem;
+  padding: 0 2rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  z-index: 100000;
+  font-size: 0.8rem;
+}
+
+#profile-details {
+  height: 2rem;
+}
+
+#profile-photo {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 100%;
+  float: left;
+}
+
+#profile-name {
+  float: left;
+  margin: 0.4rem 1rem 0 0.7rem;
+}
+
+.topbar button {
+  background: none;
+  border: none;
+  color: #ddd;
+  height: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+  float: left;
+}
+
+.topbar button:hover {
+  background-color: #111;
+}
+
+.secondary-nav {
+  top: 2.5rem;
+}
+
 .navbar-brand {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .navbar-brand:hover {
@@ -24,7 +76,7 @@ html, body, #root, .row {
 }
 
 .statblock-form-container {
-  margin: .9rem;
+  margin: 0.9rem;
   margin-right: 0;
   margin-top: 5rem;
 }
@@ -33,9 +85,9 @@ html, body, #root, .row {
   background: #fff;
   height: 100%;
   position: fixed;
-  overflow-y:scroll;
-  overflow-x:hidden;
-  box-shadow: inset 2px -20px 40px rgba(0,0,0,.2);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-shadow: inset 2px -20px 40px rgba(0, 0, 0, 0.2);
   width: inherit;
   max-width: inherit;
   padding: 0 4rem;
@@ -55,12 +107,13 @@ html, body, #root, .row {
 }
 
 .statBlock {
-  background: #FDF1DC;
-  background: url("/img/stat-block-top-texture.png"), url("/img/paper-texture.png");
+  background: #fdf1dc;
+  background: url("/img/stat-block-top-texture.png"),
+    url("/img/paper-texture.png");
   background-size: 100% auto;
   background-position: top center;
-  background-repeat: no-repeat,repeat;
-  padding: 0 .9rem;
+  background-repeat: no-repeat, repeat;
+  padding: 0 0.9rem;
   position: relative;
   max-width: 500px;
   margin: 0 auto;
@@ -95,15 +148,15 @@ html, body, #root, .row {
 }
 
 .creature-heading {
-  padding: 1rem .25rem;
+  padding: 1rem 0.25rem;
 }
 
 .creature-heading h1 {
-  font-family: 'Vollkorn', Georgia, serif;
+  font-family: "Vollkorn", Georgia, serif;
   color: #922610;
   font-size: 2rem;
   line-height: 2rem;
-  letter-spacing: .05rem;
+  letter-spacing: 0.05rem;
   font-variant: small-caps;
   font-weight: 600;
   margin: 0;
@@ -112,7 +165,7 @@ html, body, #root, .row {
 .creature-heading h2 {
   font-weight: normal;
   font-style: italic;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.2em;
   margin: 0;
 }
@@ -139,7 +192,7 @@ html, body, #root, .row {
 }
 
 .section--with-heading h3::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 105%;
   height: 2px;
@@ -152,7 +205,7 @@ html, body, #root, .row {
   font-weight: 900;
   letter-spacing: 0.5px;
   display: inline-block;
-  margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 .property {
@@ -160,7 +213,7 @@ html, body, #root, .row {
 }
 
 .property--block {
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 
 .ability {
@@ -170,7 +223,7 @@ html, body, #root, .row {
 }
 
 .ability h4 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #922610;
   font-weight: 900;
   margin: 0 0 2px 0;
@@ -181,7 +234,6 @@ html, body, #root, .row {
   color: #922610;
 }
 
-
 .italic {
   font-style: italic;
 }
@@ -190,12 +242,12 @@ h3.form-header {
   color: #922610;
   position: relative;
   font-size: 1.2rem;
-  margin: .9rem 0;
+  margin: 0.9rem 0;
   background: white;
 }
 
 h3.form-header::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 105%;
   height: 2px;
@@ -207,12 +259,12 @@ h3.form-header::after {
 h4.form-header {
   color: #922610;
   position: relative;
-  font-size: .9rem;
-  margin: .9rem 0;
+  font-size: 0.9rem;
+  margin: 0.9rem 0;
 }
 
 h4.form-header::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 110%;
   height: 2px;
@@ -227,7 +279,7 @@ h4.form-header::after {
   visibility: hidden;
   max-height: 0;
   opacity: 0;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .show {
@@ -239,24 +291,24 @@ h4.form-header::after {
 
 .feature-block {
   position: relative;
-  margin-bottom: .9rem;
-  font-size: .8rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.8rem;
   border: 1px solid #eee;
   border-left: 3px solid #922610;
   padding: 16px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,.1);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 input {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 select {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 label {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 /* .attack-block::after {
@@ -275,7 +327,7 @@ label {
   margin: 3px auto;
   border-radius: 14px;
   border: 4px solid #dedede;
-  box-shadow:inset 0px 0px 7px rgba(0,0,0,.5);
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.5);
 }
 
 .dex-check.checked {
@@ -308,7 +360,7 @@ label {
 }
 
 .delete-btn:after {
-  content: '';
+  content: "";
   height: 1px;
   width: 7px;
   background: #ddd;
@@ -325,7 +377,7 @@ label {
 
 #exportInstructions {
   position: fixed;
-  left:40rem;
+  left: 40rem;
   top: 7rem;
   color: #999999;
   font-size: 2rem;
@@ -340,3 +392,5 @@ label {
 .page-container {
   margin: 6rem 3rem;
 }
+
+@import "./_styles/Dropdown.css";

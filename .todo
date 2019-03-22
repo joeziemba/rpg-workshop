@@ -1,0 +1,11 @@
+Login/Logout:
+  ☐ Style Dropdown component
+  ☐ Create a dropdown with Logout link
+  ☐ Connect logout to firebase
+
+Data Persistence:
+  ☐ Add "Save" button
+  ☐ Make API call to save to firebase
+
+Reloading Characters:
+  ☐ Create way to view and select saved characrters
