@@ -18,22 +18,6 @@ class App extends Component {
   }
 
   // componentDidMount() {
-  //   var user = this.context.getCurrentUser();
-  //   var name, email, photoUrl, uid, emailVerified;
-
-  //   if (user != null) {
-  //     name = user.displayName;
-  //     email = user.email;
-  //     photoUrl = user.photoURL;
-  //     emailVerified = user.emailVerified;
-  //     uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-  //     // this value to authenticate with your backend server, if
-  //     // you have one. Use User.getToken() instead.
-  //   }
-
-  //   debugger;
-
-  // }
 
   componentDidMount() {
     this.context.auth.onAuthStateChanged(currentUser => {
