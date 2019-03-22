@@ -47,9 +47,8 @@ class App extends Component {
     if (this.state.currentUser) {
       return (
         <nav className="navbar topbar fixed-top">
-          <span className="navbar-brand mb-0 h1" />
-
-          <button id="profile-details">
+          <span class="navbar-brand mb-0 h1">DMTools</span>
+          <div className="float-right">
             <div
               id="profile-photo"
               style={{
@@ -58,8 +57,8 @@ class App extends Component {
               }}
             />
             <div id="profile-name">{this.state.currentUser.displayName}</div>
-          </button>
-          <Dropdown />
+            <button onClick={this.context.signOut}>Logout</button>
+          </div>
         </nav>
       );
     } else {

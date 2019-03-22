@@ -18,6 +18,7 @@ class Firebase {
     this.googleProvider = new app.auth.GoogleAuthProvider();
     this.signInWithGoogle = this.signInWithGoogle.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
+    this.signOut = this.signOut.bind(this);
   }
 
   getRedirect() {
@@ -46,6 +47,10 @@ class Firebase {
 
   signInWithGoogle() {
     this.auth.signInWithRedirect(this.googleProvider);
+  }
+
+  signOut() {
+    this.auth.signOut();
   }
 }
 
