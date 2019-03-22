@@ -6,7 +6,7 @@ import { UserContext, FirebaseContext } from "./context";
 import StatblockGenerator from "./views/StatblockGenerator";
 import About from "./views/About";
 
-import { LoginButton, Dropdown } from "./_components";
+import { LoginButton } from "./_components";
 
 class App extends Component {
   constructor(props) {

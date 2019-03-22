@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserContext, FirebaseContext } from '../context';
+import { FirebaseContext } from '../context';
 
 class LoginButton extends React.Component {
   render() {
