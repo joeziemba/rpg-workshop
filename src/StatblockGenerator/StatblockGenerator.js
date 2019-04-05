@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
-import { Row } from "../_components/";
-import { StatBlockDisplay, StatBlockForm } from "../_compoundComponents";
+import { Row } from "../_globalComponents";
+import { StatBlockDisplay, StatBlockForm } from "./_components";
+import GeneratorNav from "./_components/GeneratorNav";
+import { UserContext } from "../context";
+import { firebase } from '../Firebase';
 
 const initialState = {
   exportView: false,
@@ -109,6 +112,9 @@ class StatblockGenerator extends Component {
   }
 
   componentDidMount() {
+    if (this.props.match.params.characterId) {
+      
+    }
     let stats = localStorage.getItem("stats");
 
     if (stats) {
@@ -355,31 +361,12 @@ class StatblockGenerator extends Component {
     return (
       <React.Fragment>
         <div className="flex-container App">
-          <nav className="navbar navbar-expand secondary-nav fixed-top">
-            <span className="navbar-brand mb-0 h1">
-              Statblock Generator
-            </span>
-            <div class=" navbar-collapse " id="navbarNavDropdown">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <button
-                    className="btn btn-primary btn-sm mr-3 mt-1"
-                    onClick={this.reset}
-                  >
-                    Reset to Default
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button
-                    className="btn btn-primary btn-sm mr-3 mt-1"
-                    onClick={this.toggleExportView}
-                  >
-                    {this.state.exportView ? "Generator" : "Export"} View
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          <GeneratorNav
+            character={this.state}
+            exportView={this.state.exportView}
+            toggleExportView={this.toggleExportView}
+            reset={this.reset}
+          />
           {this.state.exportView && (
             <Row>
               <div className="col">
@@ -431,5 +418,7 @@ class StatblockGenerator extends Component {
     );
   }
 }
+
+StatblockGenerator.contextType = UserContext;
 
 export default StatblockGenerator;

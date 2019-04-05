@@ -1,5 +1,6 @@
-import app from 'firebase/app';
-import 'firebase/auth';
+import app from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -7,7 +8,7 @@ const config = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
 
 class Firebase {
@@ -15,6 +16,8 @@ class Firebase {
     app.initializeApp(config);
 
     this.auth = app.auth();
+    this.currentUser = app.auth().currentUser;
+    this.db = app.firestore();
     this.googleProvider = new app.auth.GoogleAuthProvider();
     this.signInWithGoogle = this.signInWithGoogle.bind(this);
     this.getCurrentUser = this.getCurrentUser.bind(this);
@@ -22,26 +25,28 @@ class Firebase {
   }
 
   getRedirect() {
-    this.auth.getRedirectResult().then(function (result) {
-      // The signed-in user info.
-      var user = result.user;
-      return user;
-    }).catch(function (error) {
-      // // Handle Errors here.
-      // var errorCode = error.code;
-      // var errorMessage = error.message;
-      // // The email of the user's account used.
-      // var email = error.email;
-      // // The firebase.auth.AuthCredential type that was used.
-      // var credential = error.credential;
-      // // ...
-      return 'fail'
-    });
+    this.auth
+      .getRedirectResult()
+      .then(function(result) {
+        // The signed-in user info.
+        var user = result.user;
+        return user;
+      })
+      .catch(function(error) {
+        // // Handle Errors here.
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
+        // // The email of the user's account used.
+        // var email = error.email;
+        // // The firebase.auth.AuthCredential type that was used.
+        // var credential = error.credential;
+        // // ...
+        return "fail";
+      });
   }
 
   getCurrentUser() {
     let user = this.auth.currentUser;
-    debugger;
     return user;
   }
 
@@ -52,6 +57,19 @@ class Firebase {
   signOut() {
     this.auth.signOut();
   }
+
+  saveCharacter(character) {
+    character.userId = this.auth.currentUser.uid;
+    this.db.collection("characters").add(character);
+  }
+
+  loadCharactersForUser() {
+    return this.db
+      .collection("characters")
+      .where("userId", "==", this.auth.currentUser.uid)
+      .get();
+  }
 }
 
 export default Firebase;
+export const firebase = new Firebase();

@@ -15,13 +15,9 @@ class Dropdown extends React.Component {
   render() {
     return (
       <div className="c-dropdown">
-      {/* {this.props.render(this.state)} */}
-        <button>
-          {this.props.buttonText}
-        </button>
-        <ul>
-          {this.renderItems()}
-        </ul>
+        {/* {this.props.render(this.state)} */}
+        <button>{this.props.buttonText}</button>
+        <ul>{this.renderItems()}</ul>
       </div>
     );
   }

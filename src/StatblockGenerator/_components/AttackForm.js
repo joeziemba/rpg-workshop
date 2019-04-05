@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Column, Input, SelectField } from '../_components';
+import { Row, Column, Input, SelectField } from '../../_globalComponents';
 
 const AttackForm = (props) => {
   return (

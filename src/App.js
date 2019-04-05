@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import { UserContext, FirebaseContext } from "./context";
+import { UserContext } from "./context";
 
-import StatblockGenerator from "./views/StatblockGenerator";
+import { StatblockGenerator } from "./StatblockGenerator";
 import About from "./views/About";
 
-import { LoginButton } from "./_components";
+import { TopBar } from "./_globalComponents";
+import Home from "./Home/Home";
+
+import { firebase } from "./Firebase";
 
 class App extends Component {
   constructor(props) {
@@ -17,62 +20,40 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-
   componentDidMount() {
-    this.context.auth.onAuthStateChanged(currentUser => {
+    firebase.auth.onAuthStateChanged(currentUser => {
       currentUser
         ? this.setState({ currentUser })
         : this.setState({ currentUser: null });
     });
   }
 
-  renderNav() {
-    if (this.state.currentUser) {
-      return (
-        <nav className="navbar topbar fixed-top">
-          <span class="navbar-brand mb-0 h1">DMTools</span>
-          <div className="float-right">
-            <div
-              id="profile-photo"
-              style={{
-                backgroundImage: "url(" + this.state.currentUser.photoURL + ")",
-                textAlign: "right"
-              }}
-            />
-            <div id="profile-name">{this.state.currentUser.displayName}</div>
-            <button onClick={this.context.signOut}>Logout</button>
-          </div>
-        </nav>
-      );
-    } else {
-      return (
-        <nav className="navbar topbar fixed-top">
-          <span className="navbar-brand mb-0 h1" />
-          <LoginButton />
-        </nav>
-      );
-    }
-  }
-
   render() {
+    if (!this.state.currentUser) return null;
     return (
       <React.Fragment>
-        {this.renderNav()}
+        <TopBar currentUser={this.state.currentUser} />
         <UserContext.Provider
           value={{
             currentUser: this.state.currentUser,
             registerCurrentUserToState: this.registerCurrentUserToState
           }}
         >
-          <Route exact path="/" component={StatblockGenerator} />
-          <Route exact path="/about" component={About} />
+          <div className="c-site-container">
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route
+              exact
+              path="/generator/:characterId"
+              component={StatblockGenerator}
+            />
+            <Route exact path="/generator" component={StatblockGenerator} />
+            <Route exact path="/characters" component={About} />
+          </div>
         </UserContext.Provider>
       </React.Fragment>
     );
   }
 }
-
-App.contextType = FirebaseContext;
 
 export default App;
