@@ -7,7 +7,9 @@ import { Actions, Features} from "./index";
 
 class StatBlockForm extends React.Component {
   renderAbilityFields() {
-    return Object.keys(this.props.stats.abilities).map(ability => {
+    const abilities = ['str', 'dex', 'con', 'int', 'wis', 'cha']
+    // return Object.keys(this.props.stats.abilities).map(ability => {
+    return abilities.map(ability => {
       return (
         <Column stackSize="small" key={ability}>
           <SelectField

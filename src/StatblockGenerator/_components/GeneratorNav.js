@@ -1,5 +1,5 @@
 import React from "react";
-import { FirebaseContext } from "../../context";
+import { firebase } from "../../Firebase";
 
 const GeneratorNav = props => {
   return (
@@ -9,7 +9,7 @@ const GeneratorNav = props => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <button
-              className="btn btn-primary btn-sm mr-3 mt-1"
+              className="btn btn-sm mr-3 mt-1 nav-button"
               onClick={props.reset}
             >
               Reset to Default
@@ -18,7 +18,7 @@ const GeneratorNav = props => {
 
           <li className="nav-item">
             <button
-              className="btn btn-primary btn-sm mr-3 mt-1"
+              className="btn btn-sm mr-3 mt-1 nav-button"
               onClick={props.toggleExportView}
             >
               {props.exportView ? "Generator" : "Export"} View
@@ -26,16 +26,14 @@ const GeneratorNav = props => {
           </li>
 
           <li className="nav-item">
-            <FirebaseContext.Consumer>
-              {context => (
-                <button
-                  className="btn btn-primary btn-sm mr-3 mt-1"
-                  onClick={() => {context.saveCharacter(props.character)}}
-                >
-                  Save
-                </button>
-              )}
-            </FirebaseContext.Consumer>
+            <button
+              className="btn btn-sm mr-3 mt-1 nav-button"
+              onClick={() => {
+                firebase.saveCharacter(props.character);
+              }}
+            >
+              Save
+            </button>
           </li>
         </ul>
       </div>

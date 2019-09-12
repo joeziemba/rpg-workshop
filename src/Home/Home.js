@@ -20,7 +20,7 @@ class Home extends React.Component {
       .then(snapshot => {
         let characters = [];
         snapshot.forEach(doc => {
-          characters.push({ ...doc.data() });
+          characters.push({ ...doc.data(), uid: doc.id });
         });
         this.setState({ characters, loading: false });
       });
@@ -28,7 +28,11 @@ class Home extends React.Component {
 
   renderCharacters() {
     return this.state.characters.map((char, i) => {
-      return <li key={i}>{char.name}</li>;
+      return (
+        <li key={i}>
+          <Link to={`/generator/${char.uid}`}>{char.name}</Link>
+        </li>
+      );
     });
   }
 

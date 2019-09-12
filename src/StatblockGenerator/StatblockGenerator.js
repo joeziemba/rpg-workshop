@@ -4,7 +4,7 @@ import { Row } from "../_globalComponents";
 import { StatBlockDisplay, StatBlockForm } from "./_components";
 import GeneratorNav from "./_components/GeneratorNav";
 import { UserContext } from "../context";
-import { firebase } from '../Firebase';
+import { firebase } from "../Firebase";
 
 const initialState = {
   exportView: false,
@@ -112,22 +112,26 @@ class StatblockGenerator extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.characterId) {
-      
+    let { characterId } = this.props.match.params;
+    if (characterId) {
+      firebase.getCharacter(characterId)
+        .then(response => {
+          this.setState({ ...response.data(), uid: characterId });
+        });
     }
     let stats = localStorage.getItem("stats");
 
-    if (stats) {
-      stats = JSON.parse(stats);
-      this.setState({
-        ...stats,
-        exportView: false
-      });
-    } else {
-      this.setState({
-        ...initialState
-      });
-    }
+    // if (stats) {
+    //   stats = JSON.parse(stats);
+    //   this.setState({
+    //     ...stats,
+    //     exportView: false
+    //   });
+    // } else {
+    //   this.setState({
+    //     ...initialState
+    //   });
+    // }
   }
 
   componentDidUpdate() {

@@ -260,8 +260,38 @@ label {
 }
 
 .btn-primary {
-  background-color: #922610;
+  background-color: #4d1308;
   border-color: #4d1308;
+}
+
+.btn-primary:hover {
+  background-color: #922610;
+  border-color: #922610;
+}
+
+.nav-button {
+  position: relative;
+  background-color: #4d1308;
+  border-color: #4d1308;
+  color: #fff;
+}
+
+.nav-button:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  bottom: 3px;
+  transition: all .2s ease;
+  left: 50%;
+  margin-left: -40%;
+}
+
+.nav-button:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  bottom: -2px;
 }
 
 .delete-btn {

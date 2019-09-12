@@ -59,14 +59,29 @@ class Firebase {
   }
 
   saveCharacter(character) {
-    character.userId = this.auth.currentUser.uid;
-    this.db.collection("characters").add(character);
+    if (character.uid) {
+      this.db
+        .collection("characters")
+        .doc(character.uid)
+        .update(character)
+        .then(response => {debugger});
+    } else {
+      character.userId = this.auth.currentUser.uid;
+      this.db.collection("characters").add(character);
+    }
   }
 
   loadCharactersForUser() {
     return this.db
       .collection("characters")
       .where("userId", "==", this.auth.currentUser.uid)
+      .get();
+  }
+
+  getCharacter(characterID) {
+    return this.db
+      .collection("characters")
+      .doc(characterID)
       .get();
   }
 }

@@ -5,7 +5,8 @@ import { Property, PropertyBlock } from "../../_globalComponents";
 class StatBlockDisplay extends React.Component {
   renderAbilities() {
     let { abilities } = this.props.stats;
-    return Object.keys(abilities).map(ability => {
+    let orderedAbilities = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
+    return orderedAbilities.map(ability => {
       let score = abilities[ability];
       let mod = this.getAbilityMod(score);
 
