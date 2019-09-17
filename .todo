@@ -1,7 +1,6 @@
 Login/Logout:
-  ☐ Style Dropdown component
-  ☐ Create a dropdown with Logout link
-  ☐ Connect logout to firebase
+  ✔ Create a dropdown with Logout link @done (4/4/2019, 10:29:41 PM)
+  ✔ Connect logout to firebase @done (4/4/2019, 10:29:31 PM)
 
 Data Persistence:
   ☐ Add "Save" button
@@ -9,3 +8,4 @@ Data Persistence:
 
 Reloading Characters:
   ☐ Create way to view and select saved characrters
+    ☐ Make character names clickable to load character in generator

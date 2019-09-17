@@ -10,7 +10,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy",
-    "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css"
+    "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css",
+    "cover": "npm test -- --coverage"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
@@ -36,6 +37,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2"
   }
 }

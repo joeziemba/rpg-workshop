@@ -7,7 +7,7 @@ body,
   /* height: 100%; */
 }
 
-.App {
+.c-site-container {
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 0.9rem;
   margin-top: 2.5rem;
@@ -20,55 +20,13 @@ body,
   padding-right: 2rem;
 }
 
-.topbar {
-  background-color: #333333;
-  height: 2.5rem;
-  padding: 0 2rem;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
-  z-index: 100000;
-  font-size: 0.8rem;
-}
-
-#profile-details {
-  height: 2rem;
-}
-
-#profile-photo {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  background-position: center;
-  background-size: 100%;
-  float: left;
-}
-
-#profile-name {
-  float: left;
-  margin: 0.4rem 1rem 0 0.7rem;
-}
-
-.topbar button {
-  background: none;
-  border: none;
-  color: #ddd;
-  height: 2rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0 0.5rem;
-  font-size: 0.8rem;
-  float: left;
-}
-
-.topbar button:hover {
-  background-color: #111;
-}
-
 .secondary-nav {
   top: 2.5rem;
 }
 
 .navbar-brand {
   font-family: "Lato", sans-serif;
+  color: #fff;
 }
 
 .navbar-brand:hover {
@@ -238,24 +196,6 @@ body,
   font-style: italic;
 }
 
-h3.form-header {
-  color: #922610;
-  position: relative;
-  font-size: 1.2rem;
-  margin: 0.9rem 0;
-  background: white;
-}
-
-h3.form-header::after {
-  content: "";
-  position: absolute;
-  top: 105%;
-  height: 2px;
-  width: 100%;
-  left: 0;
-  background-color: #922610;
-}
-
 h4.form-header {
   color: #922610;
   position: relative;
@@ -271,22 +211,6 @@ h4.form-header::after {
   width: 100%;
   left: 0;
   background-color: #922610;
-}
-
-.collapse {
-  padding: 0;
-  display: block;
-  visibility: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-.show {
-  /* padding: 10px; */
-  visibility: visible;
-  max-height: 10000px;
-  opacity: 1;
 }
 
 .feature-block {
@@ -336,8 +260,38 @@ label {
 }
 
 .btn-primary {
-  background-color: #922610;
+  background-color: #4d1308;
   border-color: #4d1308;
+}
+
+.btn-primary:hover {
+  background-color: #922610;
+  border-color: #922610;
+}
+
+.nav-button {
+  position: relative;
+  background-color: #4d1308;
+  border-color: #4d1308;
+  color: #fff;
+}
+
+.nav-button:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  bottom: 3px;
+  transition: all 0.2s ease;
+  left: 50%;
+  margin-left: -40%;
+}
+
+.nav-button:hover::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  bottom: -2px;
 }
 
 .delete-btn {
@@ -394,3 +348,6 @@ label {
 }
 
 @import "./_styles/Dropdown.css";
+@import "./_styles/Topbar.css";
+@import "./_styles/Accordion.css";
+@import "./_styles/Modal.css";
