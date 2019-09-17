@@ -4,12 +4,12 @@ import { firebase } from "../Firebase";
 import { LoginButton } from "./index";
 
 const TopBar = props => {
-  if (props.currentUser) {
-    return (
-      <nav className="navbar topbar fixed-top">
-        <Link to="/">
-          <span className="navbar-brand mb-0 h1">DMTools</span>
-        </Link>
+  return (
+    <nav className="navbar topbar fixed-top">
+      <Link to="/">
+        <span className="navbar-brand mb-0 h1">TableTopTools</span>
+      </Link>
+      {props.currentUser ? (
         <div className="float-right">
           <div
             id="profile-photo"
@@ -21,16 +21,9 @@ const TopBar = props => {
           <div id="profile-name">{props.currentUser.displayName}</div>
           <button onClick={firebase.signOut}>Logout</button>
         </div>
-      </nav>
-    );
-  }
-
-  return (
-    <nav className="navbar topbar fixed-top">
-      <Link to="/">
-        <span className="navbar-brand mb-0 h1">DMTools</span>
-      </Link>
-      <LoginButton />
+      ) : (
+        <LoginButton />
+      )}
     </nav>
   );
 };
