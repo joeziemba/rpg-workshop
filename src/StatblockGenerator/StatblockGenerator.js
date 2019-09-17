@@ -121,17 +121,17 @@ class StatblockGenerator extends Component {
     }
     let stats = localStorage.getItem("stats");
 
-    // if (stats) {
-    //   stats = JSON.parse(stats);
-    //   this.setState({
-    //     ...stats,
-    //     exportView: false
-    //   });
-    // } else {
-    //   this.setState({
-    //     ...initialState
-    //   });
-    // }
+    if (stats) {
+      stats = JSON.parse(stats);
+      this.setState({
+        ...stats,
+        exportView: false
+      });
+    } else {
+      this.setState({
+        ...initialState
+      });
+    }
   }
 
   setStatblock(statblock) {

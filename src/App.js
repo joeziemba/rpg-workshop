@@ -4,10 +4,8 @@ import "./App.css";
 import { UserContext } from "./context";
 
 import { StatblockGenerator } from "./StatblockGenerator";
-import About from "./views/About";
 
 import { TopBar } from "./_globalComponents";
-import Home from "./Home/Home";
 
 import { firebase } from "./Firebase";
 
