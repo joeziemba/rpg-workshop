@@ -282,7 +282,7 @@ label {
   height: 1px;
   width: 80%;
   bottom: 3px;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   left: 50%;
   margin-left: -40%;
 }
@@ -350,3 +350,4 @@ label {
 @import "./_styles/Dropdown.css";
 @import "./_styles/Topbar.css";
 @import "./_styles/Accordion.css";
+@import "./_styles/Modal.css";

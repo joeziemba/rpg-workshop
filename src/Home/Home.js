@@ -14,17 +14,17 @@ class Home extends React.Component {
     this.renderCharacters = this.renderCharacters.bind(this);
   }
 
-  componentDidMount() {
-    firebase
-      .loadCharactersForUser(this.context.currentUser.uid)
-      .then(snapshot => {
-        let characters = [];
-        snapshot.forEach(doc => {
-          characters.push({ ...doc.data(), uid: doc.id });
-        });
-        this.setState({ characters, loading: false });
-      });
-  }
+  // componentDidMount() {
+  //   firebase
+  //     .load5eStatblocksForUser(this.context.currentUser.uid)
+  //     .then(snapshot => {
+  //       let characters = [];
+  //       snapshot.forEach(doc => {
+  //         characters.push({ ...doc.data(), uid: doc.id });
+  //       });
+  //       this.setState({ characters, loading: false });
+  //     });
+  // }
 
   renderCharacters() {
     return this.state.characters.map((char, i) => {

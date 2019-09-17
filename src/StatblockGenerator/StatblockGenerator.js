@@ -109,15 +109,15 @@ class StatblockGenerator extends Component {
     this.reset = this.reset.bind(this);
     this.addLegendaryAction = this.addLegendaryAction.bind(this);
     this.toggleExportView = this.toggleExportView.bind(this);
+    this.setStatblock = this.setStatblock.bind(this);
   }
 
   componentDidMount() {
     let { characterId } = this.props.match.params;
     if (characterId) {
-      firebase.getCharacter(characterId)
-        .then(response => {
-          this.setState({ ...response.data(), uid: characterId });
-        });
+      firebase.getStatblock(characterId).then(response => {
+        this.setState({ ...response.data(), uid: characterId });
+      });
     }
     let stats = localStorage.getItem("stats");
 
@@ -132,6 +132,10 @@ class StatblockGenerator extends Component {
     //     ...initialState
     //   });
     // }
+  }
+
+  setStatblock(statblock) {
+    this.setState({ ...statblock });
   }
 
   componentDidUpdate() {
@@ -366,10 +370,11 @@ class StatblockGenerator extends Component {
       <React.Fragment>
         <div className="flex-container App">
           <GeneratorNav
-            character={this.state}
+            statblock={this.state}
             exportView={this.state.exportView}
             toggleExportView={this.toggleExportView}
             reset={this.reset}
+            setStatblock={this.setStatblock}
           />
           {this.state.exportView && (
             <Row>

@@ -58,30 +58,34 @@ class Firebase {
     this.auth.signOut();
   }
 
-  saveCharacter(character) {
-    if (character.uid) {
+  saveStatblock(statblock) {
+    console.log('save')
+    if (statblock.uid) {
       this.db
-        .collection("characters")
-        .doc(character.uid)
-        .update(character)
-        .then(response => {debugger});
+        .collection("5e-statblocks")
+        .doc(statblock.uid)
+        .update(statblock)
+        .then(response => {
+          debugger;
+        });
     } else {
-      character.userId = this.auth.currentUser.uid;
-      this.db.collection("characters").add(character);
+      statblock.userId = this.auth.currentUser.uid;
+      this.db.collection("5e-statblocks").add(statblock);
     }
   }
 
-  loadCharactersForUser() {
+  load5eStatblocksForUser() {
+    debugger;
     return this.db
-      .collection("characters")
+      .collection("5e-statblocks")
       .where("userId", "==", this.auth.currentUser.uid)
       .get();
   }
 
-  getCharacter(characterID) {
+  getStatblock(statblockID) {
     return this.db
-      .collection("characters")
-      .doc(characterID)
+      .collection("5e-statblocks")
+      .doc(statblockID)
       .get();
   }
 }

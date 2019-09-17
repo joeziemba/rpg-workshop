@@ -29,7 +29,6 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.currentUser) return null;
     return (
       <React.Fragment>
         <TopBar currentUser={this.state.currentUser} />
@@ -40,15 +39,7 @@ class App extends Component {
           }}
         >
           <div className="c-site-container">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route
-              exact
-              path="/generator/:characterId"
-              component={StatblockGenerator}
-            />
-            <Route exact path="/generator" component={StatblockGenerator} />
-            <Route exact path="/characters" component={About} />
+            <Route exact path="/" component={StatblockGenerator} />
           </div>
         </UserContext.Provider>
       </React.Fragment>
