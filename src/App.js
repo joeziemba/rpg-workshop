@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import "./App.css";
+import "./_assets/css/main.css";
 import { UserContext, FirebaseContext } from "./context";
 
 import StatblockGenerator from "./views/StatblockGenerator";
 import About from "./views/About";
+import CharacterBuilder from "./views/pf2/CharacterBuilder";
+import Home from "./views/Home";
 
 import { LoginButton } from "./_components";
 
@@ -31,8 +34,14 @@ class App extends Component {
     if (this.state.currentUser) {
       return (
         <nav className="navbar topbar fixed-top">
-          <span class="navbar-brand mb-0 h1">DMTools</span>
-          <div className="float-right">
+          <div>
+            <span className="navbar-brand mb-0 h1">DMTools</span>
+            <Link to="/5e/statblock-generator"><span className="mr-3">5e Statblock Generator</span></Link>
+            <Link to="/pf2/character-builder">
+              Pathfinder 2e Character Builder
+            </Link>
+          </div>
+          <div className="">
             <div
               id="profile-photo"
               style={{
@@ -65,8 +74,18 @@ class App extends Component {
             registerCurrentUserToState: this.registerCurrentUserToState
           }}
         >
-          <Route exact path="/" component={StatblockGenerator} />
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/5e/statblock-generator"
+            component={StatblockGenerator}
+          />
           <Route exact path="/about" component={About} />
+          <Route
+            exact
+            path="/pf2/character-builder"
+            component={CharacterBuilder}
+          />
         </UserContext.Provider>
       </React.Fragment>
     );

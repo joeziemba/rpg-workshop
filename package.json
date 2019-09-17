@@ -9,13 +9,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy",
+    "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
   "dependencies": {
     "firebase": "^5.8.2",
     "gh-pages": "^2.0.1",
+    "lodash": "^4.17.15",
     "react": "^16.7.0",
     "react-bootstrap-typeahead": "^3.3.0",
     "react-dom": "^16.7.0",
@@ -32,5 +34,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
 }

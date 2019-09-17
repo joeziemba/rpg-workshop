@@ -1,0 +1,11 @@
+.u-float {
+  &-container {
+    clear: both;
+  }
+  &-left {
+    float: left;
+  }
+  &-right {
+    float: right;
+  }
+}
