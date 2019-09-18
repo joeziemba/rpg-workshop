@@ -20,6 +20,10 @@ body,
   padding-right: 2rem;
 }
 
+.navbar a:hover {
+  text-decoration: none !important;
+}
+
 .secondary-nav {
   top: 2.5rem;
 }
@@ -27,10 +31,13 @@ body,
 .navbar-brand {
   font-family: "Lato", sans-serif;
   color: #fff;
+  display: inline;
+  text-decoration: none;
 }
 
 .navbar-brand:hover {
   color: #ffffff;
+  text-decoration: none !important;
 }
 
 .statblock-form-container {
@@ -351,3 +358,4 @@ label {
 @import "./_styles/Topbar.css";
 @import "./_styles/Accordion.css";
 @import "./_styles/Modal.css";
+@import "./_styles/generalContent.css";

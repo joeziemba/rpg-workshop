@@ -6,9 +6,12 @@ import { LoginButton } from "./index";
 const TopBar = props => {
   return (
     <nav className="navbar topbar fixed-top">
-      <Link to="/">
-        <span className="navbar-brand mb-0 h1">TableTopTools</span>
-      </Link>
+      <div>
+        <Link to="/">
+          <span className="navbar-brand mb-0">TableTopTools</span>
+        </Link>
+        <Link to="/about"><button>About</button></Link>
+      </div>
       {props.currentUser ? (
         <div className="float-right">
           <div

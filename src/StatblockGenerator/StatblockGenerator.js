@@ -368,7 +368,7 @@ class StatblockGenerator extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="flex-container App">
+        <div className="flex-containers">
           <GeneratorNav
             statblock={this.state}
             exportView={this.state.exportView}

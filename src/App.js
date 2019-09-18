@@ -4,6 +4,7 @@ import "./App.css";
 import { UserContext } from "./context";
 
 import { StatblockGenerator } from "./StatblockGenerator";
+import About from "./views/About";
 
 import { TopBar } from "./_globalComponents";
 
@@ -38,6 +39,7 @@ class App extends Component {
         >
           <div className="c-site-container">
             <Route exact path="/" component={StatblockGenerator} />
+            <Route exact path="/about" component={About} />
           </div>
         </UserContext.Provider>
       </React.Fragment>
