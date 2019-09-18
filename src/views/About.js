@@ -1,9 +1,9 @@
 import React from "react";
 
 const newFeatures = [
-  "Register/Sign in with Google account: create an account to save your stuff.",
-  "Save Statblocks: Save your statblocks to your account to access later.",
-  "Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
+  "9/18/19 | Register/Sign in with Google account: create an account to save your stuff.",
+  "9/18/19 | Save Statblocks: Save your statblocks to your account to access later.",
+  "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
 ];
 
 const upcoming = [
@@ -40,7 +40,7 @@ const About = props => {
         from others!
         <br />
         Send a message to{" "}
-        <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools Support]">
+        <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
           joeziemba.dev@gmail.com
         </a>{" "}
         with [TableTopTools] in the subject line.
