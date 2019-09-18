@@ -14,7 +14,7 @@ const upcoming = [
 const About = props => {
   return (
     <div className="page-container general-content">
-      <h1>TableTopTools: Digital Tools to make our games better!</h1>
+      <h1>TableTopTools: Digital tools for better gaming!</h1>
       <p>
         TableTopTools is built and maintained in the free time of a professional
         web developer who happens to be a huge fan of table top gaming. It's
