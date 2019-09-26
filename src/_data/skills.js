@@ -55,6 +55,13 @@ export const Skills = {
     modifier: Abilities.INT,
     proficiency: 0
   },
+  Lore: {
+    id: "Lore",
+    name: "Lore",
+    modifier: Abilities.INT,
+    proficiency: 0,
+    type: "General"
+  },
   Medicine: {
     id: "Medicine",
     name: "Medicine",

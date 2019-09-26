@@ -1,16 +1,17 @@
 import { Abilities } from "./abilities";
 import { Proficiencies } from "./skills";
-import {Skills} from "./skills";
+import { Skills } from "./skills";
 
 export const Classes = {
   Bard: {
     name: "Bard",
-    spellcasting: true, // needed to identify feat pre-requisites
+    keyAbility: Abilities.CHA,
+    perceptionProficiency: Proficiencies.TRAINED,
     hp: 8,
     saves: {
-      fortitude: 1,
-      reflext: 1,
-      will: 2
+      fortitude: Proficiencies.TRAINED,
+      reflex: Proficiencies.TRAINED,
+      will: Proficiencies.EXPERT
     },
     additionalSkillChoices: 4,
     attacks: {
@@ -35,12 +36,13 @@ export const Classes = {
   },
   Cleric: {
     name: "Cleric",
-    spellcasting: true, // needed to identify feat pre-requisites
+    keyAbility: Abilities.WIS,
+    perceptionProficiency: Proficiencies.TRAINED,
     hp: 8,
     saves: {
-      fortitude: 1,
-      reflext: 1,
-      will: 2
+      fortitude: Proficiencies.TRAINED,
+      reflex: Proficiencies.TRAINED,
+      will: Proficiencies.EXPERT
     },
     skills: {
       occultism: 1,
@@ -58,9 +60,44 @@ export const Classes = {
         skill: Skills.Religion,
         source: "Cleric",
         id: "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.EXPERT
       }
     ],
     freeSkills: 3 // 2 + one from Deity
+  },
+  Ranger: {
+    name: "Ranger",
+    hp: 8,
+    perceptionProficiency: Proficiencies.EXPERT,
+    saves: {
+      fortitude: Proficiencies.EXPERT,
+      reflex: Proficiencies.EXPERT,
+      will: Proficiencies.TRAINED
+    },
+    abilityBoosts: [
+      {
+        ability: Abilities.FREE,
+        source: "Ranger",
+        id: "1",
+        type: Abilities.FREE,
+        restrictTo: [Abilities.DEX, Abilities.STR],
+        exclude: [Abilities.CON, Abilities.WIS, Abilities.CHA, Abilities.INT]
+      }
+    ],
+    skillBoosts: [
+      {
+        skill: Skills.Nature,
+        source: "Ranger",
+        id: "1",
+        proficiency: Proficiencies.TRAINED
+      },
+      {
+        skill: Skills.Survival,
+        source: "Ranger",
+        id: "2",
+        proficiency: Proficiencies.TRAINED
+      }
+    ],
+    freeSkills: 4
   }
 };

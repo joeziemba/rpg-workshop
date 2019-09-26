@@ -1,0 +1,35 @@
+.pf-section {
+  margin: 1rem auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  max-width: 600px;
+
+  &__heading {
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: $pathfinder-navy;
+    margin: 0;
+    font-family: "Inknut Antiqua", Times, serif;
+    font-weight: 300;
+  }
+
+  &__body {
+    padding: 1rem;
+    border: #eee 1px solid;
+    border-top: none;
+
+    @media (max-width: 1000px) {
+      padding: .5rem;
+    }
+  }
+
+  & h3 {
+    font-size: 0.8rem;
+    background-color: #eee;
+    padding: 0.25rem 0.5rem;
+    color: #555;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+  }
+}

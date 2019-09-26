@@ -1,0 +1,39 @@
+.c-statbox {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  border: 1px solid #000;
+
+  &__stat {
+    display: block;
+    margin: 0;
+    padding: .3rem 0;
+    line-height: 1;
+  }
+
+  &__title {
+    max-width: 30px;
+    display: block;
+    font-size: 8px;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+  }
+
+  &--large {
+    transform: scale(1.3);
+    margin-bottom: 1rem;
+    margin-right: .25rem;
+  }
+
+  &--secondary {
+    max-width: 20px;
+    border-color: #666;
+
+    & .c-statbox__title {
+      background-color: #666;
+      font-weight: bolder;
+    }
+  }
+}

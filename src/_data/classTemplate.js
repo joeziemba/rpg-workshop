@@ -3,7 +3,7 @@ import { Classes } from "./classes";
 import { Ancestries } from "./ancestries";
 import { Abilities } from "./abilities";
 import { Backgrounds } from "./backgrounds";
-import {Skills} from "./skills";
+import { Skills } from "./skills";
 
 export const Feats = {
   adaptedCantrip: {
@@ -138,3 +138,11 @@ character.maxTrainedSkills =
 
 character.freeSkills =
   character.maxTrainedSkills - countTrainedSkills(character);
+
+export function calculatePerception(character) {
+  let perception = 0;
+  perception += character.abilityMods.Wisdom;
+  if (!_.isEmpty(character.class))
+    perception += character.class.perceptionBonus.proficiency;
+  return perception;
+}

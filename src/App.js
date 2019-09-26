@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import "./_assets/css/main.css";
-import { UserContext, FirebaseContext } from "./context";
+import { UserContext } from "./context";
 
 import { StatblockGenerator } from "./StatblockGenerator";
 import About from "./views/About";
-import CharacterBuilder from "./views/pf2/CharacterBuilder";
 import Home from "./views/Home";
+import CharacterBuilder from './views/pf2/CharacterBuilder'
 
 import { TopBar } from "./_globalComponents";
 
@@ -52,7 +52,7 @@ class App extends Component {
             path="/pf2/character-builder"
             component={CharacterBuilder}
           />
-          <Redirect from="*" to="/" />
+          {/* <Redirect from="*" to="/" /> */}
         </UserContext.Provider>
       </React.Fragment>
     );

@@ -11,6 +11,7 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy",
     "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css",
+    "scss:watch": "npm run scss && node-sass --watch src/_assets/scss/main.scss --output-style compressed --source-map true --output src/_assets/css",
     "cover": "npm test -- --coverage"
   },
   "author": "Joe Ziemba",
