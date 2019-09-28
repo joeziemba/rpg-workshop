@@ -1,13 +1,14 @@
 .pf-ability {
   text-align: center;
   font-family: "Inknut Antiqua", Times, serif;
-  padding: .5rem 0;
-  border-radius: .25rem;
+  padding: 1rem;
   line-height: 1;
+  float: left;
+  width: 16.6666666666667%;
   
   &--key {
     font-weight: bolder;
-    background-color: $light-gold;
+    background-color: $pf-light-blue;
   }
 
   &__name {

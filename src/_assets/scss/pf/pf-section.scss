@@ -8,28 +8,23 @@
     color: #fff;
     font-size: 1rem;
     padding: 0.6rem 1rem;
-    background-color: $pathfinder-navy;
+    background-color: $pf-navy;
     margin: 0;
     font-family: "Inknut Antiqua", Times, serif;
     font-weight: 300;
   }
 
   &__body {
-    padding: 1rem;
-    border: #eee 1px solid;
-    border-top: none;
-
     @media (max-width: 1000px) {
-      padding: .5rem;
+      // padding: 0.5rem;
     }
   }
+}
 
-  & h3 {
-    font-size: 0.8rem;
-    background-color: #eee;
-    padding: 0.25rem 0.5rem;
-    color: #555;
-    text-transform: uppercase;
-    margin: 0.5rem 0;
-  }
+.c-gray-block-heading {
+  font-size: 0.8rem;
+  background-color: $pf-light-gray;
+  padding: 0.25rem 0.5rem;
+  color: #555;
+  text-transform: uppercase;
 }

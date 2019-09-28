@@ -30,7 +30,7 @@ class CharacterBuilder extends React.Component {
         perceptionProficiency: 0,
         ancestry: {},
         background: {},
-        class: {},
+        class: { saves: { reflex: 0, fortitude: 0, will: 0 } },
         abilities: {
           [Abilities.STR]: 10,
           [Abilities.DEX]: 10,
@@ -187,7 +187,7 @@ class CharacterBuilder extends React.Component {
       character.speed = character.ancestry.speed;
     }
 
-    if (!_.isEmpty(character.class)) {
+    if (character.class.name) {
       character.maxTrainedSkills +=
         character.class.skillBoosts.length + character.class.freeSkills;
 
@@ -211,7 +211,7 @@ class CharacterBuilder extends React.Component {
       if (abilityKey !== "FREE") {
         let isKey = character.class.keyAbility === Abilities[abilityKey];
         return (
-          <div className={`col-2 pf-ability ${isKey ? "pf-ability--key" : ""}`}>
+          <div className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}>
             <span className="pf-ability__name">{abilityKey}</span>
             <span className="pf-ability__score">
               {character.abilityMods[Abilities[abilityKey]] < 0 ? " " : " +"}
@@ -276,14 +276,17 @@ class CharacterBuilder extends React.Component {
 
   selectSkill(e) {
     let { character } = this.state;
+    let skillName = e.target.name.split("-").shift();
+    console.log(skillName);
+
     if (e.target.checked) {
       character.skillBoosts.push({
-        skill: Skills[e.target.name],
+        skill: Skills[skillName],
         proficiency: Proficiencies.TRAINED
       });
     } else {
       character.skillBoosts = character.skillBoosts.map(boost => {
-        if (boost.source === undefined && boost.skill.id === e.target.name)
+        if (boost.source === undefined && boost.skill.id === skillName)
           return null;
         return boost;
       });
@@ -306,7 +309,7 @@ class CharacterBuilder extends React.Component {
     };
 
     return (
-      <div className="page--dark container-fluid">
+      <div className="page--dark container-fluid pf-body">
         <div className="page__container">
           <PF2CharacterContext.Provider value={context}>
             <SubNav />
@@ -320,16 +323,18 @@ class CharacterBuilder extends React.Component {
                 <div className="pf-section">
                   <h2 className="pf-section__heading">Ability Scores</h2>
                   <div className="pf-section__body">
-                    <div className="row">{this.renderAbilities()}</div>
+                    <div className="clearfix">{this.renderAbilities()}</div>
 
                     <div className="row">
                       <div className="col">
-                        <h3>Level 1 Boosts</h3>
+                        <h3 className="c-gray-block-heading mb-2">
+                          Level 1 Boosts
+                        </h3>
                         <div className="row">
                           {this.freeAbilityOptions("Level1")}
                         </div>
                         <React.Fragment>
-                          <h3>
+                          <h3 className="c-gray-block-heading mb-2 mt-2">
                             Ancestry Boosts{" "}
                             {character.ancestry.name &&
                               " - " + character.ancestry.name}
@@ -345,12 +350,12 @@ class CharacterBuilder extends React.Component {
                           </div>
                         </React.Fragment>
                         <React.Fragment>
-                          <h3>
+                          <h3 className="c-gray-block-heading mt-2 mb-2">
                             Background Boosts{" "}
                             {character.background.name &&
                               " - " + character.background.name}
                           </h3>
-                          <div className="row">
+                          <div className="row mb-2">
                             {_.isEmpty(character.background) ? (
                               <p className="col-12 ml-2 u-placeholder-text">
                                 choose a background above

@@ -2,7 +2,6 @@ import React from "react";
 import { PF2CharacterContext } from "../../context";
 import Statbox from "./Statbox";
 import TEMLbuttons from "./TEMLbuttons";
-import _ from "lodash";
 
 const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
   function calculateAC(character) {
@@ -71,9 +70,16 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
             </div>
             {/* Basic Stats */}
             <div className="col-sm-6 col-md-4">
-              <div className="ml-lg-3 ml-md-0 ml-sm-4 mt-2 ml-xs-5">
+              <h2 className="c-gray-block-heading mb-3">Stats</h2>
+              <div className="ml-4 ml-sm-0">
                 <div className="mb-2">
-                  <Statbox stat={character.hitPoints} title="HP" large />
+                  <Statbox stat={character.level} title="Level" large />
+                  <Statbox
+                    stat={character.hitPoints}
+                    title="HP"
+                    large
+                    className="ml-4"
+                  />
                   <Statbox
                     stat={character.speed}
                     title="Speed"
@@ -136,109 +142,107 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
             </div>
             {/* Saves */}
             <div className="col-sm-6 col-md-4 col-lg-4">
-              {!_.isEmpty(character.class) && (
-                <div className="ml-lg-2 mt-2">
-                  <div className="mb-2 clearfix">
-                    <Statbox
-                      className="float-left"
-                      large
-                      stat={
-                        character.class.saves.reflex +
-                        character.abilityMods.Dexterity
-                      }
-                      title="REF"
+              <div className="ml-4 ml-sm-0">
+                <h2 className="c-gray-block-heading mb-3">Saves</h2>
+                <div className="mb-2 clearfix">
+                  <Statbox
+                    className="float-left"
+                    large
+                    stat={
+                      character.class.saves.reflex +
+                      character.abilityMods.Dexterity
+                    }
+                    title="REF"
+                  />
+                  <span className="float-left m-2">=</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.abilityMods.Dexterity}
+                    title="Dex"
+                  />
+                  <span className="float-left m-2">+</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.class.saves.reflex}
+                    title="PROF"
+                  />
+                  <div className="float-left ml-2">
+                    <TEMLbuttons
+                      skill={{
+                        proficiency: character.class.saves.reflex,
+                        id: "Reflex",
+                        name: "Reflex"
+                      }}
+                      disabled
                     />
-                    <span className="float-left m-2">=</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.abilityMods.Dexterity}
-                      title="Dex"
-                    />
-                    <span className="float-left m-2">+</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.class.saves.reflex}
-                      title="PROF"
-                    />
-                    <div className="float-left ml-2">
-                      <TEMLbuttons
-                        skill={{
-                          proficiency: character.class.saves.reflex,
-                          id: "Reflex",
-                          name: "Reflex"
-                        }}
-                        disabled
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-2 clearfix">
-                    <Statbox
-                      className="float-left"
-                      large
-                      stat={
-                        character.class.saves.fortitude +
-                        character.abilityMods.Constitution
-                      }
-                      title="Fort"
-                    />
-                    <span className="float-left m-2">=</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.abilityMods.Constitution}
-                      title="Con"
-                    />
-                    <span className="float-left m-2">+</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.class.saves.fortitude}
-                      title="PROF"
-                    />
-                    <div className="float-left ml-2">
-                      <TEMLbuttons
-                        skill={{
-                          proficiency: character.class.saves.fortitude,
-                          id: "Fortitude",
-                          name: "Fortitude"
-                        }}
-                        disabled
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-2 clearfix">
-                    <Statbox
-                      className="float-left"
-                      large
-                      stat={
-                        character.class.saves.will +
-                        character.abilityMods.Wisdom
-                      }
-                      title="Will"
-                    />
-                    <span className="float-left m-2">=</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.abilityMods.Wisdom}
-                      title="Wis"
-                    />
-                    <span className="float-left m-2">+</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.class.saves.will}
-                      title="PROF"
-                    />
-                    <div className="float-left ml-2">
-                      <TEMLbuttons
-                        skill={{
-                          proficiency: character.class.saves.will,
-                          id: "Will",
-                          name: "Will"
-                        }}
-                        disabled
-                      />
-                    </div>
                   </div>
                 </div>
-              )}
+                <div className="mb-2 clearfix">
+                  <Statbox
+                    className="float-left"
+                    large
+                    stat={
+                      character.class.saves.fortitude +
+                      character.abilityMods.Constitution
+                    }
+                    title="Fort"
+                  />
+                  <span className="float-left m-2">=</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.abilityMods.Constitution}
+                    title="Con"
+                  />
+                  <span className="float-left m-2">+</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.class.saves.fortitude}
+                    title="PROF"
+                  />
+                  <div className="float-left ml-2">
+                    <TEMLbuttons
+                      skill={{
+                        proficiency: character.class.saves.fortitude,
+                        id: "Fortitude",
+                        name: "Fortitude"
+                      }}
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div className="mb-2 clearfix">
+                  <Statbox
+                    className="float-left"
+                    large
+                    stat={
+                      character.class.saves.will + character.abilityMods.Wisdom
+                    }
+                    title="Will"
+                  />
+                  <span className="float-left m-2">=</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.abilityMods.Wisdom}
+                    title="Wis"
+                  />
+                  <span className="float-left m-2">+</span>
+                  <Statbox
+                    className="float-left"
+                    stat={character.class.saves.will}
+                    title="PROF"
+                  />
+                  <div className="float-left ml-2">
+                    <TEMLbuttons
+                      skill={{
+                        proficiency: character.class.saves.will,
+                        id: "Will",
+                        name: "Will"
+                      }}
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         );

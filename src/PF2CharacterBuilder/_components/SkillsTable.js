@@ -1,6 +1,7 @@
 import React from "react";
 import Statbox from "./Statbox";
 import { Abilities } from "../../_data/abilities";
+import TEMLbuttons from "./TEMLbuttons";
 
 const SkillsTable = ({ character, selectSkill }) => {
   let { freeSkills } = character;
@@ -31,7 +32,7 @@ const SkillsTable = ({ character, selectSkill }) => {
                 proficiencyBonus > 0 ? "c-skillrow--active" : ""
               }`}
             >
-              <div className={`c-skillrow__name m-2 `}>
+              <div className={`c-skillrow__name mt-2 ml-2`}>
                 {skill.name}
                 {"*".repeat(sources.indexOf(skill.source) + 1)}
               </div>
@@ -45,58 +46,16 @@ const SkillsTable = ({ character, selectSkill }) => {
                   a => Abilities[a] === skill.modifier
                 )}
               />
+
               <div className="ml-lg-4 ml-2">
-                <Statbox title="T" secondary>
-                  <label className="c-check__container">
-                    <input
-                      type="checkbox"
-                      onClick={selectSkill}
-                      name={skill.id}
-                      disabled={
-                        skill.source !== undefined ||
-                        (freeSkills === 0 && skill.proficiency === 0)
-                      }
-                      checked={skill.proficiency >= 2}
-                    />
-                    <span className="c-check"></span>
-                  </label>
-                </Statbox>
-                <Statbox title="E" secondary>
-                  <label className="c-check__container">
-                    <input
-                      type="checkbox"
-                      // onClick={selectSkill}
-                      name={skill.id}
-                      disabled={true}
-                      checked={skill.proficiency >= 4}
-                    />
-                    <span className="c-check"></span>
-                  </label>
-                </Statbox>
-                <Statbox title="M" secondary>
-                  <label className="c-check__container">
-                    <input
-                      type="checkbox"
-                      // onClick={selectSkill}
-                      name={skill.id}
-                      disabled={true}
-                      checked={skill.proficiency >= 6}
-                    />
-                    <span className="c-check"></span>
-                  </label>
-                </Statbox>
-                <Statbox title="L" secondary>
-                  <label className="c-check__container">
-                    <input
-                      type="checkbox"
-                      // onClick={selectSkill}
-                      name={skill.id}
-                      disabled={true}
-                      checked={skill.proficiency >= 8}
-                    />
-                    <span className="c-check"></span>
-                  </label>
-                </Statbox>
+                <TEMLbuttons
+                  disabled={
+                    skill.source !== undefined ||
+                    (freeSkills === 0 && skill.proficiency === 0)
+                  }
+                  onClick={selectSkill}
+                  skill={skill}
+                />
               </div>
             </div>
           );

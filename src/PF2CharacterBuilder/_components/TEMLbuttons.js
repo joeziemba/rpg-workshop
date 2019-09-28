@@ -9,7 +9,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
           <input
             type="checkbox"
             onClick={onClick}
-            name={skill.id}
+            name={skill.id + "-trained"}
             disabled={
               skill.source !== undefined ||
               (disabled && skill.proficiency === 0)
@@ -24,7 +24,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            name={skill.id}
+            name={skill.id + "-expert"}
             disabled={true}
             checked={skill.proficiency >= 4}
           />
@@ -36,7 +36,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            name={skill.id}
+            name={skill.id + "-master"}
             disabled={true}
             checked={skill.proficiency >= 6}
           />
@@ -48,7 +48,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            name={skill.id}
+            name={skill.id + "-legendary"}
             disabled={true}
             checked={skill.proficiency >= 8}
           />

@@ -68,6 +68,7 @@ export const Classes = {
   Ranger: {
     name: "Ranger",
     hp: 8,
+    keyAbility: Abilities.WIS,
     perceptionProficiency: Proficiencies.EXPERT,
     saves: {
       fortitude: Proficiencies.EXPERT,
@@ -76,12 +77,9 @@ export const Classes = {
     },
     abilityBoosts: [
       {
-        ability: Abilities.FREE,
+        ability: Abilities.WIS,
         source: "Ranger",
-        id: "1",
-        type: Abilities.FREE,
-        restrictTo: [Abilities.DEX, Abilities.STR],
-        exclude: [Abilities.CON, Abilities.WIS, Abilities.CHA, Abilities.INT]
+        id: "1"
       }
     ],
     skillBoosts: [
