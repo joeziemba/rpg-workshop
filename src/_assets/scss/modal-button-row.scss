@@ -1,0 +1,14 @@
+.c-modal-button-row {
+  display: block;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: .5rem;
+
+  transition: all .2s ease;
+
+  &:hover {
+    background-color: #efefef;
+  }
+}
