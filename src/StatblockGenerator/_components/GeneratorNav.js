@@ -83,7 +83,7 @@ class GeneratorNav extends React.Component {
         {this.state.showOpenModal && (
           <div className="c-modal">
             <div className="c-modal__window">
-              <h2 className="c-modal__header">Choose a Character</h2>
+              <h2 className="c-modal__header">Choose a Statblock</h2>
               {this.state.statblocks.map(statblock => {
                 return (
                   <button

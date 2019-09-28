@@ -1,7 +1,7 @@
 import React from "react";
-import Statbox from './Statbox';
+import Statbox from "./Statbox";
 
-const TEMLbuttons = ({skill, onClick, disabled}) => {
+const TEMLbuttons = ({ skill, onClick, disabled }) => {
   return (
     <div className="">
       <Statbox title="T" secondary>
@@ -15,6 +15,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
               (disabled && skill.proficiency === 0)
             }
             checked={skill.proficiency >= 2}
+            aria-label={skill.id + " Trained"}
           />
           <span className="c-check"></span>
         </label>
@@ -27,6 +28,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
             name={skill.id + "-expert"}
             disabled={true}
             checked={skill.proficiency >= 4}
+            aria-label={skill.id + " Expert"}
           />
           <span className="c-check"></span>
         </label>
@@ -39,6 +41,7 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
             name={skill.id + "-master"}
             disabled={true}
             checked={skill.proficiency >= 6}
+            aria-label={skill.id + " Master"}
           />
           <span className="c-check"></span>
         </label>
@@ -48,9 +51,10 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            name={skill.id + "-legendary"}
+            name={skill.id + "-legend"}
             disabled={true}
             checked={skill.proficiency >= 8}
+            aria-label={skill.id + " Legend"}
           />
           <span className="c-check"></span>
         </label>
@@ -61,9 +65,9 @@ const TEMLbuttons = ({skill, onClick, disabled}) => {
 
 TEMLbuttons.defaultProps = {
   skill: {
-    id: '',
+    id: "",
     proficiency: 0
   }
-}
+};
 
 export default TEMLbuttons;

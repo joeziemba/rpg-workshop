@@ -259,6 +259,7 @@ class CharacterBuilder extends React.Component {
             onChange={this.boostAbility}
             name={boost.id}
             className="text-center float-left pf-select pf-select--float"
+            aria-label={"Level 1 Ability Boost: " + i}
           >
             <option value="">–</option>
             {Object.keys(Abilities).map(ability => {
@@ -341,7 +342,7 @@ class CharacterBuilder extends React.Component {
                           </h3>
                           <div className="row">
                             {_.isEmpty(character.ancestry) ? (
-                              <p className="col-12 ml-2 u-placeholder-text">
+                              <p className="col u-placeholder-text">
                                 choose an ancestry above
                               </p>
                             ) : (
@@ -357,9 +358,9 @@ class CharacterBuilder extends React.Component {
                           </h3>
                           <div className="row mb-2">
                             {_.isEmpty(character.background) ? (
-                              <p className="col-12 ml-2 u-placeholder-text">
+                              <div className="col u-placeholder-text mb-3">
                                 choose a background above
-                              </p>
+                              </div>
                             ) : (
                               this.freeAbilityOptions(character.background.id)
                             )}

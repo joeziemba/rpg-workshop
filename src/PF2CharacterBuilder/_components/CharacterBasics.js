@@ -18,6 +18,8 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
             <div className="col-md-4 col-lg-4">
               <p>
                 <input
+                  aria-label="Character Name"
+                  id="character-name"
                   value={character.name}
                   className="pf-input"
                   placeholder="Character Name"
@@ -28,6 +30,7 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
                   onChange={selectAncestry}
                   value={character.ancestry.name}
                   className="pf-select"
+                  aria-label="Ancestry"
                 >
                   <option value="">Choose Ancestry</option>
                   {Object.keys(Ancestries).map(ancestry => (
@@ -42,6 +45,7 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
                   onChange={selectBackground}
                   value={character.background.id}
                   className="pf-select"
+                  aria-label="Background"
                 >
                   <option className="pf-select__default" value="">
                     Choose Background
@@ -58,6 +62,7 @@ const CharacterBasics = ({ selectAncestry, selectBackground, selectClass }) => {
                   onChange={selectClass}
                   value={character.class.name}
                   className="pf-select"
+                  aria-label="Class"
                 >
                   <option value="">Choose Class</option>
                   {Object.keys(Classes).map(class_name => (
