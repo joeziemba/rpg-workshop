@@ -22,7 +22,7 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            // checked={skill.proficiency >= 4}
+            checked={skill.proficiency >= 4}
             readOnly
             name={skill.id + "-expert"}
             disabled={true}
@@ -36,7 +36,7 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            // checked={skill.proficiency >= 6}
+            checked={skill.proficiency >= 6}
             readOnly
             name={skill.id + "-master"}
             disabled={true}
@@ -50,7 +50,7 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
-            // checked={skill.proficiency >= 8}
+            checked={skill.proficiency >= 8}
             readOnly
             name={skill.id + "-legend"}
             disabled={true}

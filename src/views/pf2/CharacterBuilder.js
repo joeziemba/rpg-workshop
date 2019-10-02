@@ -44,18 +44,8 @@ class CharacterBuilder extends React.Component {
     if (characterId) {
       this.getCharacter(characterId);
     } else {
-      let character = localStorage.getItem("pf2-character");
-
-      if (character) {
-        character = JSON.parse(character);
-        this.setState({ character }, () => {
-          if (character.id)
-            this.props.history.push(`/pf2/character-builder/${character.id}`);
-        });
-      } else {
-        character = getBlankCharacter();
-        this.setState({ character });
-      }
+      let character = getBlankCharacter();
+      this.setState({ character });
     }
   }
 
@@ -72,6 +62,11 @@ class CharacterBuilder extends React.Component {
     firebase.getPF2Character(characterId).then(response => {
       let character = response.data();
       character.uid = characterId;
+      if (!character.class.defenses) {
+        character.class.defenses = {
+          unarmored: Proficiencies.TRAINED
+        };
+      }
       this.setState({ character }, () => {
         this.props.history.push(`/pf2/character-builder/${characterId}`);
       });
@@ -170,11 +165,12 @@ class CharacterBuilder extends React.Component {
     character.abilities = calculateAbilityScores(character);
     character.abilityMods = calculateAbilityMods(character);
 
+    let conMod = character.abilityMods[Abilities.CON];
+
     character.hitPoints =
-      0 +
-      (character.class.hp || 0) +
-      (character.ancestry.hp || 0) +
-      character.abilityMods[Abilities.CON] * 2;
+      0 + (character.class.hp || 0) + (character.ancestry.hp || 0);
+
+    if (conMod > 0) character.hitPoints += conMod * 2;
 
     character.skills = _.cloneDeep(Skills);
 
@@ -268,11 +264,11 @@ class CharacterBuilder extends React.Component {
             key={i}
             onChange={this.boostAbility}
             name={boost.id}
-            className="text-center float-left pf-select pf-select--float"
+            className="text-center float-left pf-select pf-select--float pf-select--center"
             aria-label={"Level 1 Ability Boost: " + i}
             value={boost.ability}
           >
-            <option value="">–</option>
+            <option value="FREE"></option>
             {Object.keys(Abilities).map(ability => {
               if (ability !== "FREE") {
                 return excludedAbilities.includes(Abilities[ability]) ? null : (
@@ -327,8 +323,8 @@ class CharacterBuilder extends React.Component {
     };
 
     return (
-      <div className="page--dark container-fluid pf-body">
-        <div className="page__container">
+      <div className="container-fluid pf-body">
+        <div className="page__container page__container--subnav">
           <PF2CharacterContext.Provider value={context}>
             <SubNav
               reset={this.reset}
@@ -346,19 +342,17 @@ class CharacterBuilder extends React.Component {
               <div className="col-md-6">
                 <div className="pf-section">
                   <h2 className="pf-section__heading">Ability Scores</h2>
-                  <div className="pf-section__body">
+                  <div className="pf-section__body pf-section__body--pad">
                     <div className="clearfix">{this.renderAbilities()}</div>
 
                     <div className="row">
-                      <div className="col">
-                        <h3 className="c-gray-block-heading mb-2">
-                          Level 1 Boosts
-                        </h3>
+                      <div className="col-12">
+                        <h3 className="c-gray-block-heading">Level 1 Boosts</h3>
                         <div className="row">
                           {this.freeAbilityOptions("Level1")}
                         </div>
                         <React.Fragment>
-                          <h3 className="c-gray-block-heading mb-2 mt-2">
+                          <h3 className="c-gray-block-heading mt-2">
                             Ancestry Boosts{" "}
                             {character.ancestry.name &&
                               " - " + character.ancestry.name}
@@ -374,14 +368,14 @@ class CharacterBuilder extends React.Component {
                           </div>
                         </React.Fragment>
                         <React.Fragment>
-                          <h3 className="c-gray-block-heading mt-2 mb-2">
+                          <h3 className="c-gray-block-heading mt-2">
                             Background Boosts{" "}
                             {character.background.name &&
                               " - " + character.background.name}
                           </h3>
-                          <div className="row mb-2">
+                          <div className="row">
                             {_.isEmpty(character.background) ? (
-                              <div className="col u-placeholder-text mb-3">
+                              <div className="col u-placeholder-text mb-4">
                                 choose a background above
                               </div>
                             ) : (

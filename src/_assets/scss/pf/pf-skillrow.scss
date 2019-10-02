@@ -1,21 +1,21 @@
 .c-skillrow {
-  border-top: 1px solid $pf-light-gray;
+  border-bottom: 1px solid $pf-light-gray;
   vertical-align: center;
   clear: both;
   overflow: auto;
   padding: 0.1rem .5rem;
-
-  &:first-child {
-    border-top: none !important;
-  }
 
   & div {
     float: left;
   }
 
   &__name {
-    width: 28%;
+    width: 40%;
     padding-top: .1rem;
+
+    @media (min-width: 768px) {
+      width: 28%;
+    }
 
     @media (min-width: 900px) {
       width: 40%;

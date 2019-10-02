@@ -10,7 +10,6 @@ const TopBar = props => {
         <Link to="/">
           <span className="navbar-brand mb-0">TableTopTools</span>
         </Link>
-        <Link to="/about"><button>About</button></Link>
       </div>
       {props.currentUser ? (
         <div className="float-right">

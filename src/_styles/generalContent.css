@@ -1,31 +1,22 @@
 .general-content {
   font-family: "Lato", Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 175%;
 }
 
 .general-content h1 {
   font-family: "Lora", Helvetica, sans-serif;
   font-size: 1.8rem;
-  color: #922610;
-  margin-bottom: 3rem;
+  color: #072864;
+  margin-bottom: 1rem;
   position: relative;
-}
-
-.general-content h1::after {
-  content: "";
-  background-color: #922610;
-  width: 60%;
-  height: 2px;
-  position: absolute;
-  bottom: -1.5rem;
-  left: 0;
 }
 
 .general-content h2 {
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 1.4rem;
-  color: #922610;
+  color: #072864;
   margin-top: 1.4rem;
   margin-bottom: 1rem;
+  font-weight: bolder;
 }

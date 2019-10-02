@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import "./_assets/css/main.css";
@@ -34,7 +35,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="">
+        <ToastContainer
+          toastClassName="c-toast"
+          autoClose={3000}
+          hideProgressBar={true}
+        />
         <TopBar currentUser={this.state.currentUser} />
         <UserContext.Provider
           value={{
@@ -65,7 +71,6 @@ class App extends Component {
             component={CharacterBuilder}
           />
         </UserContext.Provider>
-        <ToastContainer />
       </div>
     );
   }

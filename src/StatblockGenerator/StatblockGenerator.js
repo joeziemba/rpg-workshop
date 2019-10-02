@@ -394,7 +394,7 @@ class StatblockGenerator extends Component {
           )}
           {!this.state.exportView && (
             <Row>
-              <div className="col-md col-md-5 min-width">
+              <div className="col-12 col-md-5">
                 <div className="statblock-form-container">
                   <StatBlockForm
                     stats={this.state}
@@ -413,7 +413,7 @@ class StatblockGenerator extends Component {
                   />
                 </div>
               </div>
-              <div className="col-md col-md-7">
+              <div className="col-12 col-md-7">
                 <div className="statblock-container">
                   <div className="statblock-container__inner">
                     <StatBlockDisplay stats={this.state} />

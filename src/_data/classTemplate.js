@@ -182,7 +182,10 @@ export function getBlankCharacter() {
     perceptionProficiency: 0,
     ancestry: {},
     background: {},
-    class: { saves: { reflex: 0, fortitude: 0, will: 0 } },
+    class: {
+      saves: { Reflex:0, Fortitude:0, Will: 0 },
+      defenses: { unarmored: 0 }
+    },
     abilities: {
       [Abilities.STR]: 10,
       [Abilities.DEX]: 10,

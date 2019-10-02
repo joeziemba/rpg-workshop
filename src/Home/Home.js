@@ -38,7 +38,7 @@ class Home extends React.Component {
 
   render() {
     return this.state.loading ? null : (
-      <div className="">
+      <div className="page__container">
         <h1>Statblock Generator</h1>
         <Link to="/generator">
           <button>Create</button>

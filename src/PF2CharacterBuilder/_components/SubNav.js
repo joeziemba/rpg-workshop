@@ -43,29 +43,36 @@ class SubNav extends React.Component {
               className="btn btn-sm mr-3 mt-1 nav-button"
               onClick={this.props.reset}
             >
-              New
+              {this.context.currentUser ? "New" : "Clear Sheet"}
             </button>
           </li>
+          {this.context.currentUser && (
+            <React.Fragment>
+              <li className="nav-item">
+                <button
+                  className="btn btn-sm mr-3 mt-1 nav-button"
+                  onClick={() => {
+                    if (this.props.character.name) {
+                      firebase.savePF2Character(this.props.character);
+                    } else {
+                      toast.error("Cannot Save a character without a name");
+                    }
+                  }}
+                >
+                  Save
+                </button>
+              </li>
 
-          <li className="nav-item">
-            <button
-              className="btn btn-sm mr-3 mt-1 nav-button"
-              onClick={() => {
-                firebase.savePF2Character(this.props.character);
-              }}
-            >
-              Save
-            </button>
-          </li>
-
-          <li className="nav-item">
-            <button
-              className="btn btn-sm mr-3 mt-1 nav-button"
-              onClick={this.getCharacters}
-            >
-              Open
-            </button>
-          </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-sm mr-3 mt-1 nav-button"
+                  onClick={this.getCharacters}
+                >
+                  Open
+                </button>
+              </li>
+            </React.Fragment>
+          )}
         </ul>
         {this.state.showOpenModal && (
           <div className="c-modal">

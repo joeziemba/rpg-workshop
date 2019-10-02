@@ -1,8 +1,7 @@
 .pf-section {
-  margin: 1rem auto;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin: 0.5rem auto;
+  box-shadow: 1px 1px 15px 2px rgb(221, 221, 221);
   background-color: #fff;
-  max-width: 600px;
 
   &__heading {
     color: #fff;
@@ -12,11 +11,17 @@
     margin: 0;
     font-family: "Inknut Antiqua", Times, serif;
     font-weight: 300;
+    display: block;
   }
 
   &__body {
-    @media (max-width: 1000px) {
-      // padding: 0.5rem;
+    padding-bottom: 1rem;
+    min-height: 226px;
+    border: 1px solid rgb(221, 221, 221);
+    border-top: none;
+
+    &--pad {
+      padding: .75rem;
     }
   }
 }
@@ -27,4 +32,5 @@
   padding: 0.25rem 0.5rem;
   color: #555;
   text-transform: uppercase;
+  margin-bottom: .75rem;
 }
