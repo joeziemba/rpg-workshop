@@ -279,8 +279,7 @@ label {
 
 .nav-button {
   position: relative;
-  background-color: #4d1308;
-  border-color: #4d1308;
+  background-color: inherit;
   color: #fff;
 }
 

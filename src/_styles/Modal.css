@@ -8,6 +8,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  z-index: 1000000000;
 }
 
 .c-modal__window {

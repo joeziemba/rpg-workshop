@@ -146,3 +146,64 @@ export function calculatePerception(character) {
     perception += character.class.perceptionBonus.proficiency;
   return perception;
 }
+
+export function getBlankCharacter() {
+  let levelOneBoosts = [
+    {
+      ability: Abilities.FREE,
+      source: "Level1",
+      id: "Level1-1",
+      type: Abilities.FREE
+    },
+    {
+      ability: Abilities.FREE,
+      source: "Level1",
+      id: "Level1-2",
+      type: Abilities.FREE
+    },
+    {
+      ability: Abilities.FREE,
+      source: "Level1",
+      id: "Level1-3",
+      type: Abilities.FREE
+    },
+    {
+      ability: Abilities.FREE,
+      source: "Level1",
+      id: "Level1-4",
+      type: Abilities.FREE
+    }
+  ];
+  return {
+    name: "",
+    level: 1,
+    hitPoints: 0,
+    speed: 0,
+    perceptionProficiency: 0,
+    ancestry: {},
+    background: {},
+    class: { saves: { reflex: 0, fortitude: 0, will: 0 } },
+    abilities: {
+      [Abilities.STR]: 10,
+      [Abilities.DEX]: 10,
+      [Abilities.CON]: 10,
+      [Abilities.INT]: 10,
+      [Abilities.WIS]: 10,
+      [Abilities.CHA]: 10
+    },
+    abilityMods: {
+      [Abilities.STR]: 0,
+      [Abilities.DEX]: 0,
+      [Abilities.CON]: 0,
+      [Abilities.INT]: 0,
+      [Abilities.WIS]: 0,
+      [Abilities.CHA]: 0
+    },
+    abilityBoosts: _.cloneDeep(levelOneBoosts),
+    abilityFlaws: [],
+    skillBoosts: [],
+    freeSkills: 0,
+    maxTrainedSkills: 0,
+    skills: _.cloneDeep(Skills)
+  };
+}

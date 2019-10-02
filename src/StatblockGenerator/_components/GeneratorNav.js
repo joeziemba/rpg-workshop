@@ -31,8 +31,8 @@ class GeneratorNav extends React.Component {
   }
 
   selectStatblock(statblock) {
-    this.props.setStatblock(statblock);
     this.closeModal();
+    this.props.setStatblock(statblock);
   }
 
   render() {
@@ -95,7 +95,7 @@ class GeneratorNav extends React.Component {
                 );
               })}
               <button className="c-modal__close" onClick={this.closeModal}>
-                <i class="fas fa-times"></i>
+                <i className="fas fa-times"></i>
               </button>
             </div>
           </div>

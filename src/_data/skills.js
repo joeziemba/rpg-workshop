@@ -43,18 +43,6 @@ export const Skills = {
     modifier: Abilities.CHA,
     proficiency: 0
   },
-  MerchantileLore: {
-    id: "MerchantileLore",
-    name: "Lore (Merchantile)",
-    modifier: Abilities.INT,
-    proficiency: 0
-  },
-  EngineeringLore: {
-    id: "EngineeringLore",
-    name: "Lore (Engineering)",
-    modifier: Abilities.INT,
-    proficiency: 0
-  },
   Lore: {
     id: "Lore",
     name: "Lore",

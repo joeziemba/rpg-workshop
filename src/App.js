@@ -7,7 +7,7 @@ import { UserContext } from "./context";
 import { StatblockGenerator } from "./StatblockGenerator";
 import About from "./views/About";
 import Home from "./views/Home";
-import CharacterBuilder from './views/pf2/CharacterBuilder'
+import CharacterBuilder from "./views/pf2/CharacterBuilder";
 
 import { TopBar } from "./_globalComponents";
 
@@ -43,16 +43,25 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route
             exact
-            path="/dnd5e/statblock-generator"
+            path="/dnd5e/statblock-generator/:characterId"
+            component={StatblockGenerator}
+          />
+          <Route
+            exact
+            path="/dnd5e/statblock-generator/"
             component={StatblockGenerator}
           />
           <Route exact path="/about" component={About} />
           <Route
             exact
-            path="/pf2/character-builder"
+            path="/pf2/character-builder/:characterId"
             component={CharacterBuilder}
           />
-          {/* <Redirect from="*" to="/" /> */}
+          <Route
+            exact
+            path="/pf2/character-builder/"
+            component={CharacterBuilder}
+          />
         </UserContext.Provider>
       </React.Fragment>
     );

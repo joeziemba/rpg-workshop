@@ -10,10 +10,7 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
             type="checkbox"
             onClick={onClick}
             name={skill.id + "-trained"}
-            disabled={
-              skill.source !== undefined ||
-              (disabled && skill.proficiency === 0)
-            }
+            disabled={disabled}
             checked={skill.proficiency >= 2}
             aria-label={skill.id + " Trained"}
           />
@@ -25,9 +22,10 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
+            // checked={skill.proficiency >= 4}
+            readOnly
             name={skill.id + "-expert"}
             disabled={true}
-            checked={skill.proficiency >= 4}
             aria-label={skill.id + " Expert"}
           />
           <span className="c-check"></span>
@@ -38,9 +36,10 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
+            // checked={skill.proficiency >= 6}
+            readOnly
             name={skill.id + "-master"}
             disabled={true}
-            checked={skill.proficiency >= 6}
             aria-label={skill.id + " Master"}
           />
           <span className="c-check"></span>
@@ -51,9 +50,10 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
           <input
             type="checkbox"
             // onClick={onClick}
+            // checked={skill.proficiency >= 8}
+            readOnly
             name={skill.id + "-legend"}
             disabled={true}
-            checked={skill.proficiency >= 8}
             aria-label={skill.id + " Legend"}
           />
           <span className="c-check"></span>

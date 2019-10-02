@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { firebase } from "../../Firebase";
 import { Classes } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 import { Abilities } from "../../_data/abilities";
@@ -7,7 +8,8 @@ import { Abilities } from "../../_data/abilities";
 import {
   calculateAbilityMods,
   calculateAbilityScores,
-  countTrainedSkills
+  countTrainedSkills,
+  getBlankCharacter
 } from "../../_data/classTemplate";
 import { Proficiencies } from "../../_data/skills";
 import { Skills } from "../../_data/skills";
@@ -22,63 +24,7 @@ class CharacterBuilder extends React.Component {
     super(props);
 
     this.state = {
-      character: {
-        name: "",
-        level: 1,
-        hitPoints: 0,
-        speed: 0,
-        perceptionProficiency: 0,
-        ancestry: {},
-        background: {},
-        class: { saves: { reflex: 0, fortitude: 0, will: 0 } },
-        abilities: {
-          [Abilities.STR]: 10,
-          [Abilities.DEX]: 10,
-          [Abilities.CON]: 10,
-          [Abilities.INT]: 10,
-          [Abilities.WIS]: 10,
-          [Abilities.CHA]: 10
-        },
-        abilityMods: {
-          [Abilities.STR]: 0,
-          [Abilities.DEX]: 0,
-          [Abilities.CON]: 0,
-          [Abilities.INT]: 0,
-          [Abilities.WIS]: 0,
-          [Abilities.CHA]: 0
-        },
-        abilityBoosts: [
-          {
-            ability: Abilities.FREE,
-            source: "Level1",
-            id: "Level1-1",
-            type: Abilities.FREE
-          },
-          {
-            ability: Abilities.FREE,
-            source: "Level1",
-            id: "Level1-2",
-            type: Abilities.FREE
-          },
-          {
-            ability: Abilities.FREE,
-            source: "Level1",
-            id: "Level1-3",
-            type: Abilities.FREE
-          },
-          {
-            ability: Abilities.FREE,
-            source: "Level1",
-            id: "Level1-4",
-            type: Abilities.FREE
-          }
-        ],
-        abilityFlaws: [],
-        skillBoosts: [],
-        freeSkills: 0,
-        maxTrainedSkills: 0,
-        skills: _.cloneDeep(Skills)
-      }
+      character: {}
     };
 
     this.selectClass = this.selectClass.bind(this);
@@ -87,6 +33,62 @@ class CharacterBuilder extends React.Component {
     this.boostAbility = this.boostAbility.bind(this);
     this.selectSkill = this.selectSkill.bind(this);
     this.selectBackground = this.selectBackground.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.reset = this.reset.bind(this);
+    this.getCharacter = this.getCharacter.bind(this);
+  }
+
+  componentDidMount() {
+    let { characterId } = this.props.match.params;
+
+    if (characterId) {
+      this.getCharacter(characterId);
+    } else {
+      let character = localStorage.getItem("pf2-character");
+
+      if (character) {
+        character = JSON.parse(character);
+        this.setState({ character }, () => {
+          if (character.id)
+            this.props.history.push(`/pf2/character-builder/${character.id}`);
+        });
+      } else {
+        character = getBlankCharacter();
+        this.setState({ character });
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    localStorage.setItem("pf2-character", JSON.stringify(this.state.character));
+
+    if (
+      prevProps.match.params.characterId !== this.props.match.params.characterId
+    )
+      this.getCharacter(this.props.match.params.characterId);
+  }
+
+  getCharacter(characterId) {
+    firebase.getPF2Character(characterId).then(response => {
+      let character = response.data();
+      character.uid = characterId;
+      this.setState({ character }, () => {
+        this.props.history.push(`/pf2/character-builder/${characterId}`);
+      });
+    });
+  }
+
+  updateName(e) {
+    this.setState({
+      character: { ...this.state.character, name: e.target.value }
+    });
+  }
+
+  reset() {
+    let blankCharacter = getBlankCharacter();
+    this.setState({ character: blankCharacter }, () => {
+      this.props.history.push("/pf2/character-builder");
+    });
   }
 
   selectBackground(e) {
@@ -126,14 +128,14 @@ class CharacterBuilder extends React.Component {
       boost => boost.source !== character.class.name
     );
 
-    character.class = Classes[e.target.value];
+    character.class = _.cloneDeep(Classes[e.target.value]);
 
     character.abilityBoosts = character.abilityBoosts.concat(
-      character.class.abilityBoosts
+      _.cloneDeep(character.class.abilityBoosts)
     );
 
     character.skillBoosts = character.skillBoosts.concat(
-      character.class.skillBoosts
+      _.cloneDeep(character.class.skillBoosts)
     );
 
     this.updateStats(character);
@@ -180,6 +182,8 @@ class CharacterBuilder extends React.Component {
       character.skills[skillBoost.skill.id].proficiency =
         skillBoost.proficiency;
       character.skills[skillBoost.skill.id].source = skillBoost.source;
+      if (skillBoost.skill.id === "Lore")
+        character.skills[skillBoost.skill.id].type = skillBoost.type;
     });
     character.maxTrainedSkills = 0;
 
@@ -209,9 +213,15 @@ class CharacterBuilder extends React.Component {
     let { character } = this.state;
     return Object.keys(Abilities).map(abilityKey => {
       if (abilityKey !== "FREE") {
-        let isKey = character.class.keyAbility === Abilities[abilityKey];
+        let keyAbility = character.abilityBoosts.find(
+          b => b.source === character.class.name
+        );
+        let isKey = keyAbility && keyAbility.ability === Abilities[abilityKey];
         return (
-          <div className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}>
+          <div
+            key={abilityKey}
+            className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}
+          >
             <span className="pf-ability__name">{abilityKey}</span>
             <span className="pf-ability__score">
               {character.abilityMods[Abilities[abilityKey]] < 0 ? " " : " +"}
@@ -260,14 +270,18 @@ class CharacterBuilder extends React.Component {
             name={boost.id}
             className="text-center float-left pf-select pf-select--float"
             aria-label={"Level 1 Ability Boost: " + i}
+            value={boost.ability}
           >
             <option value="">–</option>
             {Object.keys(Abilities).map(ability => {
-              return excludedAbilities.includes(Abilities[ability]) ? null : (
-                <option key={ability} value={Abilities[ability]}>
-                  {ability}
-                </option>
-              );
+              if (ability !== "FREE") {
+                return excludedAbilities.includes(Abilities[ability]) ? null : (
+                  <option key={ability} value={Abilities[ability]}>
+                    {ability}
+                  </option>
+                );
+              }
+              return null;
             })}
           </select>
         </div>
@@ -283,11 +297,12 @@ class CharacterBuilder extends React.Component {
     if (e.target.checked) {
       character.skillBoosts.push({
         skill: Skills[skillName],
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        source: "Free"
       });
     } else {
       character.skillBoosts = character.skillBoosts.map(boost => {
-        if (boost.source === undefined && boost.skill.id === skillName)
+        if (boost.source === "Free" && boost.skill.id === skillName)
           return null;
         return boost;
       });
@@ -298,6 +313,8 @@ class CharacterBuilder extends React.Component {
 
   render() {
     let { character } = this.state;
+
+    if (_.isEmpty(character)) return null;
 
     const context = {
       character,
@@ -313,11 +330,17 @@ class CharacterBuilder extends React.Component {
       <div className="page--dark container-fluid pf-body">
         <div className="page__container">
           <PF2CharacterContext.Provider value={context}>
-            <SubNav />
+            <SubNav
+              reset={this.reset}
+              character={character}
+              setCharacter={this.setCharacter}
+            />
             <CharacterBasics
               selectAncestry={this.selectAncestry}
               selectBackground={this.selectBackground}
               selectClass={this.selectClass}
+              updateName={this.updateName}
+              character={character}
             />
             <div className="row">
               <div className="col-md-6">
@@ -366,6 +389,26 @@ class CharacterBuilder extends React.Component {
                             )}
                           </div>
                         </React.Fragment>
+                        {character.class.name &&
+                          character.class.abilityBoosts[0].ability ===
+                            Abilities.FREE && (
+                            <React.Fragment>
+                              <h3 className="c-gray-block-heading mt-2 mb-2">
+                                Class Boost{" "}
+                                {character.class.name &&
+                                  " - " + character.class.name}
+                              </h3>
+                              <div className="row mb-2">
+                                {!character.class.name ? (
+                                  <div className="col u-placeholder-text mb-3">
+                                    choose a class above
+                                  </div>
+                                ) : (
+                                  this.freeAbilityOptions(character.class.name)
+                                )}
+                              </div>
+                            </React.Fragment>
+                          )}
                       </div>
                     </div>
                   </div>
