@@ -1,6 +1,8 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.minimal.css";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -94,7 +96,11 @@ class Firebase {
         .collection("pf2-characters")
         .doc(character.uid)
         .update(character)
-        .then(response => {});
+        .then(response => {
+          toast.success("Saved " + character.name, {
+            position: toast.POSITION.TOP_CENTER
+          });
+        });
     } else {
       character.userId = this.auth.currentUser.uid;
       this.db.collection("pf2-characters").add(character);

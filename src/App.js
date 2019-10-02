@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import "./App.css";
 import "./_assets/css/main.css";
 import { UserContext } from "./context";
@@ -32,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <TopBar currentUser={this.state.currentUser} />
         <UserContext.Provider
           value={{
@@ -63,7 +65,8 @@ class App extends Component {
             component={CharacterBuilder}
           />
         </UserContext.Provider>
-      </React.Fragment>
+        <ToastContainer />
+      </div>
     );
   }
 }
