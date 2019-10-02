@@ -2,8 +2,6 @@ import React from "react";
 import { PF2CharacterContext } from "../../context";
 import Statbox from "./Statbox";
 import TEMLbuttons from "./TEMLbuttons";
-import ClassSelect from "../_modals/ClassSelect";
-import { Abilities } from "../../_data/abilities";
 
 class CharacterBasics extends React.Component {
   state = { showClassSelect: true };
