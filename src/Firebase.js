@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import { toast } from "react-toastify";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -59,15 +60,13 @@ class Firebase {
   }
 
   saveStatblock(statblock) {
-    console.log('save')
+    console.log("save");
     if (statblock.uid) {
       this.db
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(statblock)
-        .then(response => {
-          debugger;
-        });
+        .then(response => {});
     } else {
       statblock.userId = this.auth.currentUser.uid;
       this.db.collection("5e-statblocks").add(statblock);
@@ -75,7 +74,6 @@ class Firebase {
   }
 
   load5eStatblocksForUser() {
-    debugger;
     return this.db
       .collection("5e-statblocks")
       .where("userId", "==", this.auth.currentUser.uid)
@@ -86,6 +84,37 @@ class Firebase {
     return this.db
       .collection("5e-statblocks")
       .doc(statblockID)
+      .get();
+  }
+
+  // Pathfinder Methods
+  savePF2Character(character) {
+    console.log("save");
+    if (character.uid) {
+      this.db
+        .collection("pf2-characters")
+        .doc(character.uid)
+        .update(character)
+        .then(response => {
+          toast.success("Saved " + character.name, { autoClose: 1000 });
+        });
+    } else {
+      character.userId = this.auth.currentUser.uid;
+      this.db.collection("pf2-characters").add(character);
+    }
+  }
+
+  getPF2Character(characterID) {
+    return this.db
+      .collection("pf2-characters")
+      .doc(characterID)
+      .get();
+  }
+
+  getPF2CharacrersForUser() {
+    return this.db
+      .collection("pf2-characters")
+      .where("userId", "==", this.auth.currentUser.uid)
       .get();
   }
 }

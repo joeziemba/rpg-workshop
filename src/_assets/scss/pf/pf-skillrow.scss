@@ -1,0 +1,29 @@
+.c-skillrow {
+  border-bottom: 1px solid $pf-light-gray;
+  vertical-align: center;
+  clear: both;
+  overflow: auto;
+  padding: 0.1rem .5rem;
+
+  & div {
+    float: left;
+  }
+
+  &__name {
+    width: 40%;
+    padding-top: .1rem;
+
+    @media (min-width: 768px) {
+      width: 28%;
+    }
+
+    @media (min-width: 900px) {
+      width: 40%;
+    }
+  }
+}
+
+.c-skillrow--active {
+  font-weight: bolder;
+  background-color: $pf-light-blue;
+}

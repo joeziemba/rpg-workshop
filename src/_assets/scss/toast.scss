@@ -1,0 +1,13 @@
+.c-toast {
+  &:first-child {
+    margin-top: 5.5rem;
+  }
+  min-height: 44px;
+  padding-left: 1rem;
+
+  box-shadow: 1px 1px 8px 2px rgba(0,0,0,.35);
+}
+
+.Toastify__toast--success {
+  background: #04a542;
+}

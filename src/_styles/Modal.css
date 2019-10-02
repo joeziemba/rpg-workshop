@@ -8,6 +8,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  z-index: 1000000000;
 }
 
 .c-modal__window {
@@ -20,4 +21,34 @@
   border: 1px solid #cecece;
   color: black;
   padding: 20px;
+}
+
+.c-modal__close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+
+  cursor: pointer;
+
+  border: none;
+
+  padding: none;
+  margin: none;
+
+  line-height: 1;
+  font-size: 1.2rem;
+  color: #ababab;
+
+  transition: all .2s ease;
+}
+
+.c-modal__close:hover {
+  color: #922610;
+}
+
+.c-modal__header {
+  font-size: 1.4rem;
+  color: #922610;
+  border-bottom: 2px solid #922610;
+  padding-bottom: 0.4rem;
 }

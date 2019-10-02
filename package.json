@@ -10,6 +10,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy",
+    "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css",
+    "scss:watch": "npm run scss && node-sass --watch src/_assets/scss/main.scss --output-style compressed --source-map true --output src/_assets/css",
     "cover": "npm test -- --coverage"
   },
   "author": "Joe Ziemba",
@@ -17,12 +19,14 @@
   "dependencies": {
     "firebase": "^5.8.2",
     "gh-pages": "^2.0.1",
+    "lodash": "^4.17.15",
     "react": "^16.7.0",
     "react-bootstrap-typeahead": "^3.3.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
+    "react-toastify": "^5.4.0",
     "reactstrap": "^7.1.0"
   },
   "eslintConfig": {
@@ -35,6 +39,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "node-sass": "^4.12.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2"
   }

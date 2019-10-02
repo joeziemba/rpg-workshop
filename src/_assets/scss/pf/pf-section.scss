@@ -1,0 +1,36 @@
+.pf-section {
+  margin: 0.5rem auto;
+  box-shadow: 1px 1px 15px 2px rgb(221, 221, 221);
+  background-color: #fff;
+
+  &__heading {
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: $pf-navy;
+    margin: 0;
+    font-family: "Inknut Antiqua", Times, serif;
+    font-weight: 300;
+    display: block;
+  }
+
+  &__body {
+    padding-bottom: 1rem;
+    min-height: 226px;
+    border: 1px solid rgb(221, 221, 221);
+    border-top: none;
+
+    &--pad {
+      padding: .75rem;
+    }
+  }
+}
+
+.c-gray-block-heading {
+  font-size: 0.8rem;
+  background-color: $pf-light-gray;
+  padding: 0.25rem 0.5rem;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}

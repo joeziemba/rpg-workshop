@@ -31,8 +31,8 @@ class GeneratorNav extends React.Component {
   }
 
   selectStatblock(statblock) {
-    this.props.setStatblock(statblock);
     this.closeModal();
+    this.props.setStatblock(statblock);
   }
 
   render() {
@@ -83,15 +83,20 @@ class GeneratorNav extends React.Component {
         {this.state.showOpenModal && (
           <div className="c-modal">
             <div className="c-modal__window">
-              Choose a Character
+              <h2 className="c-modal__header">Choose a Statblock</h2>
               {this.state.statblocks.map(statblock => {
                 return (
-                  <button onClick={() => this.selectStatblock(statblock)}>
+                  <button
+                    className="c-modal-button-row"
+                    onClick={() => this.selectStatblock(statblock)}
+                  >
                     {statblock.name}
                   </button>
                 );
               })}
-              <button onClick={this.closeModal}>Close</button>
+              <button className="c-modal__close" onClick={this.closeModal}>
+                <i className="fas fa-times"></i>
+              </button>
             </div>
           </div>
         )}

@@ -1,0 +1,30 @@
+@import "./pf-section.scss";
+@import "./statbox.scss";
+@import "./ability.scss";
+@import "./check.scss";
+@import "./pf-select.scss";
+@import "./pf-input.scss";
+@import "./pf-skillrow.scss";
+
+html, body {
+  font-size: 14px;
+}
+
+.navbar--pathfinder {
+  background-color: $pf-maroon !important;
+  color: $pf-beige !important;
+}
+
+.navbar--pathfinder .navbar-brand {
+  color: $pf-beige !important;
+}
+
+#CharacterBasics {
+  background-color: #fff;
+  padding-top: 1rem;
+}
+
+label {
+  margin: 0;
+}
+

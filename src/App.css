@@ -1,4 +1,4 @@
-@import url("//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700");
+@import url("//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700|Inknut+Antiqua:300,400,600,800");
 
 html,
 body,
@@ -278,8 +278,7 @@ label {
 
 .nav-button {
   position: relative;
-  background-color: #4d1308;
-  border-color: #4d1308;
+  background-color: inherit;
   color: #fff;
 }
 
@@ -351,7 +350,8 @@ label {
 }
 
 .page-container {
-  margin: 6rem 3rem;
+  margin: 6rem auto;
+  margin-bottom: 0;
 }
 
 @import "./_styles/Dropdown.css";

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./App.css";
+import "./_assets/css/main.css";
 import { UserContext } from "./context";
 
 import { StatblockGenerator } from "./StatblockGenerator";
 import About from "./views/About";
+import Home from "./views/Home";
+import CharacterBuilder from "./views/pf2/CharacterBuilder";
 
 import { TopBar } from "./_globalComponents";
 
@@ -29,7 +35,12 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="">
+        <ToastContainer
+          toastClassName="c-toast"
+          autoClose={3000}
+          hideProgressBar={true}
+        />
         <TopBar currentUser={this.state.currentUser} />
         <UserContext.Provider
           value={{
@@ -37,12 +48,30 @@ class App extends Component {
             registerCurrentUserToState: this.registerCurrentUserToState
           }}
         >
-          <div className="c-site-container">
-            <Route exact path="/" component={StatblockGenerator} />
-            <Route exact path="/about" component={About} />
-          </div>
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/dnd5e/statblock-generator/:characterId"
+            component={StatblockGenerator}
+          />
+          <Route
+            exact
+            path="/dnd5e/statblock-generator/"
+            component={StatblockGenerator}
+          />
+          <Route exact path="/about" component={About} />
+          <Route
+            exact
+            path="/pf2/character-builder/:characterId"
+            component={CharacterBuilder}
+          />
+          <Route
+            exact
+            path="/pf2/character-builder/"
+            component={CharacterBuilder}
+          />
         </UserContext.Provider>
-      </React.Fragment>
+      </div>
     );
   }
 }
