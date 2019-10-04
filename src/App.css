@@ -7,6 +7,10 @@ body,
   /* height: 100%; */
 }
 
+body {
+  background-color: #cecece;
+}
+
 .c-site-container {
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 0.9rem;
@@ -47,7 +51,6 @@ body,
 }
 
 .statblock-container {
-  background: #fff;
   height: 100%;
   position: fixed;
   overflow-y: scroll;
@@ -72,7 +75,6 @@ body,
 }
 
 .statBlock {
-  background: #fdf1dc;
   background: url("/img/stat-block-top-texture.png"),
     url("/img/paper-texture.png");
   background-size: 100% auto;

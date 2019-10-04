@@ -20,7 +20,6 @@
   position: relative;
   font-size: 1.2rem;
   margin: 0.9rem 0;
-  background: white;
 }
 
 .accordion__button::after {

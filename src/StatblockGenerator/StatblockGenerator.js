@@ -389,7 +389,7 @@ class StatblockGenerator extends Component {
             </Row>
           )}
           {!this.state.exportView && (
-            <Row>
+            <div className="row" style={{ background: "white" }}>
               <div className="col-12 col-md-5">
                 <div className="statblock-form-container">
                   <StatBlockForm
@@ -416,7 +416,7 @@ class StatblockGenerator extends Component {
                   </div>
                 </div>
               </div>
-            </Row>
+            </div>
           )}
         </div>
       </React.Fragment>

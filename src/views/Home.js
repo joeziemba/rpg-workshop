@@ -80,7 +80,7 @@ const Home = props => {
           </div>
         </div>
       </div>
-      <div className="row c-title-section">
+      <div className="row c-title-section" style={{ backgroundColor: "white" }}>
         <div className="col-12">
           <div className="ml-ms-4 py-md-5 pt-5">
             <h2
