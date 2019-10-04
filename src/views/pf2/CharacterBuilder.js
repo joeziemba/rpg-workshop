@@ -168,9 +168,7 @@ class CharacterBuilder extends React.Component {
     let conMod = character.abilityMods[Abilities.CON];
 
     character.hitPoints =
-      0 + (character.class.hp || 0) + (character.ancestry.hp || 0);
-
-    if (conMod > 0) character.hitPoints += conMod;
+      0 + (character.class.hp || 0) + (character.ancestry.hp || 0) + conMod;
 
     character.skills = _.cloneDeep(Skills);
 
