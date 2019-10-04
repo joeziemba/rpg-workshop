@@ -8,7 +8,7 @@ const TopBar = props => {
     <nav className="navbar topbar fixed-top">
       <div>
         <Link to="/">
-          <span className="navbar-brand mb-0">TableTopTools</span>
+          <span className="navbar-brand mb-0">RPG Workshop</span>
         </Link>
       </div>
       {props.currentUser ? (
