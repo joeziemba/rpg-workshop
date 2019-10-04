@@ -36,7 +36,11 @@ class SubNav extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand secondary-nav fixed-top navbar--pathfinder">
-        <h1 className="navbar-brand mb-0">PF2 Character Builder</h1>
+        <h1
+          className="navbar-brand mb-0"
+        >
+          PF2 Character Builder
+        </h1>
         <ul className="navbar-nav">
           <li className="nav-item">
             <button

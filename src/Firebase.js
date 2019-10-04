@@ -66,10 +66,27 @@ class Firebase {
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(statblock)
-        .then(response => {});
+        .then(response => {
+          toast.success("Updated " + statblock.name, {
+            autoClose: 1000
+          });
+        });
     } else {
-      statblock.userId = this.auth.currentUser.uid;
-      this.db.collection("5e-statblocks").add(statblock);
+      this.load5eStatblocksForUser().then(response => {
+        if (response.docs.length >= 5) {
+          toast.error("You can only save up to 5 statblocks.");
+        } else {
+          statblock.userId = this.auth.currentUser.uid;
+          this.db
+            .collection("5e-statblocks")
+            .add(statblock)
+            .then(response => {
+              toast.success("Saved " + statblock.name, {
+                autoClose: 1000
+              });
+            });
+        }
+      });
     }
   }
 
@@ -89,7 +106,6 @@ class Firebase {
 
   // Pathfinder Methods
   savePF2Character(character) {
-    console.log("save");
     if (character.uid) {
       this.db
         .collection("pf2-characters")
@@ -99,8 +115,19 @@ class Firebase {
           toast.success("Saved " + character.name, { autoClose: 1000 });
         });
     } else {
-      character.userId = this.auth.currentUser.uid;
-      this.db.collection("pf2-characters").add(character);
+      this.getPF2CharacrersForUser(character.uid).then(response => {
+        if (response.docs.length >= 5) {
+          toast.error("You can only save up to 5 characters.");
+        } else {
+          character.userId = this.auth.currentUser.uid;
+          this.db
+            .collection("pf2-characters")
+            .add(character)
+            .then(response => {
+              toast.success("Saved " + character.name, { autoClose: 1000 });
+            });
+        }
+      });
     }
   }
 

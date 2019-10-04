@@ -278,8 +278,10 @@ label {
 
 .nav-button {
   position: relative;
-  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: .25rem .75rem;
   color: #fff;
+  border-radius: 2px;
 }
 
 .nav-button:after {
@@ -291,13 +293,12 @@ label {
   transition: all 0.2s ease;
   left: 50%;
   margin-left: -40%;
+
 }
 
-.nav-button:hover::after {
-  content: "";
-  position: absolute;
-  background-color: #fff;
-  bottom: -2px;
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  
 }
 
 .delete-btn {

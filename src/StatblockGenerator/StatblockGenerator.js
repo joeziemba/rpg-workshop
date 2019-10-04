@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 
 import { Row } from "../_globalComponents";
 import { StatBlockDisplay, StatBlockForm } from "./_components";
@@ -92,7 +93,7 @@ class StatblockGenerator extends Component {
     super(props);
 
     this.state = {
-      ...initialState
+      ..._.cloneDeep(initialState)
     };
 
     this.updateState = this.updateState.bind(this);
@@ -119,19 +120,11 @@ class StatblockGenerator extends Component {
         this.setState({ ...response.data(), uid: characterId });
       });
     }
-    let stats = localStorage.getItem("stats");
 
-    if (stats) {
-      stats = JSON.parse(stats);
-      this.setState({
-        ...stats,
-        exportView: false
-      });
-    } else {
-      this.setState({
-        ...initialState
-      });
-    }
+    let state = _.cloneDeep(initialState);
+    this.setState({
+      ...state
+    });
   }
 
   setStatblock(statblock) {
@@ -149,9 +142,11 @@ class StatblockGenerator extends Component {
   }
 
   reset() {
+    let state = _.cloneDeep(initialState);
     this.setState({
-      ...initialState
+      ...state
     });
+    this.props.history.push("/dnd5e/statblock-generator");
   }
 
   updateState(e) {
@@ -375,6 +370,7 @@ class StatblockGenerator extends Component {
             toggleExportView={this.toggleExportView}
             reset={this.reset}
             setStatblock={this.setStatblock}
+            history={this.props.history}
           />
           {this.state.exportView && (
             <Row>

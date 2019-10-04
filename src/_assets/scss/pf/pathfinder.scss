@@ -6,17 +6,12 @@
 @import "./pf-input.scss";
 @import "./pf-skillrow.scss";
 
-html, body {
-  font-size: 14px;
-}
-
 .navbar--pathfinder {
   background-color: $pf-maroon !important;
-  color: $pf-beige !important;
 }
 
 .navbar--pathfinder .navbar-brand {
-  color: $pf-beige !important;
+  font-family: "Inknut Antiqua";
 }
 
 #CharacterBasics {
