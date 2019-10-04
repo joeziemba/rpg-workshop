@@ -170,7 +170,7 @@ class CharacterBuilder extends React.Component {
     character.hitPoints =
       0 + (character.class.hp || 0) + (character.ancestry.hp || 0);
 
-    if (conMod > 0) character.hitPoints += conMod * 2;
+    if (conMod > 0) character.hitPoints += conMod;
 
     character.skills = _.cloneDeep(Skills);
 

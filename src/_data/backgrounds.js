@@ -1243,7 +1243,7 @@ export const Backgrounds = {
     ],
     skillBoosts: [
       {
-        skill: Skills.Crafting,
+        skill: Skills.Intimidation,
         proficiency: Proficiencies.TRAINED,
         source: "Warrior",
         id: "Warrior1"
@@ -1253,8 +1253,9 @@ export const Backgrounds = {
         proficiency: Proficiencies.TRAINED,
         source: "Warrior",
         id: "Warrior2",
-        type: "Engineering"
+        type: "Warfare"
       }
-    ]
+    ],
+    feat: "Intimidating Glare"
   }
 };

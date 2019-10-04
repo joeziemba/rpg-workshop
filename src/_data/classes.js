@@ -277,7 +277,7 @@ export const Classes = {
              {
                ability: Abilities.FREE,
                source: "Rogue",
-               id: "1",
+               id: "Rogue1",
                exclude: [Abilities.CON, Abilities.INT, Abilities.WIS],
                type: Abilities.FREE
              }
@@ -294,7 +294,7 @@ export const Classes = {
              {
                skill: Skills.Stealth,
                source: "Rogue",
-               id: "1",
+               id: "Rogue1",
                proficiency: Proficiencies.TRAINED
              }
            ],
