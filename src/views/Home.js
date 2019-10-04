@@ -9,71 +9,116 @@ const newFeatures = [
   "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
 ];
 
-const upcoming = ["More features for PF2 Character Builder"];
-
 const Home = props => {
   return (
     <div className="container-fluid">
-      <div className="row" style={{ backgroundColor: "#072864" }}>
-        <div className="page__container">
-          <div className="col col-12" style={{ margin: "5rem 0 4rem 0" }}>
+      <div
+        className="row c-title-section"
+        style={{ backgroundColor: "#741b1b", color: "white" }}
+      >
+        <div className="col-12 col-md-6">
+          <div className="ml-ms-4 py-md-5 pt-5">
             <h2
+              className="text-center text-md-left p-4"
               style={{
-                fontFamily: "Inknut Antiqua",
-                textAlign: "center",
-                color: "white"
+                fontFamily: "Inknut Antiqua"
               }}
             >
-              The Tools
+              5e Statblock Generator
             </h2>
-            <div className="row mt-3 mb-3">
-              <div className="col-12 col-sm-6">
-                <Link to="/dnd5e/statblock-generator" className="c-tool-button">
-                  5e Statblock Generator
-                </Link>
-              </div>
-              <div className="col-12 col-sm-6">
-                <Link to="/pf2/character-builder" className="c-tool-button">
-                  Pathfinder 2e Character Builder
-                </Link>
-              </div>
-            </div>
+            <p
+              className="text-center text-sm-left pl-4 pr-4"
+              style={{ fontSize: "1.2rem" }}
+            >
+              Homebrewing a monster or NPCs for a D&D game? Turn all those
+              custom stats into a legit statblock! This generator will format
+              everything to look like the statblocks from Dungeons & Dragons
+              fifth edition.
+            </p>
+          </div>
+        </div>
+        <div className="col-12 col-md-6 my-5 pb-5 pb-md-0">
+          <div className="my-md-5 py-md-5" style={{ color: "#741b1b" }}>
+            <Link
+              to="/dnd5e/statblock-generator"
+              className="mx-auto c-tool-button"
+            >
+              Make a Statblock
+            </Link>
           </div>
         </div>
       </div>
-      <div className="page__container page general-content">
-        <h1>TableTopTools: Digital tools for better gaming!</h1>
-        <p>
-          TableTopTools is built and maintained in the free time of a
-          professional web developer who happens to be a huge fan of table top
-          gaming. It's entirely a labor of love and I'm happy to make my tools
-          available to the community. I plan to release new feature updates on
-          an ongoing basis.
-        </p>
-        <h2>Newly Released!</h2>
-        <ul>
-          {newFeatures.map(feature => (
-            <li>{feature}</li>
-          ))}
-        </ul>
-        <h2>In the Works...</h2>
-        <ul>
-          {upcoming.map(feature => (
-            <li>{feature}</li>
-          ))}
-        </ul>
-        <h2>Contact & Support</h2>
-        <p>
-          If you have thoughts on how to improve these tools, ideas for new
-          ones, or find a bug please let me know by, I'm always happy to hear
-          feedback from others!
-          <br />
-          Send a message to{" "}
-          <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
-            joeziemba.dev@gmail.com
-          </a>{" "}
-          with [TableTopTools] in the subject line.
-        </p>
+      <div
+        className="row c-title-section"
+        style={{ backgroundColor: "#203863", color: "white" }}
+      >
+        <div className="col-12 col-md-6">
+          <div className="ml-ms-4 py-md-5 pt-5">
+            <h2
+              className="text-center text-md-left p-4"
+              style={{
+                fontFamily: "Inknut Antiqua"
+              }}
+            >
+              PF2e Character Calculator
+            </h2>
+            <p
+              className="text-center text-md-left pl-4 pr-4"
+              style={{ fontSize: "1.2rem" }}
+            >
+              Generate a character for the newly-released Pathfinder Second
+              Ediion ruleset! Choose ancestries, backgrounds, and classes.
+              Tinker with ability scores. Choose your skills.
+            </p>
+          </div>
+        </div>
+        <div className="col-12 col-md-6 my-5 pb-5 pb-md-0">
+          <div className="my-md-5 py-md-5" style={{ color: "#203863" }}>
+            <Link to="/pf2/character-builder" className="mx-auto c-tool-button">
+              Create a Character
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="row c-title-section">
+        <div className="col-12">
+          <div className="ml-ms-4 py-md-5 pt-5">
+            <h2
+              className="p-4"
+              style={{
+                fontFamily: "Inknut Antiqua"
+              }}
+            >
+              About
+            </h2>
+            <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
+              TableTopTools is a set of random apps that you might use for table
+              top gaming. Built by an amatuer GM, but a professional web
+              developer. Happy to make thesse available for fellow nerds!
+            </p>
+            <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
+              I want these to be the best they can be, so if you have suggestions, comments, ideas, or just find a bug somewhere please let me know!
+              Send a message to{" "}
+              <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
+                joeziemba.dev@gmail.com
+              </a>{" "}
+              with [TableTopTools] in the subject line.
+            </p>
+            <h2
+              className="p-4"
+              style={{
+                fontFamily: "Inknut Antiqua"
+              }}
+            >
+              Newly Released!
+            </h2>
+            <ul className="" style={{ fontSize: "1.2rem" }}>
+              {newFeatures.map(feature => (
+                <li className="mb-3">{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
