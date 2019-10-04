@@ -12,6 +12,8 @@ class GeneratorNav extends React.Component {
     };
     this.getCharacters = this.getCharacters.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.saveStatblock = this.saveStatblock.bind(this);
+    this.selectStatblock = this.selectStatblock.bind(this);
   }
 
   getCharacters() {
@@ -33,6 +35,11 @@ class GeneratorNav extends React.Component {
   selectStatblock(statblock) {
     this.closeModal();
     this.props.setStatblock(statblock);
+    this.props.history.push("/dnd5e/statblock-generator/" + statblock.uid);
+  }
+
+  saveStatblock(statblock) {
+    firebase.saveStatblock(statblock);
   }
 
   render() {
@@ -54,7 +61,7 @@ class GeneratorNav extends React.Component {
               <button
                 className="btn btn-sm mr-3 mt-1 nav-button"
                 onClick={() => {
-                  firebase.saveStatblock(this.props.statblock);
+                  this.saveStatblock(this.props.statblock);
                 }}
               >
                 Save

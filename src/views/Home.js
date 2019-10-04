@@ -93,12 +93,14 @@ const Home = props => {
             </h2>
             <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
               TableTopTools is a set of random apps that you might use for table
-              top gaming. Built by an amatuer GM, but a professional web
-              developer. Happy to make thesse available for fellow nerds!
+              top gaming, built by an amatuer GM, but a professional web
+              developer. These are early and ongoing projects so there'll be
+              more features to come.
             </p>
             <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
-              I want these to be the best they can be, so if you have suggestions, comments, ideas, or just find a bug somewhere please let me know!
-              Send a message to{" "}
+              I want these to be the best they can be, so if you have
+              suggestions, comments, ideas, or just find a bug somewhere please
+              let me know! Send a message to{" "}
               <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
                 joeziemba.dev@gmail.com
               </a>{" "}

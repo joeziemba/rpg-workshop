@@ -13,7 +13,6 @@ const SkillsTable = ({ character, selectSkill }) => {
     .filter(b => ![undefined, "Free"].includes(b))
     .sort();
   sources = [...new Set(sources)];
-  debugger;
   return (
     <div id="Skills" className="pf-section">
       <h2 className="pf-section__heading">
