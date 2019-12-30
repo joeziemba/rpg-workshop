@@ -183,7 +183,7 @@ export function getBlankCharacter() {
     ancestry: {},
     background: {},
     class: {
-      saves: { Reflex:0, Fortitude:0, Will: 0 },
+      saves: { Reflex: 0, Fortitude: 0, Will: 0 },
       defenses: { unarmored: 0 }
     },
     abilities: {
@@ -207,6 +207,39 @@ export function getBlankCharacter() {
     skillBoosts: [],
     freeSkills: 0,
     maxTrainedSkills: 0,
-    skills: _.cloneDeep(Skills)
+    skills: _.cloneDeep(Skills),
+    feats: [
+      { type: "ancestry_1" },
+      { type: "ancestry_5" },
+      { type: "ancestry_9" },
+      { type: "ancestry_13" },
+      { type: "ancestry_17" },
+      { type: "class_1" },
+      { type: "class_2" },
+      { type: "class_4" },
+      { type: "class_6" },
+      { type: "class_8" },
+      { type: "class_10" },
+      { type: "class_12" },
+      { type: "class_14" },
+      { type: "class_16" },
+      { type: "class_18" },
+      { type: "class_20" },
+      { type: "skill_2" },
+      { type: "skill_4" },
+      { type: "skill_6" },
+      { type: "skill_8" },
+      { type: "skill_10" },
+      { type: "skill_12" },
+      { type: "skill_14" },
+      { type: "skill_16" },
+      { type: "skill_18" },
+      { type: "skill_20" },
+      { type: "general_3" },
+      { type: "general_7" },
+      { type: "general_11" },
+      { type: "general_15" },
+      { type: "general_19" }
+    ]
   };
 }

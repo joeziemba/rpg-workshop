@@ -428,7 +428,7 @@ export const Backgrounds = {
       {
         id: "Emissary2",
         skill: Skills.Lore,
-        type: "Once City",
+        type: "One City",
         proficiency: Proficiencies.TRAINED,
         source: "Emissary"
       }
@@ -608,7 +608,8 @@ export const Backgrounds = {
         id: "Gambler2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
-        source: "Gambler"
+        source: "Gambler",
+        type: "Games"
       }
     ]
   },
@@ -999,7 +1000,7 @@ export const Backgrounds = {
       },
       {
         skill: Skills.Lore,
-        loreType: "1 Travelled Terrain",
+        type: "One Travelled Terrain",
         proficiency: Proficiencies.TRAINED,
         source: "Nomad",
         id: "Nomad2"

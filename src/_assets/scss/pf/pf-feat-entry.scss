@@ -1,0 +1,29 @@
+.feat-entry {
+  border-bottom: 1px solid $pf-light-gray;
+  padding: 4px 8px;
+
+  &__label {
+    color: #969696;
+    margin-right: 8px;
+  }
+
+  & button {
+    border-radius: 2px;
+    width: 22px;
+    text-align: center;
+    padding: .35rem;
+    font-size: .75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .2s ease;
+    background-color: #fff;
+    color: $pf-navy;
+
+    &:hover {
+      background-color: $pf-light-gray;
+    }
+  }
+  & p {
+    margin: .5rem 0;
+  }
+}

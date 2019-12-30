@@ -1,6 +1,10 @@
 @import "./_variables";
 @import "./_utilities";
 
+input, button, button:focus {
+  outline: 0;
+}
+
 .page {
   padding: 2rem;
 
@@ -59,3 +63,5 @@
 @import "./toast.scss";
 @import "./modal-button-row.scss";
 @import "./pf/pathfinder.scss";
+@import "./pf/pf-feat-entry.scss";
+@import "./pf/pf-feat-selection.scss";

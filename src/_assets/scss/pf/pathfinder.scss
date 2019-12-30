@@ -22,3 +22,31 @@ label {
   margin: 0;
 }
 
+.pf-button {
+  background-color: $pf-maroon;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $pf-light-gray;
+  }
+
+  &:focus {
+    background-color: $pf-light-gray;
+  }
+
+  &--link {
+    background-color: transparent;
+    color: $pf-navy;
+  }
+
+  &--small {
+    font-size: .75rem;
+  }
+}
+
+.pf-font-family {
+  font-family: "Inknut Antiqua", Times, serif;
+}

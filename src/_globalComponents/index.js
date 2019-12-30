@@ -9,3 +9,4 @@ export { default as SelectField } from "./SelectField";
 export { default as Textarea } from "./Textarea";
 export { default as LoginButton } from "./LoginButton";
 export { default as TopBar } from './TopBar';
+export { default as Modal } from "./Modal";
