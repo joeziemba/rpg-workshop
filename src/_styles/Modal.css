@@ -1,4 +1,5 @@
 .c-modal {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,20 +8,33 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  overflow-y: hidden;
   z-index: 1000000000;
 }
 
 .c-modal__window {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  width: 400px;
-  margin-left: -200px;
+  flex: 0 0 40%;
+  position: relative;
+  align-self: center;
+  margin: auto;
   background-color: white;
   border: 1px solid #cecece;
   color: black;
   padding: 20px;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.c-modal__window--large {
+  width: 90%;
+  flex: 0 0 90%;
+
+  /* margin-left: -40%; */
+}
+
+.c-modal__scroller {
+  max-height: 95%;
+  overflow-y: scroll;
 }
 
 .c-modal__close {
@@ -39,7 +53,7 @@
   font-size: 1.2rem;
   color: #ababab;
 
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .c-modal__close:hover {

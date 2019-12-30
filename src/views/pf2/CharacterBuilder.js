@@ -18,6 +18,8 @@ import SubNav from "../../PF2CharacterBuilder/_components/SubNav";
 import CharacterBasics from "../../PF2CharacterBuilder/_components/CharacterBasics";
 import SkillsTable from "../../PF2CharacterBuilder/_components/SkillsTable";
 import { PF2CharacterContext } from "../../context";
+import AbilityScoreSection from "../../PF2CharacterBuilder/_components/AbilityScoresSection";
+import FeatsSection from "../../PF2CharacterBuilder/_components/FeatsSection";
 
 class CharacterBuilder extends React.Component {
   constructor(props) {
@@ -36,6 +38,8 @@ class CharacterBuilder extends React.Component {
     this.updateName = this.updateName.bind(this);
     this.reset = this.reset.bind(this);
     this.getCharacter = this.getCharacter.bind(this);
+    this.selectFeat = this.selectFeat.bind(this);
+    this.deleteFeat = this.deleteFeat.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +69,11 @@ class CharacterBuilder extends React.Component {
       if (!character.class.defenses) {
         character.class.defenses = {
           unarmored: Proficiencies.TRAINED
+        };
+      }
+      if (!character.feats) {
+        character.feats = {
+          ancestry1: null
         };
       }
       this.setState({ character }, () => {
@@ -203,34 +212,6 @@ class CharacterBuilder extends React.Component {
     this.setState({ character });
   }
 
-  renderAbilities() {
-    let { character } = this.state;
-    return Object.keys(Abilities).map(abilityKey => {
-      if (abilityKey !== "FREE") {
-        let keyAbility = character.abilityBoosts.find(
-          b => b.source === character.class.name
-        );
-        let isKey = keyAbility && keyAbility.ability === Abilities[abilityKey];
-        return (
-          <div
-            key={abilityKey}
-            className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}
-          >
-            <span className="pf-ability__name">{abilityKey}</span>
-            <span className="pf-ability__score">
-              {character.abilityMods[Abilities[abilityKey]] < 0 ? " " : " +"}
-              {character.abilityMods[Abilities[abilityKey]]}
-            </span>
-            <span className="pf-ability__mod">
-              {character.abilities[Abilities[abilityKey]]}
-            </span>
-          </div>
-        );
-      }
-      return null;
-    });
-  }
-
   boostAbility(e) {
     let { character } = this.state;
 
@@ -241,46 +222,6 @@ class CharacterBuilder extends React.Component {
     boost.ability = e.target.value;
 
     this.updateStats(character);
-  }
-
-  freeAbilityOptions(source) {
-    let { abilityBoosts } = this.state.character;
-    let freebies = abilityBoosts.filter(
-      boost => boost.type === Abilities.FREE && boost.source === source
-    );
-
-    return freebies.map((boost, i) => {
-      let boostsFromSameSource = abilityBoosts.filter(
-        b => b.source === boost.source && b.id !== boost.id
-      );
-      let excludedAbilities = boostsFromSameSource.map(b => b.ability);
-      if (boost.exclude) excludedAbilities.push(...boost.exclude);
-
-      return (
-        <div key={boost.id} className="col">
-          <select
-            key={i}
-            onChange={this.boostAbility}
-            name={boost.id}
-            className="text-center float-left pf-select pf-select--float pf-select--center"
-            aria-label={"Level 1 Ability Boost: " + i}
-            value={boost.ability}
-          >
-            <option value="FREE"></option>
-            {Object.keys(Abilities).map(ability => {
-              if (ability !== "FREE") {
-                return excludedAbilities.includes(Abilities[ability]) ? null : (
-                  <option key={ability} value={Abilities[ability]}>
-                    {ability}
-                  </option>
-                );
-              }
-              return null;
-            })}
-          </select>
-        </div>
-      );
-    });
   }
 
   selectSkill(e) {
@@ -303,6 +244,28 @@ class CharacterBuilder extends React.Component {
     }
     character.skillBoosts = character.skillBoosts.filter(b => b !== null);
     this.updateStats(character);
+  }
+
+  selectFeat(featKey, newFeat) {
+    let { character } = this.state;
+    let newFeats = _.cloneDeep(character.feats);
+    newFeats = newFeats.filter(feat => feat.type !== featKey);
+
+    newFeat.type = featKey;
+
+    newFeats.push(newFeat);
+
+    character.feats = newFeats.sort((a, b) => (a.type < b.type ? -1 : 1));
+
+    this.setState({ character });
+  }
+
+  deleteFeat(featKey) {
+    let { character } = this.state;
+    let newFeats = _.cloneDeep(character.feats);
+    newFeats = newFeats.filter(feat => feat.type !== featKey);
+    character.feats = newFeats;
+    this.setState({ character });
   }
 
   render() {
@@ -338,73 +301,15 @@ class CharacterBuilder extends React.Component {
             />
             <div className="row">
               <div className="col-md-6">
-                <div className="pf-section">
-                  <h2 className="pf-section__heading">Ability Scores</h2>
-                  <div className="pf-section__body pf-section__body--pad">
-                    <div className="clearfix">{this.renderAbilities()}</div>
-
-                    <div className="row">
-                      <div className="col-12">
-                        <h3 className="c-gray-block-heading">Level 1 Boosts</h3>
-                        <div className="row">
-                          {this.freeAbilityOptions("Level1")}
-                        </div>
-                        <React.Fragment>
-                          <h3 className="c-gray-block-heading mt-2">
-                            Ancestry Boosts{" "}
-                            {character.ancestry.name &&
-                              " - " + character.ancestry.name}
-                          </h3>
-                          <div className="row">
-                            {_.isEmpty(character.ancestry) ? (
-                              <p className="col u-placeholder-text">
-                                choose an ancestry above
-                              </p>
-                            ) : (
-                              this.freeAbilityOptions(character.ancestry.name)
-                            )}
-                          </div>
-                        </React.Fragment>
-                        <React.Fragment>
-                          <h3 className="c-gray-block-heading mt-2">
-                            Background Boosts{" "}
-                            {character.background.name &&
-                              " - " + character.background.name}
-                          </h3>
-                          <div className="row">
-                            {_.isEmpty(character.background) ? (
-                              <div className="col u-placeholder-text mb-4">
-                                choose a background above
-                              </div>
-                            ) : (
-                              this.freeAbilityOptions(character.background.id)
-                            )}
-                          </div>
-                        </React.Fragment>
-                        {character.class.name &&
-                          character.class.abilityBoosts[0].ability ===
-                            Abilities.FREE && (
-                            <React.Fragment>
-                              <h3 className="c-gray-block-heading mt-2 mb-2">
-                                Class Boost{" "}
-                                {character.class.name &&
-                                  " - " + character.class.name}
-                              </h3>
-                              <div className="row mb-2">
-                                {!character.class.name ? (
-                                  <div className="col u-placeholder-text mb-3">
-                                    choose a class above
-                                  </div>
-                                ) : (
-                                  this.freeAbilityOptions(character.class.name)
-                                )}
-                              </div>
-                            </React.Fragment>
-                          )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <AbilityScoreSection
+                  character={this.state.character}
+                  boostAbility={this.boostAbility}
+                />
+                <FeatsSection
+                  character={this.state.character}
+                  selectFeat={this.selectFeat}
+                  deleteFeat={this.deleteFeat}
+                />
               </div>
               <div className="col-md-6">
                 <SkillsTable
