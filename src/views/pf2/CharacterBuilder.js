@@ -71,10 +71,9 @@ class CharacterBuilder extends React.Component {
           unarmored: Proficiencies.TRAINED
         };
       }
-      if (!character.feats) {
-        character.feats = {
-          ancestry1: null
-        };
+      if (!character.feats || !Array.isArray(character.feats)) {
+        let blankCharacter = getBlankCharacter();
+        character.feats = blankCharacter.feats;
       }
       this.setState({ character }, () => {
         this.props.history.push(`/pf2/character-builder/${characterId}`);
