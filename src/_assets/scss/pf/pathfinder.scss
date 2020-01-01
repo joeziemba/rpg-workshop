@@ -7,7 +7,7 @@
 @import "./pf-skillrow.scss";
 
 .navbar--pathfinder {
-  background-color: $pf-maroon !important;
+  background-color: $pf-navy !important;
 }
 
 .navbar--pathfinder .navbar-brand {
@@ -43,10 +43,23 @@ label {
   }
 
   &--small {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 }
 
 .pf-font-family {
   font-family: "Inknut Antiqua", Times, serif;
+}
+
+.pf-footer {
+  width: 100%;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: #333;
+  color: $pf-light-gray;
+
+  & a {
+    color: $pf-beige;
+  }
 }

@@ -283,42 +283,61 @@ class CharacterBuilder extends React.Component {
     };
 
     return (
-      <div className="container-fluid pf-body">
-        <div className="page__container page__container--subnav">
-          <PF2CharacterContext.Provider value={context}>
-            <SubNav
-              reset={this.reset}
-              character={character}
-              setCharacter={this.setCharacter}
-            />
-            <CharacterBasics
-              selectAncestry={this.selectAncestry}
-              selectBackground={this.selectBackground}
-              selectClass={this.selectClass}
-              updateName={this.updateName}
-              character={character}
-            />
-            <div className="row">
-              <div className="col-md-6">
-                <AbilityScoreSection
-                  character={this.state.character}
-                  boostAbility={this.boostAbility}
-                />
-                <FeatsSection
-                  character={this.state.character}
-                  selectFeat={this.selectFeat}
-                  deleteFeat={this.deleteFeat}
-                />
+      <div>
+        <div className="container-fluid pf-body">
+          <div className="page__container page__container--subnav">
+            <PF2CharacterContext.Provider value={context}>
+              <SubNav
+                reset={this.reset}
+                character={character}
+                setCharacter={this.setCharacter}
+              />
+              <CharacterBasics
+                selectAncestry={this.selectAncestry}
+                selectBackground={this.selectBackground}
+                selectClass={this.selectClass}
+                updateName={this.updateName}
+                character={character}
+              />
+              <div className="row">
+                <div className="col-md-6">
+                  <AbilityScoreSection
+                    character={this.state.character}
+                    boostAbility={this.boostAbility}
+                  />
+                  <FeatsSection
+                    character={this.state.character}
+                    selectFeat={this.selectFeat}
+                    deleteFeat={this.deleteFeat}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <SkillsTable
+                    character={character}
+                    selectSkill={this.selectSkill}
+                  />
+                </div>
               </div>
-              <div className="col-md-6">
-                <SkillsTable
-                  character={character}
-                  selectSkill={this.selectSkill}
-                />
-              </div>
-            </div>
-          </PF2CharacterContext.Provider>
+            </PF2CharacterContext.Provider>
+          </div>
         </div>
+        <footer className="pf-footer">
+          This website uses trademarks and/or copyrights owned by Paizo Inc.,
+          which are used under Paizo's Community Use Policy. We are expressly
+          prohibited from charging you to use or access this content. This
+          website is not published, endorsed, or specifically approved by Paizo
+          Inc. For more information about Paizo's Community Use Policy, please
+          visit{" "}
+          <a href="http://www.paizo.com/communityuse" target="__blank">
+            paizo.com/communityuse
+          </a>
+          . For more information about Paizo Inc. and Paizo products, please
+          visit{" "}
+          <a href="http://www.paizo.com" target="__blank">
+            paizo.com
+          </a>
+          .
+        </footer>
       </div>
     );
   }

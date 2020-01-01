@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const newFeatures = [
+  "1/1/20 | Added Feats to PF2e Character Builder. Inlcudes all general and skill feats and Level 1 class/ancestry feats.",
   "10/2/19 | Launched Pathfinder 2e Character Builder!",
   "10/2/19 | Improvements to Save and Open for Statblock Generator",
   "9/18/19 | Register/Sign in with Google account: create an account to save your stuff.",
@@ -60,15 +61,12 @@ const Home = props => {
                 fontFamily: "Inknut Antiqua"
               }}
             >
-              PF2e Character Calculator
+              PF2e Character Builder
             </h2>
-            <p
-              className="text-center text-md-left pl-4 pr-4"
-              style={{ fontSize: "1.2rem" }}
-            >
+            <p className="text-center text-md-left pl-4 pr-4">
               Generate a character for the newly-released Pathfinder Second
-              Ediion ruleset! Choose ancestries, backgrounds, and classes.
-              Tinker with ability scores. Choose your skills.
+              Edition ruleset! Assign your Ancestry, Background and Class,
+              tinker with ability scores, train skills and choose feats!
             </p>
           </div>
         </div>
@@ -91,19 +89,19 @@ const Home = props => {
             >
               About
             </h2>
-            <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
-              TableTopTools is a set of random apps that you might use for table
+            <p className="text-md-left px-4">
+              RPG Workshop is a set of random apps that you might use for table
               top gaming. These are early and ongoing projects so there'll be
               more features to come.
             </p>
-            <p className="text-md-left px-4" style={{ fontSize: "1.2rem" }}>
+            <p className="text-md-left px-4">
               I want these to be the best they can be, so if you have
               suggestions, comments, ideas, or just find a bug somewhere please
               let me know! Send a message to{" "}
               <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
                 joeziemba.dev@gmail.com
               </a>{" "}
-              with [TableTopTools] in the subject line.
+              with [RPG Workshop] in the subject line.
             </p>
             <h2
               className="p-4"
@@ -111,9 +109,9 @@ const Home = props => {
                 fontFamily: "Inknut Antiqua"
               }}
             >
-              Newly Released!
+              Changelog:
             </h2>
-            <ul className="" style={{ fontSize: "1.2rem" }}>
+            <ul>
               {newFeatures.map(feature => (
                 <li className="mb-3">{feature}</li>
               ))}
@@ -126,7 +124,3 @@ const Home = props => {
 };
 
 export default Home;
-
-// return (
-
-//   );
