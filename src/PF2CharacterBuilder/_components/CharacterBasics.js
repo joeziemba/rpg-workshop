@@ -2,6 +2,7 @@ import React from "react";
 import { PF2CharacterContext } from "../../context";
 import Statbox from "./Statbox";
 import TEMLbuttons from "./TEMLbuttons";
+import SelectStatbox from "./SelectStatbox";
 
 class CharacterBasics extends React.Component {
   state = { showClassSelect: true };
@@ -15,7 +16,8 @@ class CharacterBasics extends React.Component {
       selectAncestry,
       selectBackground,
       selectClass,
-      character
+      character,
+      setLevel
     } = this.props;
     let { Classes, Backgrounds, Ancestries } = this.context;
 
@@ -78,24 +80,44 @@ class CharacterBasics extends React.Component {
                     </select>
                   </label>
                 </div>
-                <div>
-                  <label className="pf-select__label" htmlFor="classSelect">
-                    Class
-                    <select
-                      id="classSelect"
-                      onChange={selectClass}
-                      value={character.class.name || ""}
-                      className="pf-select"
-                      aria-label="Class"
-                    >
-                      <option value="">Choose Class</option>
-                      {Object.keys(Classes).map(class_name => (
-                        <option value={class_name} key={class_name}>
-                          {class_name}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
+                <div className="row">
+                  <div className="col-8">
+                    <label className="pf-select__label" htmlFor="classSelect">
+                      Class
+                      <select
+                        id="classSelect"
+                        onChange={selectClass}
+                        value={character.class.name || ""}
+                        className="pf-select"
+                        aria-label="Class"
+                      >
+                        <option value="">Choose Class</option>
+                        {Object.keys(Classes).map(class_name => (
+                          <option value={class_name} key={class_name}>
+                            {class_name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+                  <div className="col-4">
+                    <label className="pf-select__label" htmlFor="levelSelect">
+                      Level
+                      <select
+                        id="levelSelect"
+                        onChange={setLevel}
+                        value={character.level}
+                        className="pf-select"
+                        aria-label="Class"
+                      >
+                        {[...Array(3).keys()].slice(1).map((x, i) => (
+                          <option value={i + 1} key={i + 1}>
+                            {i + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

@@ -40,6 +40,7 @@ class CharacterBuilder extends React.Component {
     this.getCharacter = this.getCharacter.bind(this);
     this.selectFeat = this.selectFeat.bind(this);
     this.deleteFeat = this.deleteFeat.bind(this);
+    this.setLevel = this.setLevel.bind(this);
   }
 
   componentDidMount() {
@@ -267,6 +268,12 @@ class CharacterBuilder extends React.Component {
     this.setState({ character });
   }
 
+  setLevel(e) {
+    let { character } = this.state;
+    character.level = parseInt(e.target.value, 10);
+    this.setState(character);
+  }
+
   render() {
     let { character } = this.state;
 
@@ -298,6 +305,7 @@ class CharacterBuilder extends React.Component {
                 selectClass={this.selectClass}
                 updateName={this.updateName}
                 character={character}
+                setLevel={this.setLevel}
               />
               <div className="row">
                 <div className="col-md-6">

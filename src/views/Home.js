@@ -63,7 +63,10 @@ const Home = props => {
             >
               PF2e Character Builder
             </h2>
-            <p className="text-center text-md-left pl-4 pr-4">
+            <p
+              className="text-center text-md-left pl-4 pr-4"
+              style={{ fontSize: "1.2rem" }}
+            >
               Generate a character for the newly-released Pathfinder Second
               Edition ruleset! Assign your Ancestry, Background and Class,
               tinker with ability scores, train skills and choose feats!

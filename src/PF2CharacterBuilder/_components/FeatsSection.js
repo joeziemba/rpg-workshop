@@ -71,12 +71,22 @@ const FeatsSection = props => {
                 return null;
               }
             })}
-          {/* <h3 className="c-gray-block-heading mt-3">Skill Feats</h3>
-          <FeatEntry
-            label="Lv1"
-            feat={props.character.feats.skill2 || { name: "" }}
-            addFeat={() => openFeatSelection("skill2")}
-          /> */}
+          <h3 className="c-gray-block-heading mt-3">Skill Feats</h3>
+          {props.character.feats.map(feat => {
+            let [type, level] = feat.type.split("_");
+            if (props.character.level >= level && type === "skill") {
+              return (
+                <FeatEntry
+                  label={"Lv" + level}
+                  feat={feat}
+                  addFeat={() => openFeatSelection(feat.type)}
+                  removeFeat={() => removeFeat(feat.type)}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
           <h3 className="c-gray-block-heading mt-3">Other Feats</h3>
           {props.character.feats.map(feat => {
             if (feat.name && feat.type.includes("misc")) {
