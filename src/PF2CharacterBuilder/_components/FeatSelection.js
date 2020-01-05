@@ -19,7 +19,7 @@ const FeatSelection = props => {
       filteredFeats = filteredFeats.filter(feat => {
         return (
           feat.traits.includes(props.character.ancestry.name) &&
-          feat.level <= level
+          parseInt(feat.level, 10) <= parseInt(level, 10)
         );
       });
     }
@@ -28,7 +28,16 @@ const FeatSelection = props => {
       filteredFeats = filteredFeats.filter(feat => {
         return (
           feat.traits.includes(props.character.class.name) &&
-          feat.level <= level
+          parseInt(feat.level, 10) <= parseInt(level, 10)
+        );
+      });
+    }
+
+    if (type === "skill") {
+      filteredFeats = filteredFeats.filter(feat => {
+        return (
+          feat.traits.includes("Skill") &&
+          parseInt(feat.level, 10) <= parseInt(level, 10)
         );
       });
     }
