@@ -8,7 +8,6 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
     let freebies = abilityBoosts.filter(
       boost => boost.type === Abilities.FREE && boost.source === source
     );
-
     return freebies.map((boost, i) => {
       let boostsFromSameSource = abilityBoosts.filter(
         b => b.source === boost.source && b.id !== boost.id
@@ -128,6 +127,38 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                   </div>
                 </React.Fragment>
               )}
+            {character.level >= 5 && (
+              <>
+                <h3 className="c-gray-block-heading mt-2 mb-2">
+                  Level 5 Boosts
+                </h3>
+                <div className="row mb-2">{freeAbilityOptions("Level5")}</div>
+              </>
+            )}
+            {character.level >= 10 && (
+              <>
+                <h3 className="c-gray-block-heading mt-2 mb-2">
+                  Level 10 Boosts
+                </h3>
+                <div className="row mb-2">{freeAbilityOptions("Level10")}</div>
+              </>
+            )}
+            {character.level >= 15 && (
+              <>
+                <h3 className="c-gray-block-heading mt-2 mb-2">
+                  Level 15 Boosts
+                </h3>
+                <div className="row mb-2">{freeAbilityOptions("Level15")}</div>
+              </>
+            )}
+            {character.level >= 20 && (
+              <>
+                <h3 className="c-gray-block-heading mt-2 mb-2">
+                  Level 20 Boosts
+                </h3>
+                <div className="row mb-2">{freeAbilityOptions("Level20")}</div>
+              </>
+            )}
           </div>
         </div>
       </div>

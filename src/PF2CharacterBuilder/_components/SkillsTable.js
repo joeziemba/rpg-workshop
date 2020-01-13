@@ -4,7 +4,7 @@ import { Abilities } from "../../_data/abilities";
 import TEMLbuttons from "./TEMLbuttons";
 
 const SkillsTable = ({ character, selectSkill }) => {
-  let { freeSkills } = character;
+  let { freeSkills, maxTrainedSkills } = character;
   if (freeSkills < 0) {
     freeSkills = 0;
   }
@@ -17,11 +17,12 @@ const SkillsTable = ({ character, selectSkill }) => {
     <div id="Skills" className="pf-section">
       <h2 className="pf-section__heading">
         Skills{" "}
-        <div className="float-right">
+        {/* <div className="float-right">
           Available Skill Training: {freeSkills}
-        </div>
+        </div> */}
       </h2>
       <div className="pf-section__body">
+        <p>Trained at 1st level: {maxTrainedSkills}</p>
         {Object.keys(character.skills).map((skill, i) => {
           skill = character.skills[skill];
           if (!skill.source) skill.source = "Free";
@@ -52,14 +53,7 @@ const SkillsTable = ({ character, selectSkill }) => {
               />
 
               <div className="ml-lg-4 ml-2">
-                <TEMLbuttons
-                  disabled={
-                    skill.source !== "Free" ||
-                    (freeSkills === 0 && skill.proficiency === 0)
-                  }
-                  onClick={selectSkill}
-                  skill={skill}
-                />
+                <TEMLbuttons onClick={selectSkill} skill={skill} />
               </div>
             </div>
           );
