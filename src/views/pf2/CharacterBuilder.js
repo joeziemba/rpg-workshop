@@ -449,21 +449,26 @@ class CharacterBuilder extends React.Component {
           </div>
         </div>
         <footer className="pf-footer">
-          This website uses trademarks and/or copyrights owned by Paizo Inc.,
-          which are used under Paizo's Community Use Policy. We are expressly
-          prohibited from charging you to use or access this content. This
-          website is not published, endorsed, or specifically approved by Paizo
-          Inc. For more information about Paizo's Community Use Policy, please
-          visit{" "}
-          <a href="http://www.paizo.com/communityuse" target="__blank">
-            paizo.com/communityuse
-          </a>
-          . For more information about Paizo Inc. and Paizo products, please
-          visit{" "}
-          <a href="http://www.paizo.com" target="__blank">
-            paizo.com
-          </a>
-          .
+          <div className="pb-1 text-center">
+            Builder  v{VERSION}  |  Published 1/12/2020
+          </div>
+          <div>
+            This website uses trademarks and/or copyrights owned by Paizo Inc.,
+            which are used under Paizo's Community Use Policy. We are expressly
+            prohibited from charging you to use or access this content. This
+            website is not published, endorsed, or specifically approved by
+            Paizo Inc. For more information about Paizo's Community Use Policy,
+            please visit{" "}
+            <a href="http://www.paizo.com/communityuse" target="__blank">
+              paizo.com/communityuse
+            </a>
+            . For more information about Paizo Inc. and Paizo products, please
+            visit{" "}
+            <a href="http://www.paizo.com" target="__blank">
+              paizo.com
+            </a>
+            .
+          </div>
         </footer>
       </div>
     );
