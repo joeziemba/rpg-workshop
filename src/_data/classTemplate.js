@@ -62,6 +62,105 @@ export function calculatePerception(character) {
   return prof;
 }
 
+export const upperLevelAbilityBoosts = [
+  {
+    ability: Abilities.FREE,
+    source: "Level5",
+    id: "Level5-1",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level5",
+    id: "Level5-2",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level5",
+    id: "Level5-3",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level5",
+    id: "Level5-4",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level10",
+    id: "Level10-1",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level10",
+    id: "Level10-2",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level10",
+    id: "Level10-3",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level10",
+    id: "Level10-4",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level15",
+    id: "Level15-1",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level15",
+    id: "Level15-2",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level15",
+    id: "Level15-3",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level15",
+    id: "Level15-4",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level20",
+    id: "Level20-1",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level20",
+    id: "Level20-2",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level20",
+    id: "Level20-3",
+    type: Abilities.FREE
+  },
+  {
+    ability: Abilities.FREE,
+    source: "Level20",
+    id: "Level20-4",
+    type: Abilities.FREE
+  }
+];
+
 export function getBlankCharacter() {
   let abilityBoosts = [
     {
@@ -87,104 +186,10 @@ export function getBlankCharacter() {
       source: "Level1",
       id: "Level1-4",
       type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level5",
-      id: "Level5-1",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level5",
-      id: "Level5-2",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level5",
-      id: "Level5-3",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level5",
-      id: "Level5-4",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level10",
-      id: "Level10-1",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level10",
-      id: "Level10-2",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level10",
-      id: "Level10-3",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level10",
-      id: "Level10-4",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level15",
-      id: "Level15-1",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level15",
-      id: "Level15-2",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level15",
-      id: "Level15-3",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level15",
-      id: "Level15-4",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level20",
-      id: "Level20-1",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level20",
-      id: "Level20-2",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level20",
-      id: "Level20-3",
-      type: Abilities.FREE
-    },
-    {
-      ability: Abilities.FREE,
-      source: "Level20",
-      id: "Level20-4",
-      type: Abilities.FREE
     }
   ];
+
+  abilityBoosts = abilityBoosts.concat(upperLevelAbilityBoosts);
 
   return {
     name: "",

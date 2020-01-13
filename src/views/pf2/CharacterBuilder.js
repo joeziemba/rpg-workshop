@@ -10,7 +10,8 @@ import {
   calculateAbilityMods,
   calculateAbilityScores,
   calculatePerception,
-  getBlankCharacter
+  getBlankCharacter,
+  upperLevelAbilityBoosts
 } from "../../_data/classTemplate";
 import { Proficiencies } from "../../_data/skills";
 import { Skills } from "../../_data/skills";
@@ -74,6 +75,9 @@ class CharacterBuilder extends React.Component {
 
         character.builderVersion = VERSION;
         character.class = Classes[character.class.name];
+        character.abilityBoosts = character.abilityBoosts.concat(
+          upperLevelAbilityBoosts
+        );
 
         if (!character.class.defenses) {
           character.class.defenses = {

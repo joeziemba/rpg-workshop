@@ -108,7 +108,7 @@ const FeatsSection = props => {
             addFeat={() => openFeatSelection("misc" + numMiscFeats)}
           />
           <p className="mt-2 mb-0" style={{ fontSize: ".75rem" }}>
-            *Note: Feats added here <b>do not</b> modify any stats on this
+            Feats added here <b>do not</b> modify any stats on this
             character sheet. Modifiers and proficiencies have to be added
             manually for now.
           </p>
