@@ -128,6 +128,8 @@ class CharacterBuilder extends React.Component {
           if (oldBoosts[i]) boost.skill = oldBoosts[i].skill;
         });
 
+        firebase.savePF2Character(character);
+
         this.updateStats(character, () => {
           this.props.history.push(`/pf2/character-builder/${characterId}`);
         });
@@ -450,7 +452,7 @@ class CharacterBuilder extends React.Component {
         </div>
         <footer className="pf-footer">
           <div className="pb-1 text-center">
-            Builder  v{VERSION}  |  Published 1/12/2020
+            Builder v{VERSION} | Published 1/12/2020
           </div>
           <div>
             This website uses trademarks and/or copyrights owned by Paizo Inc.,
