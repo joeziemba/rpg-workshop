@@ -74,16 +74,18 @@ class CharacterBuilder extends React.Component {
         let blankCharacter = getBlankCharacter();
 
         character.builderVersion = VERSION;
-        character.class = Classes[character.class.name];
         character.abilityBoosts = character.abilityBoosts.concat(
           upperLevelAbilityBoosts
         );
-
-        if (!character.class.defenses) {
-          character.class.defenses = {
-            unarmored: Proficiencies.TRAINED
-          };
+        if (character.class.name) {
+          character.class = Classes[character.class.name];
+          if (!character.class.defenses) {
+            character.class.defenses = {
+              unarmored: Proficiencies.TRAINED
+            };
+          }
         }
+
         if (!character.feats || !Array.isArray(character.feats)) {
           character.feats = blankCharacter.feats;
         }
@@ -239,15 +241,20 @@ class CharacterBuilder extends React.Component {
       0 + (character.class.hp || 0) + (character.ancestry.hp || 0) + conMod;
 
     if (character.abilityMods.Intelligence > 0) {
-      // Check if character already has int skills equal to int mod
+      let level1IntMods = character.abilityBoosts.filter(
+        boost =>
+          boost.ability === "Intelligence" &&
+          (boost.source === "Level1" ||
+            boost.source === character.background.name ||
+            boost.source === character.class.name ||
+            boost.source === character.ancestry.name)
+      );
 
       let intSkills = character.skillBoosts.filter(b => b.source === "int");
-      if (intSkills.length < character.abilityMods.Intelligence) {
-        for (
-          let i = intSkills.length;
-          i < character.abilityMods.Intelligence;
-          i++
-        ) {
+
+      if (intSkills.length < level1IntMods.length) {
+        debugger;
+        for (let i = intSkills.length; i < level1IntMods.length; i++) {
           character.skillBoosts.push({
             id: "int" + intSkills.length,
             source: "int",
@@ -256,12 +263,9 @@ class CharacterBuilder extends React.Component {
           });
         }
       }
-      if (intSkills.length > character.abilityMods.Intelligence) {
-        for (
-          let i = 0;
-          i < intSkills.length - character.abilityMods.Intelligence;
-          i++
-        ) {
+      if (intSkills.length > level1IntMods.length) {
+        debugger;
+        for (let i = 0; i < intSkills.length - level1IntMods.length; i++) {
           let boost = intSkills.pop();
           let index = character.skillBoosts.indexOf(boost);
           character.skillBoosts.splice(index, 1);
@@ -302,35 +306,6 @@ class CharacterBuilder extends React.Component {
 
     if (hasClass) {
       character.perceptionProficiency = calculatePerception(character);
-    }
-
-    if (character.abilityMods.Intelligence > 0) {
-      let intSkills = character.skillBoosts.filter(b => b.source === "int");
-      if (intSkills.length < character.abilityMods.Intelligence) {
-        for (
-          let i = intSkills.length;
-          i < character.abilityMods.Intelligence;
-          i++
-        ) {
-          character.skillBoosts.push({
-            id: "int" + intSkills.length,
-            source: "int",
-            skill: { id: "Free" },
-            proficiency: 2
-          });
-        }
-      }
-      if (intSkills.length > character.abilityMods.Intelligence) {
-        for (
-          let i = 0;
-          i < intSkills.length - character.abilityMods.Intelligence;
-          i++
-        ) {
-          let boost = intSkills.pop();
-          let index = character.skillBoosts.indexOf(boost);
-          character.skillBoosts.splice(index, 1);
-        }
-      }
     }
 
     this.setState({ character }, callback);
