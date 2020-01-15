@@ -70,10 +70,10 @@ class CharacterBuilder extends React.Component {
       let character = response.data();
       character.uid = characterId;
 
-      if (!character.builderVersion || character.builderVersion < VERSION) {
+      if (!character.builderVersion || character.builderVersion < "1.0.0") {
         let blankCharacter = getBlankCharacter();
 
-        character.builderVersion = VERSION;
+        character.builderVersion = "1.0.0";
         character.abilityBoosts = character.abilityBoosts.concat(
           upperLevelAbilityBoosts
         );
