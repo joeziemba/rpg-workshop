@@ -78,14 +78,14 @@ export const Classes = {
       {
         save: Saves.FORT,
         source: ClassNames.ALC,
-        id: ClassNames.ALC + "4",
+        id: ClassNames.ALC + "5",
         type: ClassNames.ALC + "_11",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.REF,
         source: ClassNames.ALC,
-        id: ClassNames.ALC + "4",
+        id: ClassNames.ALC + "6",
         type: ClassNames.ALC + "_15",
         proficiency: Proficiencies.MASTER
       }
@@ -95,31 +95,31 @@ export const Classes = {
       {
         skill: Skills.Crafting,
         source: ClassNames.ALC,
-        id: "Alc1",
+        id: ClassNames.ALC + "-skill-1",
         proficiency: Proficiencies.TRAINED
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
-        id: "Alc2",
+        id: ClassNames.ALC + "-skill-2",
         proficiency: Proficiencies.TRAINED
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
-        id: "Alc3",
+        id: ClassNames.ALC + "-skill-3",
         proficiency: Proficiencies.TRAINED
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
-        id: "Alc4",
+        id: ClassNames.ALC + "-skill-4",
         proficiency: Proficiencies.TRAINED
       }
     ],
     freeSkills: 3,
     abilityBoosts: [
-      { ability: Abilities.INT, source: ClassNames.ALC, id: "Alc1" }
+      { ability: Abilities.INT, source: ClassNames.ALC, id: ClassNames.ALC + "-ability-1" }
     ]
   },
   Barbarian: {
@@ -169,21 +169,21 @@ export const Classes = {
       {
         save: Saves.FORT,
         source: ClassNames.BARB,
-        id: ClassNames.BARB + "3",
+        id: ClassNames.BARB + "4",
         type: ClassNames.BARB + "_7",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.REF,
         source: ClassNames.BARB,
-        id: ClassNames.BARB + "3",
+        id: ClassNames.BARB + "5",
         type: ClassNames.BARB + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARB,
-        id: ClassNames.BARB + "3",
+        id: ClassNames.BARB + "6",
         type: ClassNames.BARB + "_15",
         proficiency: Proficiencies.MASTER
       }
@@ -267,28 +267,28 @@ export const Classes = {
       {
         save: Saves.REF,
         source: ClassNames.BARD,
-        id: ClassNames.BARD + "3",
+        id: ClassNames.BARD + "4",
         type: ClassNames.BARD + "_3",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARD,
-        id: ClassNames.BARD + "3",
+        id: ClassNames.BARD + "5",
         type: ClassNames.BARD + "_9",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.FORT,
         source: ClassNames.BARD,
-        id: ClassNames.BARD + "3",
+        id: ClassNames.BARD + "6",
         type: ClassNames.BARD + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARD,
-        id: ClassNames.BARD + "3",
+        id: ClassNames.BARD + "7",
         type: ClassNames.BARD + "_17",
         proficiency: Proficiencies.LEGEND
       }
@@ -397,21 +397,21 @@ export const Classes = {
       {
         save: Saves.FORT,
         source: ClassNames.CHAMP,
-        id: ClassNames.CHAMP + "3",
+        id: ClassNames.CHAMP + "4",
         type: ClassNames.CHAMP + "_9",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.REF,
         source: ClassNames.CHAMP,
-        id: ClassNames.CHAMP + "3",
+        id: ClassNames.CHAMP + "5",
         type: ClassNames.CHAMP + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.CHAMP,
-        id: ClassNames.CHAMP + "3",
+        id: ClassNames.CHAMP + "6",
         type: ClassNames.CHAMP + "_11",
         proficiency: Proficiencies.MASTER
       }
@@ -486,14 +486,14 @@ export const Classes = {
       {
         save: Saves.WILL,
         source: ClassNames.CLER,
-        id: ClassNames.CLER + "3",
+        id: ClassNames.CLER + "4",
         type: ClassNames.CLER + "_9",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.REF,
         source: ClassNames.CLER,
-        id: ClassNames.CLER + "3",
+        id: ClassNames.CLER + "5",
         type: ClassNames.CLER + "_11",
         proficiency: Proficiencies.EXPERT
       }
@@ -516,7 +516,7 @@ export const Classes = {
       {
         skill: { id: "Free" },
         source: ClassNames.CLER,
-        id: ClassNames.CLER + "3",
+        id: ClassNames.CLER + "2",
         proficiency: Proficiencies.TRAINED
       },
       {
@@ -528,7 +528,7 @@ export const Classes = {
       {
         skill: { id: "Free" },
         source: ClassNames.CLER,
-        id: ClassNames.CLER + "3",
+        id: ClassNames.CLER + "4",
         proficiency: Proficiencies.TRAINED
       }
     ],
@@ -588,28 +588,28 @@ export const Classes = {
       {
         save: Saves.WILL,
         source: ClassNames.DRUID,
-        id: ClassNames.DRUID + "3",
+        id: ClassNames.DRUID + "4",
         type: ClassNames.DRUID + "_1",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.FORT,
         source: ClassNames.DRUID,
-        id: ClassNames.DRUID + "3",
+        id: ClassNames.DRUID + "5",
         type: ClassNames.DRUID + "_3",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.REF,
         source: ClassNames.DRUID,
-        id: ClassNames.DRUID + "3",
+        id: ClassNames.DRUID + "6",
         type: ClassNames.DRUID + "_5",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.DRUID,
-        id: ClassNames.DRUID + "3",
+        id: ClassNames.DRUID + "7",
         type: ClassNames.DRUID + "_11",
         proficiency: Proficiencies.MASTER
       }
@@ -699,21 +699,21 @@ export const Classes = {
       {
         save: Saves.WILL,
         source: ClassNames.FIGHT,
-        id: ClassNames.FIGHT + "3",
+        id: ClassNames.FIGHT + "4",
         type: ClassNames.FIGHT + "_3",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.FORT,
         source: ClassNames.FIGHT,
-        id: ClassNames.FIGHT + "3",
+        id: ClassNames.FIGHT + "5",
         type: ClassNames.FIGHT + "_9",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.REF,
         source: ClassNames.FIGHT,
-        id: ClassNames.FIGHT + "3",
+        id: ClassNames.FIGHT + "6",
         type: ClassNames.FIGHT + "_15",
         proficiency: Proficiencies.MASTER
       }
@@ -881,21 +881,21 @@ export const Classes = {
       {
         save: Saves.WILL,
         source: ClassNames.RANGE,
-        id: ClassNames.RANGE + "3",
+        id: ClassNames.RANGE + "4",
         type: ClassNames.RANGE + "_3",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.REF,
         source: ClassNames.RANGE,
-        id: ClassNames.RANGE + "3",
+        id: ClassNames.RANGE + "5",
         type: ClassNames.RANGE + "_7",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.FORT,
         source: ClassNames.RANGE,
-        id: ClassNames.RANGE + "3",
+        id: ClassNames.RANGE + "6",
         type: ClassNames.RANGE + "_11",
         proficiency: Proficiencies.MASTER
       }
@@ -1010,28 +1010,28 @@ export const Classes = {
       {
         save: Saves.REF,
         source: ClassNames.ROGUE,
-        id: ClassNames.ROGUE + "3",
+        id: ClassNames.ROGUE + "4",
         type: ClassNames.ROGUE + "_7",
         proficiency: Proficiencies.MASTER
       },
       {
         save: Saves.FORT,
         source: ClassNames.ROGUE,
-        id: ClassNames.ROGUE + "3",
+        id: ClassNames.ROGUE + "5",
         type: ClassNames.ROGUE + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.REF,
         source: ClassNames.ROGUE,
-        id: ClassNames.ROGUE + "3",
+        id: ClassNames.ROGUE + "6",
         type: ClassNames.ROGUE + "_13",
         proficiency: Proficiencies.LEGEND
       },
       {
         save: Saves.WILL,
         source: ClassNames.ROGUE,
-        id: ClassNames.ROGUE + "3",
+        id: ClassNames.ROGUE + "7",
         type: ClassNames.ROGUE + "_17",
         proficiency: Proficiencies.MASTER
       }
@@ -1142,21 +1142,21 @@ export const Classes = {
       {
         save: Saves.FORT,
         source: ClassNames.SORC,
-        id: ClassNames.SORC + "3",
+        id: ClassNames.SORC + "4",
         type: ClassNames.SORC + "_5",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.REF,
         source: ClassNames.SORC,
-        id: ClassNames.SORC + "3",
+        id: ClassNames.SORC + "5",
         type: ClassNames.SORC + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.SORC,
-        id: ClassNames.SORC + "3",
+        id: ClassNames.SORC + "6",
         type: ClassNames.SORC + "_17",
         proficiency: Proficiencies.MASTER
       }
@@ -1237,21 +1237,21 @@ export const Classes = {
       {
         save: Saves.REF,
         source: ClassNames.WIZ,
-        id: ClassNames.WIZ + "3",
+        id: ClassNames.WIZ + "4",
         type: ClassNames.WIZ + "_5",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.FORT,
         source: ClassNames.WIZ,
-        id: ClassNames.WIZ + "3",
+        id: ClassNames.WIZ + "5",
         type: ClassNames.WIZ + "_9",
         proficiency: Proficiencies.EXPERT
       },
       {
         save: Saves.WILL,
         source: ClassNames.WIZ,
-        id: ClassNames.WIZ + "3",
+        id: ClassNames.WIZ + "6",
         type: ClassNames.WIZ + "_17",
         proficiency: Proficiencies.MASTER
       }
