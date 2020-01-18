@@ -15,7 +15,8 @@ class CharacterBasics extends React.Component {
       selectAncestry,
       selectBackground,
       selectClass,
-      character
+      character,
+      setLevel
     } = this.props;
     let { Classes, Backgrounds, Ancestries } = this.context;
 
@@ -78,24 +79,44 @@ class CharacterBasics extends React.Component {
                     </select>
                   </label>
                 </div>
-                <div>
-                  <label className="pf-select__label" htmlFor="classSelect">
-                    Class
-                    <select
-                      id="classSelect"
-                      onChange={selectClass}
-                      value={character.class.name || ""}
-                      className="pf-select"
-                      aria-label="Class"
-                    >
-                      <option value="">Choose Class</option>
-                      {Object.keys(Classes).map(class_name => (
-                        <option value={class_name} key={class_name}>
-                          {class_name}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
+                <div className="row">
+                  <div className="col-8">
+                    <label className="pf-select__label" htmlFor="classSelect">
+                      Class
+                      <select
+                        id="classSelect"
+                        onChange={selectClass}
+                        value={character.class.name || ""}
+                        className="pf-select"
+                        aria-label="Class"
+                      >
+                        <option value="">Choose Class</option>
+                        {Object.keys(Classes).map(class_name => (
+                          <option value={class_name} key={class_name}>
+                            {class_name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+                  <div className="col-4">
+                    <label className="pf-select__label" htmlFor="levelSelect">
+                      Level
+                      <select
+                        id="levelSelect"
+                        onChange={setLevel}
+                        value={character.level}
+                        className="pf-select"
+                        aria-label="Class"
+                      >
+                        {[...Array(21).keys()].slice(1).map((x, i) => (
+                          <option value={i + 1} key={i + 1}>
+                            {i + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -163,9 +184,9 @@ class CharacterBasics extends React.Component {
             <div className="pf-section">
               <h2 className="pf-section__heading">Saves</h2>
               <div className="pf-section__body pf-section__body--pad">
-                <Saves saveType="Fortitude" character={character} />
-                <Saves saveType="Reflex" character={character} />
-                <Saves saveType="Will" character={character} />
+                <Saves saveType="fortitude" character={character} />
+                <Saves saveType="reflex" character={character} />
+                <Saves saveType="will" character={character} />
               </div>
             </div>
           </div>
@@ -183,19 +204,19 @@ const Saves = ({ character, saveType }) => {
   let abilityAbbreviation, modifier, saveName;
 
   switch (saveType) {
-    case "Will": {
+    case "will": {
       abilityAbbreviation = "WIS";
       modifier = character.abilityMods.Wisdom;
       saveName = "WILL";
       break;
     }
-    case "Fortitude": {
+    case "fortitude": {
       abilityAbbreviation = "CON";
       modifier = character.abilityMods.Constitution;
       saveName = "FORT";
       break;
     }
-    case "Reflex": {
+    case "reflex": {
       abilityAbbreviation = "DEX";
       modifier = character.abilityMods.Dexterity;
       saveName = "REF";
@@ -207,8 +228,9 @@ const Saves = ({ character, saveType }) => {
 
   let proficiencyBonus = 0;
 
-  if (character.class.saves[saveType] > 0) {
-    proficiencyBonus += character.class.saves[saveType] + character.level;
+  if (character.saves[saveType] > 0) {
+    // proficiencyBonus += character.class.saves[saveType] + character.level;
+    proficiencyBonus += character.saves[saveType] + character.level;
   }
 
   let totalBonus = proficiencyBonus + modifier;
@@ -231,7 +253,7 @@ const Saves = ({ character, saveType }) => {
       <div className="float-left ml-2">
         <TEMLbuttons
           skill={{
-            proficiency: character.class.saves[saveType],
+            proficiency: character.saves[saveType],
             id: saveName,
             name: saveName
           }}
@@ -277,7 +299,7 @@ const AC = ({ character }) => {
           className="float-left"
           stat={
             character.class.defenses.unarmored > 0
-              ? character.class.defenses.unarmored + 1
+              ? character.class.defenses.unarmored + character.level
               : 0
           }
           title={character.class.defenses.unarmored > 0 ? "Prof*" : "Prof"}

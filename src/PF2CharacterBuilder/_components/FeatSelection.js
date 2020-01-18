@@ -13,20 +13,36 @@ const FeatSelection = props => {
 
   useEffect(() => {
     let filteredFeats = _.cloneDeep(FEATS);
+    let [type, level] = props.featKey.split("_");
 
-    if (props.featKey.includes("ancestry")) {
+    if (type === "ancestry") {
       filteredFeats = filteredFeats.filter(feat => {
-        return feat.traits.includes(props.character.ancestry.name);
+        return (
+          feat.traits.includes(props.character.ancestry.name) &&
+          parseInt(feat.level, 10) <= parseInt(level, 10)
+        );
       });
     }
 
-    if (props.featKey.includes("class")) {
+    if (type === "class") {
       filteredFeats = filteredFeats.filter(feat => {
-        return feat.traits.includes(props.character.class.name);
+        return (
+          feat.traits.includes(props.character.class.name) &&
+          parseInt(feat.level, 10) <= parseInt(level, 10)
+        );
       });
     }
 
-    if (props.featKey.includes("misc")) {
+    if (type === "skill") {
+      filteredFeats = filteredFeats.filter(feat => {
+        return (
+          feat.traits.includes("Skill") &&
+          parseInt(feat.level, 10) <= parseInt(level, 10)
+        );
+      });
+    }
+
+    if (type === "misc") {
       filteredFeats = filteredFeats.filter(feat => {
         return feat.traits.includes("General");
       });

@@ -4,19 +4,21 @@ import { firebase } from "../../Firebase";
 import { Classes } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 import { Abilities } from "../../_data/abilities";
+import VERSION from "../../VERSION";
 
 import {
   calculateAbilityMods,
   calculateAbilityScores,
-  countTrainedSkills,
-  getBlankCharacter
+  calculatePerception,
+  getBlankCharacter,
+  upperLevelAbilityBoosts
 } from "../../_data/classTemplate";
 import { Proficiencies } from "../../_data/skills";
 import { Skills } from "../../_data/skills";
 import { Backgrounds } from "../../_data/backgrounds";
 import SubNav from "../../PF2CharacterBuilder/_components/SubNav";
 import CharacterBasics from "../../PF2CharacterBuilder/_components/CharacterBasics";
-import SkillsTable from "../../PF2CharacterBuilder/_components/SkillsTable";
+import SkillsTable from "../../PF2CharacterBuilder/_components/SkillsTable2";
 import { PF2CharacterContext } from "../../context";
 import AbilityScoreSection from "../../PF2CharacterBuilder/_components/AbilityScoresSection";
 import FeatsSection from "../../PF2CharacterBuilder/_components/FeatsSection";
@@ -40,6 +42,7 @@ class CharacterBuilder extends React.Component {
     this.getCharacter = this.getCharacter.bind(this);
     this.selectFeat = this.selectFeat.bind(this);
     this.deleteFeat = this.deleteFeat.bind(this);
+    this.setLevel = this.setLevel.bind(this);
   }
 
   componentDidMount() {
@@ -66,18 +69,75 @@ class CharacterBuilder extends React.Component {
     firebase.getPF2Character(characterId).then(response => {
       let character = response.data();
       character.uid = characterId;
-      if (!character.class.defenses) {
-        character.class.defenses = {
-          unarmored: Proficiencies.TRAINED
-        };
-      }
-      if (!character.feats || !Array.isArray(character.feats)) {
+
+      if (!character.builderVersion || character.builderVersion < "1.0.0") {
         let blankCharacter = getBlankCharacter();
-        character.feats = blankCharacter.feats;
+
+        character.builderVersion = "1.0.0";
+        character.abilityBoosts = character.abilityBoosts.concat(
+          upperLevelAbilityBoosts
+        );
+        if (character.class.name) {
+          character.class = Classes[character.class.name];
+          if (!character.class.defenses) {
+            character.class.defenses = {
+              unarmored: Proficiencies.TRAINED
+            };
+          }
+        }
+
+        if (!character.feats || !Array.isArray(character.feats)) {
+          character.feats = blankCharacter.feats;
+        }
+
+        if (!character.saves) {
+          character.saves = blankCharacter.saves;
+        }
+
+        let oldBoosts = _.cloneDeep(character.skillBoosts);
+
+        oldBoosts = oldBoosts.filter(b => b.source === "Free");
+
+        character.skillBoosts = _.cloneDeep(blankCharacter.skillBoosts);
+
+        if (character.class.name) {
+          character.skillBoosts = character.skillBoosts.concat(
+            _.cloneDeep(character.class.skillBoosts)
+          );
+        }
+
+        if (character.background.name) {
+          character.skillBoosts = character.skillBoosts.concat(
+            _.cloneDeep(character.background.skillBoosts)
+          );
+        }
+
+        for (let i = 1; i <= character.abilityMods.Intelligence; i++)
+          character.skillBoosts.push({
+            id: "int" + i,
+            source: "int",
+            skill: { id: "Free" },
+            proficiency: 2
+          });
+
+        let freeClassBoosts = character.skillBoosts.filter(
+          b =>
+            (b.source === character.class.name || b.source === "int") &&
+            b.skill.id === "Free"
+        );
+
+        freeClassBoosts.forEach((boost, i) => {
+          if (oldBoosts[i]) boost.skill = oldBoosts[i].skill;
+        });
+
+        firebase.savePF2Character(character);
+
+        this.updateStats(character, () => {
+          this.props.history.push(`/pf2/character-builder/${characterId}`);
+        });
+      } else {
+        this.setState({ character });
       }
-      this.setState({ character }, () => {
-        this.props.history.push(`/pf2/character-builder/${characterId}`);
-      });
     });
   }
 
@@ -169,7 +229,9 @@ class CharacterBuilder extends React.Component {
     this.updateStats(character);
   }
 
-  updateStats(character) {
+  updateStats(character, callback) {
+    const hasClass = !!character.class.name;
+
     character.abilities = calculateAbilityScores(character);
     character.abilityMods = calculateAbilityMods(character);
 
@@ -178,14 +240,53 @@ class CharacterBuilder extends React.Component {
     character.hitPoints =
       0 + (character.class.hp || 0) + (character.ancestry.hp || 0) + conMod;
 
-    character.skills = _.cloneDeep(Skills);
+    if (character.abilityMods.Intelligence > 0) {
+      let level1IntMods = character.abilityBoosts.filter(
+        boost =>
+          boost.ability === "Intelligence" &&
+          (boost.source === "Level1" ||
+            boost.source === character.background.name ||
+            boost.source === character.class.name ||
+            boost.source === character.ancestry.name)
+      );
 
+      let intSkills = character.skillBoosts.filter(b => b.source === "int");
+
+      if (intSkills.length < level1IntMods.length) {
+        debugger;
+        for (let i = intSkills.length; i < level1IntMods.length; i++) {
+          character.skillBoosts.push({
+            id: "int" + intSkills.length,
+            source: "int",
+            skill: { id: "Free" },
+            proficiency: 2
+          });
+        }
+      }
+      if (intSkills.length > level1IntMods.length) {
+        debugger;
+        for (let i = 0; i < intSkills.length - level1IntMods.length; i++) {
+          let boost = intSkills.pop();
+          let index = character.skillBoosts.indexOf(boost);
+          character.skillBoosts.splice(index, 1);
+        }
+      }
+    }
+
+    character.skills = _.cloneDeep(Skills);
     character.skillBoosts.forEach(skillBoost => {
-      character.skills[skillBoost.skill.id].proficiency =
-        skillBoost.proficiency;
-      character.skills[skillBoost.skill.id].source = skillBoost.source;
-      if (skillBoost.skill.id === "Lore")
-        character.skills[skillBoost.skill.id].type = skillBoost.type;
+      if (skillBoost.skill.id !== "Free") {
+        if (
+          character.skills[skillBoost.skill.id].proficiency <
+          skillBoost.proficiency
+        ) {
+          character.skills[skillBoost.skill.id].proficiency =
+            skillBoost.proficiency;
+        }
+        character.skills[skillBoost.skill.id].source = skillBoost.source;
+        if (skillBoost.skill.id === "Lore")
+          character.skills[skillBoost.skill.id].type = skillBoost.type;
+      }
     });
     character.maxTrainedSkills = 0;
 
@@ -193,22 +294,21 @@ class CharacterBuilder extends React.Component {
       character.speed = character.ancestry.speed;
     }
 
-    if (character.class.name) {
-      character.maxTrainedSkills +=
-        character.class.skillBoosts.length + character.class.freeSkills;
-
-      character.perceptionProficiency = character.class.perceptionProficiency;
+    // SAVES
+    if (hasClass) {
+      character.class.saveBoosts.forEach(boost => {
+        let level = boost.type.split("_")[1];
+        if (parseInt(character.level, 10) >= parseInt(level, 10)) {
+          character.saves[boost.save] = boost.proficiency;
+        }
+      });
     }
-    if (!_.isEmpty(character.background)) {
-      character.maxTrainedSkills += character.background.skillBoosts.length;
+
+    if (hasClass) {
+      character.perceptionProficiency = calculatePerception(character);
     }
 
-    character.maxTrainedSkills += character.abilityMods.Intelligence;
-
-    character.freeSkills =
-      character.maxTrainedSkills - countTrainedSkills(character);
-
-    this.setState({ character });
+    this.setState({ character }, callback);
   }
 
   boostAbility(e) {
@@ -225,23 +325,20 @@ class CharacterBuilder extends React.Component {
 
   selectSkill(e) {
     let { character } = this.state;
-    let skillName = e.target.name.split("-").shift();
-    console.log(skillName);
 
-    if (e.target.checked) {
-      character.skillBoosts.push({
-        skill: Skills[skillName],
-        proficiency: Proficiencies.TRAINED,
-        source: "Free"
-      });
-    } else {
-      character.skillBoosts = character.skillBoosts.map(boost => {
-        if (boost.source === "Free" && boost.skill.id === skillName)
-          return null;
-        return boost;
-      });
+    let skillId = e.target.value;
+    let boostId = e.target.name;
+
+    let skill = character.skills[skillId];
+
+    let boost = character.skillBoosts.find(boost => boost.id === boostId);
+    if (!boost || !skill) {
+      return;
     }
-    character.skillBoosts = character.skillBoosts.filter(b => b !== null);
+
+    boost.skill = skill;
+    boost.proficiency = skill.proficiency + 2;
+
     this.updateStats(character);
   }
 
@@ -265,6 +362,12 @@ class CharacterBuilder extends React.Component {
     newFeats = newFeats.filter(feat => feat.type !== featKey);
     character.feats = newFeats;
     this.setState({ character });
+  }
+
+  setLevel(e) {
+    let { character } = this.state;
+    character.level = parseInt(e.target.value, 10);
+    this.updateStats(character);
   }
 
   render() {
@@ -298,6 +401,7 @@ class CharacterBuilder extends React.Component {
                 selectClass={this.selectClass}
                 updateName={this.updateName}
                 character={character}
+                setLevel={this.setLevel}
               />
               <div className="row">
                 <div className="col-md-6">
@@ -322,21 +426,26 @@ class CharacterBuilder extends React.Component {
           </div>
         </div>
         <footer className="pf-footer">
-          This website uses trademarks and/or copyrights owned by Paizo Inc.,
-          which are used under Paizo's Community Use Policy. We are expressly
-          prohibited from charging you to use or access this content. This
-          website is not published, endorsed, or specifically approved by Paizo
-          Inc. For more information about Paizo's Community Use Policy, please
-          visit{" "}
-          <a href="http://www.paizo.com/communityuse" target="__blank">
-            paizo.com/communityuse
-          </a>
-          . For more information about Paizo Inc. and Paizo products, please
-          visit{" "}
-          <a href="http://www.paizo.com" target="__blank">
-            paizo.com
-          </a>
-          .
+          <div className="pb-1 text-center">
+            Builder v{VERSION} | Published 1/12/2020
+          </div>
+          <div>
+            This website uses trademarks and/or copyrights owned by Paizo Inc.,
+            which are used under Paizo's Community Use Policy. We are expressly
+            prohibited from charging you to use or access this content. This
+            website is not published, endorsed, or specifically approved by
+            Paizo Inc. For more information about Paizo's Community Use Policy,
+            please visit{" "}
+            <a href="http://www.paizo.com/communityuse" target="__blank">
+              paizo.com/communityuse
+            </a>
+            . For more information about Paizo Inc. and Paizo products, please
+            visit{" "}
+            <a href="http://www.paizo.com" target="__blank">
+              paizo.com
+            </a>
+            .
+          </div>
         </footer>
       </div>
     );

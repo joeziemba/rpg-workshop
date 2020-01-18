@@ -1,6 +1,7 @@
 const SOURCES = {
   CRB: "Core Rulebook",
-  LOCG: "Lost Omens Character Guide"
+  LOCG: "Lost Omens Character Guide",
+  FPS: "Fall of Plaguestone"
 };
 
 export const ALCHEMIST_FEATS = [
@@ -39,6 +40,36 @@ export const ALCHEMIST_FEATS = [
       "You keep your bombs in easy-to-reach pouches from which you draw without thinking. You Interact to draw a bomb, then Strike with it.",
     prerequesites: [],
     source: SOURCES.CRB
+  },
+  {
+    name: "Poison Resistance",
+    level: "2",
+    traits: ["Alchemist", "Druid"],
+    description:
+      "Your body has become fortified against toxins. You gain poison resistance equal to half your level, and you gain a +1 status bonus to saving throws against poisons.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Revivifying Mutagen",
+    level: "2",
+    traits: ["Alchemist"],
+    description:
+      "While under the effect of a mutagen, you can metabolize that mutagen’s power to heal yourself. This uses a single action, which has the concentrate and manipulate traits. Once the action is complete, you regain 1d6 Hit Points for every 2 item levels of the mutagen (minimum 1d6), but the mutagen’s duration immediately ends, even if you are under the effect of Persistent Mutagen.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Smoke Bomb [one action]",
+    level: "2",
+    traits: ["Alchemist", "Additive 1"],
+    description:
+      "You cause the bomb to create a cloud of thick smoke, in addition to its normal effects. When thrown, the bomb creates a cloud of smoke in a 10-foot-radius burst. You choose which corner of the target’s space (or the space in which the bomb lands) the cloud is centered on. Creatures within that area have the concealed condition, and all other creatures are concealed to them. The smoke lasts for 1 minute or until dissipated by a strong wind.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You use Quick Alchemy to craft an alchemical bomb with a level at least 1 lower than your advanced alchemy level.",
+    frequency: "once per round"
   }
 ];
 
@@ -85,6 +116,52 @@ export const BARBARIAN_FEATS = [
     traits: ["Barbarian", "Fighter", "Flourish", "Open"],
     description:
       "With a quick sprint, you dash up to your foe and swing. Stride twice. If you end your movement within melee reach of at least one enemy, you can make a melee Strike against that enemy. You can use Sudden Charge while Burrowing, Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Accute Scent",
+    level: "2",
+    traits: ["Barbarian"],
+    description:
+      "When you Rage, your sense of smell improves. You gain imprecise scent with a range of 30 feet.",
+    prerequesites: ["Acute Vision or darkvision"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Furious Finish",
+    level: "2",
+    traits: ["Barbarian", "Rage"],
+    description:
+      "Desperate to finish the fight, you pour all your rage into one final blow. Make a Strike. If it hits, you gain a circumstance bonus to damage equal to the number of rounds remaining in your Rage (maximum 10). After this Strike, your Rage immediately ends, and you are fatigued until you rest for at least 10 minutes.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "No Escape",
+    level: "2",
+    traits: ["Barbarian", "Rage"],
+    description:
+      "You keep pace with a retreating foe. Stride up to your Speed, following the foe and keeping it in reach throughout its movement until it stops moving or you’ve moved your full Speed. You can use No Escape to Burrow, Climb, Fly, or Swim instead of Stride if you have the corresponding movement type.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    trigger: "A foe within reach attempts to move away from you."
+  },
+  {
+    name: "Second Wind",
+    level: "2",
+    traits: ["Barbarian"],
+    description:
+      "You can enter a second rage, but afterward you need to catch your breath. You can Rage without waiting for 1 minute after the previous Rage (or 1 round, with quick rage), but when you end this second Rage, you’re fatigued until you rest for 10 minutes.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Shake it Off",
+    level: "2",
+    traits: ["Barbarian", "Concentrate", "Rage"],
+    description:
+      "You concentrate on your rage, overcoming fear and fighting back sickness. Reduce your frightened condition value by 1, and attempt a Fortitude save to recover from the sickened condition as if you had spent an action retching; you reduce your sickened condition value by 1 on a failure (but not on a critical failure), by 2 on a success, or by 3 on a critical success.",
     prerequesites: [],
     source: SOURCES.CRB
   }
@@ -134,6 +211,53 @@ export const BARD_FEATS = [
       "Prerequisite(s) polymath muse\nYou can rely on the grandeur of your performances rather than ordinary social skills.\nYou can use Performance instead of Diplomacy to Make an Impression and instead of Intimidation to Demoralize. You can also use an acting Performance instead of Deception to Impersonate. You can use your proficiency rank in Performance to meet the requirements of skill feats that require a particular rank in Deception, Diplomacy, or Intimidation.",
     prerequesites: ["polymath muse"],
     source: SOURCES.CRB
+  },
+  {
+    name: "Cantrip Expansion",
+    level: "2",
+    traits: ["Bard", "Cleric", "Sorcerer", "Wizard"],
+    description:
+      "A greater understanding of your magic broadens your range of simple spells.\nPrepared Caster (Cleric, Wizard, etc.): You can prepare two additional cantrips each day.\nSpontaneous Caster (Bard, Sorcerer, etc.): Add two additional cantrips from your spell list to your repertoire.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Esoteric Polymath",
+    level: "2",
+    traits: ["Bard"],
+    description:
+      "You keep a book of occult spells, similar to a wizard’s spellbook, and can use its spells to supplement your spell repertoire. Add all the spells in your repertoire to this book for free. You can use the Occultism skill to Learn Spells (page 238) and add them to your spellbook by paying the appropriate cost, similar to a wizard.\nDuring your daily preparations, choose any one spell from your book of occult spells. If that spell is already in your spell repertoire, you can treat it as an additional signature spell that day. If it isn’t in your repertoire, treat it as though it were until your next daily preparations.",
+    prerequesites: ["polymath muse"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Inspire Competence",
+    level: "2",
+    traits: ["Bard"],
+    description:
+      "You learn the inspire competence composition cantrip, which aids your allies’ skills.",
+    prerequesites: ["maestro muse"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Loremaster's Etude",
+    level: "2",
+    traits: ["Bard", "Fortune"],
+    description:
+      "You magically unlock memories, making them easier to recall. You learn the loremaster’s etude composition spell. Increase the number of Focus Points in your focus pool by 1.",
+    prerequesites: ["enigma muse", "focus pool"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Multifarious Muse",
+    level: "2",
+    traits: ["Bard"],
+    description:
+      "Your muse doesn’t fall into a single label. Choose a type of muse other than that of your own. You gain a 1st-level feat that requires that muse, and your muse is now also a muse of that type, allowing you to take feats with the other muse as a prerequisite. You don’t gain any of the other effects of the muse you chose.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    special:
+      "You can take this feat multiple times. Each time you do, you must choose a different type of muse other than that of your own."
   }
 ];
 
@@ -172,6 +296,53 @@ export const CHAMPION_FEATS = [
     description:
       "Guilt clouds the minds of those who ignore your Glimpse of Redemption. Instead of making the triggering creature enfeebled 2, you can make it stupefied 2 for the same duration.",
     prerequesites: ["redeemer cause"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Divine Grace [reaction]",
+    actionType: "reaction",
+    level: "2",
+    traits: ["Champion"],
+    description:
+      "You call upon your deity’s grace, gaining a +2 circumstance bonus to the save.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    trigger: "You attempt a save against a spell, before you roll."
+  },
+  {
+    name: "Dragonslayer Oath",
+    level: "2",
+    traits: ["Champion", "Oath"],
+    description:
+      "You’ve sworn to slay evil dragons. Add the following tenet to your code after the others: “You must slay evil dragons you encounter as long as you have a reasonable chance of success.”\nYour Retributive Strike gains a +4 circumstance bonus to damage against an evil dragon, or +6 if you have master proficiency with the weapon you used. Your Glimpse of Redemption’s resistance against damage from an evil dragon is 7 + your level. If you use Liberating Step triggered by an evil dragon, your ally gains a +4 circumstance bonus to checks granted by your Liberating Step, and the ally can Step twice afterward.\nYou don’t consider evil dragons to be legitimate authorities, even in nations they rule.",
+    prerequesites: ["tenets of good"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Fiendsbane Oath",
+    level: "2",
+    traits: ["Champion", "Oath"],
+    description:
+      "You’ve sworn an oath to banish the corruption of fiends to the dark planes they call home. Add the following tenet to your champion’s code after the other tenets: “You must banish or slay fiends you come across as long as you have a reasonable chance of success; in the incredibly unlikely event you find a good fiend, you don’t have to banish or kill it.”\nYour Retributive Strike gains a +4 circumstance bonus to damage against a fiend, or a +6 circumstance bonus if you have master proficiency with the weapon you used. Your Glimpse of Redemption’s resistance against damage from a fiend is 7 + your level. If you use Liberating Step triggered by a fiend, your ally gains a +4 circumstance bonus to checks granted by your Liberating Step, and the ally can Step twice afterward.\nYou don’t consider fiends to be legitimate authorities, even in nations ruled by fiends.",
+    prerequesites: ["tenets of good"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Shining Oath",
+    level: "2",
+    traits: ["Champion", "Oath"],
+    description:
+      "You’ve sworn an oath to put the undead to rest. Add the following tenet to your champion’s code after the other tenets: “You must end the existence of undead you encounter as long as you have a reasonable chance of success; in the unlikely event you find a good undead, you can try to work out a more peaceful way to help it recover from its undead state rather than destroying it in combat, such as helping it complete its unfinished business and find peace.”\nYour Retributive Strike gains a +4 circumstance bonus to damage against an undead, or +6 if you have master proficiency with the weapon you used. Your Glimpse of Redemption’s resistance against damage from an undead is 7 + your level. If you use Liberating Step triggered by an undead, your ally gains a +4 circumstance bonus to checks granted by your Liberating Step, and the ally can Step twice afterward.\nYou don’t consider undead to be legitimate authorities, even in nations ruled by undead.",
+    prerequesites: ["tenets of good"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Vengeful Oath",
+    level: "2",
+    traits: ["Champion", "Oath"],
+    description:
+      "You’ve sworn an oath to hunt down wicked evildoers and bring them to judgment. Add the following tenet to your code after the others: “You must hunt down and exterminate evil creatures that have committed heinous atrocities as long as you have a reasonable chance of success and aren’t engaged in a mission that would prevent your doing so.”\nYou can use lay on hands to damage a creature you witness harming an innocent or a good ally as if it were undead; in this case, lay on hands deals good damage instead of positive damage and gains the good trait. This good damage can affect non-evil creatures. This doesn’t prevent you from healing such a creature with lay on hands; you choose whether to heal or harm.",
+    prerequesites: ["paladin cause"],
     source: SOURCES.CRB
   }
 ];
@@ -221,6 +392,54 @@ export const CLERIC_FEATS = [
       "Prerequisite(s) good alignment\nYou combine holy energy with Positive energy to damage demons, devils, and their evil ilk. Heal spells you cast damage fiends as though they were undead.",
     prerequesites: ["good alignment"],
     source: SOURCES.CRB
+  },
+  {
+    name: "Communal Healing",
+    level: "2",
+    traits: ["Cleric", "healing", "positive"],
+    description:
+      "You’re a conduit for positive energy, and as you cit through you, it heals some of your minor injuries. When you cast the heal spell to heal a single creature other than yourself, you regain Hit Points equal to the spell level of the heal spell.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Sap Life",
+    level: "2",
+    traits: ["Cleric"],
+    description:
+      "You draw the life force out of your enemies to heal your own wounds. When you cast a harm spell and damage at least one living creature, you regain Hit Points equal to the spell level of your harm spell. If you aren’t a living creature, you gain no benefit from this feat.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Emblazon Armament",
+    level: "2",
+    traits: ["Cleric", "exploration"],
+    description:
+      "Carefully etching a sacred image into a physical object, you steel yourself for battle. You can spend 10 minutes emblazoning a symbol of your deity upon a weapon or shield. The symbol doesn’t fade until 1 year has passed, but if you Emblazon an Armament, any symbol you previously emblazoned and any symbol already emblazoned on that item instantly disappears. The item becomes a religious symbol of your deity and can be used as a divine focus while emblazoned, and it gains another benefit determined by the type of item. This benefit applies only to followers of the deity the symbol represents.\nShield The shield gains a +1 status bonus to its Hardness. (This causes it to reduce more damage with the Shield Block reaction.)\nWeapon The wielder gains a +1 status bonus to damage rolls.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Turn Undead",
+    level: "2",
+    traits: ["Cleric"],
+    description:
+      "Undead harmed by your positive energy might flee, compelled by an innate aversion to the force opposite undeath. When you use a heal spell to damage undead, each undead of your level or lower that critically fails its save gains the fleeing condition for 1 round.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Versatile Font",
+    level: "2",
+    traits: ["Cleric"],
+    description:
+      "As you explore your deity’s aspects, you move beyond restrictions on healing or harming. You can prepare either harm or heal in the spell slots gained from the harmful font or healing font.",
+    prerequesites: [
+      "harmful font or healing font",
+      "deity that allows clerics to have both fonts"
+    ],
+    source: SOURCES.CRB
   }
 ];
 
@@ -268,6 +487,35 @@ export const DRUID_FEATS = [
     description:
       "Prerequisite(s) wild order\nYou are one with the wild, always changing and adapting to meet any challenge. You gain the wild shape order spell, which lets you transform into a variety of forms that you can expand with druid feats.",
     prerequesites: ["wild order"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Enhanced Familiar",
+    level: "2",
+    traits: ["Druid", "Sorcerer", "Wizard"],
+    description:
+      "You infuse your familiar with additional magical energy. You can select four familiar or master abilities each day, instead of two.\nSpecial (Wizard) If your arcane thesis is improved familiar attunement, your familiar’s base number of familiar abilities, before adding any extra abilities from the arcane thesis, is four.",
+    prerequesites: ["a familiar"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Order Explorer",
+    level: "2",
+    traits: ["Druid"],
+    description:
+      "You have learned the secrets of another druidic order, passing whatever rites of initiation that order requires and gaining access to its secrets. Choose an order other than your own. You gain a 1st-level feat that lists that order as a prerequisite, and you are now a member of that order for the purpose of meeting feat prerequisites. If you commit acts anathema to your new order, you lose all feats and abilities requiring that order but retain your other druid feats and abilities. You don’t gain any of the other benefits of the order you chose.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    special:
+      "You can take this feat multiple times. Each time you do, you must choose a different order other than your own."
+  },
+  {
+    name: "Call of the Wild",
+    level: "2",
+    traits: ["Druid"],
+    description:
+      "You call upon the creatures of nature to come to your aid. You can spend 10 minutes in concert with nature to replace one of the spells you’ve prepared in one of your druid spell slots with a summon animal or summon plants and fungi spell of the same level.",
+    prerequesites: [],
     source: SOURCES.CRB
   }
 ];
@@ -326,6 +574,82 @@ export const FIGHTER_FEATS = [
     description:
       "You combine an attack with quick grappling moves to throw an enemy off balance as long as it stays in your reach. Make a Strike while keeping one hand free. If this Strike hits, the target is flat-footed until the start of your next turn or until it’s no longer within the reach of your hand, whichever comes first.",
     prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Aggressive Block [Free Action]",
+    actionType: "free",
+    level: "2",
+    traits: ["Fighter"],
+    description:
+      "You push back as you block the attack, knocking your foe away or off balance. You use your shield to push the triggering creature, either automatically Shoving it 5 feet or causing it to become flat-footed until the start of your next turn. The triggering creature chooses whether to be moved or become flat-footed. If it chooses to be moved, you choose the direction. If the Shove would cause it to hit a solid object, enter a square of difficult terrain, or enter another creature’s space, it must become flat-footed instead of being moved.",
+    prerequesites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You use the Shield Block reaction, and the opponent that triggered Shield Block is adjacent to you and is your size or smaller."
+  },
+  {
+    name: "Assisting Shot [Single Action]",
+    actionType: "single",
+    level: "2",
+    traits: ["Fighter"],
+    description:
+      "With a quick shot, you interfere with a foe in combat. You can use the Aid action with a ranged weapon you wield. Instead of being within reach of the target, you must be within maximum range of the target. An Assisting Shot uses ammunition and incurs penalties just like any other attack.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Brutish Shove [Single Action]",
+    actionType: "single",
+    level: "2",
+    traits: ["Fighter", "Press"],
+    description:
+      "Throwing your weight behind your attack, you hit your opponent hard enough to make it stumble back. Make a Strike with a two-handed melee weapon. If you hit a target that is your size or smaller, that creature is flat-footed until the end of your current turn, and you can automatically Shove it, with the same benefits as the Shove action (including the critical success effect, if your Strike was a critical hit). If you move to follow the target, your movement doesn’t trigger reactions.\nThis Strike has the following failure effect.\nFailure The target becomes flat-footed until the end of your current turn.",
+    prerequesites: ["You are wielding a two-handed melee weapon."],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Combat Grab [Single Action]",
+    actionType: "single",
+    level: "2",
+    traits: ["Fighter", "Press"],
+    description:
+      "You swipe at your opponent and grab at them. Make a melee Strike while keeping one hand free. If the Strike hits, you grab the target using your free hand. The creature remains grabbed until the end of your next turn or until it Escapes, whichever comes first.",
+    prerequesites: [
+      "You have one hand free",
+      "your target is within reach of that hand"
+    ],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Dueling Parry [Single Action]",
+    actionType: "single",
+    level: "2",
+    traits: ["Fighter"],
+    description:
+      "You can parry attacks against you with your one-handed weapon. You gain a +2 circumstance bonus to AC until the start of your next turn as long as you continue to meet the requirements.",
+    prerequesites: [
+      "You are wielding only a single one-handed melee weapon and have your other hand or hands free."
+    ],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Intimidating Strike [Two Actions]",
+    actionType: "double",
+    level: "2",
+    traits: ["Emotion", "Fear", "Fighter", "Mental"],
+    description:
+      "Your blow not only wounds creatures but also shatters their confidence. Make a melee Strike. If you hit and deal damage, the target is frightened 1, or frightened 2 on a critical hit.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Lunge Single [Action]",
+    level: "2",
+    traits: ["Fighter"],
+    description:
+      "Extending your body to its limits, you attack an enemy that would normally be beyond your reach. Make a Strike with a melee weapon, increasing your reach by 5 feet for that Strike. If the weapon has the disarm, shove, or trip trait, you can use the corresponding action instead of a Strike.",
+    prerequesites: ["You are wielding a melee weapon"],
     source: SOURCES.CRB
   }
 ];
@@ -403,6 +727,51 @@ export const MONK_FEATS = [
       "You enter the stance of a wolf, low to the ground with your hands held like fanged teeth. You can make wolf jaw unarmed attacks. These deal 1d8 piercing damage; are in the brawling group; and have the agile, backstabber, finesse, nonlethal, and unarmed traits.\nIf you’re flanking a target while in Wolf Stance, your wolf jaw unarmed attacks also gain the trip trait.",
     prerequesites: [],
     source: SOURCES.CRB
+  },
+  {
+    name: "Brawling Focus",
+    level: "2",
+    traits: ["Monk"],
+    description:
+      "You know how to make the most of your attacks when fighting hand-to-hand. You gain access to the critical specialization effects of unarmed strikes in the brawling group and weapons in the brawling group. If you have Monastic Weaponry, you also gain the critical specialization effects of all monk weapons in which you are trained.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Crushing Grab",
+    level: "2",
+    traits: ["Monk"],
+    description:
+      "Like a powerful constrictor, you crush targets in your unyielding grasp. When you successfully Grapple a creature, you can deal bludgeoning damage to that creature equal to your Strength modifier. You can make this attack nonlethal with no penalty.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Dancing Leaf",
+    level: "2",
+    traits: ["Monk"],
+    description:
+      "You are as light as a leaf whirling in the breeze. When you Leap or succeed at a High Jump or Long Jump, increase the distance you jump by 5 feet. When calculating the damage you take from falling, don’t count any distance fallen while you are adjacent to a wall.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Elemental Fist",
+    level: "2",
+    traits: ["Monk"],
+    description:
+      "You call upon the power of the elements, infusing your ki with elemental energy and allowing your attacks to deal energy damage. When you cast ki strike, in addition to the damage types normally available, you can deliver the extra damage in the form of a gust of storm-tossed wind (dealing electricity damage and gaining the air trait), a chunk of stone (dealing bludgeoning damage and gaining the earth trait), a flickering flame (dealing fire damage), or a crashing wave of frigid water (dealing cold damage and gaining the water trait).",
+    prerequesites: ["Ki Strike"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Stunning Fist",
+    level: "2",
+    traits: ["Monk"],
+    description:
+      "The focused power of your flurry threatens to overwhelm your opponent. When you target the same creature with two Strikes from your Flurry of Blows, you can try to stun the creature. If either Strike hits and deals damage, the target must succeed at a Fortitude save against your class DC or be stunned 1 (or stunned 3 on a critical failure). This is an incapacitation effect.",
+    prerequesites: ["Flurry of Blows"],
+    source: SOURCES.CRB
   }
 ];
 
@@ -440,6 +809,64 @@ export const RANGER_FEATS = [
     traits: ["Ranger", "Flourish"],
     description:
       "You swiftly attack your hunted prey with both weapons. Make two Strikes against your hunted prey, one with each of the required weapons. If both hit the same hunted prey, combine their damage for the purpose of its resistances and weaknesses. Apply your multiple attack penalty to each Strike normally.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Favored Terrain",
+    level: "2",
+    traits: ["Ranger"],
+    description:
+      "You have studied a specific terrain to overcome its challenges. Choose aquatic, arctic, desert, forest, mountain, plains, sky, swamp, or underground as your favored terrain. When in that terrain, you can ignore the effects of non-magical diffcult terrain. If you have the wild stride class feature, you gain a second benefit while in your favored terrain, depending on your choice.\nAquatic You gain a swim Speed equal to your Speed. If you already had a swim Speed, you gain a +10-foot status bonus to your swim Speed.\nArctic You need to eat and drink only one-tenth as much as usual, you aren’t affected by severe or extreme cold, and you can walk across ice and snow at full Speed without needing to Balance.\nDesert You need to eat and drink only one-tenth as much as usual, you aren’t affected by severe or extreme heat, and you can walk along sand at full Speed without needing to Balance.\nForest, Mountain, or Underground You gain a climb Speed equal to your Speed. If you already had a climb Speed, you gain a +10-foot status bonus to your climb Speed.\nPlains You gain a +10-foot status bonus to your land Speed.\nSky You gain a +10-foot status bonus to your fly Speed, if you have one.\nSwamp You can move across bogs at full Speed, even if they are deep enough to be greater difficult terrain or to normally require you to Swim.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Hunter's Aim [Two Actions]",
+    actionType: "double",
+    level: "2",
+    traits: ["Ranger", "Concentrate"],
+    description:
+      "When you focus on aiming, your attack becomes particularly accurate. Make a ranged weapon Strike against your hunted prey. On this Strike, you gain a +2 circumstance bonus to the attack roll and ignore your prey’s concealed condition.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Monster Warden",
+    level: "2",
+    traits: ["Ranger"],
+    description:
+      "You understand how to defend yourself and others against your prey. When you grant bonuses from Monster Hunter, you and your allies also each gain a +1 circumstance bonus to your next saving throw against that particular creature and to your AC against that creature’s next attack against you.",
+    prerequesites: ["Monster Hunter"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Quick Draw [Single Action]",
+    level: "2",
+    traits: ["Ranger", "Rogue"],
+    description:
+      "You draw your weapon and attack with the same motion. You Interact to draw a weapon, then Strike with that weapon.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Relentless Stalker [Reaction]",
+    actionType: "reaction",
+    level: "2",
+    traits: ["Ranger", "Uncommon", "move"],
+    description:
+      "Your hunted prey cannot escape your relentless pursuit. Stride up to your Speed in tandem with the triggering creature, remaining adjacent to the foe throughout its movement until it stops moving or you run out of movement. You can ignore difficult terrain during this movement unless the difficult terrain is caused by a magical effect.",
+    prerequesites: [],
+    source: SOURCES.FPS,
+    trigger:
+      "An adjacent creature you are hunting attempts to move away from you using an action that has the move trait."
+  },
+  {
+    name: "Wild Empathy",
+    level: "2",
+    traits: ["Ranger"],
+    description:
+      "You have a connection to the creatures of the natural world that allows you to communicate with them on a rudimentary level. You can use Diplomacy to Make an Impression on animals and to make very simple Requests of them. In most cases, wild animals will give you time to make your case.",
     prerequesites: [],
     source: SOURCES.CRB
   }
@@ -486,6 +913,51 @@ export const ROGUE_FEATS = [
     description:
       "After downing a foe, you menacingly remind another foe that you’re coming after them next. Attempt an Intimidation check with a +2 circumstance bonus to Demoralize a single creature that you can see and that can see you. If you have legendary proficiency in Intimidation, you can use this as a free action with the same trigger.",
     prerequesites: ["trained in Intimidation"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Brutal Beating",
+    level: "2",
+    traits: ["Rogue"],
+    description:
+      "The brutality of your critical hits shakes your foes’ confidence. Whenever your Strike is a critical hit and deals damage, the target is frightened 1.",
+    prerequesites: ["ruffian racket"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Distracting Feint",
+    level: "2",
+    traits: ["Rogue"],
+    description:
+      "Your Feints are far more distracting than normal, drawing your foes’ attention and allowing you and your allies to take greater advantage. While a creature is flat-footed by your Feint, it also takes a –2 circumstance penalty to Perception checks and Reflex saves.",
+    prerequesites: ["scoundrel racket"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Minor Magic",
+    level: "2",
+    traits: ["Rogue"],
+    description:
+      "You’ve dabbled in a variety of tricks, gaining minor magical abilities from a particular tradition. Choose arcane, divine, occult, or primal magic, and gain two cantrips from the common cantrips available to that tradition. Your key spellcasting ability is Charisma, and you're trained in spell attack rolls and DCs for the tradition of your chosen cantrips.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Mobility",
+    level: "2",
+    traits: ["Rogue"],
+    description:
+      "You move in a way that denies your enemies the opportunity to retaliate. When you take a Stride action to move half your Speed or less, that movement does not trigger reactions. You can use Mobility when Climbing, Flying, or Swimming instead of Striding if you have the corresponding movement type.",
+    prerequesites: [],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Unbalancing Blow",
+    level: "2",
+    traits: ["Rogue"],
+    description:
+      "Interweaving your most powerful attacks in a graceful fiow, you temporarily unbalance your foes. Whenever your Strike is a critical hit and deals damage, the target is flat-footed against your attacks until the end of your next turn.",
+    prerequesites: ["thief racket"],
     source: SOURCES.CRB
   }
 ];
@@ -550,6 +1022,15 @@ export const WIZARD_FEAS = [
     description:
       "You can magically hurl your weapon at your foe. You gain the hand of the apprentice universalist spell. Universalist spells are a type of focus spell, much like school spells. You start with a focus pool of 1 Focus Point. See Arcane Schools for more information about focus spells.",
     prerequesites: ["Universalist Wizard"],
+    source: SOURCES.CRB
+  },
+  {
+    name: "Conceal Spell [Single Action]",
+    level: "1",
+    traits: ["Concentrate", "Manipulate", "Metamagic", "Wizard"],
+    description:
+      "Hiding your gestures and incantations within other speech and movement, you attempt to conceal the fact that you are Casting a Spell. If the next action you use is to Cast a Spell, attempt a Stealth check against one or more observers’ Perception DCs; if the spell has verbal components, you must also attempt a Deception check against the observers’ Perception DC. If you succeed at your check (or checks) against an observer’s DC, that observer doesn’t notice you’re casting a spell, even though material, somatic, and verbal components are usually noticeable and spells normally have sensory manifestations that would make spellcasting obvious to those nearby.\nThis ability hides only the spell’s spellcasting actions and manifestations, not its effects, so an observer might still see a ray streak out from you or see you vanish into thin air.",
+    prerequesites: [],
     source: SOURCES.CRB
   }
 ];
