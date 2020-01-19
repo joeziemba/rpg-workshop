@@ -16,7 +16,7 @@ const FeatsSection = props => {
     );
 
     setNumMiscFeats(miscFeats.length + 1);
-  });
+  }, [props.character.feats]);
 
   const openFeatSelection = featKey => {
     setFeatKey(featKey);
