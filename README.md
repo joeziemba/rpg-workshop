@@ -1,1 +1,1 @@
-[![CircleCI](https://circleci.com/gh/joeziemba/dnd-stat-block-creator/tree/master.svg?style=svg)](https://circleci.com/gh/joeziemba/dnd-stat-block-creator/tree/master)
+[![CircleCI](https://circleci.com/gh/joeziemba/rpg-workshop.svg?style=svg)](https://circleci.com/gh/joeziemba/rpg-workshop)
