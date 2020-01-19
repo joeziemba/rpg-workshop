@@ -105,14 +105,14 @@ class Firebase {
   }
 
   // Pathfinder Methods
-  savePF2Character(character, toast = true) {
+  savePF2Character(character, showToast = true) {
     if (character.uid) {
       this.db
         .collection("pf2-characters")
         .doc(character.uid)
         .update(character)
         .then(response => {
-          if (toast)
+          if (showToast)
             toast.success("Saved " + character.name, { autoClose: 1000 });
         });
     } else {
@@ -125,7 +125,7 @@ class Firebase {
             .collection("pf2-characters")
             .add(character)
             .then(response => {
-              if (toast)
+              if (showToast)
                 toast.success("Saved " + character.name, { autoClose: 1000 });
             });
         }
