@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import { Column } from "..";
+import Column from "../Column";
 
 describe("Column", () => {
   const classProp = "test-class";

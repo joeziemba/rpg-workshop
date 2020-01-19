@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import { Accordion } from "..";
+import Accordion from "../Accordion";
 
 describe("Accordion", () => {
   const titleProp = "Test Accordion";
