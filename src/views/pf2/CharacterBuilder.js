@@ -163,7 +163,7 @@ class CharacterBuilder extends React.Component {
 
   selectBackground(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.background.id
@@ -188,7 +188,7 @@ class CharacterBuilder extends React.Component {
 
   selectClass(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.class.name
@@ -213,7 +213,7 @@ class CharacterBuilder extends React.Component {
 
   selectAncestry(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.ancestry.name
@@ -324,11 +324,18 @@ class CharacterBuilder extends React.Component {
       character.perceptionProficiency = calculatePerception(character);
     }
 
+    // Sort Feats
+    character.feats = character.feats.sort((a, b) => {
+      let aLevel = a.type.split("_")[1];
+      let bLevel = b.type.split("_")[1];
+      return parseInt(aLevel, 10) - parseInt(bLevel, 10);
+    });
+
     this.setState({ character }, callback);
   }
 
   boostAbility(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     let boost = character.abilityBoosts.find(
       boost => boost.id === e.target.name
@@ -340,7 +347,7 @@ class CharacterBuilder extends React.Component {
   }
 
   selectSkill(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     let skillId = e.target.value;
     let boostId = e.target.name;
@@ -359,21 +366,24 @@ class CharacterBuilder extends React.Component {
   }
 
   selectFeat(featKey, newFeat) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
     newFeats = newFeats.filter(feat => feat.type !== featKey);
 
     newFeat.type = featKey;
 
     newFeats.push(newFeat);
-
-    character.feats = newFeats.sort((a, b) => (a.type < b.type ? -1 : 1));
+    character.feats = newFeats.sort((a, b) => {
+      let aLevel = a.type.split("_")[1];
+      let bLevel = b.type.split("_")[1];
+      return parseInt(aLevel, 10) - parseInt(bLevel, 10);
+    });
 
     this.setState({ character });
   }
 
   deleteFeat(featKey) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
     newFeats = newFeats.filter(feat => feat.type !== featKey);
     character.feats = newFeats;
@@ -381,7 +391,7 @@ class CharacterBuilder extends React.Component {
   }
 
   setLevel(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     character.level = parseInt(e.target.value, 10);
     this.updateStats(character);
   }
@@ -443,7 +453,7 @@ class CharacterBuilder extends React.Component {
         </div>
         <footer className="pf-footer">
           <div className="pb-1 text-center">
-            Builder v{VERSION} | Published 1/12/2020
+            Builder v{VERSION} | Published 1/19/2020
           </div>
           <div>
             This website uses trademarks and/or copyrights owned by Paizo Inc.,
