@@ -21,11 +21,98 @@ export function calculateAbilityScores(character) {
     }
   });
 
-  character.abilityFlaws.forEach(flaw => {
-    abilities[flaw.ability] -= 2;
-  });
+  if (character.abilityFlaws)
+    character.abilityFlaws.forEach(flaw => {
+      abilities[flaw.ability] -= 2;
+    });
 
   return abilities;
+}
+
+export function calculateHP(character) {
+  // Add con mods from boosts
+  let lv1mods, lv5mods, lv10mods, lv15mods;
+  // 1st
+  let lv1boosts = character.abilityBoosts.filter(
+    boost =>
+      boost.source === "Level_1" ||
+      boost.source === character.background.name ||
+      boost.source === character.class.name ||
+      boost.source === character.ancestry.name
+  );
+
+  let lv1scores = calculateAbilityScores({ abilityBoosts: lv1boosts });
+  lv1mods = calculateAbilityMods({
+    abilities: lv1scores
+  });
+
+  // 5th
+  let lv5boosts = character.abilityBoosts.filter(
+    boost =>
+      boost.source === "Level_1" ||
+      boost.source === "Level_5" ||
+      boost.source === character.background.name ||
+      boost.source === character.class.name ||
+      boost.source === character.ancestry.name
+  );
+
+  let lv5scores = calculateAbilityScores({ abilityBoosts: lv5boosts });
+  lv5mods = calculateAbilityMods({
+    abilities: lv5scores
+  });
+
+  // 10th
+  let lv10boosts = character.abilityBoosts.filter(
+    boost =>
+      boost.source === "Level_1" ||
+      boost.source === "Level_5" ||
+      boost.source === "Level_10" ||
+      boost.source === character.background.name ||
+      boost.source === character.class.name ||
+      boost.source === character.ancestry.name
+  );
+
+  let lv10scores = calculateAbilityScores({ abilityBoosts: lv10boosts });
+  lv10mods = calculateAbilityMods({
+    abilities: lv10scores
+  });
+
+  // 15th
+  let lv15boosts = character.abilityBoosts.filter(
+    boost =>
+      boost.source === "Level_1" ||
+      boost.source === "Level_5" ||
+      boost.source === "Level_10" ||
+      boost.source === "Level_15" ||
+      boost.source === character.background.name ||
+      boost.source === character.class.name ||
+      boost.source === character.ancestry.name
+  );
+
+  let lv15scores = calculateAbilityScores({ abilityBoosts: lv15boosts });
+  lv15mods = calculateAbilityMods({
+    abilities: lv15scores
+  });
+
+  let hitPoints = 0;
+
+  for (let i = 1; i <= character.level; i++) {
+    if (i < 5) hitPoints += character.class.hp + lv1mods[Abilities.CON];
+
+    if (i >= 5 && i < 10)
+      hitPoints += character.class.hp + lv5mods[Abilities.CON];
+
+    if (i >= 10 && i < 15)
+      hitPoints += character.class.hp + lv10mods[Abilities.CON];
+
+    if (i >= 15 && i < 20)
+      hitPoints += character.class.hp + lv15mods[Abilities.CON];
+
+    if (i === 20)
+      hitPoints += character.class.hp + character.abilityMods[Abilities.CON];
+  }
+
+  return hitPoints;
 }
 
 export function calculateAbilityMods(character) {
@@ -52,7 +139,6 @@ export function countTrainedSkills(character) {
 
 export function calculatePerception(character) {
   let prof = 0;
-  debugger;
   if (character.class.name)
     character.class.perceptionBoosts.forEach(boost => {
       let level = boost.type.split("_")[1];
