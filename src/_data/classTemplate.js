@@ -65,97 +65,97 @@ export function calculatePerception(character) {
 export const upperLevelAbilityBoosts = [
   {
     ability: Abilities.FREE,
-    source: "Level5",
+    source: "Level_5",
     id: "Level5-1",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level5",
+    source: "Level_5",
     id: "Level5-2",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level5",
+    source: "Level_5",
     id: "Level5-3",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level5",
+    source: "Level_5",
     id: "Level5-4",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level10",
+    source: "Level_10",
     id: "Level10-1",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level10",
+    source: "Level_10",
     id: "Level10-2",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level10",
+    source: "Level_10",
     id: "Level10-3",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level10",
+    source: "Level_10",
     id: "Level10-4",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level15",
+    source: "Level_15",
     id: "Level15-1",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level15",
+    source: "Level_15",
     id: "Level15-2",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level15",
+    source: "Level_15",
     id: "Level15-3",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level15",
+    source: "Level_15",
     id: "Level15-4",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level20",
+    source: "Level_20",
     id: "Level20-1",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level20",
+    source: "Level_20",
     id: "Level20-2",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level20",
+    source: "Level_20",
     id: "Level20-3",
     type: Abilities.FREE
   },
   {
     ability: Abilities.FREE,
-    source: "Level20",
+    source: "Level_20",
     id: "Level20-4",
     type: Abilities.FREE
   }
@@ -165,25 +165,25 @@ export function getBlankCharacter() {
   let abilityBoosts = [
     {
       ability: Abilities.FREE,
-      source: "Level1",
+      source: "Level_1",
       id: "Level1-1",
       type: Abilities.FREE
     },
     {
       ability: Abilities.FREE,
-      source: "Level1",
+      source: "Level_1",
       id: "Level1-2",
       type: Abilities.FREE
     },
     {
       ability: Abilities.FREE,
-      source: "Level1",
+      source: "Level_1",
       id: "Level1-3",
       type: Abilities.FREE
     },
     {
       ability: Abilities.FREE,
-      source: "Level1",
+      source: "Level_1",
       id: "Level1-4",
       type: Abilities.FREE
     }
