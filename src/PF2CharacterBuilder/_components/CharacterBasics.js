@@ -268,13 +268,15 @@ const AC = ({ character }) => {
   function calculateAC(character) {
     let ac = 10;
     ac += character.abilityMods.Dexterity;
-    // TODO this eWill: need to be refactored to enable proficiencies with armor
-    if (character.class.defenses.unarmored > 0) {
+    // TODO this Will: need to be refactored to enable proficiencies with armor
+
+    if (character.class.defenses && character.class.defenses.unarmored > 0) {
       ac += character.class.defenses.unarmored;
       ac += character.level;
     }
     return ac;
   }
+  let hasClass = !!character.class.name;
   return (
     <div style={{ position: "relative" }}>
       <div className="mb-3 clearfix">
@@ -298,14 +300,16 @@ const AC = ({ character }) => {
         <Statbox
           className="float-left"
           stat={
-            character.class.defenses.unarmored > 0
+            hasClass && character.class.defenses.unarmored > 0
               ? character.class.defenses.unarmored + character.level
               : 0
           }
-          title={character.class.defenses.unarmored > 0 ? "Prof*" : "Prof"}
+          title={
+            hasClass && character.class.defenses.unarmored > 0 ? "Prof*" : "Prof"
+          }
         />
       </div>
-      {character.class.defenses.unarmored > 0 ? (
+      {hasClass && character.class.defenses.unarmored > 0 ? (
         <div
           style={{
             position: "absolute",

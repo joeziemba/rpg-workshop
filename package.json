@@ -18,16 +18,18 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^5.11.1",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^2.2.0",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
     "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "^16.12.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.3",
-    "react-toastify": "^5.4.1",
-    "reactstrap": "^7.1.0"
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-toastify": "^5.5.0",
+    "reactstrap": "^7.1.0",
+    "sass": "^1.25.0",
+    "typescript": "^3.7.5"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,8 +41,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "enzyme": "^3.10.0",
+    "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.13.1"
   }
 }

@@ -116,8 +116,10 @@ const Home = props => {
               Changelog:
             </h3>
             <ul>
-              {newFeatures.map(feature => (
-                <li className="mb-3">{feature}</li>
+              {newFeatures.map((feature, i) => (
+                <li key={i} className="mb-3">
+                  {feature}
+                </li>
               ))}
             </ul>
           </div>

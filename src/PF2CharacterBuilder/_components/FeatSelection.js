@@ -56,7 +56,12 @@ const FeatSelection = props => {
     });
 
     setFeats(filteredFeats);
-  }, [query]);
+  }, [
+    query,
+    props.character.ancestry.name,
+    props.character.class.name,
+    props.featKey
+  ]);
 
   return (
     <div>

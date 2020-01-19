@@ -16,7 +16,7 @@ const FeatsSection = props => {
     );
 
     setNumMiscFeats(miscFeats.length + 1);
-  });
+  }, [props.character.feats]);
 
   const openFeatSelection = featKey => {
     setFeatKey(featKey);
@@ -46,11 +46,12 @@ const FeatsSection = props => {
           <h3 className="c-gray-block-heading">Ancestry Feats</h3>
 
           {props.character.ancestry.name &&
-            props.character.feats.map(feat => {
+            props.character.feats.map((feat, i) => {
               let [type, level] = feat.type.split("_");
               if (props.character.level >= level && type === "ancestry") {
                 return (
                   <FeatEntry
+                    key={i}
                     label={"Lv" + level}
                     feat={feat}
                     addFeat={() => openFeatSelection(feat.type)}
@@ -63,11 +64,12 @@ const FeatsSection = props => {
             })}
           <h3 className="c-gray-block-heading mt-3">Class Feats</h3>
           {props.character.class.name &&
-            props.character.feats.map(feat => {
+            props.character.feats.map((feat, i) => {
               let [type, level] = feat.type.split("_");
               if (props.character.level >= level && type === "class") {
                 return (
                   <FeatEntry
+                    key={i}
                     label={"Lv" + level}
                     feat={feat}
                     addFeat={() => openFeatSelection(feat.type)}
@@ -79,11 +81,12 @@ const FeatsSection = props => {
               }
             })}
           <h3 className="c-gray-block-heading mt-3">Skill Feats</h3>
-          {props.character.feats.map(feat => {
+          {props.character.feats.map((feat, i) => {
             let [type, level] = feat.type.split("_");
             if (props.character.level >= level && type === "skill") {
               return (
                 <FeatEntry
+                  key={i}
                   label={"Lv" + level}
                   feat={feat}
                   addFeat={() => openFeatSelection(feat.type)}
@@ -95,10 +98,11 @@ const FeatsSection = props => {
             }
           })}
           <h3 className="c-gray-block-heading mt-3">Other Feats</h3>
-          {props.character.feats.map(feat => {
+          {props.character.feats.map((feat, i) => {
             if (feat.name && feat.type.includes("misc")) {
               return (
                 <FeatEntry
+                  key={i}
                   label=""
                   feat={feat}
                   addFeat={() => openFeatSelection(feat.type)}

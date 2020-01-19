@@ -3,7 +3,7 @@ import _ from "lodash";
 import { firebase } from "../../Firebase";
 import { Classes } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
-import { Abilities } from "../../_data/abilities";
+// import { Abilities } from "../../_data/abilities";
 import VERSION from "../../VERSION";
 
 import {
@@ -11,7 +11,8 @@ import {
   calculateAbilityScores,
   calculatePerception,
   getBlankCharacter,
-  upperLevelAbilityBoosts
+  upperLevelAbilityBoosts,
+  calculateHP
 } from "../../_data/classTemplate";
 import { Proficiencies } from "../../_data/skills";
 import { Skills } from "../../_data/skills";
@@ -129,15 +130,21 @@ class CharacterBuilder extends React.Component {
         freeClassBoosts.forEach((boost, i) => {
           if (oldBoosts[i]) boost.skill = oldBoosts[i].skill;
         });
-
-        firebase.savePF2Character(character);
-
-        this.updateStats(character, () => {
-          this.props.history.push(`/pf2/character-builder/${characterId}`);
-        });
-      } else {
-        this.setState({ character });
       }
+
+      if (character.builderVersion !== "1.0.1") {
+        character.abilityBoosts.forEach(boost => {
+          if (!boost.source.includes("_"))
+            boost.source = boost.source.replace("Level", "Level_");
+        });
+
+        character.builderVersion = "1.0.1";
+      }
+
+      this.updateStats(character, () => {
+        firebase.savePF2Character(character, false);
+        this.props.history.push(`/pf2/character-builder/${characterId}`);
+      });
     });
   }
 
@@ -156,7 +163,7 @@ class CharacterBuilder extends React.Component {
 
   selectBackground(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.background.id
@@ -181,7 +188,7 @@ class CharacterBuilder extends React.Component {
 
   selectClass(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.class.name
@@ -206,7 +213,7 @@ class CharacterBuilder extends React.Component {
 
   selectAncestry(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
       boost => boost.source !== character.ancestry.name
@@ -231,20 +238,28 @@ class CharacterBuilder extends React.Component {
 
   updateStats(character, callback) {
     const hasClass = !!character.class.name;
+    const hasAncestry = !!character.ancestry.name;
 
     character.abilities = calculateAbilityScores(character);
     character.abilityMods = calculateAbilityMods(character);
 
-    let conMod = character.abilityMods[Abilities.CON];
+    // let conMod = character.abilityMods[Abilities.CON];
 
-    character.hitPoints =
-      0 + (character.class.hp || 0) + (character.ancestry.hp || 0) + conMod;
+    // Calculate HP
+    let hitPoints = 0;
+    hitPoints += character.ancestry.hp || 0;
 
+    if (hasClass) {
+      hitPoints += calculateHP(character);
+    }
+    character.hitPoints = hitPoints;
+
+    // Setup INT Skill boosts
     if (character.abilityMods.Intelligence > 0) {
       let level1IntMods = character.abilityBoosts.filter(
         boost =>
           boost.ability === "Intelligence" &&
-          (boost.source === "Level1" ||
+          (boost.source === "Level_1" ||
             boost.source === character.background.name ||
             boost.source === character.class.name ||
             boost.source === character.ancestry.name)
@@ -253,7 +268,6 @@ class CharacterBuilder extends React.Component {
       let intSkills = character.skillBoosts.filter(b => b.source === "int");
 
       if (intSkills.length < level1IntMods.length) {
-        debugger;
         for (let i = intSkills.length; i < level1IntMods.length; i++) {
           character.skillBoosts.push({
             id: "int" + intSkills.length,
@@ -264,7 +278,6 @@ class CharacterBuilder extends React.Component {
         }
       }
       if (intSkills.length > level1IntMods.length) {
-        debugger;
         for (let i = 0; i < intSkills.length - level1IntMods.length; i++) {
           let boost = intSkills.pop();
           let index = character.skillBoosts.indexOf(boost);
@@ -273,6 +286,7 @@ class CharacterBuilder extends React.Component {
       }
     }
 
+    // Other Skill Boosts
     character.skills = _.cloneDeep(Skills);
     character.skillBoosts.forEach(skillBoost => {
       if (skillBoost.skill.id !== "Free") {
@@ -290,11 +304,12 @@ class CharacterBuilder extends React.Component {
     });
     character.maxTrainedSkills = 0;
 
-    if (!_.isEmpty(character.ancestry)) {
+    // Speed
+    if (hasAncestry) {
       character.speed = character.ancestry.speed;
     }
 
-    // SAVES
+    // Saves
     if (hasClass) {
       character.class.saveBoosts.forEach(boost => {
         let level = boost.type.split("_")[1];
@@ -304,15 +319,23 @@ class CharacterBuilder extends React.Component {
       });
     }
 
+    // Perception
     if (hasClass) {
       character.perceptionProficiency = calculatePerception(character);
     }
+
+    // Sort Feats
+    character.feats = character.feats.sort((a, b) => {
+      let aLevel = a.type.split("_")[1];
+      let bLevel = b.type.split("_")[1];
+      return parseInt(aLevel, 10) - parseInt(bLevel, 10);
+    });
 
     this.setState({ character }, callback);
   }
 
   boostAbility(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     let boost = character.abilityBoosts.find(
       boost => boost.id === e.target.name
@@ -324,7 +347,7 @@ class CharacterBuilder extends React.Component {
   }
 
   selectSkill(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
 
     let skillId = e.target.value;
     let boostId = e.target.name;
@@ -343,21 +366,24 @@ class CharacterBuilder extends React.Component {
   }
 
   selectFeat(featKey, newFeat) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
     newFeats = newFeats.filter(feat => feat.type !== featKey);
 
     newFeat.type = featKey;
 
     newFeats.push(newFeat);
-
-    character.feats = newFeats.sort((a, b) => (a.type < b.type ? -1 : 1));
+    character.feats = newFeats.sort((a, b) => {
+      let aLevel = a.type.split("_")[1];
+      let bLevel = b.type.split("_")[1];
+      return parseInt(aLevel, 10) - parseInt(bLevel, 10);
+    });
 
     this.setState({ character });
   }
 
   deleteFeat(featKey) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
     newFeats = newFeats.filter(feat => feat.type !== featKey);
     character.feats = newFeats;
@@ -365,7 +391,7 @@ class CharacterBuilder extends React.Component {
   }
 
   setLevel(e) {
-    let { character } = this.state;
+    let character = _.cloneDeep(this.state.character);
     character.level = parseInt(e.target.value, 10);
     this.updateStats(character);
   }
@@ -427,7 +453,7 @@ class CharacterBuilder extends React.Component {
         </div>
         <footer className="pf-footer">
           <div className="pb-1 text-center">
-            Builder v{VERSION} | Published 1/12/2020
+            Builder v{VERSION} | Published 1/19/2020
           </div>
           <div>
             This website uses trademarks and/or copyrights owned by Paizo Inc.,

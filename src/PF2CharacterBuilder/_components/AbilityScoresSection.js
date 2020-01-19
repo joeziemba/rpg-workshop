@@ -78,7 +78,7 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
         <div className="row">
           <div className="col-12">
             <h3 className="c-gray-block-heading">Level 1 Boosts</h3>
-            <div className="row">{freeAbilityOptions("Level1")}</div>
+            <div className="row">{freeAbilityOptions("Level_1")}</div>
             <React.Fragment>
               <h3 className="c-gray-block-heading mt-2">
                 Ancestry Boosts{" "}
@@ -132,7 +132,7 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 5 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level5")}</div>
+                <div className="row mb-2">{freeAbilityOptions("Level_5")}</div>
               </>
             )}
             {character.level >= 10 && (
@@ -140,7 +140,7 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 10 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level10")}</div>
+                <div className="row mb-2">{freeAbilityOptions("Level_10")}</div>
               </>
             )}
             {character.level >= 15 && (
@@ -148,7 +148,7 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 15 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level15")}</div>
+                <div className="row mb-2">{freeAbilityOptions("Level_15")}</div>
               </>
             )}
             {character.level >= 20 && (
@@ -156,7 +156,7 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 20 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level20")}</div>
+                <div className="row mb-2">{freeAbilityOptions("Level_20")}</div>
               </>
             )}
           </div>
