@@ -8,7 +8,7 @@ export const Saves = {
   REF: "reflex"
 };
 
-const ClassNames = {
+export const ClassNames = {
   ALC: "Alchemist",
   BARB: "Barbarian",
   BARD: "Bard",
@@ -117,7 +117,6 @@ export const Classes = {
         proficiency: Proficiencies.TRAINED
       }
     ],
-    freeSkills: 3,
     abilityBoosts: [
       {
         ability: Abilities.INT,
@@ -219,7 +218,6 @@ export const Classes = {
         proficiency: Proficiencies.TRAINED
       }
     ],
-    freeSkills: 3,
     abilityBoosts: [
       { ability: Abilities.STR, source: ClassNames.BARB, id: "Barb1" }
     ]
@@ -342,8 +340,7 @@ export const Classes = {
         id: "Bard6",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 4
+    ]
   },
   Champion: {
     name: ClassNames.CHAMP,
@@ -440,8 +437,7 @@ export const Classes = {
         id: ClassNames.CHAMP + "3",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 3
+    ]
   },
   Cleric: {
     name: ClassNames.CLER,
@@ -535,8 +531,7 @@ export const Classes = {
         id: ClassNames.CLER + "4",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 3 // 2 + one from Deity
+    ]
   },
   Druid: {
     name: ClassNames.DRUID,
@@ -644,8 +639,7 @@ export const Classes = {
         id: ClassNames.DRUID + "4",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 3 // One from Druidic order
+    ]
   },
   Fighter: {
     name: ClassNames.FIGHT,
@@ -748,8 +742,7 @@ export const Classes = {
         id: ClassNames.FIGHT + "4",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 3 // One from Druidic order
+    ]
   },
   Monk: {
     name: ClassNames.MONK,
@@ -830,8 +823,7 @@ export const Classes = {
         id: ClassNames.MONK + "4",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 4
+    ]
   },
   Ranger: {
     name: ClassNames.RANGE,
@@ -951,8 +943,7 @@ export const Classes = {
         id: ClassNames.RANGE + "6",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 4
+    ]
   },
   Rogue: {
     name: ClassNames.ROGUE,
@@ -1264,8 +1255,7 @@ export const Classes = {
         id: ClassNames.SORC + "3",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 3
+    ]
   },
   Wizard: {
     name: ClassNames.WIZ,
@@ -1359,7 +1349,6 @@ export const Classes = {
         id: ClassNames.WIZ + "3",
         proficiency: Proficiencies.TRAINED
       }
-    ],
-    freeSkills: 2
+    ]
   }
 };

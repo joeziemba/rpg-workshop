@@ -370,8 +370,6 @@ export function getBlankCharacter() {
         level: 19
       }
     ],
-    freeSkills: 0,
-    maxTrainedSkills: 0,
     skills: _.cloneDeep(Skills),
     feats: [
       { type: "ancestry_1" },
