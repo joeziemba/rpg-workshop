@@ -131,6 +131,8 @@ class CharacterBuilder extends React.Component {
         freeClassBoosts.forEach((boost, i) => {
           if (oldBoosts[i]) boost.skill = oldBoosts[i].skill;
         });
+
+        character.builderVersion = "1.0.0";
       }
 
       if (character.builderVersion < "1.0.1") {
@@ -138,14 +140,17 @@ class CharacterBuilder extends React.Component {
           if (!boost.source.includes("_"))
             boost.source = boost.source.replace("Level", "Level_");
         });
+        character.builderVersion = "1.0.1";
       }
 
-      if (character.builderVersion < "1.1.0") {
+      if (character.builderVersion < "1.0.3") {
         if (character.class.name === Classes.Rogue.name) {
           character.skillBoosts = character.skillBoosts.concat(NEWROGUEBOOSTS);
           character.feats = character.feats.concat(Classes.Rogue.feats);
         }
+        character.builderVersion = "1.0.3";
       }
+
       character.builderVersion = BUILDER_VERSION;
       this.updateStats(character, () => {
         firebase.savePF2Character(character, false);
