@@ -102,6 +102,11 @@ const FeatSelection = props => {
                 <td style={{ flex: "1", textAlign: "center" }}>{feat.level}</td>
                 <td style={{ flex: "1" }}>{feat.traits.join(", ")}</td>
                 <td style={{ flex: "10" }}>
+                  {feat.prerequisites.length > 0 && (
+                    <p>
+                      <b>Prerequisites:</b> {feat.prerequisites.join(", ")}
+                    </p>
+                  )}
                   <p dangerouslySetInnerHTML={{ __html: feat.description }}></p>
                 </td>
               </tr>
