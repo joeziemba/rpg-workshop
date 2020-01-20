@@ -5,7 +5,6 @@ import { Skills } from "../../_data/skills";
 import TEMLbuttons from "./TEMLbuttons";
 
 const SkillsTable = ({ character, selectSkill }) => {
-
   let sources = character.skillBoosts
     .map(boost => boost.source)
     .filter(b => b.includes(character.background.name))
@@ -56,6 +55,10 @@ const SkillsTable = ({ character, selectSkill }) => {
     });
   }
 
+  let upperLevelBoosts = character.skillBoosts
+    .filter(boost => boost.level > 1)
+    .sort((a, b) => a.level - b.level);
+
   return (
     <div id="Skills" className="pf-section">
       <h2 className="pf-section__heading">Skills</h2>
@@ -79,58 +82,22 @@ const SkillsTable = ({ character, selectSkill }) => {
               </div>
             </>
           )}
-          {character.level >= 3 && (
-            <div className="row">
-              <div className="col">
-                <h3 className="c-gray-block-heading mt-2">Lv 3 Boost</h3>
-                <div className="row">{freeSkillTraining("character_3")}</div>
-              </div>
-              {character.level >= 5 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 5 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_5")}</div>
-                </div>
-              )}
-              {character.level >= 7 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 7 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_7")}</div>
-                </div>
-              )}
-              {character.level >= 9 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 9 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_9")}</div>
-                </div>
-              )}
-            </div>
-          )}
-          {character.level >= 11 && (
-            <div className="row">
-              <div className="col">
-                <h3 className="c-gray-block-heading mt-2">Lv 11 Boost</h3>
-                <div className="row">{freeSkillTraining("character_11")}</div>
-              </div>
-              {character.level >= 13 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 13 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_13")}</div>
-                </div>
-              )}
-              {character.level >= 15 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 15 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_15")}</div>
-                </div>
-              )}
-              {character.level >= 17 && (
-                <div className="col">
-                  <h3 className="c-gray-block-heading mt-2">Lv 17 Boost</h3>
-                  <div className="row">{freeSkillTraining("character_17")}</div>
-                </div>
-              )}
-            </div>
-          )}
+          <div className="row">
+            {upperLevelBoosts.map((boost, i) => {
+              if (boost.level <= parseInt(character.level, 10)) {
+                return (
+                  <div key={boost.id + i} className="col col-3">
+                    <h3 className="c-gray-block-heading mt-2">
+                      Lv {boost.level} Boost
+                    </h3>
+                    <div className="row">{freeSkillTraining(boost.source)}</div>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
         </div>
         {Object.keys(character.skills).map((skill, i) => {
           skill = character.skills[skill];

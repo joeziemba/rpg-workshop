@@ -315,15 +315,60 @@ export function getBlankCharacter() {
     abilityBoosts: _.cloneDeep(abilityBoosts),
     abilityFlaws: [],
     skillBoosts: [
-      { skill: { id: "Free" }, id: "character_3", source: "character_3" },
-      { skill: { id: "Free" }, id: "character_5", source: "character_5" },
-      { skill: { id: "Free" }, id: "character_7", source: "character_7" },
-      { skill: { id: "Free" }, id: "character_9", source: "character_9" },
-      { skill: { id: "Free" }, id: "character_11", source: "character_11" },
-      { skill: { id: "Free" }, id: "character_13", source: "character_13" },
-      { skill: { id: "Free" }, id: "character_15", source: "character_15" },
-      { skill: { id: "Free" }, id: "character_17", source: "character_17" },
-      { skill: { id: "Free" }, id: "character_19", source: "character_19" }
+      {
+        skill: { id: "Free" },
+        id: "character_3",
+        source: "character_3",
+        level: 3
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_5",
+        source: "character_5",
+        level: 5
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_7",
+        source: "character_7",
+        level: 7
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_9",
+        source: "character_9",
+        level: 9
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_11",
+        source: "character_11",
+        level: 11
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_13",
+        source: "character_13",
+        level: 13
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_15",
+        source: "character_15",
+        level: 15
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_17",
+        source: "character_17",
+        level: 17
+      },
+      {
+        skill: { id: "Free" },
+        id: "character_19",
+        source: "character_19",
+        level: 19
+      }
     ],
     freeSkills: 0,
     maxTrainedSkills: 0,
