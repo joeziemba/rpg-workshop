@@ -52,7 +52,35 @@ class Firebase {
   }
 
   signInWithGoogle() {
-    this.auth.signInWithRedirect(this.googleProvider);
+    // this.auth.signInWithRedirect(this.googleProvider);
+    this.auth
+      .signInWithPopup(this.googleProvider)
+      .then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        // var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+        toast.success("Signed in with " + user.email);
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        // var credential = error.credential;
+        // ...
+        toast(
+          "Error signing in with " +
+            email +
+            ". " +
+            errorCode +
+            " " +
+            errorMessage
+        );
+      });
   }
 
   signOut() {
