@@ -1,8 +1,8 @@
 {
-  "name": "dnd-stat-block-creator",
-  "version": "1.0.0",
-  "homepage": "https://dnd-stat-block-creator.firebaseapp.com/",
-  "description": "A custom stat-block generator for Dungeons & Dragons",
+  "name": "rpg-workshop",
+  "version": "1.0.2",
+  "homepage": "https://rpgworkshop.app/",
+  "description": "TableTop RPG tools",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
