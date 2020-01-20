@@ -131,7 +131,7 @@ class CharacterBuilder extends React.Component {
         });
       }
 
-      if (character.builderVersion !== "1.0.1") {
+      if (character.builderVersion < "1.0.1") {
         character.abilityBoosts.forEach(boost => {
           if (!boost.source.includes("_"))
             boost.source = boost.source.replace("Level", "Level_");
@@ -192,7 +192,7 @@ class CharacterBuilder extends React.Component {
     );
 
     character.skillBoosts = character.skillBoosts.filter(
-      boost => boost.source !== character.class.name
+      boost => !boost.source.includes(character.class.name)
     );
 
     character.class = _.cloneDeep(Classes[e.target.value]);
