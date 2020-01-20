@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { firebase } from "../../Firebase";
-import { Classes } from "../../_data/classes";
+import { Classes, ClassNames } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 // import { Abilities } from "../../_data/abilities";
 import BUILDER_VERSION from "../../BUILDER_VERSION";
@@ -31,6 +31,8 @@ class CharacterBuilder extends React.Component {
     this.state = {
       character: {}
     };
+
+    this.blankCharacter = getBlankCharacter();
 
     this.selectClass = this.selectClass.bind(this);
     this.updateStats = this.updateStats.bind(this);
@@ -137,6 +139,13 @@ class CharacterBuilder extends React.Component {
             boost.source = boost.source.replace("Level", "Level_");
         });
       }
+
+      if (character.builderVersion < "1.1.0") {
+        if (character.class.name === Classes.Rogue.name) {
+          character.skillBoosts = character.skillBoosts.concat(NEWROGUEBOOSTS);
+          character.feats = character.feats.concat(Classes.Rogue.feats);
+        }
+      }
       character.builderVersion = BUILDER_VERSION;
       this.updateStats(character, () => {
         firebase.savePF2Character(character, false);
@@ -205,6 +214,27 @@ class CharacterBuilder extends React.Component {
       _.cloneDeep(character.class.skillBoosts)
     );
 
+    // Remove old class and even skill feats
+    character.feats = character.feats.filter(feat => {
+      let [type, level] = feat.type.split("_");
+      // remove class feats
+      if (type === "class") return false;
+      // remove even-numbered skill feats
+      if (type === "skill" && level % 2 === 0) return false;
+      // keep others
+      return true;
+    });
+
+    // Add blank class and skill feats
+    let blankFeats = this.blankCharacter.feats.filter(
+      feat => feat.type.includes("class") || feat.type.includes("skill")
+    );
+
+    character.feats = character.feats.concat(blankFeats);
+
+    if (character.class.feats)
+      character.feats = character.feats.concat(character.class.feats);
+
     this.updateStats(character);
   }
 
@@ -229,6 +259,18 @@ class CharacterBuilder extends React.Component {
     character.abilityFlaws = character.abilityFlaws.concat(
       character.ancestry.abilityFlaws
     );
+
+    // Remove old ancestry feats
+    character.feats = character.feats.filter(
+      feat => !feat.type.includes("ancestry")
+    );
+
+    // Get blank ancestry feats
+    let blankFeats = this.blankCharacter.feats.filter(feat =>
+      feat.type.includes("ancestry")
+    );
+
+    character.feats = character.feats.concat(blankFeats);
 
     this.updateStats(character);
   }
@@ -299,7 +341,6 @@ class CharacterBuilder extends React.Component {
           character.skills[skillBoost.skill.id].type = skillBoost.type;
       }
     });
-    character.maxTrainedSkills = 0;
 
     // Speed
     if (hasAncestry) {
@@ -476,3 +517,66 @@ class CharacterBuilder extends React.Component {
 }
 
 export default CharacterBuilder;
+
+const NEWROGUEBOOSTS = [
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_2",
+    id: ClassNames.ROGUE + "9",
+    level: 2
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_4",
+    id: ClassNames.ROGUE + "10",
+    level: 4
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_6",
+    id: ClassNames.ROGUE + "11",
+    level: 6
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_8",
+    id: ClassNames.ROGUE + "12",
+    level: 8
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_10",
+    id: ClassNames.ROGUE + "13",
+    level: 10
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_12",
+    id: ClassNames.ROGUE + "14",
+    level: 12
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_14",
+    id: ClassNames.ROGUE + "15",
+    level: 14
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_16",
+    id: ClassNames.ROGUE + "16",
+    level: 16
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_18",
+    id: ClassNames.ROGUE + "17",
+    level: 18
+  },
+  {
+    skill: { id: "Free" },
+    source: ClassNames.ROGUE + "_20",
+    id: ClassNames.ROGUE + "18",
+    level: 20
+  }
+];

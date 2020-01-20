@@ -1159,7 +1159,18 @@ export const Classes = {
         level: 20
       }
     ],
-    freeSkills: 7
+    feats: [
+      { type: "skill_1" },
+      { type: "skill_3" },
+      { type: "skill_5" },
+      { type: "skill_7" },
+      { type: "skill_9" },
+      { type: "skill_11" },
+      { type: "skill_13" },
+      { type: "skill_15" },
+      { type: "skill_17" },
+      { type: "skill_19" }
+    ]
   },
   Sorcerer: {
     name: ClassNames.SORC,
