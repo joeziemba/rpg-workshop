@@ -3,7 +3,7 @@ import _ from "lodash";
 import { firebase } from "../../Firebase";
 import { Classes } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
-// import { Abilities } from "../../_data/abilities";
+import * as Migrate from "../../migrations";
 import BUILDER_VERSION from "../../BUILDER_VERSION";
 
 import {
@@ -11,10 +11,8 @@ import {
   calculateAbilityScores,
   calculatePerception,
   getBlankCharacter,
-  upperLevelAbilityBoosts,
   calculateHP
 } from "../../_data/classTemplate";
-import { Proficiencies } from "../../_data/skills";
 import { Skills } from "../../_data/skills";
 import { Backgrounds } from "../../_data/backgrounds";
 import SubNav from "../../PF2CharacterBuilder/_components/SubNav";
@@ -31,6 +29,8 @@ class CharacterBuilder extends React.Component {
     this.state = {
       character: {}
     };
+
+    this.blankCharacter = getBlankCharacter();
 
     this.selectClass = this.selectClass.bind(this);
     this.updateStats = this.updateStats.bind(this);
@@ -72,71 +72,20 @@ class CharacterBuilder extends React.Component {
       character.uid = characterId;
 
       if (!character.builderVersion || character.builderVersion < "1.0.0") {
-        let blankCharacter = getBlankCharacter();
-
-        character.abilityBoosts = character.abilityBoosts.concat(
-          upperLevelAbilityBoosts
-        );
-        if (character.class.name) {
-          character.class = Classes[character.class.name];
-          if (!character.class.defenses) {
-            character.class.defenses = {
-              unarmored: Proficiencies.TRAINED
-            };
-          }
-        }
-
-        if (!character.feats || !Array.isArray(character.feats)) {
-          character.feats = blankCharacter.feats;
-        }
-
-        if (!character.saves) {
-          character.saves = blankCharacter.saves;
-        }
-
-        let oldBoosts = _.cloneDeep(character.skillBoosts);
-
-        oldBoosts = oldBoosts.filter(b => b.source === "Free");
-
-        character.skillBoosts = _.cloneDeep(blankCharacter.skillBoosts);
-
-        if (character.class.name) {
-          character.skillBoosts = character.skillBoosts.concat(
-            _.cloneDeep(character.class.skillBoosts)
-          );
-        }
-
-        if (character.background.name) {
-          character.skillBoosts = character.skillBoosts.concat(
-            _.cloneDeep(character.background.skillBoosts)
-          );
-        }
-
-        for (let i = 1; i <= character.abilityMods.Intelligence; i++)
-          character.skillBoosts.push({
-            id: "int" + i,
-            source: "int",
-            skill: { id: "Free" },
-            proficiency: 2
-          });
-
-        let freeClassBoosts = character.skillBoosts.filter(
-          b =>
-            (b.source === character.class.name || b.source === "int") &&
-            b.skill.id === "Free"
-        );
-
-        freeClassBoosts.forEach((boost, i) => {
-          if (oldBoosts[i]) boost.skill = oldBoosts[i].skill;
-        });
+        Migrate.v1_0_0(character);
+        character.builderVersion = "1.0.0";
       }
 
-      if (character.builderVersion !== "1.0.1") {
-        character.abilityBoosts.forEach(boost => {
-          if (!boost.source.includes("_"))
-            boost.source = boost.source.replace("Level", "Level_");
-        });
+      if (character.builderVersion < "1.0.1") {
+        Migrate.v1_0_1(character);
+        character.builderVersion = "1.0.1";
       }
+
+      if (character.builderVersion < "1.0.3") {
+        Migrate.v1_0_3(character);
+        character.builderVersion = "1.0.3";
+      }
+
       character.builderVersion = BUILDER_VERSION;
       this.updateStats(character, () => {
         firebase.savePF2Character(character, false);
@@ -192,7 +141,7 @@ class CharacterBuilder extends React.Component {
     );
 
     character.skillBoosts = character.skillBoosts.filter(
-      boost => boost.source !== character.class.name
+      boost => !boost.source.includes(character.class.name)
     );
 
     character.class = _.cloneDeep(Classes[e.target.value]);
@@ -204,6 +153,27 @@ class CharacterBuilder extends React.Component {
     character.skillBoosts = character.skillBoosts.concat(
       _.cloneDeep(character.class.skillBoosts)
     );
+
+    // Remove old class and even skill feats
+    character.feats = character.feats.filter(feat => {
+      let [type, level] = feat.type.split("_");
+      // remove class feats
+      if (type === "class") return false;
+      // remove even-numbered skill feats
+      if (type === "skill" && level % 2 === 0) return false;
+      // keep others
+      return true;
+    });
+
+    // Add blank class and skill feats
+    let blankFeats = this.blankCharacter.feats.filter(
+      feat => feat.type.includes("class") || feat.type.includes("skill")
+    );
+
+    character.feats = character.feats.concat(blankFeats);
+
+    if (character.class.feats)
+      character.feats = character.feats.concat(character.class.feats);
 
     this.updateStats(character);
   }
@@ -229,6 +199,18 @@ class CharacterBuilder extends React.Component {
     character.abilityFlaws = character.abilityFlaws.concat(
       character.ancestry.abilityFlaws
     );
+
+    // Remove old ancestry feats
+    character.feats = character.feats.filter(
+      feat => !feat.type.includes("ancestry")
+    );
+
+    // Get blank ancestry feats
+    let blankFeats = this.blankCharacter.feats.filter(feat =>
+      feat.type.includes("ancestry")
+    );
+
+    character.feats = character.feats.concat(blankFeats);
 
     this.updateStats(character);
   }
@@ -299,7 +281,6 @@ class CharacterBuilder extends React.Component {
           character.skills[skillBoost.skill.id].type = skillBoost.type;
       }
     });
-    character.maxTrainedSkills = 0;
 
     // Speed
     if (hasAncestry) {
