@@ -4,7 +4,7 @@ import { firebase } from "../../Firebase";
 import { Classes } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 // import { Abilities } from "../../_data/abilities";
-import VERSION from "../../VERSION";
+import BUILDER_VERSION from "../../BUILDER_VERSION";
 
 import {
   calculateAbilityMods,
@@ -74,7 +74,6 @@ class CharacterBuilder extends React.Component {
       if (!character.builderVersion || character.builderVersion < "1.0.0") {
         let blankCharacter = getBlankCharacter();
 
-        character.builderVersion = "1.0.0";
         character.abilityBoosts = character.abilityBoosts.concat(
           upperLevelAbilityBoosts
         );
@@ -137,10 +136,8 @@ class CharacterBuilder extends React.Component {
           if (!boost.source.includes("_"))
             boost.source = boost.source.replace("Level", "Level_");
         });
-
-        character.builderVersion = "1.0.1";
       }
-
+      character.builderVersion = BUILDER_VERSION;
       this.updateStats(character, () => {
         firebase.savePF2Character(character, false);
         this.props.history.push(`/pf2/character-builder/${characterId}`);
@@ -453,7 +450,7 @@ class CharacterBuilder extends React.Component {
         </div>
         <footer className="pf-footer">
           <div className="pb-1 text-center">
-            Builder v{VERSION} | Published 1/19/2020
+            Builder v{BUILDER_VERSION} | Published 1/19/2020
           </div>
           <div>
             This website uses trademarks and/or copyrights owned by Paizo Inc.,
