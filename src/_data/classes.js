@@ -119,7 +119,11 @@ export const Classes = {
     ],
     freeSkills: 3,
     abilityBoosts: [
-      { ability: Abilities.INT, source: ClassNames.ALC, id: ClassNames.ALC + "-ability-1" }
+      {
+        ability: Abilities.INT,
+        source: ClassNames.ALC,
+        id: ClassNames.ALC + "-ability-1"
+      }
     ]
   },
   Barbarian: {
@@ -1042,49 +1046,117 @@ export const Classes = {
         skill: Skills.Stealth,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "4",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "5",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "6",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "7",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "8",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
+        level: 1
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_2",
+        id: ClassNames.ROGUE + "9",
+        level: 2
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_4",
+        id: ClassNames.ROGUE + "10",
+        level: 4
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_6",
+        id: ClassNames.ROGUE + "11",
+        level: 6
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_8",
+        id: ClassNames.ROGUE + "12",
+        level: 8
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_10",
+        id: ClassNames.ROGUE + "13",
+        level: 10
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_12",
+        id: ClassNames.ROGUE + "14",
+        level: 12
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_14",
+        id: ClassNames.ROGUE + "15",
+        level: 14
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_16",
+        id: ClassNames.ROGUE + "16",
+        level: 16
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_18",
+        id: ClassNames.ROGUE + "17",
+        level: 18
+      },
+      {
+        skill: { id: "Free" },
+        source: ClassNames.ROGUE + "_20",
+        id: ClassNames.ROGUE + "18",
+        level: 20
       }
     ],
     freeSkills: 7
