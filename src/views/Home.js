@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const newFeatures = [
-  "1/12/20 | Released PF2e Builder v1.0.0 supporting characters level 1-20",
-  "1/1/20 | Added Feats to PF2e Character Builder. Inlcudes all general and skill feats and Level 1 class/ancestry feats.",
-  "10/2/19 | Launched Pathfinder 2e Character Builder!",
-  "10/2/19 | Improvements to Save and Open for Statblock Generator",
-  "9/18/19 | Register/Sign in with Google account: create an account to save your stuff.",
-  "9/18/19 | Save Statblocks: Save your statblocks to your account to access later.",
-  "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
-];
+// const newFeatures = [
+//   "1/21/20 | "
+//   "1/12/20 | Released PF2e Builder v1.0.0 supporting characters level 1-20",
+//   "1/1/20 | Added Feats to PF2e Character Builder. Inlcudes all general and skill feats and Level 1 class/ancestry feats.",
+//   "10/2/19 | Launched Pathfinder 2e Character Builder!",
+//   "10/2/19 | Improvements to Save and Open for Statblock Generator",
+//   "9/18/19 | Register/Sign in with Google account: create an account to save your stuff.",
+//   "9/18/19 | Save Statblocks: Save your statblocks to your account to access later.",
+//   "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
+// ];
 
 const Home = props => {
   return (
@@ -107,7 +108,7 @@ const Home = props => {
               </a>{" "}
               with [RPG Workshop] in the subject line.
             </p>
-            <h3
+            {/* <h3
               className="p-4"
               style={{
                 fontFamily: "Inknut Antiqua"
@@ -121,7 +122,7 @@ const Home = props => {
                   {feature}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
