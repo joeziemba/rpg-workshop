@@ -797,7 +797,7 @@ export const Classes = {
         proficiency: Proficiencies.EXPERT
       }
     ],
-    defenses: { unarmored: Proficiencies.TRAINED },
+    defenses: { unarmored: Proficiencies.EXPERT },
     skillBoosts: [
       {
         skill: { id: "Free" },
