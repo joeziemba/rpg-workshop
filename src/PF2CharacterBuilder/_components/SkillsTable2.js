@@ -6,8 +6,8 @@ import TEMLbuttons from "./TEMLbuttons";
 
 const SkillsTable = ({ character, selectSkill }) => {
   let sources = character.skillBoosts
-    .map(boost => boost.source)
-    .filter(b => b.includes(character.background.name))
+    .map((boost) => boost.source)
+    .filter((b) => b.includes(character.background.name))
     .sort();
 
   sources = [...new Set(sources)];
@@ -15,16 +15,16 @@ const SkillsTable = ({ character, selectSkill }) => {
   function freeSkillTraining(source, excludeSource = null) {
     let { skillBoosts } = character;
     let freebies = skillBoosts.filter(
-      boost => boost.type === Skills.FREE && boost.source === source
+      (boost) => boost.type === Skills.FREE && boost.source === source
     );
 
     return freebies.map((boost, i) => {
       let boostsFromSameSource = skillBoosts.filter(
-        b =>
+        (b) =>
           (b.source === boost.source && b.id !== boost.id) ||
           b.source === excludeSource
       );
-      let excludedSkills = boostsFromSameSource.map(b => b.skill.id);
+      let excludedSkills = boostsFromSameSource.map((b) => b.skill.id);
       if (boost.exclude) excludedSkills.push(...boost.exclude);
 
       return (
@@ -42,7 +42,7 @@ const SkillsTable = ({ character, selectSkill }) => {
             value={boost.skill.id}
           >
             <option value="FREE"></option>
-            {Object.keys(Skills).map(skillId => {
+            {Object.keys(Skills).map((skillId) => {
               return excludedSkills.includes(skillId) ? null : (
                 <option key={skillId} value={skillId}>
                   {Skills[skillId].name}
@@ -56,7 +56,7 @@ const SkillsTable = ({ character, selectSkill }) => {
   }
 
   let upperLevelBoosts = character.skillBoosts
-    .filter(boost => boost.level > 1)
+    .filter((boost) => boost.level > 1)
     .sort((a, b) => a.level - b.level);
 
   return (
@@ -66,7 +66,9 @@ const SkillsTable = ({ character, selectSkill }) => {
         <div className="pl-2 pr-2">
           {character.abilityMods.Intelligence > 0 && (
             <>
-              <h3 className="c-gray-block-heading mt-2">Intellignece Skills</h3>
+              <h3 className="c-gray-block-heading mt-2">
+                Intellignece Skills
+              </h3>
               <div className="row">
                 {freeSkillTraining("int", character.class.name)}
               </div>
@@ -90,7 +92,9 @@ const SkillsTable = ({ character, selectSkill }) => {
                     <h3 className="c-gray-block-heading mt-2">
                       Lv {boost.level} Boost
                     </h3>
-                    <div className="row">{freeSkillTraining(boost.source)}</div>
+                    <div className="row">
+                      {freeSkillTraining(boost.source)}
+                    </div>
                   </div>
                 );
               } else {
@@ -103,7 +107,9 @@ const SkillsTable = ({ character, selectSkill }) => {
           skill = character.skills[skill];
           if (!skill.source) skill.source = "Free";
           let proficiencyBonus =
-            skill.proficiency > 0 ? skill.proficiency + character.level : 0;
+            skill.proficiency > 0
+              ? skill.proficiency + character.level
+              : 0;
           let abilityMod = character.abilityMods[skill.modifier];
           let totalMod = proficiencyBonus + abilityMod;
           return (
@@ -113,8 +119,10 @@ const SkillsTable = ({ character, selectSkill }) => {
                 proficiencyBonus > 0 ? "c-skillrow--active" : ""
               }`}
             >
-              <div className={`c-skillrow__name mt-2 ml-2`}>
-                {skill.name === "Lore" ? `Lore (${skill.type})` : skill.name}
+              <div className={"c-skillrow__name mt-2 ml-2"}>
+                {skill.name === "Lore"
+                  ? `Lore (${skill.type})`
+                  : skill.name}
                 {"*".repeat(sources.indexOf(skill.source) + 1)}
               </div>
               <Statbox stat={totalMod} title="Total" />
@@ -124,12 +132,16 @@ const SkillsTable = ({ character, selectSkill }) => {
               <Statbox
                 stat={`${abilityMod}`}
                 title={Object.keys(Abilities).find(
-                  a => Abilities[a] === skill.modifier
+                  (a) => Abilities[a] === skill.modifier
                 )}
               />
 
               <div className="ml-lg-4 ml-2">
-                <TEMLbuttons disabled onClick={selectSkill} skill={skill} />
+                <TEMLbuttons
+                  disabled
+                  onClick={selectSkill}
+                  skill={skill}
+                />
               </div>
             </div>
           );

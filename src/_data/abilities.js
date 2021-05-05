@@ -5,5 +5,5 @@ export const Abilities = {
   INT: "Intelligence",
   WIS: "Wisdom",
   CHA: "Charisma",
-  FREE: "Free"
+  FREE: "Free",
 };

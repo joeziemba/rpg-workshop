@@ -3,7 +3,7 @@ import FeatEntry from "./FeatEntry";
 import FeatSelection from "./FeatSelection";
 import { Modal } from "../../_globalComponents";
 
-const FeatsSection = props => {
+const FeatsSection = (props) => {
   const [showFeatSelection, setShowFeatSelection] = useState(false);
 
   const [featKey, setFeatKey] = useState("");
@@ -11,24 +11,24 @@ const FeatsSection = props => {
   const [numMiscFeats, setNumMiscFeats] = useState(0);
 
   useEffect(() => {
-    let miscFeats = props.character.feats.filter(feat =>
+    let miscFeats = props.character.feats.filter((feat) =>
       feat.type.includes("misc")
     );
 
     setNumMiscFeats(miscFeats.length + 1);
   }, [props.character.feats]);
 
-  const openFeatSelection = featKey => {
+  const openFeatSelection = (featKey) => {
     setFeatKey(featKey);
     setShowFeatSelection(true);
   };
 
-  const selectFeat = feat => {
+  const selectFeat = (feat) => {
     props.selectFeat(featKey, feat);
     setShowFeatSelection(false);
   };
 
-  const removeFeat = featKey => {
+  const removeFeat = (featKey) => {
     props.selectFeat(featKey, {});
   };
 
@@ -39,9 +39,9 @@ const FeatsSection = props => {
 
         <div className="pf-section__body pf-section__body--pad">
           <p className="mb-2" style={{ fontSize: ".75rem" }}>
-            Feats added here <b>do not</b> modify any stats on this character
-            sheet. Modifiers and proficiencies have to be added manually for
-            now.
+            Feats added here <b>do not</b> modify any stats on this
+            character sheet. Modifiers and proficiencies have to be added
+            manually for now.
           </p>
           <h3 className="c-gray-block-heading">Ancestry Feats</h3>
 

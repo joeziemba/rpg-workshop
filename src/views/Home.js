@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 //   "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content."
 // ];
 
-const Home = props => {
+const Home = () => {
   return (
     <div className="container-fluid">
       <div
@@ -24,7 +24,7 @@ const Home = props => {
             <h2
               className="text-center text-md-left p-4"
               style={{
-                fontFamily: "Inknut Antiqua"
+                fontFamily: "Inknut Antiqua",
               }}
             >
               5e Statblock Generator
@@ -34,9 +34,9 @@ const Home = props => {
               style={{ fontSize: "1.2rem" }}
             >
               Homebrewing a monster or NPCs for a D&D game? Turn all those
-              custom stats into a legit statblock! This generator will format
-              everything to look like the statblocks from Dungeons & Dragons
-              fifth edition.
+              custom stats into a legit statblock! This generator will
+              format everything to look like the statblocks from Dungeons &
+              Dragons fifth edition.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ const Home = props => {
             <h2
               className="text-center text-md-left p-4"
               style={{
-                fontFamily: "Inknut Antiqua"
+                fontFamily: "Inknut Antiqua",
               }}
             >
               PF2e Character Builder
@@ -77,32 +77,38 @@ const Home = props => {
         </div>
         <div className="col-12 col-md-6 my-5 pb-5 pb-md-0">
           <div className="my-md-5 py-md-5" style={{ color: "#203863" }}>
-            <Link to="/pf2/character-builder" className="mx-auto c-tool-button">
+            <Link
+              to="/pf2/character-builder"
+              className="mx-auto c-tool-button"
+            >
               Create a Character
             </Link>
           </div>
         </div>
       </div>
-      <div className="row c-title-section" style={{ backgroundColor: "white" }}>
+      <div
+        className="row c-title-section"
+        style={{ backgroundColor: "white" }}
+      >
         <div className="col-12">
           <div className="ml-ms-4 py-md-5 pt-5">
             <h3
               className="p-4"
               style={{
-                fontFamily: "Inknut Antiqua"
+                fontFamily: "Inknut Antiqua",
               }}
             >
               About
             </h3>
             <p className="text-md-left px-4">
-              RPG Workshop is a set of random apps that you might use for table
-              top gaming. These are early and ongoing projects so there'll be
-              more features to come.
+              RPG Workshop is a set of random apps that you might use for
+              table top gaming. These are early and ongoing projects so
+              there will be more features to come.
             </p>
             <p className="text-md-left px-4">
               I want these to be the best they can be, so if you have
-              suggestions, comments, ideas, or just find a bug somewhere please
-              let me know! Send a message to{" "}
+              suggestions, comments, ideas, or just find a bug somewhere
+              please let me know! Send a message to{" "}
               <a href="mailto:joeziemba.dev@gmail.com?subject=[TableTopTools]">
                 joeziemba.dev@gmail.com
               </a>{" "}

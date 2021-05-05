@@ -14,7 +14,9 @@ const Modal = ({ show, large, closeFunction, title, children }) => {
   return (
     <div className="c-modal">
       <div
-        className={`c-modal__window ${large ? "c-modal__window--large" : ""}`}
+        className={`c-modal__window ${
+          large ? "c-modal__window--large" : ""
+        }`}
       >
         {title ? <h2 className="c-modal__header">{title}</h2> : null}
         <button className="c-modal__close" onClick={closeFunction}>

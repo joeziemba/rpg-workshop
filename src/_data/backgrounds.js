@@ -13,31 +13,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Acolyte1",
         restrictTo: [Abilities.INT, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Acolyte",
         type: Abilities.FREE,
-        id: "Acolyte2"
-      }
+        id: "Acolyte2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Religion,
         source: "Acolyte",
-        id: "Acolyte1"
+        id: "Acolyte1",
       },
       {
         id: "Acolyte2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Acolyte",
-        type: "Scribing"
-      }
+        type: "Scribing",
+      },
     ],
-    feat: "Student of the Canon"
+    feat: "Student of the Canon",
   },
   Acrobat: {
     id: "Acrobat",
@@ -49,31 +54,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Acrobat1",
         restrictTo: [Abilities.STR, Abilities.DEX],
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Acrobat",
         type: Abilities.FREE,
-        id: "Acrobat2"
-      }
+        id: "Acrobat2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Acrobatics,
         source: "Acrobat",
-        id: "Acrobat1"
+        id: "Acrobat1",
       },
       {
         id: "Acrobat2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Acrobat",
-        type: "Circus"
-      }
+        type: "Circus",
+      },
     ],
-    feat: "Steady Balance"
+    feat: "Steady Balance",
   },
   AnimalWhisperer: {
     id: "AnimalWhisperer",
@@ -85,31 +95,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "AnimalWhisperer1",
         restrictTo: [Abilities.WIS, Abilities.CHA],
-        exclude: [Abilities.CON, Abilities.INT, Abilities.STR, Abilities.DEX]
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.STR,
+          Abilities.DEX,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "AnimalWhisperer",
         type: Abilities.FREE,
-        id: "AnimalWhisperer2"
-      }
+        id: "AnimalWhisperer2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Nature,
         source: "AnimalWhisperer",
-        id: "AnimalWhisperer1"
+        id: "AnimalWhisperer1",
       },
       {
         id: "AnimalWhisperer2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "AnimalWhisperer",
-        type: "One Terrain"
-      }
+        type: "One Terrain",
+      },
     ],
-    feat: "Train Animal"
+    feat: "Train Animal",
   },
   Artisan: {
     id: "Artisan",
@@ -121,31 +136,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Guild1",
         restrictTo: [Abilities.STR, Abilities.INT],
-        exclude: [Abilities.DEX, Abilities.CON, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Artisan",
         type: Abilities.FREE,
-        id: "Guild2"
-      }
+        id: "Guild2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Crafting,
         source: "Artisan",
-        id: "Guild1"
+        id: "Guild1",
       },
       {
         id: "Guild2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Artisan",
-        type: "Guild"
-      }
+        type: "Guild",
+      },
     ],
-    feat: "Specialty Crafting"
+    feat: "Specialty Crafting",
   },
   Artist: {
     id: "Artist",
@@ -157,31 +177,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Artist1",
         restrictTo: [Abilities.DEX, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.INT, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Artist",
         type: Abilities.FREE,
-        id: "Artist2"
-      }
+        id: "Artist2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Crafting,
         source: "Artist",
-        id: "Artist1"
+        id: "Artist1",
       },
       {
         id: "Artist2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Artist",
-        type: "Art"
-      }
+        type: "Art",
+      },
     ],
-    feat: "Specialty Crafting"
+    feat: "Specialty Crafting",
   },
   Barkeep: {
     id: "Barkeep",
@@ -193,31 +218,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Barkeep1",
         restrictTo: [Abilities.CON, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.INT, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Barkeep",
         type: Abilities.FREE,
-        id: "Barkeep2"
-      }
+        id: "Barkeep2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Diplomacy,
         source: "Barkeep",
-        id: "Barkeep1"
+        id: "Barkeep1",
       },
       {
         id: "Barkeep2",
         skill: Skills.Lore,
         type: "Alcohol",
         proficiency: Proficiencies.TRAINED,
-        source: "Barkeep"
-      }
+        source: "Barkeep",
+      },
     ],
-    feat: "Hobnobber"
+    feat: "Hobnobber",
   },
   Barrister: {
     id: "Barrister",
@@ -229,31 +259,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Barrister1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Barrister",
         type: Abilities.FREE,
-        id: "Barrister2"
-      }
+        id: "Barrister2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Diplomacy,
         source: "Barrister",
-        id: "Barrister1"
+        id: "Barrister1",
       },
       {
         id: "Barrister2",
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
-        source: "Barrister"
-      }
+        source: "Barrister",
+      },
     ],
-    feat: "Group Impression"
+    feat: "Group Impression",
   },
   BountyHunter: {
     id: "BountyHunter",
@@ -265,31 +300,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "BountyHunter1",
         restrictTo: [Abilities.STR, Abilities.WIS],
-        exclude: [Abilities.DEX, Abilities.CON, Abilities.INT, Abilities.CHA]
+        exclude: [
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "BountyHunter",
         type: Abilities.FREE,
-        id: "BountyHunter2"
-      }
+        id: "BountyHunter2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Survival,
         source: "BountyHunter",
-        id: "BountyHunter1"
+        id: "BountyHunter1",
       },
       {
         id: "BountyHunter2",
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
-        source: "BountyHunter"
-      }
+        source: "BountyHunter",
+      },
     ],
-    feat: "Experienced Tracker"
+    feat: "Experienced Tracker",
   },
   Charlatan: {
     id: "Charlatan",
@@ -301,31 +341,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Charlatan1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Charlatan",
         type: Abilities.FREE,
-        id: "Charlatan2"
-      }
+        id: "Charlatan2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Deception,
         source: "Charlatan",
-        id: "Charlatan1"
+        id: "Charlatan1",
       },
       {
         id: "Charlatan2",
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
-        source: "Charlatan"
-      }
+        source: "Charlatan",
+      },
     ],
-    feat: "Charming Liar"
+    feat: "Charming Liar",
   },
   Criminal: {
     id: "Criminal",
@@ -337,31 +382,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Criminal1",
         restrictTo: [Abilities.INT, Abilities.DEX],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Criminal",
         type: Abilities.FREE,
-        id: "Criminal2"
-      }
+        id: "Criminal2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Stealth,
         source: "Criminal",
-        id: "Criminal1"
+        id: "Criminal1",
       },
       {
         id: "Criminal2",
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
-        source: "Criminal"
-      }
+        source: "Criminal",
+      },
     ],
-    feat: "Experienced Smuggler"
+    feat: "Experienced Smuggler",
   },
   Detective: {
     id: "Detective",
@@ -373,31 +423,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Detective1",
         restrictTo: [Abilities.INT, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.DEX, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.DEX,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Detective",
         type: Abilities.FREE,
-        id: "Detective2"
-      }
+        id: "Detective2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Society,
         source: "Detective",
-        id: "Detective1"
+        id: "Detective1",
       },
       {
         id: "Detective2",
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
-        source: "Detective"
-      }
+        source: "Detective",
+      },
     ],
-    feat: "Streetwise"
+    feat: "Streetwise",
   },
   Emissary: {
     id: "Emissary",
@@ -409,31 +464,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Emissary1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.DEX, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.DEX,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Emissary",
         type: Abilities.FREE,
-        id: "Emissary2"
-      }
+        id: "Emissary2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Society,
         source: "Emissary",
-        id: "Emissary1"
+        id: "Emissary1",
       },
       {
         id: "Emissary2",
         skill: Skills.Lore,
         type: "One City",
         proficiency: Proficiencies.TRAINED,
-        source: "Emissary"
-      }
+        source: "Emissary",
+      },
     ],
-    feat: "Multilingual"
+    feat: "Multilingual",
   },
   Entertainer: {
     id: "Entertainer",
@@ -445,31 +505,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Entertainer1",
         restrictTo: [Abilities.DEX, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.INT, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Entertainer",
         type: Abilities.FREE,
-        id: "Entertainer2"
-      }
+        id: "Entertainer2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Performance,
         source: "Entertainer",
-        id: "Entertainer1"
+        id: "Entertainer1",
       },
       {
         id: "Entertainer2",
         skill: Skills.Lore,
         type: "Theater",
         proficiency: Proficiencies.TRAINED,
-        source: "Entertainer"
-      }
+        source: "Entertainer",
+      },
     ],
-    feat: "Fascinating Performance"
+    feat: "Fascinating Performance",
   },
   Farmhand: {
     id: "Farmhand",
@@ -481,31 +546,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Farmhand1",
         restrictTo: [Abilities.CON, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.INT, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Farmhand",
         type: Abilities.FREE,
-        id: "Farmhand2"
-      }
+        id: "Farmhand2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Athletics,
         source: "Farmhand",
-        id: "Farmhand1"
+        id: "Farmhand1",
       },
       {
         id: "Farmhand2",
         skill: Skills.Lore,
         type: "Farming",
         proficiency: Proficiencies.TRAINED,
-        source: "Farmhand"
-      }
+        source: "Farmhand",
+      },
     ],
-    feat: "Assurance: Athletics"
+    feat: "Assurance: Athletics",
   },
   FieldMedic: {
     id: "FieldMedic",
@@ -517,31 +587,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "FieldMedic1",
         restrictTo: [Abilities.CON, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.INT, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "FieldMedic",
         type: Abilities.FREE,
-        id: "FieldMedic2"
-      }
+        id: "FieldMedic2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Medicine,
         source: "FieldMedic",
-        id: "FieldMedic1"
+        id: "FieldMedic1",
       },
       {
         id: "FieldMedic2",
         skill: Skills.Lore,
         type: "Warfare",
         proficiency: Proficiencies.TRAINED,
-        source: "FieldMedic"
-      }
+        source: "FieldMedic",
+      },
     ],
-    feat: "Battle Medicine"
+    feat: "Battle Medicine",
   },
   FortuneTeller: {
     id: "FortuneTeller",
@@ -553,30 +628,35 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "FortuneTeller1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "FortuneTeller",
         type: Abilities.FREE,
-        id: "FortuneTeller2"
-      }
+        id: "FortuneTeller2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Occultism,
         source: "FortuneTeller",
-        id: "FortuneTeller1"
+        id: "FortuneTeller1",
       },
       {
         id: "FortuneTeller2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "FortuneTeller",
-        type: "Fortune Telling"
-      }
-    ]
+        type: "Fortune Telling",
+      },
+    ],
   },
   Gambler: {
     id: "Gambler",
@@ -588,30 +668,35 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Gambler1",
         restrictTo: [Abilities.DEX, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.INT, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.INT,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Gambler",
         type: Abilities.FREE,
-        id: "Gambler2"
-      }
+        id: "Gambler2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Deception,
         source: "Gambler",
-        id: "Gambler1"
+        id: "Gambler1",
       },
       {
         id: "Gambler2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Gambler",
-        type: "Games"
-      }
-    ]
+        type: "Games",
+      },
+    ],
   },
   Gladiator: {
     id: "Gladiator",
@@ -623,31 +708,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Gladiator1",
         restrictTo: [Abilities.STR, Abilities.CHA],
-        exclude: [Abilities.DEX, Abilities.INT, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Gladiator",
         type: Abilities.FREE,
-        id: "Gladiator2"
-      }
+        id: "Gladiator2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Performance,
         source: "Gladiator",
-        id: "Gladiator1"
+        id: "Gladiator1",
       },
       {
         id: "Gladiator2",
         skill: Skills.Lore,
         type: "Gladitorial",
         proficiency: Proficiencies.TRAINED,
-        source: "Gladiator"
-      }
+        source: "Gladiator",
+      },
     ],
-    feat: "Impressive Performance"
+    feat: "Impressive Performance",
   },
   Guard: {
     id: "Guard",
@@ -659,31 +749,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Guard1",
         restrictTo: [Abilities.STR, Abilities.CHA],
-        exclude: [Abilities.DEX, Abilities.INT, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Guard",
         type: Abilities.FREE,
-        id: "Guard2"
-      }
+        id: "Guard2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Intimidation,
         source: "Guard",
-        id: "Guard1"
+        id: "Guard1",
       },
       {
         id: "Guard2",
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
-        source: "Guard"
-      }
+        source: "Guard",
+      },
     ],
-    feat: "Quick Coercion"
+    feat: "Quick Coercion",
   },
   Herbalist: {
     id: "Herbalist",
@@ -695,31 +790,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Herbalist1",
         restrictTo: [Abilities.CON, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.INT, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Herbalist",
         type: Abilities.FREE,
-        id: "Herbalist2"
-      }
+        id: "Herbalist2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Nature,
         source: "Herbalist",
-        id: "Herbalist1"
+        id: "Herbalist1",
       },
       {
         id: "Herbalist2",
         skill: Skills.Lore,
         type: "Herbalism",
         proficiency: Proficiencies.TRAINED,
-        source: "Herbalist"
-      }
+        source: "Herbalist",
+      },
     ],
-    feat: "Natural Medicine"
+    feat: "Natural Medicine",
   },
   Hermit: {
     id: "Hermit",
@@ -731,31 +831,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Hermit1",
         restrictTo: [Abilities.CON, Abilities.INT],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Hermit",
         type: Abilities.FREE,
-        id: "Hermit2"
-      }
+        id: "Hermit2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Nature, // TODO: Implement skill choices from backgrounds
         source: "Hermit",
-        id: "Hermit1"
+        id: "Hermit1",
       },
       {
         id: "Hermit2",
         skill: Skills.Lore,
         type: "Terrain",
         proficiency: Proficiencies.TRAINED,
-        source: "Hermit"
-      }
+        source: "Hermit",
+      },
     ],
-    feat: "Dubious Knowledge"
+    feat: "Dubious Knowledge",
   },
   Hunter: {
     id: "Hunter",
@@ -767,31 +872,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Hunter1",
         restrictTo: [Abilities.DEX, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.CON, Abilities.INT, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Hunter",
         type: Abilities.FREE,
-        id: "Hunter2"
-      }
+        id: "Hunter2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Survival,
         source: "Hunter",
-        id: "Hunter1"
+        id: "Hunter1",
       },
       {
         id: "Hunter2",
         skill: Skills.Lore,
         type: "Tanning",
         proficiency: Proficiencies.TRAINED,
-        source: "Hunter"
-      }
+        source: "Hunter",
+      },
     ],
-    feat: "Survey Wildlife"
+    feat: "Survey Wildlife",
   },
   Laborer: {
     id: "Laborer",
@@ -803,31 +913,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Laborer1",
         restrictTo: [Abilities.STR, Abilities.CON],
-        exclude: [Abilities.DEX, Abilities.INT, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.DEX,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Laborer",
         type: Abilities.FREE,
-        id: "Laborer2"
-      }
+        id: "Laborer2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Athletics,
         source: "Laborer",
-        id: "Laborer1"
+        id: "Laborer1",
       },
       {
         id: "Laborer2",
         skill: Skills.Lore,
         type: "Labor",
         proficiency: Proficiencies.TRAINED,
-        source: "Laborer"
-      }
+        source: "Laborer",
+      },
     ],
-    feat: "Hefty Hauler Athletics"
+    feat: "Hefty Hauler Athletics",
   },
   MartialDisciple: {
     id: "MartialDisciple",
@@ -839,31 +954,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "MartialDisciple1",
         restrictTo: [Abilities.STR, Abilities.DEX],
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "MartialDisciple",
         type: Abilities.FREE,
-        id: "MartialDisciple2"
-      }
+        id: "MartialDisciple2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Athletics, //TODO: Implement choice of skills from backgrounds
         source: "MartialDisciple",
-        id: "MartialDisciple1"
+        id: "MartialDisciple1",
       },
       {
         id: "MartialDisciple2",
         skill: Skills.Lore,
         type: "Warfare",
         proficiency: Proficiencies.TRAINED,
-        source: "MartialDisciple"
-      }
+        source: "MartialDisciple",
+      },
     ],
-    feat: "Cat Fall of Quick Jump"
+    feat: "Cat Fall of Quick Jump",
   },
   Merchant: {
     id: "Merchant",
@@ -875,30 +995,35 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Merchant1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Merchant",
         type: Abilities.FREE,
-        id: "Merchant2"
-      }
+        id: "Merchant2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Diplomacy,
         source: "Merchant",
-        id: "Merchant1"
+        id: "Merchant1",
       },
       {
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Merchant",
         id: "Merchant2",
-        type: "Merchantile"
-      }
-    ]
+        type: "Merchantile",
+      },
+    ],
   },
   Miner: {
     id: "Miner",
@@ -910,31 +1035,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Miner1",
         restrictTo: [Abilities.STR, Abilities.WIS],
-        exclude: [Abilities.CON, Abilities.INT, Abilities.DEX, Abilities.CHA]
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.DEX,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Miner",
         type: Abilities.FREE,
-        id: "Miner2"
-      }
+        id: "Miner2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Survival,
         source: "Miner",
-        id: "Miner1"
+        id: "Miner1",
       },
       {
         id: "Miner2",
         skill: Skills.Lore,
         type: "Mining",
         proficiency: Proficiencies.TRAINED,
-        source: "Miner"
-      }
+        source: "Miner",
+      },
     ],
-    feat: "Terrain Expertise"
+    feat: "Terrain Expertise",
   },
   Noble: {
     id: "Noble",
@@ -946,31 +1076,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Noble1",
         restrictTo: [Abilities.INT, Abilities.CHA],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.WIS]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Noble",
         type: Abilities.FREE,
-        id: "Noble2"
-      }
+        id: "Noble2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Society,
         source: "Noble",
-        id: "Noble1"
+        id: "Noble1",
       },
       {
         id: "Noble2",
         skill: Skills.Lore,
         type: "Genealogy",
         proficiency: Proficiencies.TRAINED,
-        source: "Noble"
-      }
+        source: "Noble",
+      },
     ],
-    feat: "Courtly Graces"
+    feat: "Courtly Graces",
   },
   Nomad: {
     id: "Nomad",
@@ -982,30 +1117,35 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Nomad1",
         restrictTo: [Abilities.WIS, Abilities.CON],
-        exclude: [Abilities.INT, Abilities.DEX, Abilities.CHA, Abilities.STR]
+        exclude: [
+          Abilities.INT,
+          Abilities.DEX,
+          Abilities.CHA,
+          Abilities.STR,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Nomad",
         type: Abilities.FREE,
-        id: "Nomad2"
-      }
+        id: "Nomad2",
+      },
     ],
     skillBoosts: [
       {
         skill: Skills.Survival,
         proficiency: Proficiencies.TRAINED,
         source: "Nomad",
-        id: "Nomad1"
+        id: "Nomad1",
       },
       {
         skill: Skills.Lore,
         type: "One Travelled Terrain",
         proficiency: Proficiencies.TRAINED,
         source: "Nomad",
-        id: "Nomad2"
-      }
-    ]
+        id: "Nomad2",
+      },
+    ],
   },
   Prisoner: {
     id: "Prisoner",
@@ -1017,31 +1157,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Prisoner1",
         restrictTo: [Abilities.STR, Abilities.CON],
-        exclude: [Abilities.INT, Abilities.DEX, Abilities.CHA, Abilities.WIS]
+        exclude: [
+          Abilities.INT,
+          Abilities.DEX,
+          Abilities.CHA,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Prisoner",
         type: Abilities.FREE,
-        id: "Prisoner2"
-      }
+        id: "Prisoner2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Stealth,
         source: "Prisoner",
-        id: "Prisoner1"
+        id: "Prisoner1",
       },
       {
         id: "Prisoner2",
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
-        source: "Prisoner"
-      }
+        source: "Prisoner",
+      },
     ],
-    feat: "Experienced Smuggler"
+    feat: "Experienced Smuggler",
   },
   Sailor: {
     id: "Sailor",
@@ -1053,31 +1198,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Sailor1",
         restrictTo: [Abilities.STR, Abilities.DEX],
-        exclude: [Abilities.INT, Abilities.CON, Abilities.CHA, Abilities.WIS]
+        exclude: [
+          Abilities.INT,
+          Abilities.CON,
+          Abilities.CHA,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Sailor",
         type: Abilities.FREE,
-        id: "Sailor2"
-      }
+        id: "Sailor2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Athletics,
         source: "Sailor",
-        id: "Sailor1"
+        id: "Sailor1",
       },
       {
         id: "Sailor2",
         skill: Skills.Lore,
         type: "Sailing",
         proficiency: Proficiencies.TRAINED,
-        source: "Sailor"
-      }
+        source: "Sailor",
+      },
     ],
-    feat: "Underwater Marauder"
+    feat: "Underwater Marauder",
   },
   Scholar: {
     id: "Scholar",
@@ -1089,31 +1239,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Scholar1",
         restrictTo: [Abilities.INT, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.DEX, Abilities.CON, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.DEX,
+          Abilities.CON,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Scholar",
         type: Abilities.FREE,
-        id: "Scholar2"
-      }
+        id: "Scholar2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Arcana, //TODO: Choices
         source: "Scholar",
-        id: "Scholar1"
+        id: "Scholar1",
       },
       {
         id: "Scholar2",
         skill: Skills.Lore,
         type: "Academia",
         proficiency: Proficiencies.TRAINED,
-        source: "Scholar"
-      }
+        source: "Scholar",
+      },
     ],
-    feat: "Assurance"
+    feat: "Assurance",
   },
   Scout: {
     id: "Scout",
@@ -1125,31 +1280,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Scout1",
         restrictTo: [Abilities.DEX, Abilities.WIS],
-        exclude: [Abilities.STR, Abilities.INT, Abilities.CON, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.INT,
+          Abilities.CON,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Scout",
         type: Abilities.FREE,
-        id: "Scout2"
-      }
+        id: "Scout2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Survival,
         source: "Scout",
-        id: "Scout1"
+        id: "Scout1",
       },
       {
         id: "Scout2",
         skill: Skills.Lore,
         type: "Terrain",
         proficiency: Proficiencies.TRAINED,
-        source: "Scout"
-      }
+        source: "Scout",
+      },
     ],
-    feat: "Forager"
+    feat: "Forager",
   },
   StreetUrchin: {
     id: "StreetUrchin",
@@ -1161,31 +1321,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "StreetUrchin1",
         restrictTo: [Abilities.DEX, Abilities.CON],
-        exclude: [Abilities.STR, Abilities.INT, Abilities.WIS, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "StreetUrchin",
         type: Abilities.FREE,
-        id: "StreetUrchin2"
-      }
+        id: "StreetUrchin2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Thievery,
         source: "StreetUrchin",
-        id: "StreetUrchin1"
+        id: "StreetUrchin1",
       },
       {
         id: "StreetUrchin2",
         skill: Skills.Lore,
         type: "City",
         proficiency: Proficiencies.TRAINED,
-        source: "StreetUrchin"
-      }
+        source: "StreetUrchin",
+      },
     ],
-    feat: "Pickpocket"
+    feat: "Pickpocket",
   },
   Tinker: {
     id: "Tinker",
@@ -1197,31 +1362,36 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Tinker1",
         restrictTo: [Abilities.DEX, Abilities.INT],
-        exclude: [Abilities.STR, Abilities.WIS, Abilities.CON, Abilities.CHA]
+        exclude: [
+          Abilities.STR,
+          Abilities.WIS,
+          Abilities.CON,
+          Abilities.CHA,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Tinker",
         type: Abilities.FREE,
-        id: "Tinker2"
-      }
+        id: "Tinker2",
+      },
     ],
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
         skill: Skills.Crafting,
         source: "Tinker",
-        id: "Tinker1"
+        id: "Tinker1",
       },
       {
         id: "Tinker2",
         skill: Skills.Lore,
         type: "Engineering",
         proficiency: Proficiencies.TRAINED,
-        source: "Tinker"
-      }
+        source: "Tinker",
+      },
     ],
-    feat: "Specialty Crafting"
+    feat: "Specialty Crafting",
   },
   Warrior: {
     id: "Warrior",
@@ -1233,30 +1403,35 @@ export const Backgrounds = {
         type: Abilities.FREE,
         id: "Warrior1",
         restrictTo: [Abilities.STR, Abilities.CON],
-        exclude: [Abilities.INT, Abilities.DEX, Abilities.CHA, Abilities.WIS]
+        exclude: [
+          Abilities.INT,
+          Abilities.DEX,
+          Abilities.CHA,
+          Abilities.WIS,
+        ],
       },
       {
         ability: Abilities.FREE,
         source: "Warrior",
         type: Abilities.FREE,
-        id: "Warrior2"
-      }
+        id: "Warrior2",
+      },
     ],
     skillBoosts: [
       {
         skill: Skills.Intimidation,
         proficiency: Proficiencies.TRAINED,
         source: "Warrior",
-        id: "Warrior1"
+        id: "Warrior1",
       },
       {
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
         source: "Warrior",
         id: "Warrior2",
-        type: "Warfare"
-      }
+        type: "Warfare",
+      },
     ],
-    feat: "Intimidating Glare"
-  }
+    feat: "Intimidating Glare",
+  },
 };

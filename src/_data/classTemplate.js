@@ -10,10 +10,10 @@ export function calculateAbilityScores(character) {
     [Abilities.CON]: 10,
     [Abilities.INT]: 10,
     [Abilities.WIS]: 10,
-    [Abilities.CHA]: 10
+    [Abilities.CHA]: 10,
   };
 
-  character.abilityBoosts.forEach(boost => {
+  character.abilityBoosts.forEach((boost) => {
     if (abilities[boost.ability] < 18) {
       abilities[boost.ability] += 2;
     } else {
@@ -22,7 +22,7 @@ export function calculateAbilityScores(character) {
   });
 
   if (character.abilityFlaws)
-    character.abilityFlaws.forEach(flaw => {
+    character.abilityFlaws.forEach((flaw) => {
       abilities[flaw.ability] -= 2;
     });
 
@@ -34,7 +34,7 @@ export function calculateHP(character) {
   let lv1mods, lv5mods, lv10mods, lv15mods;
   // 1st
   let lv1boosts = character.abilityBoosts.filter(
-    boost =>
+    (boost) =>
       boost.source === "Level_1" ||
       boost.source === character.background.name ||
       boost.source === character.class.name ||
@@ -43,12 +43,12 @@ export function calculateHP(character) {
 
   let lv1scores = calculateAbilityScores({ abilityBoosts: lv1boosts });
   lv1mods = calculateAbilityMods({
-    abilities: lv1scores
+    abilities: lv1scores,
   });
 
   // 5th
   let lv5boosts = character.abilityBoosts.filter(
-    boost =>
+    (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
       boost.source === character.background.name ||
@@ -58,12 +58,12 @@ export function calculateHP(character) {
 
   let lv5scores = calculateAbilityScores({ abilityBoosts: lv5boosts });
   lv5mods = calculateAbilityMods({
-    abilities: lv5scores
+    abilities: lv5scores,
   });
 
   // 10th
   let lv10boosts = character.abilityBoosts.filter(
-    boost =>
+    (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
       boost.source === "Level_10" ||
@@ -74,12 +74,12 @@ export function calculateHP(character) {
 
   let lv10scores = calculateAbilityScores({ abilityBoosts: lv10boosts });
   lv10mods = calculateAbilityMods({
-    abilities: lv10scores
+    abilities: lv10scores,
   });
 
   // 15th
   let lv15boosts = character.abilityBoosts.filter(
-    boost =>
+    (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
       boost.source === "Level_10" ||
@@ -91,7 +91,7 @@ export function calculateHP(character) {
 
   let lv15scores = calculateAbilityScores({ abilityBoosts: lv15boosts });
   lv15mods = calculateAbilityMods({
-    abilities: lv15scores
+    abilities: lv15scores,
   });
 
   let hitPoints = 0;
@@ -109,7 +109,8 @@ export function calculateHP(character) {
       hitPoints += character.class.hp + lv15mods[Abilities.CON];
 
     if (i === 20)
-      hitPoints += character.class.hp + character.abilityMods[Abilities.CON];
+      hitPoints +=
+        character.class.hp + character.abilityMods[Abilities.CON];
   }
 
   return hitPoints;
@@ -118,7 +119,7 @@ export function calculateHP(character) {
 export function calculateAbilityMods(character) {
   let mods = {};
 
-  Object.keys(character.abilities).forEach(ability => {
+  Object.keys(character.abilities).forEach((ability) => {
     mods[ability] = abMod(character.abilities[ability]);
   });
 
@@ -131,7 +132,7 @@ export function abMod(abilityScore) {
 
 export function countTrainedSkills(character) {
   let count = 0;
-  Object.keys(character.skills).forEach(skillKey => {
+  Object.keys(character.skills).forEach((skillKey) => {
     if (character.skills[skillKey].proficiency > 0) count++;
   });
   return count;
@@ -140,7 +141,7 @@ export function countTrainedSkills(character) {
 export function calculatePerception(character) {
   let prof = 0;
   if (character.class.name)
-    character.class.perceptionBoosts.forEach(boost => {
+    character.class.perceptionBoosts.forEach((boost) => {
       let level = boost.type.split("_")[1];
       if (level <= character.level) prof = boost.proficiency;
     });
@@ -153,98 +154,98 @@ export const upperLevelAbilityBoosts = [
     ability: Abilities.FREE,
     source: "Level_5",
     id: "Level5-1",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_5",
     id: "Level5-2",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_5",
     id: "Level5-3",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_5",
     id: "Level5-4",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_10",
     id: "Level10-1",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_10",
     id: "Level10-2",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_10",
     id: "Level10-3",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_10",
     id: "Level10-4",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_15",
     id: "Level15-1",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_15",
     id: "Level15-2",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_15",
     id: "Level15-3",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_15",
     id: "Level15-4",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_20",
     id: "Level20-1",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_20",
     id: "Level20-2",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_20",
     id: "Level20-3",
-    type: Abilities.FREE
+    type: Abilities.FREE,
   },
   {
     ability: Abilities.FREE,
     source: "Level_20",
     id: "Level20-4",
-    type: Abilities.FREE
-  }
+    type: Abilities.FREE,
+  },
 ];
 
 export function getBlankCharacter() {
@@ -253,26 +254,26 @@ export function getBlankCharacter() {
       ability: Abilities.FREE,
       source: "Level_1",
       id: "Level1-1",
-      type: Abilities.FREE
+      type: Abilities.FREE,
     },
     {
       ability: Abilities.FREE,
       source: "Level_1",
       id: "Level1-2",
-      type: Abilities.FREE
+      type: Abilities.FREE,
     },
     {
       ability: Abilities.FREE,
       source: "Level_1",
       id: "Level1-3",
-      type: Abilities.FREE
+      type: Abilities.FREE,
     },
     {
       ability: Abilities.FREE,
       source: "Level_1",
       id: "Level1-4",
-      type: Abilities.FREE
-    }
+      type: Abilities.FREE,
+    },
   ];
 
   abilityBoosts = abilityBoosts.concat(upperLevelAbilityBoosts);
@@ -289,12 +290,12 @@ export function getBlankCharacter() {
       // saves: { Reflex: 0, Fortitude: 0, Will: 0 },
       defenses: { unarmored: 0 },
       skillBoosts: [],
-      proficiencyBoosts: []
+      proficiencyBoosts: [],
     },
     saves: {
       [Saves.FORT]: 0,
       [Saves.REF]: 0,
-      [Saves.WILL]: 0
+      [Saves.WILL]: 0,
     },
     abilities: {
       [Abilities.STR]: 10,
@@ -302,7 +303,7 @@ export function getBlankCharacter() {
       [Abilities.CON]: 10,
       [Abilities.INT]: 10,
       [Abilities.WIS]: 10,
-      [Abilities.CHA]: 10
+      [Abilities.CHA]: 10,
     },
     abilityMods: {
       [Abilities.STR]: 0,
@@ -310,7 +311,7 @@ export function getBlankCharacter() {
       [Abilities.CON]: 0,
       [Abilities.INT]: 0,
       [Abilities.WIS]: 0,
-      [Abilities.CHA]: 0
+      [Abilities.CHA]: 0,
     },
     abilityBoosts: _.cloneDeep(abilityBoosts),
     abilityFlaws: [],
@@ -319,56 +320,56 @@ export function getBlankCharacter() {
         skill: { id: "Free" },
         id: "character_3",
         source: "character_3",
-        level: 3
+        level: 3,
       },
       {
         skill: { id: "Free" },
         id: "character_5",
         source: "character_5",
-        level: 5
+        level: 5,
       },
       {
         skill: { id: "Free" },
         id: "character_7",
         source: "character_7",
-        level: 7
+        level: 7,
       },
       {
         skill: { id: "Free" },
         id: "character_9",
         source: "character_9",
-        level: 9
+        level: 9,
       },
       {
         skill: { id: "Free" },
         id: "character_11",
         source: "character_11",
-        level: 11
+        level: 11,
       },
       {
         skill: { id: "Free" },
         id: "character_13",
         source: "character_13",
-        level: 13
+        level: 13,
       },
       {
         skill: { id: "Free" },
         id: "character_15",
         source: "character_15",
-        level: 15
+        level: 15,
       },
       {
         skill: { id: "Free" },
         id: "character_17",
         source: "character_17",
-        level: 17
+        level: 17,
       },
       {
         skill: { id: "Free" },
         id: "character_19",
         source: "character_19",
-        level: 19
-      }
+        level: 19,
+      },
     ],
     skills: _.cloneDeep(Skills),
     feats: [
@@ -402,7 +403,7 @@ export function getBlankCharacter() {
       { type: "general_7" },
       { type: "general_11" },
       { type: "general_15" },
-      { type: "general_19" }
-    ]
+      { type: "general_19" },
+    ],
   };
 }

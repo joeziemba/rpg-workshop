@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { FEATS } from "../../_data/feats/feats";
 
-const FeatSelection = props => {
+const FeatSelection = (props) => {
   const [query, setQuery] = useState("");
   const [feats, setFeats] = useState(
     FEATS.sort((a, b) => {
@@ -16,7 +16,7 @@ const FeatSelection = props => {
     let [type, level] = props.featKey.split("_");
 
     if (type === "ancestry") {
-      filteredFeats = filteredFeats.filter(feat => {
+      filteredFeats = filteredFeats.filter((feat) => {
         return (
           feat.traits.includes(props.character.ancestry.name) &&
           parseInt(feat.level, 10) <= parseInt(level, 10)
@@ -25,7 +25,7 @@ const FeatSelection = props => {
     }
 
     if (type === "class") {
-      filteredFeats = filteredFeats.filter(feat => {
+      filteredFeats = filteredFeats.filter((feat) => {
         return (
           feat.traits.includes(props.character.class.name) &&
           parseInt(feat.level, 10) <= parseInt(level, 10)
@@ -34,7 +34,7 @@ const FeatSelection = props => {
     }
 
     if (type === "skill") {
-      filteredFeats = filteredFeats.filter(feat => {
+      filteredFeats = filteredFeats.filter((feat) => {
         return (
           feat.traits.includes("Skill") &&
           parseInt(feat.level, 10) <= parseInt(level, 10)
@@ -43,12 +43,12 @@ const FeatSelection = props => {
     }
 
     if (type === "misc") {
-      filteredFeats = filteredFeats.filter(feat => {
+      filteredFeats = filteredFeats.filter((feat) => {
         return feat.traits.includes("General");
       });
     }
 
-    filteredFeats = filteredFeats.filter(feat => {
+    filteredFeats = filteredFeats.filter((feat) => {
       for (const trait of feat.traits) {
         if (trait.toLowerCase().includes(query.toLowerCase())) return true;
       }
@@ -60,7 +60,7 @@ const FeatSelection = props => {
     query,
     props.character.ancestry.name,
     props.character.class.name,
-    props.featKey
+    props.featKey,
   ]);
 
   return (
@@ -71,7 +71,7 @@ const FeatSelection = props => {
           <input
             type="text"
             value={query}
-            onChange={e => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </label>
       </div>
@@ -86,7 +86,7 @@ const FeatSelection = props => {
           </tr>
         </thead>
         <tbody>
-          {feats.map(feat => {
+          {feats.map((feat) => {
             feat.description = feat.description.replace("\n", "</p><p>");
             return (
               <tr className="c-feat-selection__row" key={feat.name}>
@@ -99,7 +99,9 @@ const FeatSelection = props => {
                   </button>
                 </td>
                 <td style={{ flex: "2" }}>{feat.name}</td>
-                <td style={{ flex: "1", textAlign: "center" }}>{feat.level}</td>
+                <td style={{ flex: "1", textAlign: "center" }}>
+                  {feat.level}
+                </td>
                 <td style={{ flex: "1" }}>{feat.traits.join(", ")}</td>
                 <td style={{ flex: "10" }}>
                   {feat.prerequisites.length > 0 && (
@@ -107,7 +109,9 @@ const FeatSelection = props => {
                       <b>Prerequisites:</b> {feat.prerequisites.join(", ")}
                     </p>
                   )}
-                  <p dangerouslySetInnerHTML={{ __html: feat.description }}></p>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: feat.description }}
+                  ></p>
                 </td>
               </tr>
             );

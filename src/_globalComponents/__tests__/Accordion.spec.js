@@ -7,7 +7,7 @@ describe("Accordion", () => {
   const titleProp = "Test Accordion";
   const childContent = "Child Content";
 
-  const mountComp = overrides => {
+  const mountComp = (overrides) => {
     return mount(
       <Accordion title={titleProp} open={false} {...overrides}>
         {childContent}

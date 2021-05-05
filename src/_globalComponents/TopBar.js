@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { firebase } from "../Firebase";
 import { LoginButton } from "./index";
 
-const TopBar = props => {
+const TopBar = (props) => {
   return (
     <nav className="navbar topbar fixed-top">
       <div>
@@ -17,7 +17,7 @@ const TopBar = props => {
             id="profile-photo"
             style={{
               backgroundImage: "url(" + props.currentUser.photoURL + ")",
-              textAlign: "right"
+              textAlign: "right",
             }}
           />
           <div id="profile-name">{props.currentUser.displayName}</div>

@@ -11,10 +11,10 @@ describe("Input", () => {
     onChange: jest.fn(),
     value: "Test Value",
     fieldName: "testFieldName",
-    label: "Test Label"
+    label: "Test Label",
   };
 
-  const mountComponent = overrides => {
+  const mountComponent = (overrides) => {
     return mount(<Input {...testProps} {...overrides} />);
   };
   let wrapper;
@@ -23,12 +23,16 @@ describe("Input", () => {
   it("renders input with correct props", () => {
     expect(wrapper.find("input").props().type).toEqual(testProps.type);
     expect(wrapper.find("input").props().id).toEqual(testProps.id);
-    expect(wrapper.find("input").props().onChange).toEqual(testProps.onChange);
+    expect(wrapper.find("input").props().onChange).toEqual(
+      testProps.onChange
+    );
     expect(wrapper.find("input").props().placeholder).toEqual(
       testProps.placeholder
     );
     expect(wrapper.find("input").props().value).toEqual(testProps.value);
-    expect(wrapper.find("input").props().name).toEqual(testProps.fieldName);
+    expect(wrapper.find("input").props().name).toEqual(
+      testProps.fieldName
+    );
   });
 
   it("renders a label with props.label as text", () => {

@@ -6,13 +6,13 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
   function freeAbilityOptions(source) {
     let { abilityBoosts } = character;
     let freebies = abilityBoosts.filter(
-      boost => boost.type === Abilities.FREE && boost.source === source
+      (boost) => boost.type === Abilities.FREE && boost.source === source
     );
     return freebies.map((boost, i) => {
       let boostsFromSameSource = abilityBoosts.filter(
-        b => b.source === boost.source && b.id !== boost.id
+        (b) => b.source === boost.source && b.id !== boost.id
       );
-      let excludedAbilities = boostsFromSameSource.map(b => b.ability);
+      let excludedAbilities = boostsFromSameSource.map((b) => b.ability);
       if (boost.exclude) excludedAbilities.push(...boost.exclude);
 
       return (
@@ -26,9 +26,11 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
             value={boost.ability}
           >
             <option value="FREE"></option>
-            {Object.keys(Abilities).map(ability => {
+            {Object.keys(Abilities).map((ability) => {
               if (ability !== "FREE") {
-                return excludedAbilities.includes(Abilities[ability]) ? null : (
+                return excludedAbilities.includes(
+                  Abilities[ability]
+                ) ? null : (
                   <option key={ability} value={Abilities[ability]}>
                     {ability}
                   </option>
@@ -43,12 +45,13 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
   }
 
   function renderAbilities() {
-    return Object.keys(Abilities).map(abilityKey => {
+    return Object.keys(Abilities).map((abilityKey) => {
       if (abilityKey !== "FREE") {
         let keyAbility = character.abilityBoosts.find(
-          b => b.source === character.class.name
+          (b) => b.source === character.class.name
         );
-        let isKey = keyAbility && keyAbility.ability === Abilities[abilityKey];
+        let isKey =
+          keyAbility && keyAbility.ability === Abilities[abilityKey];
         return (
           <div
             key={abilityKey}
@@ -56,7 +59,9 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
           >
             <span className="pf-ability__name">{abilityKey}</span>
             <span className="pf-ability__score">
-              {character.abilityMods[Abilities[abilityKey]] < 0 ? " " : " +"}
+              {character.abilityMods[Abilities[abilityKey]] < 0
+                ? " "
+                : " +"}
               {character.abilityMods[Abilities[abilityKey]]}
             </span>
             <span className="pf-ability__mod">
@@ -82,7 +87,8 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
             <React.Fragment>
               <h3 className="c-gray-block-heading mt-2">
                 Ancestry Boosts{" "}
-                {character.ancestry.name && " - " + character.ancestry.name}
+                {character.ancestry.name &&
+                  " - " + character.ancestry.name}
               </h3>
               <div className="row">
                 {_.isEmpty(character.ancestry) ? (
@@ -97,7 +103,8 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
             <React.Fragment>
               <h3 className="c-gray-block-heading mt-2">
                 Background Boosts{" "}
-                {character.background.name && " - " + character.background.name}
+                {character.background.name &&
+                  " - " + character.background.name}
               </h3>
               <div className="row">
                 {_.isEmpty(character.background) ? (
@@ -110,7 +117,8 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
               </div>
             </React.Fragment>
             {character.class.name &&
-              character.class.abilityBoosts[0].ability === Abilities.FREE && (
+              character.class.abilityBoosts[0].ability ===
+                Abilities.FREE && (
                 <React.Fragment>
                   <h3 className="c-gray-block-heading mt-2 mb-2">
                     Class Boost{" "}
@@ -132,7 +140,9 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 5 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level_5")}</div>
+                <div className="row mb-2">
+                  {freeAbilityOptions("Level_5")}
+                </div>
               </>
             )}
             {character.level >= 10 && (
@@ -140,7 +150,9 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 10 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level_10")}</div>
+                <div className="row mb-2">
+                  {freeAbilityOptions("Level_10")}
+                </div>
               </>
             )}
             {character.level >= 15 && (
@@ -148,7 +160,9 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 15 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level_15")}</div>
+                <div className="row mb-2">
+                  {freeAbilityOptions("Level_15")}
+                </div>
               </>
             )}
             {character.level >= 20 && (
@@ -156,7 +170,9 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
                 <h3 className="c-gray-block-heading mt-2 mb-2">
                   Level 20 Boosts
                 </h3>
-                <div className="row mb-2">{freeAbilityOptions("Level_20")}</div>
+                <div className="row mb-2">
+                  {freeAbilityOptions("Level_20")}
+                </div>
               </>
             )}
           </div>

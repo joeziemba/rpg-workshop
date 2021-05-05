@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Input = (props) => {
   return (
     <div className="form-group">
-      {!props.hideLabel &&
-        <label htmlFor={props.id}>{props.label}</label>
-      }
+      {!props.hideLabel && <label htmlFor={props.id}>{props.label}</label>}
       <input
         type={props.type}
         className="form-control form-control-sm"
@@ -16,9 +14,11 @@ const Input = (props) => {
         value={props.value}
         name={props.fieldName}
       />
-      <small id={`${props.id}Help`} className="form-text text-muted">{props.supportText}</small>
+      <small id={`${props.id}Help`} className="form-text text-muted">
+        {props.supportText}
+      </small>
     </div>
-  )
-}
+  );
+};
 
 export default Input;

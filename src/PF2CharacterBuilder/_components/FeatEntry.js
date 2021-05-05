@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeatEntry = props => {
+const FeatEntry = (props) => {
   return (
     <div className="feat-entry mt-1">
       <div>
@@ -14,7 +14,10 @@ const FeatEntry = props => {
           )}
           {props.feat.name && (
             <>
-              <button onClick={props.removeFeat} className="pf-button mr-1">
+              <button
+                onClick={props.removeFeat}
+                className="pf-button mr-1"
+              >
                 <i className="fas fa-times"></i>
               </button>
               <button onClick={props.addFeat} className="pf-button">
@@ -25,7 +28,9 @@ const FeatEntry = props => {
         </div>
       </div>
       <div className="ml-3" style={{ fontSize: "12px" }}>
-        <p dangerouslySetInnerHTML={{ __html: props.feat.description }}></p>
+        <p
+          dangerouslySetInnerHTML={{ __html: props.feat.description }}
+        ></p>
       </div>
     </div>
   );

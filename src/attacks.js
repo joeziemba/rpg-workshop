@@ -1,58 +1,58 @@
 export const attacks = [
   {
     id: 1,
-    title: 'Longsword',
+    title: "Longsword",
     attack: {
-      type: 'Melee',
+      type: "Melee",
       prof: true,
       reach: 5,
       targets: 1,
       dmgDie: 8,
       dieNum: 1,
-      dmgType: 'Slashing',
-      dex: false
-    }
+      dmgType: "Slashing",
+      dex: false,
+    },
   },
   {
     id: 2,
-    title: 'Longbow',
+    title: "Longbow",
     attack: {
-      type: 'Ranged',
+      type: "Ranged",
       prof: true,
       reach: 120,
       targets: 1,
       dmgDie: 8,
       dieNum: 1,
-      dmgType: 'Piercing',
-      dex: true
-    }
+      dmgType: "Piercing",
+      dex: true,
+    },
   },
   {
-    id: 'clawAtk',
-    title: 'Claw',
+    id: "clawAtk",
+    title: "Claw",
     attack: {
-      type: 'Melee',
+      type: "Melee",
       prof: true,
       reach: 5,
       targets: 1,
       dmgDie: 4,
       dieNum: 1,
-      dmgType: 'Slashing',
-      dex: false
-    }
+      dmgType: "Slashing",
+      dex: false,
+    },
   },
   {
     id: 4,
-    title: 'Bite',
+    title: "Bite",
     attack: {
-      type: 'Melee',
+      type: "Melee",
       prof: true,
       reach: 5,
       targets: 1,
       dmgDie: 6,
       dieNum: 1,
-      dmgType: 'Piercing',
-      dex: false
-    }
+      dmgType: "Piercing",
+      dex: false,
+    },
   },
-]
+];

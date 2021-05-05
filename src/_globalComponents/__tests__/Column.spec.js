@@ -7,7 +7,7 @@ describe("Column", () => {
   const classProp = "test-class";
   const childContent = "Child Content";
 
-  const mountComp = overrides => {
+  const mountComp = (overrides) => {
     return mount(
       <Column className={classProp} {...overrides}>
         {childContent}

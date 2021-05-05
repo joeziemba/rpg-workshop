@@ -1,92 +1,129 @@
-import React from 'react';
-import { Row, Column, Input, SelectField } from '../../_globalComponents';
+import React from "react";
+import { Row, Column, Input, SelectField } from "../../_globalComponents";
 
 const AttackForm = (props) => {
   return (
     <div className="feature-block">
       <Row>
-        <button className='delete-btn' onClick={() => props.deleteAction(props.action.id, props.legendary)}>
+        <button
+          className="delete-btn"
+          onClick={() =>
+            props.deleteAction(props.action.id, props.legendary)
+          }
+        >
           x
         </button>
-        <Column className='col-4-md col-12-sm'>
+        <Column className="col-4-md col-12-sm">
           <Input
-            type='text'
-            label={'Title'}
-            placeholder={''}
+            type="text"
+            label={"Title"}
+            placeholder={""}
             value={props.action.title}
-            fieldName='title'
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            fieldName="title"
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-md-4 col-sm-12'>
+        <Column className="col-md-4 col-sm-12">
           <SelectField
-            label={'Attack'}
-            fieldName={'type'}
-            options={['Melee', 'Ranged']}
+            label={"Attack"}
+            fieldName={"type"}
+            options={["Melee", "Ranged"]}
             value={props.action.attack.type}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-md-2 col-sm-12'>
+        <Column className="col-md-2 col-sm-12">
           <Input
-            label={'Targets'}
-            fieldName={'targets'}
-            type='number'
+            label={"Targets"}
+            fieldName={"targets"}
+            type="number"
             value={props.action.attack.targets}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-md-2 col-sm-12'>
+        <Column className="col-md-2 col-sm-12">
           <Input
-            label={props.action.attack.type === 'Ranged' ? 'Range' : 'Reach'}
-            fieldName={'reach'}
-            type='number'
+            label={
+              props.action.attack.type === "Ranged" ? "Range" : "Reach"
+            }
+            fieldName={"reach"}
+            type="number"
             value={props.action.attack.reach}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
       </Row>
       <Row>
-        <Column className='col-md-3 col-sm-12'>
+        <Column className="col-md-3 col-sm-12">
           <Input
-            label={'#'}
-            type='number'
-            fieldName={'dieNum'}
+            label={"#"}
+            type="number"
+            fieldName={"dieNum"}
             value={props.action.attack.dieNum}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-md-3 col-sm-12'>
+        <Column className="col-md-3 col-sm-12">
           <SelectField
-            label={'Dmg Die'}
-            fieldName={'dmgDie'}
+            label={"Dmg Die"}
+            fieldName={"dmgDie"}
             options={[4, 6, 8, 10, 12]}
             value={props.action.attack.dmgDie}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-md-4 col-sm-12'>
+        <Column className="col-md-4 col-sm-12">
           <SelectField
-            label={'Dmg Type'}
-            fieldName={'dmgType'}
+            label={"Dmg Type"}
+            fieldName={"dmgType"}
             options={global.damageTypes}
             value={props.action.attack.dmgType}
-            onChange={(e) => props.updateAction(e, props.action.id, props.legendary)}
+            onChange={(e) =>
+              props.updateAction(e, props.action.id, props.legendary)
+            }
           />
         </Column>
-        <Column className='col-2 col-12-sm'>
+        <Column className="col-2 col-12-sm">
           <div className="form-group text-center">
-            <label className='' htmlFor="dex">Dex?</label>
+            <label className="" htmlFor="dex">
+              Dex?
+            </label>
             <div
-              className={`dex-check ${props.action.attack.dex ? 'checked' : ''}`}
-              name='dex'
+              className={`dex-check ${
+                props.action.attack.dex ? "checked" : ""
+              }`}
+              name="dex"
               value={!props.action.attack.dex}
-              onClick={(e) => props.updateAction({ target: { name: 'dex', value: !props.action.attack.dex } }, props.action.id, props.legendary)} ></div>
+              onClick={() =>
+                props.updateAction(
+                  {
+                    target: {
+                      name: "dex",
+                      value: !props.action.attack.dex,
+                    },
+                  },
+                  props.action.id,
+                  props.legendary
+                )
+              }
+            ></div>
           </div>
         </Column>
       </Row>
     </div>
-  )
-}
+  );
+};
 
 export default AttackForm;

@@ -1,6 +1,12 @@
 import React from "react";
 
-import { InputFlat, Row, Input, Textarea, Column } from "../../_globalComponents";
+import {
+  InputFlat,
+  Row,
+  Input,
+  Textarea,
+  Column,
+} from "../../_globalComponents";
 import AttackForm from "./AttackForm";
 
 class Actions extends React.Component {
@@ -9,7 +15,7 @@ class Actions extends React.Component {
 
     this.state = {
       title: "Title",
-      content: "Content"
+      content: "Content",
     };
   }
 
@@ -34,7 +40,7 @@ class Actions extends React.Component {
                   placeholder={""}
                   value={action.title}
                   fieldName="title"
-                  onChange={e =>
+                  onChange={(e) =>
                     this.props.updateAction(e, action.id, legendary)
                   }
                 />
@@ -47,7 +53,7 @@ class Actions extends React.Component {
                   value={action.content}
                   fieldName="content"
                   rows={3}
-                  onChange={e =>
+                  onChange={(e) =>
                     this.props.updateAction(e, action.id, legendary)
                   }
                 />

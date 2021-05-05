@@ -11,7 +11,7 @@ import {
   calculateAbilityScores,
   calculatePerception,
   getBlankCharacter,
-  calculateHP
+  calculateHP,
 } from "../../_data/classTemplate";
 import { Skills } from "../../_data/skills";
 import { Backgrounds } from "../../_data/backgrounds";
@@ -27,7 +27,7 @@ class CharacterBuilder extends React.Component {
     super(props);
 
     this.state = {
-      character: {}
+      character: {},
     };
 
     this.blankCharacter = getBlankCharacter();
@@ -58,20 +58,27 @@ class CharacterBuilder extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    localStorage.setItem("pf2-character", JSON.stringify(this.state.character));
+    localStorage.setItem(
+      "pf2-character",
+      JSON.stringify(this.state.character)
+    );
 
     if (
-      prevProps.match.params.characterId !== this.props.match.params.characterId
+      prevProps.match.params.characterId !==
+      this.props.match.params.characterId
     )
       this.getCharacter(this.props.match.params.characterId);
   }
 
   getCharacter(characterId) {
-    firebase.getPF2Character(characterId).then(response => {
+    firebase.getPF2Character(characterId).then((response) => {
       let character = response.data();
       character.uid = characterId;
 
-      if (!character.builderVersion || character.builderVersion < "1.0.0") {
+      if (
+        !character.builderVersion ||
+        character.builderVersion < "1.0.0"
+      ) {
         Migrate.v1_0_0(character);
         character.builderVersion = "1.0.0";
       }
@@ -96,7 +103,7 @@ class CharacterBuilder extends React.Component {
 
   updateName(e) {
     this.setState({
-      character: { ...this.state.character, name: e.target.value }
+      character: { ...this.state.character, name: e.target.value },
     });
   }
 
@@ -112,11 +119,11 @@ class CharacterBuilder extends React.Component {
     let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
-      boost => boost.source !== character.background.id
+      (boost) => boost.source !== character.background.id
     );
 
     character.skillBoosts = character.skillBoosts.filter(
-      boost => boost.source !== character.background.id
+      (boost) => boost.source !== character.background.id
     );
 
     character.background = Backgrounds[e.target.value];
@@ -137,11 +144,11 @@ class CharacterBuilder extends React.Component {
     let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
-      boost => boost.source !== character.class.name
+      (boost) => boost.source !== character.class.name
     );
 
     character.skillBoosts = character.skillBoosts.filter(
-      boost => !boost.source.includes(character.class.name)
+      (boost) => !boost.source.includes(character.class.name)
     );
 
     character.class = _.cloneDeep(Classes[e.target.value]);
@@ -155,7 +162,7 @@ class CharacterBuilder extends React.Component {
     );
 
     // Remove old class and even skill feats
-    character.feats = character.feats.filter(feat => {
+    character.feats = character.feats.filter((feat) => {
       let [type, level] = feat.type.split("_");
       // remove class feats
       if (type === "class") return false;
@@ -167,7 +174,7 @@ class CharacterBuilder extends React.Component {
 
     // Add blank class and skill feats
     let blankFeats = this.blankCharacter.feats.filter(
-      feat => feat.type.includes("class") || feat.type.includes("skill")
+      (feat) => feat.type.includes("class") || feat.type.includes("skill")
     );
 
     character.feats = character.feats.concat(blankFeats);
@@ -183,11 +190,11 @@ class CharacterBuilder extends React.Component {
     let character = _.cloneDeep(this.state.character);
 
     character.abilityBoosts = character.abilityBoosts.filter(
-      boost => boost.source !== character.ancestry.name
+      (boost) => boost.source !== character.ancestry.name
     );
 
     character.abilityFlaws = character.abilityFlaws.filter(
-      flaw => flaw.source !== character.ancestry.name
+      (flaw) => flaw.source !== character.ancestry.name
     );
 
     character.ancestry = Ancestries[e.target.value];
@@ -202,11 +209,11 @@ class CharacterBuilder extends React.Component {
 
     // Remove old ancestry feats
     character.feats = character.feats.filter(
-      feat => !feat.type.includes("ancestry")
+      (feat) => !feat.type.includes("ancestry")
     );
 
     // Get blank ancestry feats
-    let blankFeats = this.blankCharacter.feats.filter(feat =>
+    let blankFeats = this.blankCharacter.feats.filter((feat) =>
       feat.type.includes("ancestry")
     );
 
@@ -236,7 +243,7 @@ class CharacterBuilder extends React.Component {
     // Setup INT Skill boosts
     if (character.abilityMods.Intelligence > 0) {
       let level1IntMods = character.abilityBoosts.filter(
-        boost =>
+        (boost) =>
           boost.ability === "Intelligence" &&
           (boost.source === "Level_1" ||
             boost.source === character.background.name ||
@@ -244,7 +251,9 @@ class CharacterBuilder extends React.Component {
             boost.source === character.ancestry.name)
       );
 
-      let intSkills = character.skillBoosts.filter(b => b.source === "int");
+      let intSkills = character.skillBoosts.filter(
+        (b) => b.source === "int"
+      );
 
       if (intSkills.length < level1IntMods.length) {
         for (let i = intSkills.length; i < level1IntMods.length; i++) {
@@ -252,7 +261,7 @@ class CharacterBuilder extends React.Component {
             id: "int" + intSkills.length,
             source: "int",
             skill: { id: "Free" },
-            proficiency: 2
+            proficiency: 2,
           });
         }
       }
@@ -267,7 +276,7 @@ class CharacterBuilder extends React.Component {
 
     // Other Skill Boosts
     character.skills = _.cloneDeep(Skills);
-    character.skillBoosts.forEach(skillBoost => {
+    character.skillBoosts.forEach((skillBoost) => {
       if (skillBoost.skill.id !== "Free") {
         if (
           character.skills[skillBoost.skill.id].proficiency <
@@ -289,7 +298,7 @@ class CharacterBuilder extends React.Component {
 
     // Saves
     if (hasClass) {
-      character.class.saveBoosts.forEach(boost => {
+      character.class.saveBoosts.forEach((boost) => {
         let level = boost.type.split("_")[1];
         if (parseInt(character.level, 10) >= parseInt(level, 10)) {
           character.saves[boost.save] = boost.proficiency;
@@ -316,7 +325,7 @@ class CharacterBuilder extends React.Component {
     let character = _.cloneDeep(this.state.character);
 
     let boost = character.abilityBoosts.find(
-      boost => boost.id === e.target.name
+      (boost) => boost.id === e.target.name
     );
 
     boost.ability = e.target.value;
@@ -332,7 +341,9 @@ class CharacterBuilder extends React.Component {
 
     let skill = character.skills[skillId];
 
-    let boost = character.skillBoosts.find(boost => boost.id === boostId);
+    let boost = character.skillBoosts.find(
+      (boost) => boost.id === boostId
+    );
     if (!boost || !skill) {
       return;
     }
@@ -346,7 +357,7 @@ class CharacterBuilder extends React.Component {
   selectFeat(featKey, newFeat) {
     let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
-    newFeats = newFeats.filter(feat => feat.type !== featKey);
+    newFeats = newFeats.filter((feat) => feat.type !== featKey);
 
     newFeat.type = featKey;
 
@@ -363,7 +374,7 @@ class CharacterBuilder extends React.Component {
   deleteFeat(featKey) {
     let character = _.cloneDeep(this.state.character);
     let newFeats = _.cloneDeep(character.feats);
-    newFeats = newFeats.filter(feat => feat.type !== featKey);
+    newFeats = newFeats.filter((feat) => feat.type !== featKey);
     character.feats = newFeats;
     this.setState({ character });
   }
@@ -386,7 +397,7 @@ class CharacterBuilder extends React.Component {
       selectClass: this.selectClass,
       Classes,
       Ancestries,
-      Backgrounds
+      Backgrounds,
     };
 
     return (
@@ -434,17 +445,17 @@ class CharacterBuilder extends React.Component {
             Builder v{BUILDER_VERSION} | Published 1/19/2020
           </div>
           <div>
-            This website uses trademarks and/or copyrights owned by Paizo Inc.,
-            which are used under Paizo's Community Use Policy. We are expressly
-            prohibited from charging you to use or access this content. This
-            website is not published, endorsed, or specifically approved by
-            Paizo Inc. For more information about Paizo's Community Use Policy,
-            please visit{" "}
+            This website uses trademarks and/or copyrights owned by Paizo
+            Inc., which are used under Paizo&apos;s Community Use Policy.
+            We are expressly prohibited from charging you to use or access
+            this content. This website is not published, endorsed, or
+            specifically approved by Paizo Inc. For more information about
+            Paizo&apos;s Community Use Policy, please visit{" "}
             <a href="http://www.paizo.com/communityuse" target="__blank">
               paizo.com/communityuse
             </a>
-            . For more information about Paizo Inc. and Paizo products, please
-            visit{" "}
+            . For more information about Paizo Inc. and Paizo products,
+            please visit{" "}
             <a href="http://www.paizo.com" target="__blank">
               paizo.com
             </a>

@@ -21,12 +21,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      currentUser: null
+      currentUser: null,
     };
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(currentUser => {
+    firebase.auth.onAuthStateChanged((currentUser) => {
       currentUser
         ? this.setState({ currentUser })
         : this.setState({ currentUser: null });
@@ -45,7 +45,7 @@ class App extends Component {
         <UserContext.Provider
           value={{
             currentUser: this.state.currentUser,
-            registerCurrentUserToState: this.registerCurrentUserToState
+            registerCurrentUserToState: this.registerCurrentUserToState,
           }}
         >
           <Route exact path="/" component={Home} />

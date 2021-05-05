@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
 class Accordion extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      open: this.props.open
-    }
+      open: this.props.open,
+    };
 
     this.toggleAccordion = this.toggleAccordion.bind(this);
   }
 
   toggleAccordion() {
     this.setState({
-      open: !this.state.open
+      open: !this.state.open,
     });
   }
 
