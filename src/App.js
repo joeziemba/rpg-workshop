@@ -35,7 +35,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="">
+      <>
         <ToastContainer
           toastClassName="c-toast"
           autoClose={3000}
@@ -71,7 +71,7 @@ class App extends Component {
             component={CharacterBuilder}
           />
         </UserContext.Provider>
-      </div>
+      </>
     );
   }
 }

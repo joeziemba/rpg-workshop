@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "enzyme";
+import { render, fireEvent } from "@testing-library/react";
 
 import Accordion from "../Accordion";
 
@@ -7,43 +7,24 @@ describe("Accordion", () => {
   const titleProp = "Test Accordion";
   const childContent = "Child Content";
 
-  const mountComp = (overrides) => {
-    return mount(
+  const renderComp = (overrides) => {
+    return render(
       <Accordion title={titleProp} open={false} {...overrides}>
         {childContent}
       </Accordion>
     );
   };
 
-  let wrapper;
+  it("Toggles child content when clicked", () => {
+    const { queryByText } = renderComp();
 
-  beforeEach(() => (wrapper = mountComp()));
+    expect(queryByText(titleProp)).toBeInTheDocument();
+    expect(queryByText(childContent)).not.toBeInTheDocument();
 
-  it("renders props.title and hides children on initial mount", () => {
-    expect(wrapper.state().open).toBe(false);
-    expect(wrapper.find(".accordion__button").exists()).toBe(true);
-    expect(wrapper.find(".accordion__button").text()).toContain(titleProp);
-    expect(wrapper.find(".accordion__inner").exists()).toBe(true);
+    fireEvent.click(queryByText(titleProp));
 
-    expect(wrapper.find(".accordion__inner").hasClass("show")).toBe(false);
-
-    wrapper.instance().toggleAccordion();
-    wrapper.update();
-
-    expect(
-      wrapper.find(".accordion__inner").hasClass("accordion__inner--show")
-    ).toBe(true);
-  });
-
-  describe("Class Methods", () => {
-    describe("toggleAccordion", () => {
-      it("toggles state.open between true and false", () => {
-        expect(wrapper.state().open).toBe(false);
-        wrapper.instance().toggleAccordion();
-        expect(wrapper.state().open).toBe(true);
-        wrapper.instance().toggleAccordion();
-        expect(wrapper.state().open).toBe(false);
-      });
-    });
+    expect(queryByText(childContent)).toBeInTheDocument();
+    fireEvent.click(queryByText(titleProp));
+    expect(queryByText(childContent)).not.toBeInTheDocument();
   });
 });

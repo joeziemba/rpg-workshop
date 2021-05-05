@@ -2,19 +2,19 @@
 
 html,
 body,
-#root,
-.row {
-  /* height: 100%; */
+#root {
+  height: 100vh;
+  background-color: white;
 }
 
-body {
-  background-color: #cecece;
+.row {
+  height: 100%;
 }
 
 .c-site-container {
   font-family: "Lato", Helvetica, sans-serif;
   font-size: 0.9rem;
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
 }
 
 .navbar {
@@ -47,7 +47,7 @@ body {
 .statblock-form-container {
   margin: 0.9rem;
   margin-right: 0;
-  margin-top: 5rem;
+  margin-top: 7.5rem;
 }
 
 .statblock-container {
@@ -59,7 +59,6 @@ body {
   width: inherit;
   max-width: inherit;
   padding: 0 4rem;
-  margin-top: 3rem;
 }
 
 .statblock-container--export {
@@ -67,7 +66,7 @@ body {
 }
 
 .statblock-container__inner {
-  margin: 4rem auto;
+  margin: 7.5rem auto 3rem auto;
 }
 
 .statblock-container__inner--export {

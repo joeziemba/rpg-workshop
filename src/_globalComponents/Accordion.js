@@ -1,42 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-class Accordion extends React.Component {
-  constructor(props) {
-    super(props);
+const Accordion = ({ children, open, title }) => {
+  const [isOpen, setOpen] = useState(open);
 
-    this.state = {
-      open: this.props.open,
-    };
+  return (
+    <div className="accordion">
+      <h3
+        onClick={() => setOpen(!isOpen)}
+        className="accordion__button form-header"
+      >
+        {title}
+      </h3>
 
-    this.toggleAccordion = this.toggleAccordion.bind(this);
-  }
-
-  toggleAccordion() {
-    this.setState({
-      open: !this.state.open,
-    });
-  }
-
-  render() {
-    return (
-      <div className="accordion">
-        <h3
-          onClick={this.toggleAccordion}
-          className="accordion__button form-header"
-        >
-          {this.props.title}
-        </h3>
-
-        <div
-          className={`accordion__inner collapse ${
-            this.state.open ? "accordion__inner--show" : ""
-          }`}
-        >
-          {this.props.children}
+      {isOpen && (
+        <div data-testid="accordion__inner" className="accordion__inner">
+          {children}
         </div>
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  );
+};
 
 export default Accordion;
