@@ -4,8 +4,12 @@ import Statbox from "./Statbox";
 import TEMLbuttons from "./TEMLbuttons";
 
 class CharacterBasics extends React.Component {
-  state = { showClassSelect: true };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      showClassSelect: true,
+    };
+  }
   toggleClassSelect() {
     this.setState({ showClassSelect: !this.state.showClassSelect });
   }
@@ -16,7 +20,7 @@ class CharacterBasics extends React.Component {
       selectBackground,
       selectClass,
       character,
-      setLevel
+      setLevel,
     } = this.props;
     let { Classes, Backgrounds, Ancestries } = this.context;
 
@@ -51,7 +55,7 @@ class CharacterBasics extends React.Component {
                       aria-label="Ancestry"
                     >
                       <option value="">Choose Ancestry</option>
-                      {Object.keys(Ancestries).map(ancestry => (
+                      {Object.keys(Ancestries).map((ancestry) => (
                         <option value={ancestry} key={ancestry}>
                           {ancestry}
                         </option>
@@ -71,7 +75,7 @@ class CharacterBasics extends React.Component {
                       <option className="pf-select__default" value="">
                         Choose Background
                       </option>
-                      {Object.keys(Backgrounds).map(background => (
+                      {Object.keys(Backgrounds).map((background) => (
                         <option value={background} key={background}>
                           {Backgrounds[background].name}
                         </option>
@@ -81,7 +85,10 @@ class CharacterBasics extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-8">
-                    <label className="pf-select__label" htmlFor="classSelect">
+                    <label
+                      className="pf-select__label"
+                      htmlFor="classSelect"
+                    >
                       Class
                       <select
                         id="classSelect"
@@ -91,7 +98,7 @@ class CharacterBasics extends React.Component {
                         aria-label="Class"
                       >
                         <option value="">Choose Class</option>
-                        {Object.keys(Classes).map(class_name => (
+                        {Object.keys(Classes).map((class_name) => (
                           <option value={class_name} key={class_name}>
                             {class_name}
                           </option>
@@ -100,7 +107,10 @@ class CharacterBasics extends React.Component {
                     </label>
                   </div>
                   <div className="col-4">
-                    <label className="pf-select__label" htmlFor="levelSelect">
+                    <label
+                      className="pf-select__label"
+                      htmlFor="levelSelect"
+                    >
                       Level
                       <select
                         id="levelSelect"
@@ -161,7 +171,9 @@ class CharacterBasics extends React.Component {
                   <span className="float-left m-2">+</span>
                   <Statbox
                     className="float-left"
-                    stat={character.perceptionProficiency + character.level}
+                    stat={
+                      character.perceptionProficiency + character.level
+                    }
                     title="PROF"
                   />
                   <div className="float-left ml-2">
@@ -169,7 +181,7 @@ class CharacterBasics extends React.Component {
                       skill={{
                         proficiency: character.perceptionProficiency,
                         id: "Perception",
-                        name: "Perception"
+                        name: "Perception",
                       }}
                       disabled
                     />
@@ -249,13 +261,17 @@ const Saves = ({ character, saveType }) => {
         title={abilityAbbreviation}
       />
       <span className="float-left m-2">+</span>
-      <Statbox className="float-left" stat={proficiencyBonus} title="PROF" />
+      <Statbox
+        className="float-left"
+        stat={proficiencyBonus}
+        title="PROF"
+      />
       <div className="float-left ml-2">
         <TEMLbuttons
           skill={{
             proficiency: character.saves[saveType],
             id: saveName,
-            name: saveName
+            name: saveName,
           }}
           disabled
         />
@@ -270,7 +286,10 @@ const AC = ({ character }) => {
     ac += character.abilityMods.Dexterity;
     // TODO this Will: need to be refactored to enable proficiencies with armor
 
-    if (character.class.defenses && character.class.defenses.unarmored > 0) {
+    if (
+      character.class.defenses &&
+      character.class.defenses.unarmored > 0
+    ) {
       ac += character.class.defenses.unarmored;
       ac += character.level;
     }
@@ -305,7 +324,9 @@ const AC = ({ character }) => {
               : 0
           }
           title={
-            hasClass && character.class.defenses.unarmored > 0 ? "Prof*" : "Prof"
+            hasClass && character.class.defenses.unarmored > 0
+              ? "Prof*"
+              : "Prof"
           }
         />
       </div>
@@ -316,7 +337,7 @@ const AC = ({ character }) => {
             left: "3.6rem",
             bottom: "-.4rem",
             fontSize: ".8rem",
-            color: "#505050"
+            color: "#505050",
           }}
         >
           * Trained in Unarmored Defense

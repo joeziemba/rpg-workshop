@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Textarea = (props) => {
   return (
     <div className="form-group">
-      {!props.hideLabel &&
-        <label htmlFor={props.id}>{props.label}</label>
-      }
+      {!props.hideLabel && <label htmlFor={props.id}>{props.label}</label>}
       <textarea
         type={props.type}
         className="form-control form-control-sm"
@@ -17,9 +15,11 @@ const Textarea = (props) => {
         name={props.fieldName}
         rows={props.rows}
       />
-      <small id={`${props.id}Help`} className="form-text text-muted">{props.supportText}</small>
+      <small id={`${props.id}Help`} className="form-text text-muted">
+        {props.supportText}
+      </small>
     </div>
-  )
-}
+  );
+};
 
 export default Textarea;

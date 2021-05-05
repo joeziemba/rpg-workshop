@@ -5,7 +5,7 @@ import { Skills } from "./skills";
 export const Saves = {
   FORT: "fortitude",
   WILL: "will",
-  REF: "reflex"
+  REF: "reflex",
 };
 
 export const ClassNames = {
@@ -20,7 +20,7 @@ export const ClassNames = {
   RANGE: "Ranger",
   ROGUE: "Rogue",
   SORC: "Sorcerer",
-  WIZ: "Wizard"
+  WIZ: "Wizard",
 };
 
 export const Classes = {
@@ -33,18 +33,18 @@ export const Classes = {
       {
         source: ClassNames.ALC,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.ALC + "_1"
+        type: ClassNames.ALC + "_1",
       },
       {
         source: ClassNames.ALC,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.ALC + "_9"
-      }
+        type: ClassNames.ALC + "_9",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.EXPERT,
-      Will: Proficiencies.TRAINED
+      Will: Proficiencies.TRAINED,
     },
     saveBoosts: [
       {
@@ -52,43 +52,43 @@ export const Classes = {
         source: ClassNames.ALC,
         id: ClassNames.ALC + "1",
         type: ClassNames.ALC + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "2",
         type: ClassNames.ALC + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "3",
         type: ClassNames.ALC + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "4",
         type: ClassNames.ALC + "_7",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "5",
         type: ClassNames.ALC + "_11",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.REF,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "6",
         type: ClassNames.ALC + "_15",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -96,34 +96,34 @@ export const Classes = {
         skill: Skills.Crafting,
         source: ClassNames.ALC,
         id: ClassNames.ALC + "-skill-1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
         id: ClassNames.ALC + "-skill-2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
         id: ClassNames.ALC + "-skill-3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ALC,
         id: ClassNames.ALC + "-skill-4",
-        proficiency: Proficiencies.TRAINED
-      }
+        proficiency: Proficiencies.TRAINED,
+      },
     ],
     abilityBoosts: [
       {
         ability: Abilities.INT,
         source: ClassNames.ALC,
-        id: ClassNames.ALC + "-ability-1"
-      }
-    ]
+        id: ClassNames.ALC + "-ability-1",
+      },
+    ],
   },
   Barbarian: {
     name: ClassNames.BARB,
@@ -134,18 +134,18 @@ export const Classes = {
       {
         source: ClassNames.BARB,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.BARB + "_1"
+        type: ClassNames.BARB + "_1",
       },
       {
         source: ClassNames.BARB,
         proficiency: Proficiencies.MASTER,
-        type: ClassNames.BARB + "_17"
-      }
+        type: ClassNames.BARB + "_17",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -153,43 +153,43 @@ export const Classes = {
         source: ClassNames.BARB,
         id: ClassNames.BARB + "1",
         type: ClassNames.BARB + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.BARB,
         id: ClassNames.BARB + "2",
         type: ClassNames.BARB + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARB,
         id: ClassNames.BARB + "3",
         type: ClassNames.BARB + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.BARB,
         id: ClassNames.BARB + "4",
         type: ClassNames.BARB + "_7",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.BARB,
         id: ClassNames.BARB + "5",
         type: ClassNames.BARB + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARB,
         id: ClassNames.BARB + "6",
         type: ClassNames.BARB + "_15",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -197,30 +197,30 @@ export const Classes = {
         skill: Skills.Athletics,
         source: ClassNames.BARB,
         id: "Barb1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARB,
         id: "Barb2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARB,
         id: "Barb3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARB,
         id: "Barb4",
-        proficiency: Proficiencies.TRAINED
-      }
+        proficiency: Proficiencies.TRAINED,
+      },
     ],
     abilityBoosts: [
-      { ability: Abilities.STR, source: ClassNames.BARB, id: "Barb1" }
-    ]
+      { ability: Abilities.STR, source: ClassNames.BARB, id: "Barb1" },
+    ],
   },
   Bard: {
     name: ClassNames.BARD,
@@ -230,19 +230,19 @@ export const Classes = {
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     perceptionBoosts: [
       {
         source: ClassNames.BARD,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.BARD + "_1"
+        type: ClassNames.BARD + "_1",
       },
       {
         source: ClassNames.BARD,
         proficiency: Proficiencies.MASTER,
-        type: ClassNames.BARD + "_11"
-      }
+        type: ClassNames.BARD + "_11",
+      },
     ],
     saveBoosts: [
       {
@@ -250,97 +250,97 @@ export const Classes = {
         source: ClassNames.BARD,
         id: ClassNames.BARD + "1",
         type: ClassNames.BARD + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "2",
         type: ClassNames.BARD + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "3",
         type: ClassNames.BARD + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "4",
         type: ClassNames.BARD + "_3",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "5",
         type: ClassNames.BARD + "_9",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.FORT,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "6",
         type: ClassNames.BARD + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.BARD,
         id: ClassNames.BARD + "7",
         type: ClassNames.BARD + "_17",
-        proficiency: Proficiencies.LEGEND
-      }
+        proficiency: Proficiencies.LEGEND,
+      },
     ],
     additionalSkillChoices: 4,
     attacks: {
-      simpleWeapons: 1
+      simpleWeapons: 1,
     },
     defenses: { unarmored: Proficiencies.TRAINED },
     abilityBoosts: [
-      { ability: Abilities.CHA, source: ClassNames.BARD, id: "Bard1" }
+      { ability: Abilities.CHA, source: ClassNames.BARD, id: "Bard1" },
     ],
     skillBoosts: [
       {
         skill: Skills.Occultism,
         source: ClassNames.BARD,
         id: "Bard1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: Skills.Performance,
         source: ClassNames.BARD,
         id: "Bard2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARD,
         id: "Bard3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARD,
         id: "Bard4",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARD,
         id: "Bard5",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.BARD,
         id: "Bard6",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Champion: {
     name: ClassNames.CHAMP,
@@ -350,28 +350,33 @@ export const Classes = {
         ability: Abilities.FREE,
         source: ClassNames.CHAMP,
         id: "Champ1",
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA],
-        type: Abilities.FREE
-      }
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
+        type: Abilities.FREE,
+      },
     ],
     perceptionProficiency: Proficiencies.TRAINED,
     perceptionBoosts: [
       {
         source: ClassNames.CHAMP,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.CHAMP + "_1"
+        type: ClassNames.CHAMP + "_1",
       },
       {
         source: ClassNames.CHAMP,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.CHAMP + "_11"
-      }
+        type: ClassNames.CHAMP + "_11",
+      },
     ],
     hp: 10,
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -379,43 +384,43 @@ export const Classes = {
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "1",
         type: ClassNames.CHAMP + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "2",
         type: ClassNames.CHAMP + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "3",
         type: ClassNames.CHAMP + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "4",
         type: ClassNames.CHAMP + "_9",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.REF,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "5",
         type: ClassNames.CHAMP + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "6",
         type: ClassNames.CHAMP + "_11",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -423,21 +428,21 @@ export const Classes = {
         skill: Skills.Religion,
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.CHAMP,
         id: ClassNames.CHAMP + "3",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Cleric: {
     name: ClassNames.CLER,
@@ -447,19 +452,19 @@ export const Classes = {
       {
         source: ClassNames.CLER,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.CLER + "_1"
+        type: ClassNames.CLER + "_1",
       },
       {
         source: ClassNames.CLER,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.CLER + "_5"
-      }
+        type: ClassNames.CLER + "_5",
+      },
     ],
     hp: 8,
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -467,71 +472,71 @@ export const Classes = {
         source: ClassNames.CLER,
         id: ClassNames.CLER + "1",
         type: ClassNames.CLER + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.CLER,
         id: ClassNames.CLER + "2",
         type: ClassNames.CLER + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.CLER,
         id: ClassNames.CLER + "3",
         type: ClassNames.CLER + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.CLER,
         id: ClassNames.CLER + "4",
         type: ClassNames.CLER + "_9",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.REF,
         source: ClassNames.CLER,
         id: ClassNames.CLER + "5",
         type: ClassNames.CLER + "_11",
-        proficiency: Proficiencies.EXPERT
-      }
+        proficiency: Proficiencies.EXPERT,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     abilityBoosts: [
       {
         ability: Abilities.WIS,
         source: ClassNames.CLER,
-        id: ClassNames.CLER + "1"
-      }
+        id: ClassNames.CLER + "1",
+      },
     ],
     skillBoosts: [
       {
         skill: Skills.Religion,
         source: ClassNames.CLER,
         id: ClassNames.CLER + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.CLER,
         id: ClassNames.CLER + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.CLER,
         id: ClassNames.CLER + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.CLER,
         id: ClassNames.CLER + "4",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Druid: {
     name: ClassNames.DRUID,
@@ -540,8 +545,8 @@ export const Classes = {
       {
         ability: Abilities.WIS,
         source: ClassNames.DRUID,
-        id: ClassNames.DRUID + "1"
-      }
+        id: ClassNames.DRUID + "1",
+      },
     ],
     hp: 8,
     perceptionProficiency: Proficiencies.TRAINED,
@@ -549,18 +554,18 @@ export const Classes = {
       {
         source: ClassNames.DRUID,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.DRUID + "_1"
+        type: ClassNames.DRUID + "_1",
       },
       {
         source: ClassNames.DRUID,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.DRUID + "_3"
-      }
+        type: ClassNames.DRUID + "_3",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -568,50 +573,50 @@ export const Classes = {
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "1",
         type: ClassNames.DRUID + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "2",
         type: ClassNames.DRUID + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "3",
         type: ClassNames.DRUID + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "4",
         type: ClassNames.DRUID + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "5",
         type: ClassNames.DRUID + "_3",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "6",
         type: ClassNames.DRUID + "_5",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "7",
         type: ClassNames.DRUID + "_11",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -619,27 +624,27 @@ export const Classes = {
         skill: Skills.Nature,
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.DRUID,
         id: ClassNames.DRUID + "4",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Fighter: {
     name: ClassNames.FIGHT,
@@ -649,9 +654,14 @@ export const Classes = {
         ability: Abilities.FREE,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "1",
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA],
-        type: Abilities.FREE
-      }
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
+        type: Abilities.FREE,
+      },
     ],
     hp: 10,
     perceptionProficiency: Proficiencies.EXPERT,
@@ -659,18 +669,18 @@ export const Classes = {
       {
         source: ClassNames.FIGHT,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.FIGHT + "_1"
+        type: ClassNames.FIGHT + "_1",
       },
       {
         source: ClassNames.FIGHT,
         proficiency: Proficiencies.MASTER,
-        type: ClassNames.FIGHT + "_7"
-      }
+        type: ClassNames.FIGHT + "_7",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.EXPERT,
-      Will: Proficiencies.TRAINED
+      Will: Proficiencies.TRAINED,
     },
     saveBoosts: [
       {
@@ -678,43 +688,43 @@ export const Classes = {
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "1",
         type: ClassNames.FIGHT + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "2",
         type: ClassNames.FIGHT + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "3",
         type: ClassNames.FIGHT + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "4",
         type: ClassNames.FIGHT + "_3",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "5",
         type: ClassNames.FIGHT + "_9",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.REF,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "6",
         type: ClassNames.FIGHT + "_15",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -722,27 +732,27 @@ export const Classes = {
         skill: Skills.Athletics,
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.FIGHT,
         id: ClassNames.FIGHT + "4",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Monk: {
     name: ClassNames.MONK,
@@ -751,9 +761,14 @@ export const Classes = {
         ability: Abilities.FREE,
         source: ClassNames.MONK,
         id: "1",
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA],
-        type: Abilities.FREE
-      }
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
+        type: Abilities.FREE,
+      },
     ],
     hp: 10,
     perceptionProficiency: Proficiencies.TRAINED,
@@ -761,18 +776,18 @@ export const Classes = {
       {
         source: ClassNames.MONK,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.MONK + "_1"
+        type: ClassNames.MONK + "_1",
       },
       {
         source: ClassNames.MONK,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.MONK + "_5"
-      }
+        type: ClassNames.MONK + "_5",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.EXPERT,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -780,50 +795,50 @@ export const Classes = {
         source: ClassNames.MONK,
         id: ClassNames.MONK + "1",
         type: ClassNames.MONK + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.MONK,
         id: ClassNames.MONK + "2",
         type: ClassNames.MONK + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.MONK,
         id: ClassNames.MONK + "3",
         type: ClassNames.MONK + "_1",
-        proficiency: Proficiencies.EXPERT
-      }
+        proficiency: Proficiencies.EXPERT,
+      },
     ],
-    defenses: { unarmored: Proficiencies.TRAINED },
+    defenses: { unarmored: Proficiencies.EXPERT },
     skillBoosts: [
       {
         skill: { id: "Free" },
         source: ClassNames.MONK,
         id: ClassNames.MONK + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.MONK,
         id: ClassNames.MONK + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.MONK,
         id: ClassNames.MONK + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.MONK,
         id: ClassNames.MONK + "4",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Ranger: {
     name: ClassNames.RANGE,
@@ -834,23 +849,23 @@ export const Classes = {
       {
         source: ClassNames.RANGE,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.RANGE + "_1"
+        type: ClassNames.RANGE + "_1",
       },
       {
         source: ClassNames.RANGE,
         proficiency: Proficiencies.MASTER,
-        type: ClassNames.RANGE + "_7"
+        type: ClassNames.RANGE + "_7",
       },
       {
         source: ClassNames.RANGE,
         proficiency: Proficiencies.LEGEND,
-        type: ClassNames.RANGE + "_15"
-      }
+        type: ClassNames.RANGE + "_15",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.EXPERT,
       Reflex: Proficiencies.EXPERT,
-      Will: Proficiencies.TRAINED
+      Will: Proficiencies.TRAINED,
     },
     saveBoosts: [
       {
@@ -858,43 +873,43 @@ export const Classes = {
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "1",
         type: ClassNames.RANGE + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "2",
         type: ClassNames.RANGE + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "3",
         type: ClassNames.RANGE + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "4",
         type: ClassNames.RANGE + "_3",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "5",
         type: ClassNames.RANGE + "_7",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.FORT,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "6",
         type: ClassNames.RANGE + "_11",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     abilityBoosts: [
@@ -902,48 +917,53 @@ export const Classes = {
         ability: Abilities.FREE,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "1",
-        exclude: [Abilities.CON, Abilities.INT, Abilities.WIS, Abilities.CHA],
-        type: Abilities.FREE
-      }
+        exclude: [
+          Abilities.CON,
+          Abilities.INT,
+          Abilities.WIS,
+          Abilities.CHA,
+        ],
+        type: Abilities.FREE,
+      },
     ],
     skillBoosts: [
       {
         skill: Skills.Nature,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: Skills.Survival,
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "3",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "4",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "5",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.RANGE,
         id: ClassNames.RANGE + "6",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Rogue: {
     name: ClassNames.ROGUE,
@@ -953,8 +973,8 @@ export const Classes = {
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "1",
         exclude: [Abilities.CON, Abilities.INT, Abilities.WIS],
-        type: Abilities.FREE
-      }
+        type: Abilities.FREE,
+      },
     ],
     hp: 8,
     perceptionProficiency: Proficiencies.EXPERT,
@@ -962,23 +982,23 @@ export const Classes = {
       {
         source: ClassNames.ROGUE,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.ROGUE + "_1"
+        type: ClassNames.ROGUE + "_1",
       },
       {
         source: ClassNames.ROGUE,
         proficiency: Proficiencies.MASTER,
-        type: ClassNames.ROGUE + "_7"
+        type: ClassNames.ROGUE + "_7",
       },
       {
         source: ClassNames.ROGUE,
         proficiency: Proficiencies.LEGEND,
-        type: ClassNames.ROGUE + "_13"
-      }
+        type: ClassNames.ROGUE + "_13",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.EXPERT,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -986,50 +1006,50 @@ export const Classes = {
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "1",
         type: ClassNames.ROGUE + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "2",
         type: ClassNames.ROGUE + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "3",
         type: ClassNames.ROGUE + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "4",
         type: ClassNames.ROGUE + "_7",
-        proficiency: Proficiencies.MASTER
+        proficiency: Proficiencies.MASTER,
       },
       {
         save: Saves.FORT,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "5",
         type: ClassNames.ROGUE + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "6",
         type: ClassNames.ROGUE + "_13",
-        proficiency: Proficiencies.LEGEND
+        proficiency: Proficiencies.LEGEND,
       },
       {
         save: Saves.WILL,
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "7",
         type: ClassNames.ROGUE + "_17",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -1038,117 +1058,117 @@ export const Classes = {
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "1",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "2",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "3",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "4",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "5",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "6",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "7",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE,
         id: ClassNames.ROGUE + "8",
         proficiency: Proficiencies.TRAINED,
-        level: 1
+        level: 1,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_2",
         id: ClassNames.ROGUE + "9",
-        level: 2
+        level: 2,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_4",
         id: ClassNames.ROGUE + "10",
-        level: 4
+        level: 4,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_6",
         id: ClassNames.ROGUE + "11",
-        level: 6
+        level: 6,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_8",
         id: ClassNames.ROGUE + "12",
-        level: 8
+        level: 8,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_10",
         id: ClassNames.ROGUE + "13",
-        level: 10
+        level: 10,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_12",
         id: ClassNames.ROGUE + "14",
-        level: 12
+        level: 12,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_14",
         id: ClassNames.ROGUE + "15",
-        level: 14
+        level: 14,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_16",
         id: ClassNames.ROGUE + "16",
-        level: 16
+        level: 16,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_18",
         id: ClassNames.ROGUE + "17",
-        level: 18
+        level: 18,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.ROGUE + "_20",
         id: ClassNames.ROGUE + "18",
-        level: 20
-      }
+        level: 20,
+      },
     ],
     feats: [
       { type: "skill_1" },
@@ -1160,8 +1180,8 @@ export const Classes = {
       { type: "skill_13" },
       { type: "skill_15" },
       { type: "skill_17" },
-      { type: "skill_19" }
-    ]
+      { type: "skill_19" },
+    ],
   },
   Sorcerer: {
     name: ClassNames.SORC,
@@ -1169,8 +1189,8 @@ export const Classes = {
       {
         ability: Abilities.CHA,
         source: ClassNames.SORC,
-        id: "1"
-      }
+        id: "1",
+      },
     ],
     hp: 6,
     perceptionProficiency: Proficiencies.TRAINED,
@@ -1178,18 +1198,18 @@ export const Classes = {
       {
         source: ClassNames.SORC,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.SORC + "_1"
+        type: ClassNames.SORC + "_1",
       },
       {
         source: ClassNames.SORC,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.SORC + "_11"
-      }
+        type: ClassNames.SORC + "_11",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -1197,43 +1217,43 @@ export const Classes = {
         source: ClassNames.SORC,
         id: ClassNames.SORC + "1",
         type: ClassNames.SORC + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.SORC,
         id: ClassNames.SORC + "2",
         type: ClassNames.SORC + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.SORC,
         id: ClassNames.SORC + "3",
         type: ClassNames.SORC + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.SORC,
         id: ClassNames.SORC + "4",
         type: ClassNames.SORC + "_5",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.SORC,
         id: ClassNames.SORC + "5",
         type: ClassNames.SORC + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.SORC,
         id: ClassNames.SORC + "6",
         type: ClassNames.SORC + "_17",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -1241,21 +1261,21 @@ export const Classes = {
         skill: { id: "Free" },
         source: ClassNames.SORC,
         id: ClassNames.SORC + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.SORC,
         id: ClassNames.SORC + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.SORC,
         id: ClassNames.SORC + "3",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
   },
   Wizard: {
     name: ClassNames.WIZ,
@@ -1263,8 +1283,8 @@ export const Classes = {
       {
         ability: Abilities.INT,
         source: ClassNames.WIZ,
-        id: "1"
-      }
+        id: "1",
+      },
     ],
     hp: 6,
     perceptionProficiency: Proficiencies.TRAINED,
@@ -1272,18 +1292,18 @@ export const Classes = {
       {
         source: ClassNames.WIZ,
         proficiency: Proficiencies.TRAINED,
-        type: ClassNames.WIZ + "_1"
+        type: ClassNames.WIZ + "_1",
       },
       {
         source: ClassNames.WIZ,
         proficiency: Proficiencies.EXPERT,
-        type: ClassNames.WIZ + "_11"
-      }
+        type: ClassNames.WIZ + "_11",
+      },
     ],
     saves: {
       Fortitude: Proficiencies.TRAINED,
       Reflex: Proficiencies.TRAINED,
-      Will: Proficiencies.EXPERT
+      Will: Proficiencies.EXPERT,
     },
     saveBoosts: [
       {
@@ -1291,43 +1311,43 @@ export const Classes = {
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "1",
         type: ClassNames.WIZ + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.REF,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "2",
         type: ClassNames.WIZ + "_1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         save: Saves.WILL,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "3",
         type: ClassNames.WIZ + "_1",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.REF,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "4",
         type: ClassNames.WIZ + "_5",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.FORT,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "5",
         type: ClassNames.WIZ + "_9",
-        proficiency: Proficiencies.EXPERT
+        proficiency: Proficiencies.EXPERT,
       },
       {
         save: Saves.WILL,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "6",
         type: ClassNames.WIZ + "_17",
-        proficiency: Proficiencies.MASTER
-      }
+        proficiency: Proficiencies.MASTER,
+      },
     ],
     defenses: { unarmored: Proficiencies.TRAINED },
     skillBoosts: [
@@ -1335,20 +1355,20 @@ export const Classes = {
         skill: Skills.Arcana,
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "1",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "2",
-        proficiency: Proficiencies.TRAINED
+        proficiency: Proficiencies.TRAINED,
       },
       {
         skill: { id: "Free" },
         source: ClassNames.WIZ,
         id: ClassNames.WIZ + "3",
-        proficiency: Proficiencies.TRAINED
-      }
-    ]
-  }
+        proficiency: Proficiencies.TRAINED,
+      },
+    ],
+  },
 };

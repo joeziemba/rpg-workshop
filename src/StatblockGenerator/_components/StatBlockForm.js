@@ -2,14 +2,20 @@ import React from "react";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { Typeahead } from "react-bootstrap-typeahead";
 
-import { Input, Column, Row, SelectField, Accordion } from "../../_globalComponents/";
-import { Actions, Features} from "./index";
+import {
+  Input,
+  Column,
+  Row,
+  SelectField,
+  Accordion,
+} from "../../_globalComponents/";
+import { Actions, Features } from "./index";
 
 class StatBlockForm extends React.Component {
   renderAbilityFields() {
-    const abilities = ['str', 'dex', 'con', 'int', 'wis', 'cha']
+    const abilities = ["str", "dex", "con", "int", "wis", "cha"];
     // return Object.keys(this.props.stats.abilities).map(ability => {
-    return abilities.map(ability => {
+    return abilities.map((ability) => {
       return (
         <Column stackSize="small" key={ability}>
           <SelectField
@@ -17,7 +23,9 @@ class StatBlockForm extends React.Component {
             options={global.abilityScores}
             value={this.props.stats.abilities[ability]}
             fieldName={ability}
-            onChange={e => this.props.updateAbility(ability, e.target.value)}
+            onChange={(e) =>
+              this.props.updateAbility(ability, e.target.value)
+            }
             center
           />
         </Column>
@@ -42,7 +50,13 @@ class StatBlockForm extends React.Component {
             <Column stackSize="small">
               <SelectField
                 label={"Size"}
-                options={["Small", "Medium", "Large", "Huge", "Gargantuan"]}
+                options={[
+                  "Small",
+                  "Medium",
+                  "Large",
+                  "Huge",
+                  "Gargantuan",
+                ]}
                 value={this.props.stats.size}
                 fieldName="size"
                 onChange={this.props.updateState}
@@ -160,7 +174,7 @@ class StatBlockForm extends React.Component {
               multiple
               options={global.conditions}
               selected={this.props.stats.conditionImmune}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "conditionImmune")
               }
             />
@@ -171,7 +185,7 @@ class StatBlockForm extends React.Component {
               multiple
               options={global.damageTypes}
               selected={this.props.stats.immune}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "immune")
               }
             />
@@ -182,7 +196,7 @@ class StatBlockForm extends React.Component {
               multiple
               options={global.damageTypes}
               selected={this.props.stats.resists}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "resists")
               }
             />
@@ -193,7 +207,7 @@ class StatBlockForm extends React.Component {
               multiple
               options={global.damageTypes}
               selected={this.props.stats.vulnerable}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "vulnerable")
               }
             />
@@ -202,9 +216,9 @@ class StatBlockForm extends React.Component {
             <label>Skill Proficiencies</label>
             <Typeahead
               multiple
-              options={global.skills.map(skill => skill.name)}
+              options={global.skills.map((skill) => skill.name)}
               selected={this.props.stats.skills}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "skills")
               }
             />
@@ -215,7 +229,7 @@ class StatBlockForm extends React.Component {
               multiple
               options={global.languages}
               selected={this.props.stats.langs}
-              onChange={selected =>
+              onChange={(selected) =>
                 this.props.updatePropertyList(selected, "langs")
               }
             />

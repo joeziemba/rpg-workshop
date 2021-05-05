@@ -5,8 +5,8 @@ import { Property, PropertyBlock } from "../../_globalComponents";
 class StatBlockDisplay extends React.Component {
   renderAbilities() {
     let { abilities } = this.props.stats;
-    let orderedAbilities = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
-    return orderedAbilities.map(ability => {
+    let orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"];
+    return orderedAbilities.map((ability) => {
       let score = abilities[ability];
       let mod = this.getAbilityMod(score);
 
@@ -25,7 +25,7 @@ class StatBlockDisplay extends React.Component {
   renderFeatures() {
     let { features } = this.props.stats;
 
-    return features.map(feature => {
+    return features.map((feature) => {
       return (
         <PropertyBlock
           key={feature.title}
@@ -56,7 +56,7 @@ class StatBlockDisplay extends React.Component {
           dex,
           reach,
           targets,
-          dmgType
+          dmgType,
         } = action.attack;
         // Get hit mod
         let toHit;
@@ -84,7 +84,9 @@ class StatBlockDisplay extends React.Component {
         return (
           <div className="property property--block" key={i}>
             <span className="property-name italic">{action.title}. </span>
-            <span className="italic">{action.attack.type} Weapon Attack. </span>
+            <span className="italic">
+              {action.attack.type} Weapon Attack.{" "}
+            </span>
             {`${toHit >= 0 ? "+" : ""}${toHit}`} to Hit.&ensp;
             {action.attack.type === "Ranged" ? "Range" : "Reach"} {reach}
             ft.&ensp;
@@ -122,14 +124,16 @@ class StatBlockDisplay extends React.Component {
 
     let mod = dieNum * conMod;
 
-    let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${mod < 0 ? "-" : "+"} ${
-      mod < 0 ? mod * -1 : mod
-    })`;
+    let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${
+      mod < 0 ? "-" : "+"
+    } ${mod < 0 ? mod * -1 : mod})`;
 
     return (
       <div
         id="StatBlockDisplay"
-        className={`statBlock ${this.props.export ? "statBlock--export" : ""}`}
+        className={`statBlock ${
+          this.props.export ? "statBlock--export" : ""
+        }`}
       >
         <div id="creatureHeading" className="creature-heading">
           <h1 id="monsterName">{this.props.stats.name}</h1>
@@ -207,10 +211,11 @@ class StatBlockDisplay extends React.Component {
             <p>
               {this.props.stats.name} can take{" "}
               {this.props.stats.legendaryActPerRound} legendary action
-              {this.props.stats.legendaryActPerRound === 1 ? "" : "s"}, choosing
-              from the options below. Only one legendary action option can be
-              used at a time and only at the end of another creature's turn.
-              They regain spent legendary actions at the start of their turn.
+              {this.props.stats.legendaryActPerRound === 1 ? "" : "s"},
+              choosing from the options below. Only one legendary action
+              option can be used at a time and only at the end of another
+              creature&apos;s turn. They regain spent legendary actions at
+              the start of their turn.
             </p>
             {this.renderActions("legendary")}
           </div>

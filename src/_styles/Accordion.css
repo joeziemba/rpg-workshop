@@ -1,9 +1,9 @@
 .accordion__inner {
   padding: 0;
   display: block;
-  visibility: hidden;
-  max-height: 0;
-  opacity: 0;
+  /* visibility: hidden; */
+  /* max-height: 0; */
+  /* opacity: 0; */
   transition: all 0.5s ease;
   transition: opacity 0.5s ease;
 }

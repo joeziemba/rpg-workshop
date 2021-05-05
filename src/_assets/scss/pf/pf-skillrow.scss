@@ -3,7 +3,7 @@
   vertical-align: center;
   clear: both;
   overflow: auto;
-  padding: 0.1rem .5rem;
+  padding: 0.1rem 0.5rem;
 
   & div {
     float: left;
@@ -11,7 +11,7 @@
 
   &__name {
     width: 40%;
-    padding-top: .1rem;
+    padding-top: 0.1rem;
 
     @media (min-width: 768px) {
       width: 28%;

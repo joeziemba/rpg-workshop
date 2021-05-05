@@ -11,10 +11,10 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 9
+        correctHP: 9,
       },
       {
         level: 4,
@@ -24,10 +24,10 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 36
+        correctHP: 36,
       },
       {
         level: 4,
@@ -37,18 +37,18 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Dwarf",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_5",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 40
+        correctHP: 40,
       },
       {
         level: 5,
@@ -58,18 +58,18 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Dwarf",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_5",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 51
+        correctHP: 51,
       },
       {
         level: 10,
@@ -79,18 +79,18 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_5",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_10",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 97
+        correctHP: 97,
       },
       {
         level: 15,
@@ -100,25 +100,25 @@ describe("calculateHP", () => {
         abilityBoosts: [
           {
             source: "Level_1",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_5",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_10",
-            ability: "Constitution"
+            ability: "Constitution",
           },
           {
             source: "Level_15",
-            ability: "Constitution"
-          }
+            ability: "Constitution",
+          },
         ],
-        correctHP: 135 + 11 + 6 + 1
-      }
+        correctHP: 135 + 11 + 6 + 1,
+      },
     ];
-    tests.forEach(test => {
+    tests.forEach((test) => {
       expect(calculateHP(test)).toEqual(test.correctHP);
     });
   });

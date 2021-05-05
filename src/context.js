@@ -10,5 +10,5 @@ export const FirebaseContext = React.createContext(null);
 export const PF2CharacterContext = React.createContext({
   Classes,
   Ancestries,
-  Backgrounds
+  Backgrounds,
 });

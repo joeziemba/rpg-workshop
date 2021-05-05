@@ -5,7 +5,7 @@
   line-height: 1;
   float: left;
   width: 16.6666666666667%;
-  
+
   &--key {
     font-weight: bolder;
     background-color: $pf-light-blue;
@@ -13,12 +13,12 @@
 
   &__name {
     display: block;
-    font-size: .75rem;
+    font-size: 0.75rem;
     margin: 0;
   }
   &__score {
-    margin-top: .25rem;
-    margin-bottom: .75rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
     display: block;
     font-size: 1.5rem;
   }

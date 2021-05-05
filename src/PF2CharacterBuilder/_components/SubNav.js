@@ -10,7 +10,7 @@ class SubNav extends React.Component {
 
     this.state = {
       characters: [],
-      showOpenModal: false
+      showOpenModal: false,
     };
 
     this.getCharacters = this.getCharacters.bind(this);
@@ -20,9 +20,9 @@ class SubNav extends React.Component {
   getCharacters() {
     firebase
       .getPF2CharacrersForUser(this.context.currentUser.uid)
-      .then(snapshot => {
+      .then((snapshot) => {
         let characters = [];
-        snapshot.forEach(doc => {
+        snapshot.forEach((doc) => {
           characters.push({ ...doc.data(), uid: doc.id });
         });
         this.setState({ characters, showOpenModal: true });
@@ -36,11 +36,7 @@ class SubNav extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand secondary-nav fixed-top navbar--pathfinder">
-        <h1
-          className="navbar-brand mb-0"
-        >
-          PF2 Character Builder
-        </h1>
+        <h1 className="navbar-brand mb-0">PF2 Character Builder</h1>
         <ul className="navbar-nav">
           <li className="nav-item">
             <button
@@ -59,7 +55,9 @@ class SubNav extends React.Component {
                     if (this.props.character.name) {
                       firebase.savePF2Character(this.props.character);
                     } else {
-                      toast.error("Cannot Save a character without a name");
+                      toast.error(
+                        "Cannot Save a character without a name"
+                      );
                     }
                   }}
                 >
@@ -82,9 +80,10 @@ class SubNav extends React.Component {
           <div className="c-modal">
             <div className="c-modal__window">
               <h2 className="c-modal__header">Choose a Character</h2>
-              {this.state.characters.map(character => {
+              {this.state.characters.map((character) => {
                 return (
                   <Link
+                    key={character.uid}
                     className="c-modal-button-row"
                     to={"/pf2/character-builder/" + character.uid}
                     onClick={this.closeModal}

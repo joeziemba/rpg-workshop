@@ -7,7 +7,7 @@ class Features extends React.Component {
 
     this.state = {
       title: "Title",
-      content: "Content"
+      content: "Content",
     };
   }
 
@@ -29,7 +29,7 @@ class Features extends React.Component {
                 placeholder={""}
                 value={feature.title}
                 fieldName="title"
-                onChange={e => this.props.updateFeature(e, feature.id)}
+                onChange={(e) => this.props.updateFeature(e, feature.id)}
               />
             </Column>
             <Column className="col-8">
@@ -40,7 +40,7 @@ class Features extends React.Component {
                 value={feature.content}
                 fieldName="content"
                 rows={5}
-                onChange={e => this.props.updateFeature(e, feature.id)}
+                onChange={(e) => this.props.updateFeature(e, feature.id)}
               />
             </Column>
           </Row>

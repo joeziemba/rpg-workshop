@@ -3,7 +3,7 @@ import { Proficiencies } from "./_data/skills";
 import { Classes, ClassNames } from "./_data/classes";
 import {
   getBlankCharacter,
-  upperLevelAbilityBoosts
+  upperLevelAbilityBoosts,
 } from "./_data/classTemplate";
 
 export function v1_0_0(character) {
@@ -16,7 +16,7 @@ export function v1_0_0(character) {
     character.class = Classes[character.class.name];
     if (!character.class.defenses) {
       character.class.defenses = {
-        unarmored: Proficiencies.TRAINED
+        unarmored: Proficiencies.TRAINED,
       };
     }
   }
@@ -31,7 +31,7 @@ export function v1_0_0(character) {
 
   let oldBoosts = _.cloneDeep(character.skillBoosts);
 
-  oldBoosts = oldBoosts.filter(b => b.source === "Free");
+  oldBoosts = oldBoosts.filter((b) => b.source === "Free");
 
   character.skillBoosts = _.cloneDeep(blankCharacter.skillBoosts);
 
@@ -52,11 +52,11 @@ export function v1_0_0(character) {
       id: "int" + i,
       source: "int",
       skill: { id: "Free" },
-      proficiency: 2
+      proficiency: 2,
     });
 
   let freeClassBoosts = character.skillBoosts.filter(
-    b =>
+    (b) =>
       (b.source === character.class.name || b.source === "int") &&
       b.skill.id === "Free"
   );
@@ -67,7 +67,7 @@ export function v1_0_0(character) {
 }
 
 export function v1_0_1(character) {
-  character.abilityBoosts.forEach(boost => {
+  character.abilityBoosts.forEach((boost) => {
     if (!boost.source.includes("_"))
       boost.source = boost.source.replace("Level", "Level_");
   });
@@ -85,60 +85,60 @@ const NEWROGUEBOOSTS = [
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_2",
     id: ClassNames.ROGUE + "9",
-    level: 2
+    level: 2,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_4",
     id: ClassNames.ROGUE + "10",
-    level: 4
+    level: 4,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_6",
     id: ClassNames.ROGUE + "11",
-    level: 6
+    level: 6,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_8",
     id: ClassNames.ROGUE + "12",
-    level: 8
+    level: 8,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_10",
     id: ClassNames.ROGUE + "13",
-    level: 10
+    level: 10,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_12",
     id: ClassNames.ROGUE + "14",
-    level: 12
+    level: 12,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_14",
     id: ClassNames.ROGUE + "15",
-    level: 14
+    level: 14,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_16",
     id: ClassNames.ROGUE + "16",
-    level: 16
+    level: 16,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_18",
     id: ClassNames.ROGUE + "17",
-    level: 18
+    level: 18,
   },
   {
     skill: { id: "Free" },
     source: ClassNames.ROGUE + "_20",
     id: ClassNames.ROGUE + "18",
-    level: 20
-  }
+    level: 20,
+  },
 ];

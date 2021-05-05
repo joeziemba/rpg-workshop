@@ -9,8 +9,8 @@ const SkillsTable = ({ character, selectSkill }) => {
     freeSkills = 0;
   }
   let sources = character.skillBoosts
-    .map(boost => boost.source)
-    .filter(b => ![undefined, "Free"].includes(b))
+    .map((boost) => boost.source)
+    .filter((b) => ![undefined, "Free"].includes(b))
     .sort();
   sources = [...new Set(sources)];
   return (
@@ -27,7 +27,9 @@ const SkillsTable = ({ character, selectSkill }) => {
           skill = character.skills[skill];
           if (!skill.source) skill.source = "Free";
           let proficiencyBonus =
-            skill.proficiency > 0 ? skill.proficiency + character.level : 0;
+            skill.proficiency > 0
+              ? skill.proficiency + character.level
+              : 0;
           let abilityMod = character.abilityMods[skill.modifier];
           let totalMod = proficiencyBonus + abilityMod;
           return (
@@ -37,8 +39,10 @@ const SkillsTable = ({ character, selectSkill }) => {
                 proficiencyBonus > 0 ? "c-skillrow--active" : ""
               }`}
             >
-              <div className={`c-skillrow__name mt-2 ml-2`}>
-                {skill.name === "Lore" ? `Lore (${skill.type})` : skill.name}
+              <div className={"c-skillrow__name mt-2 ml-2"}>
+                {skill.name === "Lore"
+                  ? `Lore (${skill.type})`
+                  : skill.name}
                 {"*".repeat(sources.indexOf(skill.source) + 1)}
               </div>
               <Statbox stat={totalMod} title="Total" />
@@ -48,7 +52,7 @@ const SkillsTable = ({ character, selectSkill }) => {
               <Statbox
                 stat={`${abilityMod}`}
                 title={Object.keys(Abilities).find(
-                  a => Abilities[a] === skill.modifier
+                  (a) => Abilities[a] === skill.modifier
                 )}
               />
 

@@ -8,7 +8,7 @@ class GeneratorNav extends React.Component {
 
     this.state = {
       statblocks: [],
-      showOpenModal: false
+      showOpenModal: false,
     };
     this.getCharacters = this.getCharacters.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -19,9 +19,9 @@ class GeneratorNav extends React.Component {
   getCharacters() {
     firebase
       .load5eStatblocksForUser(this.context.currentUser.uid)
-      .then(snapshot => {
+      .then((snapshot) => {
         let statblocks = [];
-        snapshot.forEach(doc => {
+        snapshot.forEach((doc) => {
           statblocks.push({ ...doc.data(), uid: doc.id });
         });
         this.setState({ statblocks, showOpenModal: true });
@@ -91,9 +91,10 @@ class GeneratorNav extends React.Component {
           <div className="c-modal">
             <div className="c-modal__window">
               <h2 className="c-modal__header">Choose a Statblock</h2>
-              {this.state.statblocks.map(statblock => {
+              {this.state.statblocks.map((statblock, i) => {
                 return (
                   <button
+                    key={i}
                     className="c-modal-button-row"
                     onClick={() => this.selectStatblock(statblock)}
                   >

@@ -67,8 +67,8 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
 TEMLbuttons.defaultProps = {
   skill: {
     id: "",
-    proficiency: 0
-  }
+    proficiency: 0,
+  },
 };
 
 export default TEMLbuttons;

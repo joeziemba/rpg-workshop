@@ -9,7 +9,7 @@ const config = {
   databaseURL: process.env.REACT_APP_DATABASE_URL,
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
 
 class Firebase {
@@ -28,12 +28,12 @@ class Firebase {
   getRedirect() {
     this.auth
       .getRedirectResult()
-      .then(function(result) {
+      .then(function (result) {
         // The signed-in user info.
         var user = result.user;
         return user;
       })
-      .catch(function(error) {
+      .catch(function () {
         // // Handle Errors here.
         // var errorCode = error.code;
         // var errorMessage = error.message;
@@ -55,7 +55,7 @@ class Firebase {
     // this.auth.signInWithRedirect(this.googleProvider);
     this.auth
       .signInWithPopup(this.googleProvider)
-      .then(function(result) {
+      .then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         // var token = result.credential.accessToken;
         // The signed-in user info.
@@ -63,7 +63,7 @@ class Firebase {
         // ...
         toast.success("Signed in with " + user.email);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -94,13 +94,13 @@ class Firebase {
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(statblock)
-        .then(response => {
+        .then(() => {
           toast.success("Updated " + statblock.name, {
-            autoClose: 1000
+            autoClose: 1000,
           });
         });
     } else {
-      this.load5eStatblocksForUser().then(response => {
+      this.load5eStatblocksForUser().then((response) => {
         if (response.docs.length >= 5) {
           toast.error("You can only save up to 5 statblocks.");
         } else {
@@ -108,9 +108,9 @@ class Firebase {
           this.db
             .collection("5e-statblocks")
             .add(statblock)
-            .then(response => {
+            .then(() => {
               toast.success("Saved " + statblock.name, {
-                autoClose: 1000
+                autoClose: 1000,
               });
             });
         }
@@ -126,10 +126,7 @@ class Firebase {
   }
 
   getStatblock(statblockID) {
-    return this.db
-      .collection("5e-statblocks")
-      .doc(statblockID)
-      .get();
+    return this.db.collection("5e-statblocks").doc(statblockID).get();
   }
 
   // Pathfinder Methods
@@ -139,12 +136,12 @@ class Firebase {
         .collection("pf2-characters")
         .doc(character.uid)
         .update(character)
-        .then(response => {
+        .then(() => {
           if (showToast)
             toast.success("Saved " + character.name, { autoClose: 1000 });
         });
     } else {
-      this.getPF2CharacrersForUser(character.uid).then(response => {
+      this.getPF2CharacrersForUser(character.uid).then((response) => {
         if (response.docs.length >= 5) {
           toast.error("You can only save up to 5 characters.");
         } else {
@@ -152,9 +149,11 @@ class Firebase {
           this.db
             .collection("pf2-characters")
             .add(character)
-            .then(response => {
+            .then(() => {
               if (showToast)
-                toast.success("Saved " + character.name, { autoClose: 1000 });
+                toast.success("Saved " + character.name, {
+                  autoClose: 1000,
+                });
             });
         }
       });
@@ -162,10 +161,7 @@ class Firebase {
   }
 
   getPF2Character(characterID) {
-    return this.db
-      .collection("pf2-characters")
-      .doc(characterID)
-      .get();
+    return this.db.collection("pf2-characters").doc(characterID).get();
   }
 
   getPF2CharacrersForUser() {

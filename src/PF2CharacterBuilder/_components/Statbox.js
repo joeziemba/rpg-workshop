@@ -1,6 +1,13 @@
 import React from "react";
 
-const Statbox = ({ stat, title, large, className, children, secondary }) => {
+const Statbox = ({
+  stat,
+  title,
+  large,
+  className,
+  children,
+  secondary,
+}) => {
   let classes = "c-statbox";
   if (large) classes += " c-statbox--large";
   if (secondary) classes += " c-statbox--secondary";

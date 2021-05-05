@@ -18,16 +18,16 @@ const initialState = {
     con: 10,
     int: 10,
     wis: 10,
-    cha: 10
+    cha: 10,
   },
   ac: {
     score: 10,
-    support: ""
+    support: "",
   },
   hp: {
     hitDie: 4,
     dieNum: 1,
-    manualHp: ""
+    manualHp: "",
   },
   proficiency: 1,
   speed: 30,
@@ -46,8 +46,8 @@ const initialState = {
     {
       id: "1",
       title: "Sample",
-      content: "This is a sample feature, change my content!"
-    }
+      content: "This is a sample feature, change my content!",
+    },
   ],
   actions: [
     {
@@ -61,8 +61,8 @@ const initialState = {
         dmgDie: 8,
         dieNum: 1,
         dmgType: "Slashing",
-        dex: false
-      }
+        dex: false,
+      },
     },
     {
       id: 2,
@@ -75,25 +75,25 @@ const initialState = {
         dmgDie: 8,
         dieNum: 1,
         dmgType: "Piercing",
-        dex: true
-      }
-    }
+        dex: true,
+      },
+    },
   ],
   legendaryActPerRound: 1,
   legendaryActions: [
     {
       id: "1",
       title: "Sample",
-      content: "This is a sample feature, change my content!"
-    }
-  ]
+      content: "This is a sample feature, change my content!",
+    },
+  ],
 };
 class StatblockGenerator extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ..._.cloneDeep(initialState)
+      ..._.cloneDeep(initialState),
     };
 
     this.updateState = this.updateState.bind(this);
@@ -116,14 +116,14 @@ class StatblockGenerator extends Component {
   componentDidMount() {
     let { characterId } = this.props.match.params;
     if (characterId) {
-      firebase.getStatblock(characterId).then(response => {
+      firebase.getStatblock(characterId).then((response) => {
         this.setState({ ...response.data(), uid: characterId });
       });
     }
 
     let state = _.cloneDeep(initialState);
     this.setState({
-      ...state
+      ...state,
     });
   }
 
@@ -137,14 +137,14 @@ class StatblockGenerator extends Component {
 
   toggleExportView() {
     this.setState({
-      exportView: !this.state.exportView
+      exportView: !this.state.exportView,
     });
   }
 
   reset() {
     let state = _.cloneDeep(initialState);
     this.setState({
-      ...state
+      ...state,
     });
     this.props.history.push("/dnd5e/statblock-generator");
   }
@@ -152,7 +152,7 @@ class StatblockGenerator extends Component {
   updateState(e) {
     let { name, value } = e.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -162,7 +162,7 @@ class StatblockGenerator extends Component {
     newAbilities[ability] = value;
 
     this.setState({
-      abilities: newAbilities
+      abilities: newAbilities,
     });
   }
 
@@ -170,10 +170,10 @@ class StatblockGenerator extends Component {
     let fieldName = e.target.name;
     let newAC = {
       ...this.state.ac,
-      [fieldName]: e.target.value
+      [fieldName]: e.target.value,
     };
     this.setState({
-      ac: newAC
+      ac: newAC,
     });
   }
 
@@ -181,17 +181,17 @@ class StatblockGenerator extends Component {
     let fieldName = e.target.name;
     let newHP = {
       ...this.state.hp,
-      [fieldName]: e.target.value
+      [fieldName]: e.target.value,
     };
     this.setState({
-      hp: newHP
+      hp: newHP,
     });
   }
 
   updatePropertyList(selected, arrayToUpdate) {
     let sorted = selected.sort();
     this.setState({
-      [arrayToUpdate]: sorted
+      [arrayToUpdate]: sorted,
     });
   }
 
@@ -201,17 +201,17 @@ class StatblockGenerator extends Component {
     newFeatures.push({
       id: newFeatures.length + 1,
       title: "",
-      content: ""
+      content: "",
     });
 
     this.setState({
-      features: newFeatures
+      features: newFeatures,
     });
   }
 
   updateFeature(e, featureId) {
     let { name, value } = e.target;
-    let newFeatures = this.state.features.map(feat => {
+    let newFeatures = this.state.features.map((feat) => {
       if (feat.id === featureId) {
         feat[name] = value;
       }
@@ -219,7 +219,7 @@ class StatblockGenerator extends Component {
     });
 
     this.setState({
-      features: newFeatures
+      features: newFeatures,
     });
   }
 
@@ -233,7 +233,7 @@ class StatblockGenerator extends Component {
         newAction = {
           id: newActions.length + 1,
           title: "",
-          content: ""
+          content: "",
         };
         break;
       case "Melee":
@@ -248,8 +248,8 @@ class StatblockGenerator extends Component {
             dmgDie: 4,
             dieNum: 0,
             dmgType: "",
-            dex: false
-          }
+            dex: false,
+          },
         };
         break;
       case "Ranged":
@@ -264,8 +264,8 @@ class StatblockGenerator extends Component {
             dmgDie: 4,
             dieNum: 0,
             dmgType: "",
-            dex: true
-          }
+            dex: true,
+          },
         };
         break;
       default:
@@ -275,7 +275,7 @@ class StatblockGenerator extends Component {
     newActions.push(newAction);
 
     this.setState({
-      actions: newActions
+      actions: newActions,
     });
   }
 
@@ -290,7 +290,7 @@ class StatblockGenerator extends Component {
       actions = [].concat(this.state.actions);
     }
 
-    let newActions = actions.map((action, i) => {
+    let newActions = actions.map((action) => {
       if (action.id === actionId) {
         if (name === "content") {
           action[name] = value;
@@ -305,11 +305,11 @@ class StatblockGenerator extends Component {
 
     if (legendary) {
       this.setState({
-        legendaryActions: newActions
+        legendaryActions: newActions,
       });
     } else {
       this.setState({
-        actions: newActions
+        actions: newActions,
       });
     }
   }
@@ -323,24 +323,24 @@ class StatblockGenerator extends Component {
       actions = [].concat(this.state.actions);
     }
 
-    let newActions = actions.filter(action => action.id !== actionId);
+    let newActions = actions.filter((action) => action.id !== actionId);
 
     if (legendary) {
       this.setState({
-        legendaryActions: newActions
+        legendaryActions: newActions,
       });
     } else {
       this.setState({
-        actions: newActions
+        actions: newActions,
       });
     }
   }
 
   deleteFeature(featureId) {
-    let newFeats = this.state.features.filter(f => f.id !== featureId);
+    let newFeats = this.state.features.filter((f) => f.id !== featureId);
 
     this.setState({
-      features: newFeats
+      features: newFeats,
     });
   }
 
@@ -350,13 +350,13 @@ class StatblockGenerator extends Component {
     let newAction = {
       id: newActions.length + 1,
       title: "",
-      content: ""
+      content: "",
     };
 
     newActions.push(newAction);
 
     this.setState({
-      legendaryActions: newActions
+      legendaryActions: newActions,
     });
   }
 
@@ -383,7 +383,9 @@ class StatblockGenerator extends Component {
                 <div id="exportInstructions">
                   Recommended method of export:
                   <br />
-                  <i>File 'Print' > 'Save as PDF'</i>
+                  <i>
+                    File &lsquo;Print&rsquo; &gt; &lsquo;Save as PDF&rsquo;
+                  </i>
                 </div>
               </div>
             </Row>
