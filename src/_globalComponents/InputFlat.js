@@ -6,10 +6,10 @@ const InputFlat = (props) => {
   return (
     <div className="form-group">
       <Row>
-        <Column className="col">
+        <Column className="col col-4">
           <label htmlFor={props.id}>{props.label}</label>
         </Column>
-        <Column className="col">
+        <Column className="col col-2">
           <input
             type={props.type || "text"}
             className="form-control form-control-sm"
@@ -24,6 +24,7 @@ const InputFlat = (props) => {
             {props.supportText}
           </small>
         </Column>
+        <Column className="col col-6"></Column>
       </Row>
     </div>
   );
