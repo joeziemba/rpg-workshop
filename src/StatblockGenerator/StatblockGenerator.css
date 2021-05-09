@@ -17,7 +17,6 @@
   overflow-x: hidden;
   width: inherit;
   max-width: inherit;
-  /* padding: 0 4rem; */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -26,7 +25,6 @@
 }
 
 .statblock-container--export {
-  /* margin-top: -50px; */
 }
 
 .statblock-container__inner {
@@ -230,36 +228,18 @@ label {
   right: -5px;
   top: -5px;
   color: #ddd;
-  /* font-weight: bold; */
   font-size: 1rem;
   z-index: 100;
   border: none;
   background: transparent;
   cursor: pointer;
   border: 1px solid #ffffff;
-  /* padding: 0 6px; */
   transition: all 0.2s ease;
 }
 
 .delete-btn:hover {
   color: #922610;
 }
-
-/* .delete-btn:after {
-  content: "";
-  height: 1px;
-  width: 7px;
-  background: #ddd;
-  position: absolute;
-  bottom: 3px;
-  right: 6px;
-  transition: all 0.2s ease;
-}
-
-.delete-btn:hover:after {
-  background-color: #922610;
-  bottom: 1px;
-} */
 
 #exportInstructions {
   position: fixed;

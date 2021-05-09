@@ -82,8 +82,13 @@ class StatBlockDisplay extends React.Component {
         if (prof) toHit += parseInt(this.props.stats.proficiency);
 
         return (
-          <div className="statblock__property statblock__property--block" key={i}>
-            <span className="statblock__property-name italic">{action.title}. </span>
+          <div
+            className="statblock__property statblock__property--block"
+            key={i}
+          >
+            <span className="statblock__property-name italic">
+              {action.title}.{" "}
+            </span>
             <span className="italic">
               {action.attack.type} Weapon Attack.{" "}
             </span>
@@ -160,7 +165,9 @@ class StatBlockDisplay extends React.Component {
           </div>
         </div>
 
-        <div className="statblock__section red">{this.renderAbilities()}</div>
+        <div className="statblock__section red">
+          {this.renderAbilities()}
+        </div>
 
         <div className="statblock__section red">
           {stats.conditionImmune.length > 0 && (

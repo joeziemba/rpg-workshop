@@ -31,12 +31,6 @@ const Accordion = ({ children, open, title }) => {
           {children}
         </div>
       </CSSTransition>
-
-      {/* {isOpen && (
-        <div data-testid="accordion__inner" className="accordion__inner">
-          {children}
-        </div>
-      )} */}
     </div>
   );
 };

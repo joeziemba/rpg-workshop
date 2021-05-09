@@ -28,8 +28,6 @@
 .c-modal__window--large {
   width: 90%;
   flex: 0 0 90%;
-
-  /* margin-left: -40%; */
 }
 
 .c-modal__scroller {

@@ -24,7 +24,7 @@ const renderComp = (overrides) => {
 
 describe("Accordion", () => {
   it("Toggles child content when clicked", async () => {
-    const { queryByText, findByText } = renderComp();
+    const { queryByText } = renderComp();
 
     expect(queryByText(titleProp)).toBeInTheDocument();
     expect(queryByText(childContent)).not.toBeInTheDocument();
