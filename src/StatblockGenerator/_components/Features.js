@@ -20,7 +20,7 @@ class Features extends React.Component {
               className="delete-btn"
               onClick={() => this.props.deleteFeature(feature.id)}
             >
-              x
+              <i className="fa fa-close" />
             </button>
             <Column className="col-4">
               <Input

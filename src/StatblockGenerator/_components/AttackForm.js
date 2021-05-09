@@ -11,7 +11,7 @@ const AttackForm = (props) => {
             props.deleteAction(props.action.id, props.legendary)
           }
         >
-          x
+          <i className="fa fa-close" />
         </button>
         <Column className="col-4-md col-12-sm">
           <Input
@@ -25,7 +25,7 @@ const AttackForm = (props) => {
             }
           />
         </Column>
-        <Column className="col-md-4 col-sm-12">
+        <Column className="col-md-3 col-sm-12">
           <SelectField
             label={"Attack"}
             fieldName={"type"}
@@ -60,9 +60,10 @@ const AttackForm = (props) => {
             }
           />
         </Column>
+        <Column className="col-md-1 col-sm-12" />
       </Row>
       <Row>
-        <Column className="col-md-3 col-sm-12">
+        <Column className="col-md-2 col-sm-12">
           <Input
             label={"#"}
             type="number"
@@ -73,7 +74,7 @@ const AttackForm = (props) => {
             }
           />
         </Column>
-        <Column className="col-md-3 col-sm-12">
+        <Column className="col-md-2 col-sm-12">
           <SelectField
             label={"Dmg Die"}
             fieldName={"dmgDie"}
@@ -121,6 +122,7 @@ const AttackForm = (props) => {
             ></div>
           </div>
         </Column>
+        <Column className="col-2 col-12-sm"></Column>
       </Row>
     </div>
   );

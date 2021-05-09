@@ -168,7 +168,7 @@ class StatBlockForm extends React.Component {
           <Row>{this.renderAbilityFields()}</Row>
         </Accordion>
         <Accordion title="Properties">
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Condition Immunities</label>
             <Typeahead
               multiple
@@ -179,7 +179,7 @@ class StatBlockForm extends React.Component {
               }
             />
           </div>
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Damage Immunities</label>
             <Typeahead
               multiple
@@ -190,7 +190,7 @@ class StatBlockForm extends React.Component {
               }
             />
           </div>
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Resistences</label>
             <Typeahead
               multiple
@@ -201,7 +201,7 @@ class StatBlockForm extends React.Component {
               }
             />
           </div>
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Vulnerabilities</label>
             <Typeahead
               multiple
@@ -212,7 +212,7 @@ class StatBlockForm extends React.Component {
               }
             />
           </div>
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Skill Proficiencies</label>
             <Typeahead
               multiple
@@ -223,7 +223,7 @@ class StatBlockForm extends React.Component {
               }
             />
           </div>
-          <div className="feature-block">
+          <div className="mb-3">
             <label>Languages</label>
             <Typeahead
               multiple

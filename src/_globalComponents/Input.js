@@ -3,11 +3,13 @@ import React from "react";
 const Input = (props) => {
   return (
     <div className="form-group">
-      {!props.hideLabel && <label htmlFor={props.id}>{props.label}</label>}
+      {!props.hideLabel && (
+        <label htmlFor={props.id ?? props.fieldName}>{props.label}</label>
+      )}
       <input
         type={props.type}
         className="form-control form-control-sm"
-        id={props.id}
+        id={props.id ?? props.fieldName}
         aria-describedby={`${props.id}Help`}
         placeholder={props.placeholder}
         onChange={props.onChange}

@@ -13,9 +13,9 @@
     "deploy": "npm run build && firebase deploy",
     "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css",
     "scss:watch": "npm run scss && node-sass --watch src/_assets/scss/main.scss --output-style compressed --source-map true --output src/_assets/css",
-    "test:cover": "npm test -- --coverage --watchAll=false --onlyChanged=false",
-    "test:watch-cover": "npm test -- --coverage --onlyChanged=false",
-    "test": "react-scripts test"
+    "test:cover": "npm run test -- --coverage --watchAll=false --onlyChanged=false",
+    "test:watch-cover": "npm run test -- --coverage --onlyChanged=false",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
@@ -30,6 +30,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.0",
     "react-toastify": "^7.0.0",
+    "react-transition-group": "^4.4.1",
     "reactstrap": "^8.9.0",
     "sass": "^1.32.12",
     "typescript": "^3.9.9"
@@ -49,6 +50,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1"
   }

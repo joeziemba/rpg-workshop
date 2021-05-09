@@ -8,6 +8,7 @@ import {
   Column,
 } from "../../_globalComponents";
 import AttackForm from "./AttackForm";
+import "./Actions.scss";
 
 class Actions extends React.Component {
   constructor(props) {
@@ -24,19 +25,19 @@ class Actions extends React.Component {
     return this.props.actions.map((action, i) => {
       if (!action.attack) {
         return (
-          <div className="feature-block" key={i}>
+          <div className="action" key={i}>
             <button
               className="delete-btn"
               onClick={() => this.props.deleteAction(action.id, legendary)}
             >
-              x
+              <span className="fa fa-close" />
             </button>
 
             <Row>
               <Column className="col-4">
                 <Input
                   type="text"
-                  label={"Title"}
+                  label={"Action"}
                   placeholder={""}
                   value={action.title}
                   fieldName="title"
@@ -48,7 +49,7 @@ class Actions extends React.Component {
               <Column className="col-8">
                 <Textarea
                   type="text"
-                  label={"Content"}
+                  label={"Description"}
                   placeholder={""}
                   value={action.content}
                   fieldName="content"
