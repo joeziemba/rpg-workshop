@@ -8,7 +8,6 @@ import {
   Column,
 } from "../../_globalComponents";
 import AttackForm from "./AttackForm";
-import "./Actions.scss";
 
 class Actions extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class Actions extends React.Component {
     return this.props.actions.map((action, i) => {
       if (!action.attack) {
         return (
-          <div className="action" key={i}>
+          <div className="feature-block" key={i}>
             <button
               className="delete-btn"
               onClick={() => this.props.deleteAction(action.id, legendary)}
@@ -84,13 +83,15 @@ class Actions extends React.Component {
     return (
       <React.Fragment>
         {this.props.legendary && (
-          <InputFlat
-            value={this.props.legendaryActPerRound}
-            onChange={this.props.updateState}
-            fieldName="legendaryActPerRound"
-            label="Legendary Actions Per Round:"
-            type="number"
-          />
+          <div className="pl-2">
+            <InputFlat
+              value={this.props.legendaryActPerRound}
+              onChange={this.props.updateState}
+              fieldName="legendaryActPerRound"
+              label="Legendary Actions Per Round:"
+              type="number"
+            />
+          </div>
         )}
         {this.renderActions()}
         <button
