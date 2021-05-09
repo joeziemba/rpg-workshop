@@ -29,14 +29,14 @@ class Actions extends React.Component {
               className="delete-btn"
               onClick={() => this.props.deleteAction(action.id, legendary)}
             >
-              x
+              <span className="fa fa-close" />
             </button>
 
             <Row>
               <Column className="col-4">
                 <Input
                   type="text"
-                  label={"Title"}
+                  label={"Action"}
                   placeholder={""}
                   value={action.title}
                   fieldName="title"
@@ -48,7 +48,7 @@ class Actions extends React.Component {
               <Column className="col-8">
                 <Textarea
                   type="text"
-                  label={"Content"}
+                  label={"Description"}
                   placeholder={""}
                   value={action.content}
                   fieldName="content"
@@ -83,13 +83,15 @@ class Actions extends React.Component {
     return (
       <React.Fragment>
         {this.props.legendary && (
-          <InputFlat
-            value={this.props.legendaryActPerRound}
-            onChange={this.props.updateState}
-            fieldName="legendaryActPerRound"
-            label="Legendary Actions Per Round:"
-            type="number"
-          />
+          <div className="pl-2">
+            <InputFlat
+              value={this.props.legendaryActPerRound}
+              onChange={this.props.updateState}
+              fieldName="legendaryActPerRound"
+              label="Legendary Actions Per Round:"
+              type="number"
+            />
+          </div>
         )}
         {this.renderActions()}
         <button

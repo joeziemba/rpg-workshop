@@ -82,8 +82,13 @@ class StatBlockDisplay extends React.Component {
         if (prof) toHit += parseInt(this.props.stats.proficiency);
 
         return (
-          <div className="property property--block" key={i}>
-            <span className="property-name italic">{action.title}. </span>
+          <div
+            className="statblock__property statblock__property--block"
+            key={i}
+          >
+            <span className="statblock__property-name italic">
+              {action.title}.{" "}
+            </span>
             <span className="italic">
               {action.attack.type} Weapon Attack.{" "}
             </span>
@@ -131,38 +136,40 @@ class StatBlockDisplay extends React.Component {
     return (
       <div
         id="StatBlockDisplay"
-        className={`statBlock ${
-          this.props.export ? "statBlock--export" : ""
+        className={`statblock ${
+          this.props.export ? "statblock--export" : ""
         }`}
       >
-        <div id="creatureHeading" className="creature-heading">
+        <div id="creatureHeading" className="statblock__header">
           <h1 id="monsterName">{this.props.stats.name}</h1>
           <h2 id="monsterDetails">
             {this.props.stats.size} {this.props.stats.creatureType}
           </h2>
         </div>
 
-        <div className="section red">
-          <div className="property">
-            <span className="property-name">Armor Class</span>
+        <div className="statblock__section red">
+          <div className="statblock__property">
+            <span className="statblock__property-name">Armor Class</span>
             {stats.ac.score}
             {stats.ac.support && ` (${stats.ac.support})`}
           </div>
-          <div className="property">
-            <span className="property-name">Hit Points</span>{" "}
+          <div className="statblock__property">
+            <span className="statblock__property-name">Hit Points</span>{" "}
             {manualHp ? manualHp : hitPoints}
           </div>
-          <div className="property">
-            <span className="property-name">Speed</span>
+          <div className="statblock__property">
+            <span className="statblock__property-name">Speed</span>
             {stats.speed}ft
             {stats.flySpeed > 0 ? `, ${stats.flySpeed}ft (Fly)` : ""}
             {stats.swimSpeed > 0 ? `, ${stats.swimSpeed}ft (Swim)` : ""}
           </div>
         </div>
 
-        <div className="section red">{this.renderAbilities()}</div>
+        <div className="statblock__section red">
+          {this.renderAbilities()}
+        </div>
 
-        <div className="section red">
+        <div className="statblock__section red">
           {stats.conditionImmune.length > 0 && (
             <Property
               title="Condition Immunities"
@@ -198,15 +205,15 @@ class StatBlockDisplay extends React.Component {
           )}
         </div>
 
-        <div className="section">{this.renderFeatures()}</div>
+        <div className="statblock__section">{this.renderFeatures()}</div>
 
-        <div className="section section--with-heading">
+        <div className="statblock__section statblock__section--with-heading">
           <h3>Actions</h3>
           {this.renderActions()}
         </div>
 
         {this.props.stats.legendaryActions.length > 0 && (
-          <div className="section section--with-heading">
+          <div className="statblock__section statblock__section--with-heading">
             <h3>Legendary Actions</h3>
             <p>
               {this.props.stats.name} can take{" "}

@@ -67,7 +67,7 @@ const SkillsTable = ({ character, selectSkill }) => {
           {character.abilityMods.Intelligence > 0 && (
             <>
               <h3 className="c-gray-block-heading mt-2">
-                Intellignece Skills
+                Intelligence Skills
               </h3>
               <div className="row">
                 {freeSkillTraining("int", character.class.name)}

@@ -56,26 +56,29 @@ class GeneratorNav extends React.Component {
                 New
               </button>
             </li>
+            {this.context.currentUser && (
+              <>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-sm mr-3 mt-1 nav-button"
+                    onClick={() => {
+                      this.saveStatblock(this.props.statblock);
+                    }}
+                  >
+                    Save
+                  </button>
+                </li>
 
-            <li className="nav-item">
-              <button
-                className="btn btn-sm mr-3 mt-1 nav-button"
-                onClick={() => {
-                  this.saveStatblock(this.props.statblock);
-                }}
-              >
-                Save
-              </button>
-            </li>
-
-            <li className="nav-item">
-              <button
-                className="btn btn-sm mr-3 mt-1 nav-button"
-                onClick={this.getCharacters}
-              >
-                Open
-              </button>
-            </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-sm mr-3 mt-1 nav-button"
+                    onClick={this.getCharacters}
+                  >
+                    Open
+                  </button>
+                </li>
+              </>
+            )}
 
             <li className="nav-item">
               <button

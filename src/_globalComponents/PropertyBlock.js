@@ -2,8 +2,10 @@ import React from "react";
 
 const PropertyBlock = (props) => {
   return (
-    <div className="property property--block">
-      <span className="property-name italic">{props.title}.</span>{" "}
+    <div className="statblock__property statblock__property--block">
+      <span className="statblock__property-name italic">
+        {props.title}.
+      </span>{" "}
       {props.content}
     </div>
   );
