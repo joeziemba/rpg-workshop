@@ -23,7 +23,7 @@
   },
   "plugins": ["react", "jest", "prettier", "jsx-a11y"],
   "rules": {
-    "linebreak-style": ["error", "unix"],
+    // "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "react/prop-types": 0

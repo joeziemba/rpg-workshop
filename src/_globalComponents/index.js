@@ -1,4 +1,4 @@
-export { default as Accordion } from "./Accordion";
+export { default as Accordion } from "./Accordion/Accordion";
 export { default as Column } from "./Column";
 export { default as Input } from "./Input";
 export { default as InputFlat } from "./InputFlat";

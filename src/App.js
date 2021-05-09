@@ -42,35 +42,37 @@ class App extends Component {
           hideProgressBar={true}
         />
         <TopBar currentUser={this.state.currentUser} />
-        <UserContext.Provider
-          value={{
-            currentUser: this.state.currentUser,
-            registerCurrentUserToState: this.registerCurrentUserToState,
-          }}
-        >
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/dnd5e/statblock-generator/:characterId"
-            component={StatblockGenerator}
-          />
-          <Route
-            exact
-            path="/dnd5e/statblock-generator/"
-            component={StatblockGenerator}
-          />
-          <Route exact path="/about" component={About} />
-          <Route
-            exact
-            path="/pf2/character-builder/:characterId"
-            component={CharacterBuilder}
-          />
-          <Route
-            exact
-            path="/pf2/character-builder/"
-            component={CharacterBuilder}
-          />
-        </UserContext.Provider>
+        <div className="c-site-container">
+          <UserContext.Provider
+            value={{
+              currentUser: this.state.currentUser,
+              registerCurrentUserToState: this.registerCurrentUserToState,
+            }}
+          >
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/dnd5e/statblock-generator/:characterId"
+              component={StatblockGenerator}
+            />
+            <Route
+              exact
+              path="/dnd5e/statblock-generator/"
+              component={StatblockGenerator}
+            />
+            <Route exact path="/about" component={About} />
+            <Route
+              exact
+              path="/pf2/character-builder/:characterId"
+              component={CharacterBuilder}
+            />
+            <Route
+              exact
+              path="/pf2/character-builder/"
+              component={CharacterBuilder}
+            />
+          </UserContext.Provider>
+        </div>
       </>
     );
   }
