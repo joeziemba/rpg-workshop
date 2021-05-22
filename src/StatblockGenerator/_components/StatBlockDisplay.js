@@ -49,15 +49,8 @@ class StatBlockDisplay extends React.Component {
 
     return actions.map((action, i) => {
       if (action.attack) {
-        let {
-          dieNum,
-          dmgDie,
-          prof,
-          dex,
-          reach,
-          targets,
-          dmgType,
-        } = action.attack;
+        let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } =
+          action.attack;
         // Get hit mod
         let toHit;
         if (dex) {
