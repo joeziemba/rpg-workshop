@@ -249,17 +249,7 @@ class CharacterBuilder extends React.Component {
 
     character.abilities = calculateAbilityScores(character);
     character.abilityMods = calculateAbilityMods(character);
-
-    // let conMod = character.abilityMods[Abilities.CON];
-
-    // Calculate HP
-    let hitPoints = 0;
-    hitPoints += character.ancestry.hp || 0;
-
-    if (hasClass) {
-      hitPoints += calculateHP(character);
-    }
-    character.hitPoints = hitPoints;
+    character.hitPoints = calculateHP(character);
 
     // Setup INT Skill boosts
     if (character.abilityMods.Intelligence > 0) {
