@@ -4,6 +4,7 @@ import { Abilities } from "./abilities";
 import { Skills } from "./skills";
 
 export function calculateAbilityScores(character) {
+  // All abilities start at 10
   let abilities = {
     [Abilities.STR]: 10,
     [Abilities.DEX]: 10,
@@ -13,18 +14,20 @@ export function calculateAbilityScores(character) {
     [Abilities.CHA]: 10,
   };
 
+  // Apply flaws first so boosts add correct points
+  if (character.abilityFlaws)
+    character.abilityFlaws.forEach((flaw) => {
+      abilities[flaw.ability] -= 2;
+    });
+
   character.abilityBoosts.forEach((boost) => {
+    // Ability boosts add 2, until 18 and then only 1
     if (abilities[boost.ability] < 18) {
       abilities[boost.ability] += 2;
     } else {
       abilities[boost.ability] += 1;
     }
   });
-
-  if (character.abilityFlaws)
-    character.abilityFlaws.forEach((flaw) => {
-      abilities[flaw.ability] -= 2;
-    });
 
   return abilities;
 }
@@ -126,17 +129,9 @@ export function abMod(abilityScore) {
   return Math.floor((abilityScore - 10) / 2);
 }
 
-export function countTrainedSkills(character) {
-  let count = 0;
-  Object.keys(character.skills).forEach((skillKey) => {
-    if (character.skills[skillKey].proficiency > 0) count++;
-  });
-  return count;
-}
-
 export function calculatePerception(character) {
   let prof = 0;
-  if (character.class.name)
+  if (character.class.perceptionBoosts)
     character.class.perceptionBoosts.forEach((boost) => {
       let level = boost.type.split("_")[1];
       if (level <= character.level) prof = boost.proficiency;
