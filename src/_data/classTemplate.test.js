@@ -34,7 +34,6 @@ const hpTests = [
     // Class: 6, Ancestry: 6, CON: -1
     correctHP: 6 + (6 - 1),
   },
-  ,
   {
     testName: "lv 4 Elf Sorc with CON boosts",
     level: 1,
