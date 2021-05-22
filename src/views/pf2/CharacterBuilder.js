@@ -372,11 +372,7 @@ class CharacterBuilder extends React.Component {
   }
 
   deleteFeat(featKey) {
-    let character = _.cloneDeep(this.state.character);
-    let newFeats = _.cloneDeep(character.feats);
-    newFeats = newFeats.filter((feat) => feat.type !== featKey);
-    character.feats = newFeats;
-    this.setState({ character });
+    this.selectFeat(featKey, {});
   }
 
   setLevel(e) {

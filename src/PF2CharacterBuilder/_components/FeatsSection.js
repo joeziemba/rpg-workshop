@@ -28,10 +28,6 @@ const FeatsSection = (props) => {
     setShowFeatSelection(false);
   };
 
-  const removeFeat = (featKey) => {
-    props.selectFeat(featKey, {});
-  };
-
   return (
     <React.Fragment>
       <div className="pf-section">
@@ -55,7 +51,7 @@ const FeatsSection = (props) => {
                     label={"Lv" + level}
                     feat={feat}
                     addFeat={() => openFeatSelection(feat.type)}
-                    removeFeat={() => removeFeat(feat.type)}
+                    removeFeat={() => props.deleteFeat(feat.type)}
                   />
                 );
               } else {
@@ -73,7 +69,7 @@ const FeatsSection = (props) => {
                     label={"Lv" + level}
                     feat={feat}
                     addFeat={() => openFeatSelection(feat.type)}
-                    removeFeat={() => removeFeat(feat.type)}
+                    removeFeat={() => props.deleteFeat(feat.type)}
                   />
                 );
               } else {
@@ -90,7 +86,7 @@ const FeatsSection = (props) => {
                   label={"Lv" + level}
                   feat={feat}
                   addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => removeFeat(feat.type)}
+                  removeFeat={() => props.deleteFeat(feat.type)}
                 />
               );
             } else {
@@ -106,7 +102,7 @@ const FeatsSection = (props) => {
                   label=""
                   feat={feat}
                   addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => removeFeat(feat.type)}
+                  removeFeat={() => props.deleteFeat(feat.type)}
                 />
               );
             } else {
