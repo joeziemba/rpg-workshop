@@ -1,45 +1,55 @@
 <!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html -->
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon-v1.ico" />
+    <link href="%PUBLIC_URL%/android-chrome-192x192-v1.png" />
+    <link href="%PUBLIC_URL%/android-chrome-512x512-v1.png" />
+    <link href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link href="%PUBLIC_URL%/favicon-16x16-v1.png" />
+    <link href="%PUBLIC_URL%/favicon-32x32-v1.png" />
+    <link href="%PUBLIC_URL%/mstile-150x150-v1.png" />
+    <link href="%PUBLIC_URL%/safari-pinned-tab-v1.svg" />
 
-  <link rel=”shortcut icon” href=”%PUBLIC_URL%/favicon-v1.ico”>
-  <link href="%PUBLIC_URL%/android-chrome-192x192-v1.png">
-  <link href="%PUBLIC_URL%/android-chrome-512x512-v1.png">
-  <link href="%PUBLIC_URL%/apple-touch-icon.png">
-  <link href="%PUBLIC_URL%/favicon-16x16-v1.png">
-  <link href="%PUBLIC_URL%/favicon-32x32-v1.png">
-  <link href="%PUBLIC_URL%/mstile-150x150-v1.png">
-  <link href="%PUBLIC_URL%/safari-pinned-tab-v1.svg">
+    <link href="%PUBLIC_URL%/manifest.json" />
 
-  <link href="%PUBLIC_URL%/manifest.json">
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#dedede" />
+    <title>RPG Workshop</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-133665527-1"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/d5bce00392.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="theme-color" content="#dedede">
-  <title>RPG Workshop</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133665527-1"></script>
-  <script src="https://kit.fontawesome.com/d5bce00392.js" crossorigin="anonymous"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag("config", "UA-133665527-1");
+    </script>
+  </head>
 
-    gtag('config', 'UA-133665527-1');
-  </script>
-
-</head>
-
-<body>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <div id="root"></div>
-</body>
-
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="root"></div>
+  </body>
 </html>
