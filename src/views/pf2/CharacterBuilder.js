@@ -132,6 +132,27 @@ class CharacterBuilder extends React.Component {
       character.background.abilityBoosts
     );
 
+    // When adding a Background, check if an existing class
+    // provides the same skill boost and give the character
+    // that class boost back as a free one
+    if (character.class.name) {
+      let classSkillNames = character.class.skillBoosts.map(
+        (b) => b.skill.name
+      );
+      let classSkillsContainingBackgroundSkill = character.skillBoosts.filter(
+        (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
+      );
+      classSkillsContainingBackgroundSkill.forEach((skillBoost) => {
+        toast(
+          "Removed " +
+            skillBoost.skill.name +
+            " from class skills. It is now trained by your background: " +
+            character.background.name
+        );
+        skillBoost.skill = { id: "Free" };
+      });
+    }
+
     character.skillBoosts = character.skillBoosts.concat(
       character.background.skillBoosts
     );
@@ -345,6 +366,24 @@ class CharacterBuilder extends React.Component {
       (boost) => boost.id === boostId
     );
     if (!boost || !skill) {
+      return;
+    }
+
+    // If this is a Class Boost (level 1) boost AND the skill
+    // is already trained (from a Background) do not update.
+    // Character cannot be >trained at Lv1
+    let isClassBoost =
+      Object.values(ClassNames).includes(boost.source) ||
+      boost.source === "int";
+    let isAlreadyTrained = character.skillBoosts.find(
+      (boost) => boost.skill.name === skill.name
+    );
+    if (isClassBoost && isAlreadyTrained) {
+      toast(
+        "Cannot become expert in " +
+          skill.name +
+          " from class and background"
+      );
       return;
     }
 
