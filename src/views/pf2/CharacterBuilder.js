@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { firebase } from "../../Firebase";
-import { Classes } from "../../_data/classes";
+import { Classes, ClassNames } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 import * as Migrate from "../../migrations";
 import BUILDER_VERSION from "../../BUILDER_VERSION";
@@ -21,6 +21,8 @@ import SkillsTable from "../../PF2CharacterBuilder/_components/SkillsTable2";
 import { PF2CharacterContext } from "../../context";
 import AbilityScoreSection from "../../PF2CharacterBuilder/_components/AbilityScoresSection";
 import FeatsSection from "../../PF2CharacterBuilder/_components/FeatsSection";
+import { toast } from "react-toastify";
+import { applyNewAncestry } from "../../PF2CharacterBuilder/_services/ancestry";
 
 class CharacterBuilder extends React.Component {
   constructor(props) {
@@ -208,39 +210,8 @@ class CharacterBuilder extends React.Component {
 
   selectAncestry(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    let character = _.cloneDeep(this.state.character);
-
-    character.abilityBoosts = character.abilityBoosts.filter(
-      (boost) => boost.source !== character.ancestry.name
-    );
-
-    character.abilityFlaws = character.abilityFlaws.filter(
-      (flaw) => flaw.source !== character.ancestry.name
-    );
-
-    character.ancestry = Ancestries[e.target.value];
-
-    character.abilityBoosts = character.abilityBoosts.concat(
-      character.ancestry.abilityBoosts
-    );
-
-    character.abilityFlaws = character.abilityFlaws.concat(
-      character.ancestry.abilityFlaws
-    );
-
-    // Remove old ancestry feats
-    character.feats = character.feats.filter(
-      (feat) => !feat.type.includes("ancestry")
-    );
-
-    // Get blank ancestry feats
-    let blankFeats = this.blankCharacter.feats.filter((feat) =>
-      feat.type.includes("ancestry")
-    );
-
-    character.feats = character.feats.concat(blankFeats);
-
-    this.updateStats(character);
+    const updatedCharacter = applyNewAncestry(this.state.character);
+    this.updateStats(updatedCharacter);
   }
 
   updateStats(character, callback) {
