@@ -30,7 +30,13 @@ export function calculateAbilityScores(character) {
 }
 
 export function calculateHP(character) {
-  // Add con mods from boosts
+  // Initialize HP at Ancestry value, or 0 if none chosen
+  let hitPoints = character.ancestry.hp || 0;
+  // If class is chosen, add Class HP for every level
+  if (character.class.hp)
+    hitPoints += character.class.hp * character.level;
+
+  // Calculate Ability scores for every level to add CON mod to HP
   let lv1mods, lv5mods, lv10mods, lv15mods;
   // 1st
   let lv1boosts = character.abilityBoosts.filter(
@@ -94,23 +100,13 @@ export function calculateHP(character) {
     abilities: lv15scores,
   });
 
-  let hitPoints = 0;
-
+  // Add CON modifier to HP for each level
   for (let i = 1; i <= character.level; i++) {
-    if (i < 5) hitPoints += character.class.hp + lv1mods[Abilities.CON];
-
-    if (i >= 5 && i < 10)
-      hitPoints += character.class.hp + lv5mods[Abilities.CON];
-
-    if (i >= 10 && i < 15)
-      hitPoints += character.class.hp + lv10mods[Abilities.CON];
-
-    if (i >= 15 && i < 20)
-      hitPoints += character.class.hp + lv15mods[Abilities.CON];
-
-    if (i === 20)
-      hitPoints +=
-        character.class.hp + character.abilityMods[Abilities.CON];
+    if (i < 5) hitPoints += lv1mods[Abilities.CON];
+    if (i >= 5 && i < 10) hitPoints += lv5mods[Abilities.CON];
+    if (i >= 10 && i < 15) hitPoints += lv10mods[Abilities.CON];
+    if (i >= 15 && i < 20) hitPoints += lv15mods[Abilities.CON];
+    if (i === 20) hitPoints += character.abilityMods[Abilities.CON];
   }
 
   return hitPoints;
