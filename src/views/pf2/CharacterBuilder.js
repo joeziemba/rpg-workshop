@@ -141,9 +141,10 @@ class CharacterBuilder extends React.Component {
       let classSkillNames = character.class.skillBoosts.map(
         (b) => b.skill.name
       );
-      let classSkillsContainingBackgroundSkill = character.skillBoosts.filter(
-        (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
-      );
+      let classSkillsContainingBackgroundSkill =
+        character.skillBoosts.filter(
+          (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
+        );
       classSkillsContainingBackgroundSkill.forEach((skillBoost) => {
         toast(
           "Removed " +
@@ -440,10 +441,10 @@ class CharacterBuilder extends React.Component {
           </div>
         </div>
         <footer className="pf-footer">
-          <div className="pb-1 text-center">
-            Builder v{BUILDER_VERSION} | Published 1/19/2020
+          <div className="pb-2 text-center">
+            Builder v{BUILDER_VERSION} | Published TBD
           </div>
-          <div>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             This website uses trademarks and/or copyrights owned by Paizo
             Inc., which are used under Paizo&apos;s Community Use Policy.
             We are expressly prohibited from charging you to use or access

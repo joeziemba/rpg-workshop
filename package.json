@@ -1,6 +1,6 @@
 {
   "name": "rpg-workshop",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "homepage": "https://rpgworkshop.app/",
   "description": "TableTop RPG tools",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/",
-    "prettier": "prettier -w src/",
+    "prettier": "prettier -w src",
     "prettier:check": "prettier -c src/",
     "scss": "node-sass src/_assets/scss/main.scss src/_assets/css/main.css",
     "scss:watch": "npm run scss && node-sass --watch src/_assets/scss/main.scss --output-style compressed --source-map true --output src/_assets/css",
@@ -23,7 +23,7 @@
   "author": "Joe Ziemba",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^8.5.0",
+    "firebase": "^8.6.2",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-bootstrap-typeahead": "^5.0.0",
@@ -34,7 +34,7 @@
     "react-toastify": "^7.0.0",
     "react-transition-group": "^4.4.1",
     "reactstrap": "^8.9.0",
-    "sass": "^1.32.12"
+    "sass": "^1.34.0"
   },
   "browserslist": [
     ">0.2%",
@@ -44,7 +44,7 @@
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
+    "@testing-library/react": "^11.2.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -53,7 +53,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest-environment-jsdom-sixteen": "^2.0.0",
     "node-sass": "^4.14.1",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.0"
   },
   "jest": {
     "resetMocks": false
