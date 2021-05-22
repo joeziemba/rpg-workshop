@@ -50,7 +50,10 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   );
 
-  let lv1scores = calculateAbilityScores({ abilityBoosts: lv1boosts });
+  let lv1scores = calculateAbilityScores({
+    abilityBoosts: lv1boosts,
+    abilityFlaws: character.abilityFlaws,
+  });
   lv1mods = calculateAbilityMods({
     abilities: lv1scores,
   });
@@ -65,7 +68,10 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   );
 
-  let lv5scores = calculateAbilityScores({ abilityBoosts: lv5boosts });
+  let lv5scores = calculateAbilityScores({
+    abilityBoosts: lv5boosts,
+    abilityFlaws: character.abilityFlaws,
+  });
   lv5mods = calculateAbilityMods({
     abilities: lv5scores,
   });
@@ -81,7 +87,10 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   );
 
-  let lv10scores = calculateAbilityScores({ abilityBoosts: lv10boosts });
+  let lv10scores = calculateAbilityScores({
+    abilityBoosts: lv10boosts,
+    abilityFlaws: character.abilityFlaws,
+  });
   lv10mods = calculateAbilityMods({
     abilities: lv10scores,
   });
@@ -98,7 +107,10 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   );
 
-  let lv15scores = calculateAbilityScores({ abilityBoosts: lv15boosts });
+  let lv15scores = calculateAbilityScores({
+    abilityBoosts: lv15boosts,
+    abilityFlaws: character.abilityFlaws,
+  });
   lv15mods = calculateAbilityMods({
     abilities: lv15scores,
   });
