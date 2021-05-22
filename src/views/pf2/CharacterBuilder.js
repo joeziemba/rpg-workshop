@@ -4,7 +4,7 @@ import { firebase } from "../../Firebase";
 import { Classes, ClassNames } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
 import { migrateToLatest } from "../../migrations";
-import BUILDER_VERSION from "../../BUILDER_VERSION";
+import { BUILDER_VERSION, PUBLISHED_ON } from "../../BUILDER_VERSION";
 
 import {
   calculateAbilityMods,
@@ -428,7 +428,7 @@ class CharacterBuilder extends React.Component {
         </div>
         <footer className="pf-footer">
           <div className="pb-2 text-center">
-            Builder v{BUILDER_VERSION} | Published TBD
+            Builder v{BUILDER_VERSION} | Published {PUBLISHED_ON}
           </div>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             This website uses trademarks and/or copyrights owned by Paizo
