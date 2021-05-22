@@ -5,7 +5,6 @@ import {
   getBlankCharacter,
   upperLevelAbilityBoosts,
 } from "./_data/classTemplate";
-import BUILDER_VERSION from "./BUILDER_VERSION";
 
 export function v1_0_0(character) {
   let blankCharacter = getBlankCharacter();
