@@ -124,9 +124,10 @@ class CharacterBuilder extends React.Component {
       let classSkillNames = character.class.skillBoosts.map(
         (b) => b.skill.name
       );
-      let classSkillsContainingBackgroundSkill = character.skillBoosts.filter(
-        (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
-      );
+      let classSkillsContainingBackgroundSkill =
+        character.skillBoosts.filter(
+          (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
+        );
       classSkillsContainingBackgroundSkill.forEach((skillBoost) => {
         toast(
           "Removed " +
