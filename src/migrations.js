@@ -5,6 +5,7 @@ import {
   getBlankCharacter,
   upperLevelAbilityBoosts,
 } from "./_data/classTemplate";
+import BUILDER_VERSION from "./BUILDER_VERSION";
 
 export function v1_0_0(character) {
   let blankCharacter = getBlankCharacter();
@@ -77,6 +78,28 @@ export function v1_0_3(character) {
   if (character.class.name === Classes.Rogue.name) {
     character.skillBoosts = character.skillBoosts.concat(NEWROGUEBOOSTS);
     character.feats = character.feats.concat(Classes.Rogue.feats);
+  }
+}
+
+export function migrateToLatest(character) {
+  if (!character.builderVersion || character.builderVersion < "1.0.0") {
+    v1_0_0(character);
+    character.builderVersion = "1.0.0";
+  }
+
+  if (character.builderVersion < "1.0.1") {
+    v1_0_1(character);
+    character.builderVersion = "1.0.1";
+  }
+
+  if (character.builderVersion < "1.0.3") {
+    v1_0_3(character);
+    character.builderVersion = "1.0.3";
+  }
+
+  if (character.builderVersion < "1.0.4") {
+    // No migrations for 1.0.4
+    character.builderVersion = "1.0.4";
   }
 }
 
