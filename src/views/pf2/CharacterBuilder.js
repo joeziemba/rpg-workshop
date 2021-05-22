@@ -210,7 +210,10 @@ class CharacterBuilder extends React.Component {
 
   selectAncestry(e) {
     if ([undefined, null, ""].includes(e.target.value)) return;
-    const updatedCharacter = applyNewAncestry(this.state.character);
+    const updatedCharacter = applyNewAncestry(
+      this.state.character,
+      e.target.value
+    );
     this.updateStats(updatedCharacter);
   }
 

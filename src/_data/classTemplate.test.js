@@ -1,3 +1,5 @@
+import { Ancestries } from "./ancestries";
+import { Classes } from "./classes";
 import {
   calculateHP,
   calculateAbilityScores,
@@ -17,6 +19,37 @@ const hpTests = [
       },
     ],
     correctHP: 9,
+  },
+  {
+    testName: "lv 1 Elf Sorc with no boosts",
+    level: 1,
+    class: Classes.Sorcerer,
+    background: { name: "" },
+    ancestry: Ancestries.Elf,
+    abilityBoosts: [
+      ...Ancestries.Elf.abilityBoosts,
+      ...Classes.Sorcerer.abilityBoosts,
+    ],
+    abilityFlaws: [...Ancestries.Elf.abilityFlaws],
+    // Class: 6, Ancestry: 6, CON: -1
+    correctHP: 6 + (6 - 1),
+  },
+  ,
+  {
+    testName: "lv 4 Elf Sorc with CON boosts",
+    level: 1,
+    class: Classes.Sorcerer,
+    background: { name: "" },
+    ancestry: Ancestries.Elf,
+    abilityBoosts: [
+      {
+        source: "Level_1",
+        ability: "Constitution",
+      },
+    ],
+    abilityFlaws: [...Ancestries.Elf.abilityFlaws],
+    // Class: 6, Ancestry: 6, CON: 0
+    correctHP: 12,
   },
   {
     testName: "lv 4 character with CON boost",
@@ -103,6 +136,38 @@ const hpTests = [
     correctHP: 97,
   },
   {
+    testName: "lv 10 character with 3 CON boost and Flaw",
+    level: 10,
+    class: { hp: 8, name: "" },
+    background: { name: "" },
+    ancestry: { name: "" },
+    abilityBoosts: [
+      {
+        source: "Level_1",
+        ability: "Constitution",
+      },
+      {
+        source: "Level_5",
+        ability: "Constitution",
+      },
+      {
+        source: "Level_10",
+        ability: "Constitution",
+      },
+      {
+        source: "Level_15",
+        ability: "Constitution",
+      },
+    ],
+    abilityFlaws: [
+      {
+        source: "Level_1",
+        ability: "Constitution",
+      },
+    ],
+    correctHP: 87,
+  },
+  {
     testName: "lv 15 character with 4 CON boosts",
     level: 15,
     class: { hp: 8, name: "" },
@@ -126,7 +191,12 @@ const hpTests = [
         ability: "Constitution",
       },
     ],
-    correctHP: 135 + 11 + 6 + 1,
+    // 15 lvls of +8 from class
+    // +1 from con lv1-4 = 4
+    // +2 from con lv5-9 = 10
+    // +3 from con lv10-14 = 15
+    // +4 from con lv15 = 4
+    correctHP: 15 * 8 + 4 + 10 + 15 + 4,
   },
 ];
 describe("calculateHP", () => {
