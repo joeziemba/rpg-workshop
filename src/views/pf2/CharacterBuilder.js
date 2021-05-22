@@ -3,7 +3,7 @@ import _ from "lodash";
 import { firebase } from "../../Firebase";
 import { Classes, ClassNames } from "../../_data/classes";
 import { Ancestries } from "../../_data/ancestries";
-import * as Migrate from "../../migrations";
+import { migrateToLatest } from "../../migrations";
 import BUILDER_VERSION from "../../BUILDER_VERSION";
 
 import {
@@ -77,25 +77,8 @@ class CharacterBuilder extends React.Component {
       let character = response.data();
       character.uid = characterId;
 
-      if (
-        !character.builderVersion ||
-        character.builderVersion < "1.0.0"
-      ) {
-        Migrate.v1_0_0(character);
-        character.builderVersion = "1.0.0";
-      }
+      migrateToLatest(character);
 
-      if (character.builderVersion < "1.0.1") {
-        Migrate.v1_0_1(character);
-        character.builderVersion = "1.0.1";
-      }
-
-      if (character.builderVersion < "1.0.3") {
-        Migrate.v1_0_3(character);
-        character.builderVersion = "1.0.3";
-      }
-
-      character.builderVersion = BUILDER_VERSION;
       this.updateStats(character, () => {
         firebase.savePF2Character(character, false);
         this.props.history.push(`/pf2/character-builder/${characterId}`);
@@ -141,10 +124,9 @@ class CharacterBuilder extends React.Component {
       let classSkillNames = character.class.skillBoosts.map(
         (b) => b.skill.name
       );
-      let classSkillsContainingBackgroundSkill =
-        character.skillBoosts.filter(
-          (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
-        );
+      let classSkillsContainingBackgroundSkill = character.skillBoosts.filter(
+        (skillBoost) => !classSkillNames.includes(skillBoost.skill.name)
+      );
       classSkillsContainingBackgroundSkill.forEach((skillBoost) => {
         toast(
           "Removed " +
@@ -303,6 +285,10 @@ class CharacterBuilder extends React.Component {
       let bLevel = b.type.split("_")[1];
       return parseInt(aLevel, 10) - parseInt(bLevel, 10);
     });
+
+    // Ensure current Builder version
+    if (character.builderVersion < BUILDER_VERSION)
+      character.builderVersion = BUILDER_VERSION;
 
     this.setState({ character }, callback);
   }
