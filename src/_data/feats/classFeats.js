@@ -71,6 +71,342 @@ export const ALCHEMIST_FEATS = [
       "You use Quick Alchemy to craft an alchemical bomb with a level at least 1 lower than your advanced alchemy level.",
     frequency: "once per round",
   },
+  {
+    name: "Calculated Splash",
+    level: "4",
+    traits: ["Alchemist"],
+    description:
+      "You have calculated all the angles to maximize a bomb’s splash. When you throw an alchemical bomb with the splash trait, you can cause the bomb to deal splash damage equal to your Intelligence modifier (minimum 0) instead of the normal amount.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Efficient Alchemy",
+    level: "4",
+    traits: ["Alchemist"],
+    description:
+      "Thanks to the time you’ve spent studying and experimenting, you know how to scale your formulas into larger batches that don’t require any additional attention. When spending downtime to Craft alchemical items, you can produce twice as many alchemical items in a single batch without spending additional preparatory time. For instance, if you are creating elixirs of life, you can craft up to eight elixirs in a single batch using downtime, rather than four. This does not reduce the amount of alchemical reagents required or other ingredients needed to craft each item, nor does it increase your rate of progress for days past the base downtime spent. This also does not change the number of items you can create in a batch using advanced alchemy.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Enduring Alchemy",
+    level: "4",
+    traits: ["Alchemist"],
+    description:
+      "You’ve learned how to make your personal energy last just a little bit longer when quickly brewing ad hoc concoctions. When using Quick Alchemy to create an alchemical tool or elixir, that tool or elixir remains potent until the end of your next turn, instead of losing its potency at the start of your next turn.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Combine Elixirs",
+    level: "6",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "You’ve discovered how to mix two elixirs into a single hybrid concoction. You can spend 2 additional batches of infused reagents to add a second elixir to the one you’re crafting. The second elixir must also be at least 2 levels lower than your advanced alchemy level, and the combination elixir is an alchemical item two levels higher than the higher of the two elixirs’ levels. When this combination elixir is consumed, both the constituent elixirs take effect. For example, you can combine two elixirs of life to create a combined elixir that heals twice the normal amount, or you can combine a lesser darkvision elixir with a lesser eagle-eye elixir to both gain darkvision and find secret doors.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You use Quick Alchemy to craft an alchemical item that has the elixir trait and is at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Debilitating Bomb",
+    level: "6",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "Your bombs impose additional effects on your enemies. You mix a substance into the bomb that causes one of the following: dazzled, deafened, flat-footed, or a –5-foot status penalty to Speeds. If the attack with that bomb hits, the target must succeed at a Fortitude saving throw or suffer that effect until the start of your next turn. Use your class DC for this saving throw (even if someone else throws the bomb).",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You use Quick Alchemy to craft an alchemical bomb that is at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Directional Bombs",
+    level: "6",
+    traits: ["Alchemist"],
+    description:
+      "You can lob bombs with great force and a precise trajectory to angle the splash in a cone spraying in a single direction. When throwing an alchemical bomb with the splash trait, instead of splashing all squares adjacent to the target, you can treat the target’s space as the first affected square of a 15-foot cone directed away from you, potentially allowing you to avoid allies and splash deeper into enemy lines. If the target takes up more than a single square, the target’s square closest to you is the first affected square of the cone.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Feral Mutagen",
+    level: "8",
+    traits: ["Alchemist"],
+    description:
+      "Your bestial mutagen brings out the beast lurking within you, granting you especially sharp claws and teeth as well as a ferocious appearance. Whenever you’re affected by a bestial mutagen, you gain the mutagen’s item bonus to your Intimidation checks. In addition, your claws and jaws are increasingly vicious, and they gain the deadly d10 trait. Finally, you can increase the mutagen’s penalty to AC from –1 to –2 and, in exchange, increase the damage die size of your claws and jaws by one step.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Sticky Bomb",
+    level: "8",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "You mix in an additive to make your bomb’s contents adhere to the target and continue to deal damage. A creature that takes a direct hit from one of your sticky bombs also takes persistent damage equal to and of the same type as the bomb’s splash damage. If the bomb already deals persistent damage, combine the two amounts.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You use Quick Alchemy to craft an alchemical bomb, and that bomb’s level is at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Elastic Mutagen",
+    level: "10",
+    traits: ["Alchemist"],
+    description:
+      "You can cause your body to twist and flow like the quicksilver within your mutagens. Whenever you are under the effects of a quicksilver mutagen, you can stretch your legs and Step up to 10 feet, and you can squish and compress your body, allowing you to make it through tight spaces as if you were one size smaller, in addition to any effect from Squeezing.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Expanded Splash",
+    level: "10",
+    traits: ["Alchemist"],
+    description:
+      "The particularly volatile compounds that you brew into your bombs result in them creating especially large and powerful explosions. When you throw an alchemical bomb that has the splash trait, you can add your Intelligence modifier to the bomb’s usual splash damage, and it deals splash damage to every creature within 10 feet of the target.",
+    prerequisites: ["Calculated Splash"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Greater Debilitating Bomb",
+    level: "10",
+    traits: ["Alchemist"],
+    description:
+      "You have learned enhanced techniques and alchemical secrets that allow you to expand the range of effects you can impose with your bombs. When you use Debilitating Bomb, add the following to the list you can choose from: clumsy 1, enfeebled 1, stupefied 1, or –10-foot status penalty to Speeds.",
+    prerequisites: ["Debilitating Bomb"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Merciful Elixir",
+    level: "10",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "You mix a special additive into your elixir that calms the drinker's body and mind. The elixir of life attempts to counteract one fear effect or one effect imposing the paralyzed condition on the drinker, using the item's level and a counteract modifier equal to your class DC – 10.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You craft an elixir of life using Quick Alchemy, and that elixir is at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Potent Poisoner",
+    level: "10",
+    traits: ["Alchemist"],
+    description:
+      "By concentrating your poisons’ toxic components, you make them harder for victims to resist. When you craft an alchemical item with the poison trait by any means, the DC is increased by up to 4, to a maximum of your class DC.",
+    prerequisites: ["powerful alchemy"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Extend Elixir",
+    level: "12",
+    traits: ["Alchemist"],
+    description:
+      "Integrating your own personal energy into the elixirs you create causes them to affect you for longer. When you consume one of your alchemical items that has the elixir and infused traits and a duration of 1 minute or longer, that elixir’s duration is doubled.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Invincible Mutagen",
+    level: "12",
+    traits: ["Alchemist"],
+    description:
+      "The fortifying additives you brew into your mutagens make your juggernaut form impervious. Whenever you’re affected by a juggernaut mutagen, you gain resistance to all physical damage equal to your Intelligence modifier (minimum 0).",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Uncanny Bombs",
+    level: "12",
+    traits: ["Alchemist"],
+    description:
+      "You lob bombs unerringly, despite obstructions or distance. When you throw an alchemical item with the bomb trait, its range increment increases to 60 feet, you reduce any circumstance bonus to the target’s AC from cover by 1, and you automatically succeed at the flat check when targeting a concealed creature.",
+    prerequisites: ["Far Lobber"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Glib Mutagen",
+    level: "14",
+    traits: ["Alchemist"],
+    description:
+      "Your silvertongue mutagen transcends languages and plausibility. When affected by a silvertongue mutagen you have created, you ignore circumstance penalties to Deception, Diplomacy, Intimidation, and Performance checks. In addition, your words transcend linguistic barriers; everyone listening to you speak hears your words as if you were speaking in their own language (though you do not actually speak that language, nor does this ability allow you to understand any additional languages).",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Greater Merciful Elixir",
+    level: "14",
+    traits: ["Alchemist"],
+    description:
+      "Your additives contain panaceas that can remedy a plethora of maladies. When you use Merciful Elixir, your elixir can instead attempt to counteract the blinded, deafened, sickened, or slowed condition.",
+    prerequisites: ["Merciful Elixir"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "True Debilitating Bomb",
+    level: "14",
+    traits: ["Alchemist"],
+    description:
+      "Ever inventive, you have discovered increasingly devastating ways for your bombs to impede and hamper your foes. When you use Debilitating Bomb, add the following to the list of effects you can choose from: enfeebled 2, stupefied 2, or a –15-foot status penalty to Speeds. If you instead apply one of the effects listed in Debilitating Bomb, the target avoids the effect only if the result of its saving throw is a critical success.",
+    prerequisites: ["Greater Debilitating Bomb"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Eternal Elixir",
+    level: "16",
+    traits: ["Alchemist"],
+    description:
+      "Your body readily accepts and retains minor changes. When you drink one of your alchemical items that has the elixir and infused traits and a duration of 1 minute or more, you can make the elixir’s duration indefinite. You can do so only if the elixir’s level is half your level or lower. If you later consume a different elixir and make it indefinite, the effect of the previous indefinite elixir ends.",
+    prerequisites: ["Extend Elixir"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Exploitive Bomb",
+    level: "",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "You mix a substance into the bomb to foil resistances. The bomb reduces any resistance the enemy has to its damage type by an amount equal to your level, but only for that attack.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger:
+      "You craft an alchemical bomb using Quick Alchemy that’s at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Genius Mutagen",
+    level: "16",
+    traits: ["Alchemist"],
+    description:
+      "Specialized tweaks to your formula that supplements your genius considerably broaden the benefits you gain from cognitive mutagens. When you’re affected by a cognitive mutagen, you also gain the mutagen’s item bonus to Deception, Diplomacy, Intimidation, Medicine, Nature, Performance, Religion, and Survival checks. In addition, you can communicate telepathically with creatures within 60 feet with whom you share a language. The communication is two-way once you establish it, so a creature you contact can also communicate with you.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Persistent Mutagen",
+    level: "16",
+    traits: ["Alchemist"],
+    description:
+      "You've trained your physical form to remain stable within a given altered state. Once per day, when you consume an alchemical item with the infused and mutagen traits, you can retain its effects until the next time you make your daily preparations instead of its normal duration.",
+    prerequisites: ["Extend Elixir"],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Improbable Elixirs",
+    level: "18",
+    traits: ["Alchemist"],
+    description:
+      "Your mastery of alchemical secrets enables you to replicate effects most believe can be achieved only via magic. Select a number of potions equal to your Intelligence modifier (minimum 1); these potions must be of 9th level or lower. You gain formulas to create these potions as alchemical items with the elixir trait. When making these alchemical elixirs, you can substitute alchemical reagents for an equal value of magical components, and you can use alchemist's tools (for Quick Alchemy) or an alchemist's lab (for the Craft activity) instead of any other required tool kits. Other than that, the formula does not change. Once you've chosen the potion formulas, they can't be changed.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Mindblank Mutagen",
+    level: "18",
+    traits: ["Alchemist"],
+    description:
+      "With a minor adjustment of ratios in the formula for your serene mutagen, you gain mental protections. When you’re affected by a serene mutagen, detection, revelation, and scrying effects of 9th level or lower detect nothing from you or your possessions and auras. For instance, detect magic would still detect other magic in the area, but not any magic on you.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Miracle Worker",
+    level: "18",
+    traits: ["Alchemist"],
+    description:
+      "Your alchemical mastery can resuscitate the recently slain. You can administer a true elixir of life to a creature who has been dead for no more than 2 rounds. When you do, that creature is immediately returned to life with 1 Hit Point and becomes wounded 1.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "once every 10 minutes",
+  },
+  {
+    name: "Perfect Debilitation",
+    level: "18",
+    traits: ["Alchemist"],
+    description:
+      "You have perfected the formulas for bombs that impede your enemies. When you use Debilitating Bomb, your target avoids the condition the bomb imposes only if it critically succeeds at its saving throw.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Craft Philosopher's Stone",
+    level: "20",
+    traits: ["Alchemist"],
+    description:
+      "Your research has paid off, culminating in the legendary philosopher’s stone. You learn the formula for the philosopher’s stone and can add it to your formula book.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Mega Bomb",
+    level: "20",
+    traits: ["Alchemist", "Additive 3"],
+    description:
+      "You add an incredibly powerful additive to a held bomb to create a mega bomb, greatly increasing its area and power. You use an Interact action to throw the mega bomb, rather than Strike, and you don’t make an attack roll. The mega bomb affects creatures in a 30-foot-radius burst, centered within 60 feet of you. The bomb deals damage as if each creature were the primary target, with a basic Reflex save. On a failed save, a creature also takes any extra effects that affect a primary target (such as flat-footed from bottled lightning). While all targets in the area take splash damage as primary targets, there is no further splash beyond that area. If your next action after creating a mega bomb isn’t an Interact action to throw it, the mega bomb denatures and loses all effects.",
+    prerequisites: ["Expanded Splash"],
+    source: SOURCES.CRB,
+    trigger:
+      "You are holding an infused alchemical bomb you crafted, with a level at least 3 lower than your advanced alchemy level.",
+    frequency: "",
+  },
+  {
+    name: "Perfect Mutagen",
+    level: "20",
+    traits: ["Alchemist"],
+    description:
+      "You have enhanced the formulas for your mutagens, aligning them perfectly to your physiology. When under the effect of a mutagen you crafted, you do not suffer its drawback.",
+    prerequisites: [],
+    source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
 ];
 
 export const BARBARIAN_FEATS = [
