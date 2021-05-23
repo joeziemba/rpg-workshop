@@ -2,6 +2,7 @@ const SOURCES = {
   CRB: "Core Rulebook",
   LOCG: "Lost Omens Character Guide",
   FPS: "Fall of Plaguestone",
+  APG: "Advanced Player's Guide",
 };
 
 export const ALCHEMIST_FEATS = [
@@ -33,13 +34,31 @@ export const ALCHEMIST_FEATS = [
     source: SOURCES.CRB,
   },
   {
-    name: "Quick Bomber [one-action]",
+    name: "Quick Bomber",
     level: "1",
     traits: ["Alchemist"],
     description:
       "You keep your bombs in easy-to-reach pouches from which you draw without thinking. You Interact to draw a bomb, then Strike with it.",
     prerequisites: [],
     source: SOURCES.CRB,
+  },
+  {
+    name: "Subtle Delivery",
+    level: "1",
+    traits: ["Alchemist"],
+    description:
+      "You can capably deliver toxins with a blowgun. Your blowgun Strikes can apply injury poisons even if they deal no damage due to a creature's resistance. If you critically succeed at an attack roll using a blowgun loaded with a dart you've poisoned and the target rolls a failure on the poison's initial save, the target critically fails instead.",
+    prerequisites: [],
+    source: SOURCES.APG,
+  },
+  {
+    name: "Demolition Charge",
+    level: "2",
+    traits: ["Alchemist", "Druid"],
+    description:
+      "You can rig your bombs to inanimate objects in order to cause destruction to the surrounding area. As an activity that takes 1 minute, you attach between one and four bombs to an inanimate object within your reach, such as a chest, door, wall, or column. This creates a hazard in one square occupied by or adjacent to the inanimate object, and the hazard's Stealth DC to detect it and Thievery DC to disable it are equal to your class DC. The hazard has the following reaction, which you can also trigger as a single action so long as you are within 30 feet of the hazard. The hazard retains its potency until it's triggered, until the inanimate object moves from its space, or until you make your next daily preparations, whichever comes first. \n Activate [Reaction] Fire in the Hole; Trigger A creature moves into the hazard's space; Effect The hazard explodes, dealing the bombs' damage and splash damage to the inanimate object. Combine this damage for the purpose of resistances and weaknesses, and this damage ignores an amount of the object's Hardness equal to your level. Any creatures adjacent to the hazard take the bombs' splash damage, similarly combined for the purpose of resistances and weaknesses. As a reminder, since you didn't throw the bombs, Calculated Splash and similar effects don't apply.",
+    prerequisites: [],
+    source: SOURCES.APG,
   },
   {
     name: "Poison Resistance",
@@ -105,6 +124,29 @@ export const ALCHEMIST_FEATS = [
     frequency: "",
   },
   {
+    name: "Healing Bomb [free action]",
+    level: "4",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "By adding a special catalyst, you transform a healing elixir into a topical projectile. You grant the elixir the bomb trait. If you throw an elixir of life bomb at a willing target, you hit even on a failure, though not on a critical failure. If your Strike with this elixir bomb hits a living target, the target regains Hit Points as if it had consumed the elixir. On a critical success, the target also gains the elixir's item bonus to saving throws against diseases and poisons for 1 minute.",
+    prerequisites: [],
+    source: SOURCES.APG,
+    trigger:
+      "You craft an elixir of life using Quick Alchemy, and that elixir is at least 2 levels lower than your advanced alchemy level.",
+    frequency: "once per round",
+  },
+  {
+    name: "Tenacious Toxins",
+    level: "4",
+    traits: ["Alchemist", "Additive 2"],
+    description:
+      "Your victims tend to expire long before your poisons, since the latter have been specifically formulated to last longer. The maximum duration of any poison you create increases by an amount equal to the poison's stage 1 interval, to a maximum of twice the poison's maximum duration.",
+    prerequisites: [],
+    source: SOURCES.APG,
+    trigger: "",
+    frequency: "",
+  },
+  {
     name: "Combine Elixirs",
     level: "6",
     traits: ["Alchemist", "Additive 2"],
@@ -140,6 +182,17 @@ export const ALCHEMIST_FEATS = [
     frequency: "",
   },
   {
+    name: "Sticky Poison",
+    level: "6",
+    traits: ["Alchemist"],
+    description:
+      "A combination of additional viscosity and careful application keeps your weapons poisoned even when suffering significant wear and tear. If your Strike with a poisoned weapon would expend its poison without your target attempting an initial save (due to resistance or your Strike being a critical failure, for example), attempt a DC 5 flat check. On a success, your weapon remains poisoned. If your Strike with a poisoned weapon succeeds, attempt a DC 17 flat check. On a success, your weapon remains poisoned until the end of your next turn.",
+    prerequisites: [],
+    source: SOURCES.APG,
+    trigger: "",
+    frequency: "",
+  },
+  {
     name: "Feral Mutagen",
     level: "8",
     traits: ["Alchemist"],
@@ -147,6 +200,28 @@ export const ALCHEMIST_FEATS = [
       "Your bestial mutagen brings out the beast lurking within you, granting you especially sharp claws and teeth as well as a ferocious appearance. Whenever you’re affected by a bestial mutagen, you gain the mutagen’s item bonus to your Intimidation checks. In addition, your claws and jaws are increasingly vicious, and they gain the deadly d10 trait. Finally, you can increase the mutagen’s penalty to AC from –1 to –2 and, in exchange, increase the damage die size of your claws and jaws by one step.",
     prerequisites: [],
     source: SOURCES.CRB,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Perpetual Breadth",
+    level: "8",
+    traits: ["Alchemist"],
+    description:
+      "You have expanded your supply of near-infinite items. Choose a research field. Add one item from the list of options available to that field from perpetual infusions, or two items if you choose your own field. If you have perpetual potency or perpetual perfection, you gain an additional item (or items if you chose your own field) appropriate to the field you chose, for instance a higher-level version of the bomb you chose or a new poison.",
+    prerequisites: ["perpetual infusions"],
+    source: SOURCES.APG,
+    trigger: "",
+    frequency: "",
+  },
+  {
+    name: "Pinpoint Poisoner",
+    level: "8",
+    traits: ["Alchemist"],
+    description:
+      "Unsuspecting targets are especially vulnerable to your poisons. When you successfully Strike a flat-footed creature with a poisoned weapon or expose a flat-footed creature to an inhaled poison, the flat-footed condition also gives that creature a –2 circumstance penalty to its initial save against that poison.",
+    prerequisites: [],
+    source: SOURCES.APG,
     trigger: "",
     frequency: "",
   },
@@ -219,6 +294,17 @@ export const ALCHEMIST_FEATS = [
     frequency: "",
   },
   {
+    name: "Unstable Concoction",
+    level: "10",
+    traits: ["Alchemist"],
+    description:
+      "You can create extraordinary—albeit volatile—alchemical wonders, though they have an unfortunate tendency to violently explode when you use them. When you use Quick Alchemy, you can create an alchemical item from your formula book whose level is up to 2 higher than your advanced alchemy level. You can spend up to 3 additional batches of infused reagents when creating this item to stabilize it. Upon activating the item, attempt a DC 10 flat check; for every additional batch of infused reagents you spent to create the item, reduce this DC by 2. On a success, the item functions normally. On a failure, the item explodes, dealing force damage to the user equal to twice the item's level (doubled on a critical failure).",
+    prerequisites: [],
+    source: SOURCES.APG,
+    trigger: "",
+    frequency: "",
+  },
+  {
     name: "Extend Elixir",
     level: "12",
     traits: ["Alchemist"],
@@ -285,6 +371,18 @@ export const ALCHEMIST_FEATS = [
     frequency: "",
   },
   {
+    name: "Chemical Contagion [Reaction]",
+    level: "16",
+    traits: ["Alchemist"],
+    description:
+      "With carefully engineered enzymes, you coax some of your poison to infect another target, using the original victim as a carrier. A creature adjacent to the triggering creature is exposed to the triggering poison.",
+    prerequisites: ["Extend Elixir"],
+    source: SOURCES.APG,
+    trigger:
+      "A creature within 30 feet critically fails its initial saving throw against a poison you created.",
+    frequency: "",
+  },
+  {
     name: "Eternal Elixir",
     level: "16",
     traits: ["Alchemist"],
@@ -297,7 +395,7 @@ export const ALCHEMIST_FEATS = [
   },
   {
     name: "Exploitive Bomb",
-    level: "",
+    level: "16",
     traits: ["Alchemist", "Additive 2"],
     description:
       "You mix a substance into the bomb to foil resistances. The bomb reduces any resistance the enemy has to its damage type by an amount equal to your level, but only for that attack.",
