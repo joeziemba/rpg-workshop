@@ -17,7 +17,7 @@ const Home = () => {
     <div className="container-fluid">
       <div
         className="row c-title-section"
-        style={{ backgroundColor: "#4D1307", color: "white" }}
+        style={{ backgroundColor: "#4D1307", color: "#eee" }}
       >
         <div className="col-12 col-md-6">
           <div className="ml-ms-4 py-md-5 pt-5">
@@ -53,7 +53,7 @@ const Home = () => {
       </div>
       <div
         className="row c-title-section"
-        style={{ backgroundColor: "#203863", color: "white" }}
+        style={{ backgroundColor: "#203863", color: "#eee" }}
       >
         <div className="col-12 col-md-6">
           <div className="ml-ms-4 py-md-5 pt-5">
@@ -88,7 +88,7 @@ const Home = () => {
       </div>
       <div
         className="row c-title-section"
-        style={{ backgroundColor: "white" }}
+        style={{ backgroundColor: "#dedede" }}
       >
         <div className="col-12">
           <div className="ml-ms-4 py-md-5 pt-5">
