@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
-import { FEATS } from "../../_data/feats/feats";
+import FEATS from "../../_data/feats/allFeats.json";
 
 const FeatSelection = (props) => {
   const [query, setQuery] = useState("");
