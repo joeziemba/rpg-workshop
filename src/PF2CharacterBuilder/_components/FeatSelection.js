@@ -26,10 +26,12 @@ const FeatSelection = (props) => {
 
     if (type === "class") {
       filteredFeats = filteredFeats.filter((feat) => {
-        return (
-          feat.traits.includes(props.character.class.name) &&
-          parseInt(feat.level, 10) <= parseInt(level, 10)
+        let isCorrectClass = feat.traits.includes(
+          props.character.class.name
         );
+        let isCorrectLevel =
+          parseInt(feat.level, 10) <= parseInt(level, 10);
+        return isCorrectClass && isCorrectLevel;
       });
     }
 
@@ -55,7 +57,11 @@ const FeatSelection = (props) => {
       return feat.name.toLowerCase().includes(query.toLowerCase());
     });
 
-    setFeats(filteredFeats);
+    setFeats(
+      filteredFeats.sort((a, b) =>
+        Number(a.level) < Number(b.level) ? -1 : 1
+      )
+    );
   }, [
     query,
     props.character.ancestry.name,
@@ -64,17 +70,25 @@ const FeatSelection = (props) => {
   ]);
 
   return (
-    <div>
-      <div className="clearfix">
-        <label className="float-right">
-          Search by Name or Trait:{" "}
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
-      </div>
+    <div style={{ position: "relative" }}>
+      <label
+        className=""
+        style={{
+          position: "fixed",
+          display: "block",
+          right: "8rem",
+          zIndex: "999",
+          marginTop: "-3rem",
+        }}
+      >
+        Search by Name or Trait:{" "}
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </label>
+
       <table className="c-feat-selection">
         <thead>
           <tr className="c-feat-selection__row">
@@ -87,7 +101,6 @@ const FeatSelection = (props) => {
         </thead>
         <tbody>
           {feats.map((feat) => {
-            feat.description = feat.description.replace("\n", "</p><p>");
             return (
               <tr className="c-feat-selection__row" key={feat.name}>
                 <td style={{ flex: "1", textAlign: "center" }}>
@@ -104,14 +117,11 @@ const FeatSelection = (props) => {
                 </td>
                 <td style={{ flex: "1" }}>{feat.traits.join(", ")}</td>
                 <td style={{ flex: "10" }}>
-                  {feat.prerequisites.length > 0 && (
-                    <p>
-                      <b>Prerequisites:</b> {feat.prerequisites.join(", ")}
-                    </p>
-                  )}
-                  <p
-                    dangerouslySetInnerHTML={{ __html: feat.description }}
-                  ></p>
+                  <p>
+                    <b>Prerequisites:</b> {feat.prerequisites}
+                  </p>
+
+                  <p dangerouslySetInnerHTML={{ __html: feat.desc }}></p>
                 </td>
               </tr>
             );

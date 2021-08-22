@@ -56,7 +56,16 @@ button:focus {
 }
 
 .c-title-section {
-  box-shadow: inset 10px 10px 50px 0px rgba(0, 0, 0, 0.3);
+  // box-shadow: inset 10px 10px 50px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.c-home-card {
+  padding: 20px;
+  color: $dnd-maroon;
+  background-color: white;
+  flex: 1;
 }
 
 @import "./toast.scss";

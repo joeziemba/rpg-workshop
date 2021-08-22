@@ -1,4 +1,4 @@
-import * as ClassFeats from "./classFeats";
+import ClassFeats from "./classFeats.json";
 import * as GeneralFeats from "./generalFeats";
 
 export const featTypes = {
@@ -761,18 +761,7 @@ export const FEATS = [].concat(
   GOBLIN_FEATS,
   HALFLING_FEATS,
   HUMAN_FEATS,
-  ClassFeats.ALCHEMIST_FEATS,
-  ClassFeats.BARBARIAN_FEATS,
-  ClassFeats.BARD_FEATS,
-  ClassFeats.CHAMPION_FEATS,
-  ClassFeats.CLERIC_FEATS,
-  ClassFeats.DRUID_FEATS,
-  ClassFeats.FIGHTER_FEATS,
-  ClassFeats.MONK_FEATS,
-  ClassFeats.RANGER_FEATS,
-  ClassFeats.ROGUE_FEATS,
-  ClassFeats.SORCERER_FEATS,
-  ClassFeats.WIZARD_FEAS,
+  ClassFeats,
   GeneralFeats.GENERAL_FEATS,
   GeneralFeats.ACROBATICS_FEATS,
   GeneralFeats.ATHLETICS_FEATS,

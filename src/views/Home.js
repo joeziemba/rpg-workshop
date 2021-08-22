@@ -17,7 +17,7 @@ const Home = () => {
     <div className="container-fluid">
       <div
         className="row c-title-section"
-        style={{ backgroundColor: "#741b1b", color: "white" }}
+        style={{ backgroundColor: "#4D1307", color: "white" }}
       >
         <div className="col-12 col-md-6">
           <div className="ml-ms-4 py-md-5 pt-5">
