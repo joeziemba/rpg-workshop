@@ -29,7 +29,7 @@ const FeatEntry = (props) => {
       </div>
       <div className="ml-3" style={{ fontSize: "12px" }}>
         <p
-          dangerouslySetInnerHTML={{ __html: props.feat.description }}
+          dangerouslySetInnerHTML={{ __html: props.feat.desc }}
         ></p>
       </div>
     </div>
