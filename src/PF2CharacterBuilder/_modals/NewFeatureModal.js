@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Modal } from "../../_globalComponents"
 
 const NewFeatureModal = () => {
@@ -11,7 +11,7 @@ const NewFeatureModal = () => {
 
   useEffect(() => {
     if (localStorage.getItem("1.1-modal") !== "hide") setShow(true)
-  })
+  }, [])
   return (
     <Modal
       show={show}

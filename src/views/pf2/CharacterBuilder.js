@@ -1,7 +1,7 @@
 import React from "react"
 import _ from "lodash"
 import { firebase } from "../../Firebase"
-import Classes, { ClassNames } from "../../_data/classes"
+import Classes from "../../_data/classes"
 import { Ancestries } from "../../_data/ancestries"
 import { migrateToLatest } from "../../migrations"
 import { BUILDER_VERSION, PUBLISHED_ON } from "../../BUILDER_VERSION"
@@ -23,7 +23,6 @@ import AbilityScoreSection from "../../PF2CharacterBuilder/_components/AbilitySc
 import FeatsSection from "../../PF2CharacterBuilder/_components/FeatsSection"
 import { toast } from "react-toastify"
 import { applyNewAncestry } from "../../PF2CharacterBuilder/_services/ancestry"
-import { Modal } from "../../_globalComponents"
 import NewFeatureModal from "../../PF2CharacterBuilder/_modals/NewFeatureModal"
 
 class CharacterBuilder extends React.Component {
