@@ -1,15 +1,15 @@
-import React from "react";
+import React from "react"
 
 const newFeatures = [
   "9/18/19 | Register/Sign in with Google account: create an account to save your stuff.",
   "9/18/19 | Save Statblocks: Save your statblocks to your account to access later.",
   "9/18/19 | Open Statblocks: Open any statblock you've saved before and edit to you're hearts content.",
-];
+]
 
 const upcoming = [
   "UX improvements to 'Save' and 'Open' for the Statblock Generator",
   "BETA: Pathfinder Second Edition Character Builder. This Will: eventually be a full-featured builder but I hopw to release a smaller beta version with the basics very soon for use and testing!",
-];
+]
 
 const About = () => {
   return (
@@ -49,7 +49,7 @@ const About = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

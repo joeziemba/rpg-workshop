@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
 const SelectField = (props) => {
   let options = props.options.map((opt) => {
-    return <option key={opt}>{opt}</option>;
-  });
+    return <option key={opt}>{opt}</option>
+  })
 
   if (props.flat) {
     return (
@@ -21,7 +21,7 @@ const SelectField = (props) => {
           {options}
         </select>
       </div>
-    );
+    )
   }
 
   return (
@@ -39,7 +39,7 @@ const SelectField = (props) => {
         {options}
       </select>
     </div>
-  );
-};
+  )
+}
 
-export default SelectField;
+export default SelectField

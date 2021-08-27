@@ -1,1 +1,1 @@
-export { default as StatblockGenerator } from "./StatblockGenerator";
+export { default as StatblockGenerator } from "./StatblockGenerator"

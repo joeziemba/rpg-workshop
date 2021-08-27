@@ -1,9 +1,9 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import React from "react"
+import { render, fireEvent } from "@testing-library/react"
 
-import Input from "../Input";
+import Input from "../Input"
 
-const changeSpy = jest.fn();
+const changeSpy = jest.fn()
 
 describe("Input", () => {
   const testProps = {
@@ -14,21 +14,21 @@ describe("Input", () => {
     value: "Test Value",
     fieldName: "testFieldName",
     label: "Test Label",
-  };
+  }
 
   const mountComponent = (overrides) => {
-    return render(<Input {...testProps} {...overrides} />);
-  };
+    return render(<Input {...testProps} {...overrides} />)
+  }
 
   it("can type in the input", () => {
-    const { getByLabelText, getByPlaceholderText } = mountComponent();
+    const { getByLabelText, getByPlaceholderText } = mountComponent()
 
-    expect(getByPlaceholderText("test placeholder")).toBeInTheDocument();
+    expect(getByPlaceholderText("test placeholder")).toBeInTheDocument()
 
     fireEvent.change(getByLabelText("Test Label"), {
       target: { value: "sample text" },
-    });
+    })
 
-    expect(changeSpy).toHaveBeenCalled();
-  });
-});
+    expect(changeSpy).toHaveBeenCalled()
+  })
+})

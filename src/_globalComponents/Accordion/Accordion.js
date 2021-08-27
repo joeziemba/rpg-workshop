@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { CSSTransition } from "react-transition-group";
-import "./Accordion.scss";
+import React, { useState } from "react"
+import { CSSTransition } from "react-transition-group"
+import "./Accordion.scss"
 
 const Accordion = ({ children, open, title }) => {
-  const [isOpen, setOpen] = useState(open);
+  const [isOpen, setOpen] = useState(open)
 
   return (
     <div className="accordion">
@@ -32,7 +32,7 @@ const Accordion = ({ children, open, title }) => {
         </div>
       </CSSTransition>
     </div>
-  );
-};
+  )
+}
 
-export default Accordion;
+export default Accordion

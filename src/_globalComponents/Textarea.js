@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Textarea = (props) => {
   return (
@@ -19,7 +19,7 @@ const Textarea = (props) => {
         {props.supportText}
       </small>
     </div>
-  );
-};
+  )
+}
 
-export default Textarea;
+export default Textarea

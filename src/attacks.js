@@ -55,4 +55,4 @@ export const attacks = [
       dex: false,
     },
   },
-];
+]

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const PropertyBlock = (props) => {
   return (
@@ -8,7 +8,7 @@ const PropertyBlock = (props) => {
       </span>{" "}
       {props.content}
     </div>
-  );
-};
+  )
+}
 
-export default PropertyBlock;
+export default PropertyBlock

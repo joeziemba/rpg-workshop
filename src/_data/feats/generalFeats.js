@@ -1,7 +1,7 @@
 const SOURCES = {
   CRB: "Core Rulebook",
   LOCG: "Lost Omens Character Guide",
-};
+}
 
 export const GENERAL_FEATS = [
   {
@@ -163,7 +163,7 @@ export const GENERAL_FEATS = [
     prerequisites: ["Charisma 16"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const SKILL_FEATS = [
   {
@@ -260,7 +260,7 @@ export const SKILL_FEATS = [
     ],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const ACROBATICS_FEATS = [
   {
@@ -307,7 +307,7 @@ export const ACROBATICS_FEATS = [
     prerequisites: ["master in Acrobatics"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const ARCANA_FEATS = [
   {
@@ -328,7 +328,7 @@ export const ARCANA_FEATS = [
     prerequisites: ["legendary in Arcana"],
     source: SOURCES.CRB,
   },
-];
+]
 export const ATHLETICS_FEATS = [
   {
     name: "Combat Climber",
@@ -429,7 +429,7 @@ export const ATHLETICS_FEATS = [
     prerequisites: ["legendary in Athletics"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const CRAFTING_FEATS = [
   {
@@ -505,7 +505,7 @@ export const CRAFTING_FEATS = [
     prerequisites: ["Legendary in Crafting"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const DECEPTION_FEATS = [
   {
@@ -562,7 +562,7 @@ export const DECEPTION_FEATS = [
     prerequisites: ["Master in Deception"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const DIPLOMACY_FEATS = [
   {
@@ -619,7 +619,7 @@ export const DIPLOMACY_FEATS = [
     prerequisites: ["Legendary in Dilplomacy"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const INIMIDATION_FEATS = [
   {
@@ -694,7 +694,7 @@ export const INIMIDATION_FEATS = [
     prerequisites: ["Legendary in Intimidation"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const LORE_FEATS = [
   {
@@ -735,7 +735,7 @@ export const LORE_FEATS = [
     prerequisites: ["Legendary in Lore"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const MEDICINE_FEATS = [
   {
@@ -783,7 +783,7 @@ export const MEDICINE_FEATS = [
     prerequisites: ["Legendary in Medicine"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const NATURE_FEATS = [
   {
@@ -813,7 +813,7 @@ export const NATURE_FEATS = [
     prerequisites: ["Expert in Nature"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const OCCULT_FEATS = [
   {
@@ -834,7 +834,7 @@ export const OCCULT_FEATS = [
     prerequisites: ["Master in Occultism"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const PERFORMANCE_FEATS = [
   {
@@ -874,7 +874,7 @@ export const PERFORMANCE_FEATS = [
     prerequisites: ["Legendary in Performance", "Virtuosic Performer"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const RELIGION_FEATS = [
   {
@@ -895,7 +895,7 @@ export const RELIGION_FEATS = [
     prerequisites: ["Legendary in Religion"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const SOCIETY_FEATS = [
   {
@@ -972,7 +972,7 @@ export const SOCIETY_FEATS = [
     prerequisites: ["Legendary in Society", "Multilingual"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const STEALTH_FEATS = [
   {
@@ -1031,7 +1031,7 @@ export const STEALTH_FEATS = [
     prerequisites: ["Legendary in Stealth", "Swift Sneak"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const SURVIVAL_FEATS = [
   {
@@ -1090,7 +1090,7 @@ export const SURVIVAL_FEATS = [
     prerequisites: ["Legendary in Survival"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const THIEVERY_FEATS = [
   {
@@ -1137,7 +1137,7 @@ export const THIEVERY_FEATS = [
     prerequisites: ["Legendary in Thievery", "Pickpocket"],
     source: SOURCES.CRB,
   },
-];
+]
 
 //   {
 //     name: "",

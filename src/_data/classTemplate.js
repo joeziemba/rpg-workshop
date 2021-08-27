@@ -1,7 +1,7 @@
-import _ from "lodash";
-import { Saves } from "./classes";
-import { Abilities } from "./abilities";
-import { Skills } from "./skills";
+import _ from "lodash"
+import { Saves } from "./classes"
+import { Abilities } from "./abilities"
+import { Skills } from "./skills"
 
 export function calculateAbilityScores(character) {
   // All abilities start at 10
@@ -12,35 +12,34 @@ export function calculateAbilityScores(character) {
     [Abilities.INT]: 10,
     [Abilities.WIS]: 10,
     [Abilities.CHA]: 10,
-  };
+  }
 
   // Apply flaws first so boosts add correct points
   if (character.abilityFlaws)
     character.abilityFlaws.forEach((flaw) => {
-      abilities[flaw.ability] -= 2;
-    });
+      abilities[flaw.ability] -= 2
+    })
 
   character.abilityBoosts.forEach((boost) => {
     // Ability boosts add 2, until 18 and then only 1
     if (abilities[boost.ability] < 18) {
-      abilities[boost.ability] += 2;
+      abilities[boost.ability] += 2
     } else {
-      abilities[boost.ability] += 1;
+      abilities[boost.ability] += 1
     }
-  });
+  })
 
-  return abilities;
+  return abilities
 }
 
 export function calculateHP(character) {
   // Initialize HP at Ancestry value, or 0 if none chosen
-  let hitPoints = character.ancestry.hp || 0;
+  let hitPoints = character.ancestry.hp || 0
   // If class is chosen, add Class HP for every level
-  if (character.class.hp)
-    hitPoints += character.class.hp * character.level;
+  if (character.class.hp) hitPoints += character.class.hp * character.level
 
   // Calculate Ability scores for every level to add CON mod to HP
-  let lv1mods, lv5mods, lv10mods, lv15mods;
+  let lv1mods, lv5mods, lv10mods, lv15mods
   // 1st
   let lv1boosts = character.abilityBoosts.filter(
     (boost) =>
@@ -48,15 +47,15 @@ export function calculateHP(character) {
       boost.source === character.background.name ||
       boost.source === character.class.name ||
       boost.source === character.ancestry.name
-  );
+  )
 
   let lv1scores = calculateAbilityScores({
     abilityBoosts: lv1boosts,
     abilityFlaws: character.abilityFlaws,
-  });
+  })
   lv1mods = calculateAbilityMods({
     abilities: lv1scores,
-  });
+  })
 
   // 5th
   let lv5boosts = character.abilityBoosts.filter(
@@ -66,15 +65,15 @@ export function calculateHP(character) {
       boost.source === character.background.name ||
       boost.source === character.class.name ||
       boost.source === character.ancestry.name
-  );
+  )
 
   let lv5scores = calculateAbilityScores({
     abilityBoosts: lv5boosts,
     abilityFlaws: character.abilityFlaws,
-  });
+  })
   lv5mods = calculateAbilityMods({
     abilities: lv5scores,
-  });
+  })
 
   // 10th
   let lv10boosts = character.abilityBoosts.filter(
@@ -85,15 +84,15 @@ export function calculateHP(character) {
       boost.source === character.background.name ||
       boost.source === character.class.name ||
       boost.source === character.ancestry.name
-  );
+  )
 
   let lv10scores = calculateAbilityScores({
     abilityBoosts: lv10boosts,
     abilityFlaws: character.abilityFlaws,
-  });
+  })
   lv10mods = calculateAbilityMods({
     abilities: lv10scores,
-  });
+  })
 
   // 15th
   let lv15boosts = character.abilityBoosts.filter(
@@ -105,51 +104,51 @@ export function calculateHP(character) {
       boost.source === character.background.name ||
       boost.source === character.class.name ||
       boost.source === character.ancestry.name
-  );
+  )
 
   let lv15scores = calculateAbilityScores({
     abilityBoosts: lv15boosts,
     abilityFlaws: character.abilityFlaws,
-  });
+  })
   lv15mods = calculateAbilityMods({
     abilities: lv15scores,
-  });
+  })
 
   // Add CON modifier to HP for each level
   for (let i = 1; i <= character.level; i++) {
-    if (i < 5) hitPoints += lv1mods[Abilities.CON];
-    if (i >= 5 && i < 10) hitPoints += lv5mods[Abilities.CON];
-    if (i >= 10 && i < 15) hitPoints += lv10mods[Abilities.CON];
-    if (i >= 15 && i < 20) hitPoints += lv15mods[Abilities.CON];
-    if (i === 20) hitPoints += character.abilityMods[Abilities.CON];
+    if (i < 5) hitPoints += lv1mods[Abilities.CON]
+    if (i >= 5 && i < 10) hitPoints += lv5mods[Abilities.CON]
+    if (i >= 10 && i < 15) hitPoints += lv10mods[Abilities.CON]
+    if (i >= 15 && i < 20) hitPoints += lv15mods[Abilities.CON]
+    if (i === 20) hitPoints += character.abilityMods[Abilities.CON]
   }
 
-  return hitPoints;
+  return hitPoints
 }
 
 export function calculateAbilityMods(character) {
-  let mods = {};
+  let mods = {}
 
   Object.keys(character.abilities).forEach((ability) => {
-    mods[ability] = abMod(character.abilities[ability]);
-  });
+    mods[ability] = abMod(character.abilities[ability])
+  })
 
-  return mods;
+  return mods
 }
 
 export function abMod(abilityScore) {
-  return Math.floor((abilityScore - 10) / 2);
+  return Math.floor((abilityScore - 10) / 2)
 }
 
 export function calculatePerception(character) {
-  let prof = 0;
+  let prof = 0
   if (character.class.perceptionBoosts)
     character.class.perceptionBoosts.forEach((boost) => {
-      let level = boost.type.split("_")[1];
-      if (level <= character.level) prof = boost.proficiency;
-    });
+      let level = boost.type.split("_")[1]
+      if (level <= character.level) prof = boost.proficiency
+    })
 
-  return prof;
+  return prof
 }
 
 export const upperLevelAbilityBoosts = [
@@ -249,7 +248,7 @@ export const upperLevelAbilityBoosts = [
     id: "Level20-4",
     type: Abilities.FREE,
   },
-];
+]
 
 export function getBlankCharacter() {
   let abilityBoosts = [
@@ -277,9 +276,9 @@ export function getBlankCharacter() {
       id: "Level1-4",
       type: Abilities.FREE,
     },
-  ];
+  ]
 
-  abilityBoosts = abilityBoosts.concat(upperLevelAbilityBoosts);
+  abilityBoosts = abilityBoosts.concat(upperLevelAbilityBoosts)
 
   return {
     name: "",
@@ -408,5 +407,5 @@ export function getBlankCharacter() {
       { type: "general_15" },
       { type: "general_19" },
     ],
-  };
+  }
 }

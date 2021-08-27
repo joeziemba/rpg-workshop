@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 import {
   InputFlat,
@@ -6,21 +6,21 @@ import {
   Input,
   Textarea,
   Column,
-} from "../../_globalComponents";
-import AttackForm from "./AttackForm";
+} from "../../_globalComponents"
+import AttackForm from "./AttackForm"
 
 class Actions extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       title: "Title",
       content: "Content",
-    };
+    }
   }
 
   renderActions() {
-    let legendary = this.props.legendary;
+    let legendary = this.props.legendary
     return this.props.actions.map((action, i) => {
       if (!action.attack) {
         return (
@@ -60,7 +60,7 @@ class Actions extends React.Component {
               </Column>
             </Row>
           </div>
-        );
+        )
       }
 
       if (action.attack) {
@@ -72,11 +72,11 @@ class Actions extends React.Component {
             deleteAction={this.props.deleteAction}
             legendary={legendary}
           />
-        );
+        )
       }
 
-      return null;
-    });
+      return null
+    })
   }
 
   render() {
@@ -120,8 +120,8 @@ class Actions extends React.Component {
           </React.Fragment>
         )}
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Actions;
+export default Actions

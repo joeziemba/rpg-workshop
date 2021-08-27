@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Input = (props) => {
   return (
@@ -20,7 +20,7 @@ const Input = (props) => {
         {props.supportText}
       </small>
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

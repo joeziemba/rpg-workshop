@@ -1,5 +1,5 @@
-import React from "react";
-import { Row, Column, Input, SelectField } from "../../_globalComponents";
+import React from "react"
+import { Row, Column, Input, SelectField } from "../../_globalComponents"
 
 const AttackForm = (props) => {
   return (
@@ -125,7 +125,7 @@ const AttackForm = (props) => {
         <Column className="col-2 col-12-sm"></Column>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default AttackForm;
+export default AttackForm
