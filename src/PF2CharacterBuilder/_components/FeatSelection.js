@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
 import FEATS from "../../_data/feats/allFeats.json"
 
@@ -20,37 +20,43 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
     })
   }
 
-  const getFeatTag = (featType) => {
-    switch (featType) {
-      case "ancestry":
-        return character.ancestry.name
-      case "class":
-        return character.class.name
-      case "skill":
-        return "Skill"
-      default:
-        return ""
-    }
-  }
+  const getFeatTag = useCallback(
+    (featType) => {
+      switch (featType) {
+        case "ancestry":
+          return character.ancestry.name
+        case "class":
+          return character.class.name
+        case "skill":
+          return "Skill"
+        default:
+          return ""
+      }
+    },
+    [character.ancestry.name, character.class.name]
+  )
 
-  const filterFeatsByQuery = (feats) => {
-    // Filter by query in traits or name
-    return feats.filter((feat) => {
-      let hasMatchingTrait = false
+  const filterFeatsByQuery = useCallback(
+    (feats) => {
+      // Filter by query in traits or name
+      return feats.filter((feat) => {
+        let hasMatchingTrait = false
 
-      // Check traits for match
-      for (let trait of feat.traits)
-        if (trait.toLowerCase().includes(query.toLowerCase())) {
-          hasMatchingTrait = true
-          break
-        }
+        // Check traits for match
+        for (let trait of feat.traits)
+          if (trait.toLowerCase().includes(query.toLowerCase())) {
+            hasMatchingTrait = true
+            break
+          }
 
-      return (
-        hasMatchingTrait ||
-        feat.name.toLowerCase().includes(query.toLowerCase())
-      )
-    })
-  }
+        return (
+          hasMatchingTrait ||
+          feat.name.toLowerCase().includes(query.toLowerCase())
+        )
+      })
+    },
+    [query]
+  )
 
   useEffect(() => {
     let filteredFeats = _.cloneDeep(FEATS)
@@ -66,7 +72,14 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
         Number(a.level) < Number(b.level) ? -1 : 1
       )
     )
-  }, [query, character.ancestry.name, character.class.name, featKey])
+  }, [
+    query,
+    character.ancestry.name,
+    character.class.name,
+    featKey,
+    filterFeatsByQuery,
+    getFeatTag,
+  ])
 
   return (
     <div style={{ position: "relative" }}>
@@ -112,7 +125,9 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
                 style={{ display: "flex", flexWrap: "wrap" }}
               >
                 {feat.traits.map((t) => (
-                  <small className="c-feat-selection__tag">{t}</small>
+                  <small className="c-feat-selection__tag" key={t}>
+                    {t}
+                  </small>
                 ))}
               </div>
               <div className="col col-6 pl-4 pr-2">

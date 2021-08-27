@@ -1,4 +1,3 @@
-import _ from "lodash"
 import CLASSES from "./_data/classes"
 import { Backgrounds } from "./_data/backgrounds"
 import FEATS from "./_data/feats/allFeats.json"

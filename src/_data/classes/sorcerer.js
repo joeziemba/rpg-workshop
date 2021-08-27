@@ -1,6 +1,6 @@
 import { Abilities } from "../abilities"
 import { generateSkillBoosts } from "../models/SkillBoost"
-import { Proficiencies, Skills } from "../skills"
+import { Proficiencies } from "../skills"
 import { Saves } from "./saves"
 
 const nameOfClass = "Sorcerer"

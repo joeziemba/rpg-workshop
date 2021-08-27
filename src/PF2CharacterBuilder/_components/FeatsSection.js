@@ -127,7 +127,7 @@ const FeatsSection = (props) => {
           <FeatEntry
             label=""
             feat={{}}
-            addFeat={() => openFeatSelection("misc_20")}
+            addFeat={() => openFeatSelection("misc_" + numMiscFeats)}
           />
         </div>
       </div>

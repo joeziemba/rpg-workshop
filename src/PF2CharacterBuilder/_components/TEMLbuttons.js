@@ -1,7 +1,7 @@
 import React from "react"
 import "./teml.scss"
 
-const TEMLbuttons = ({ skill, onClick, disabled }) => {
+const TEMLbuttons = ({ skill }) => {
   let { id, proficiency } = skill
   if (id === "Lore") {
     id += "_" + skill.type
@@ -14,7 +14,7 @@ const TEMLbuttons = ({ skill, onClick, disabled }) => {
         }`}
       ></div>
       <div
-        className={`c-teml__item ${
+        className={`c-teml__item 
           proficiency > 3 ? " c-teml__item--checked" : ""
         }`}
       ></div>
