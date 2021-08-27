@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { firebase } from "../Firebase";
-import { LoginButton } from "./index";
+import React from "react"
+import { Link } from "react-router-dom"
+import { firebase } from "../Firebase"
+import { LoginButton } from "./index"
 
 const TopBar = (props) => {
   return (
@@ -27,7 +27,7 @@ const TopBar = (props) => {
         <LoginButton />
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default TopBar;
+export default TopBar

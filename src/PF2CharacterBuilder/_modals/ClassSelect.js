@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const ClassSelect = ({ show, closeFunction }) => {
-  if (!show) return null;
+  if (!show) return null
 
   return (
     <div className="c-modal">
@@ -13,7 +13,7 @@ const ClassSelect = ({ show, closeFunction }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ClassSelect;
+export default ClassSelect

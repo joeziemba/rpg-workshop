@@ -1,10 +1,10 @@
-import { Ancestries } from "./ancestries";
-import  Classes  from "./classes";
+import { Ancestries } from "./ancestries"
+import Classes from "./classes"
 import {
   calculateHP,
   calculateAbilityScores,
   calculatePerception,
-} from "./classTemplate";
+} from "./classTemplate"
 const hpTests = [
   {
     testName: "lv 1 character with CON boost",
@@ -197,14 +197,14 @@ const hpTests = [
     // +4 from con lv15 = 4
     correctHP: 15 * 8 + 4 + 10 + 15 + 4,
   },
-];
+]
 describe("calculateHP", () => {
   hpTests.forEach((test) => {
     it(`${test.testName}`, () => {
-      expect(calculateHP(test)).toEqual(test.correctHP);
-    });
-  });
-});
+      expect(calculateHP(test)).toEqual(test.correctHP)
+    })
+  })
+})
 
 describe("calculateAbilityScores", () => {
   it("adds 2 for each ability boost", () => {
@@ -219,17 +219,17 @@ describe("calculateAbilityScores", () => {
         { ability: "Charisma" },
         { ability: "Wisdom" },
       ],
-    };
+    }
 
-    const calculatedScores = calculateAbilityScores(mockCharacter);
+    const calculatedScores = calculateAbilityScores(mockCharacter)
 
-    expect(calculatedScores.Strength).toEqual(12);
-    expect(calculatedScores.Dexterity).toEqual(12);
-    expect(calculatedScores.Constitution).toEqual(14);
-    expect(calculatedScores.Intelligence).toEqual(10);
-    expect(calculatedScores.Wisdom).toEqual(12);
-    expect(calculatedScores.Charisma).toEqual(16);
-  });
+    expect(calculatedScores.Strength).toEqual(12)
+    expect(calculatedScores.Dexterity).toEqual(12)
+    expect(calculatedScores.Constitution).toEqual(14)
+    expect(calculatedScores.Intelligence).toEqual(10)
+    expect(calculatedScores.Wisdom).toEqual(12)
+    expect(calculatedScores.Charisma).toEqual(16)
+  })
 
   it("adds 1 once the ability reaches 18", () => {
     const mockCharacter = {
@@ -242,17 +242,17 @@ describe("calculateAbilityScores", () => {
         { ability: "Constitution" },
         { ability: "Constitution" },
       ],
-    };
+    }
 
-    const calculatedScores = calculateAbilityScores(mockCharacter);
+    const calculatedScores = calculateAbilityScores(mockCharacter)
 
-    expect(calculatedScores.Strength).toEqual(10);
-    expect(calculatedScores.Dexterity).toEqual(10);
-    expect(calculatedScores.Constitution).toEqual(21);
-    expect(calculatedScores.Intelligence).toEqual(10);
-    expect(calculatedScores.Wisdom).toEqual(10);
-    expect(calculatedScores.Charisma).toEqual(10);
-  });
+    expect(calculatedScores.Strength).toEqual(10)
+    expect(calculatedScores.Dexterity).toEqual(10)
+    expect(calculatedScores.Constitution).toEqual(21)
+    expect(calculatedScores.Intelligence).toEqual(10)
+    expect(calculatedScores.Wisdom).toEqual(10)
+    expect(calculatedScores.Charisma).toEqual(10)
+  })
 
   it("applies ability flaws properly", () => {
     const mockCharacter = {
@@ -267,18 +267,18 @@ describe("calculateAbilityScores", () => {
         { ability: "Wisdom" },
       ],
       abilityFlaws: [{ ability: "Wisdom" }, { ability: "Intelligence" }],
-    };
+    }
 
-    const calculatedScores = calculateAbilityScores(mockCharacter);
+    const calculatedScores = calculateAbilityScores(mockCharacter)
 
-    expect(calculatedScores.Strength).toEqual(12);
-    expect(calculatedScores.Dexterity).toEqual(12);
-    expect(calculatedScores.Constitution).toEqual(14);
-    expect(calculatedScores.Intelligence).toEqual(8);
-    expect(calculatedScores.Wisdom).toEqual(10);
-    expect(calculatedScores.Charisma).toEqual(16);
-  });
-});
+    expect(calculatedScores.Strength).toEqual(12)
+    expect(calculatedScores.Dexterity).toEqual(12)
+    expect(calculatedScores.Constitution).toEqual(14)
+    expect(calculatedScores.Intelligence).toEqual(8)
+    expect(calculatedScores.Wisdom).toEqual(10)
+    expect(calculatedScores.Charisma).toEqual(16)
+  })
+})
 
 describe("calculatePerception", () => {
   let mockCharacter = {
@@ -291,14 +291,14 @@ describe("calculatePerception", () => {
         { type: "ANOTHER_6", proficiency: 10 },
       ],
     },
-  };
+  }
   it("returns the highest boost available for the characters level", () => {
-    expect(calculatePerception(mockCharacter)).toEqual(2);
-    mockCharacter.level = 4;
-    expect(calculatePerception(mockCharacter)).toEqual(4);
-    mockCharacter.level = 5;
-    expect(calculatePerception(mockCharacter)).toEqual(4);
-    mockCharacter.level = 6;
-    expect(calculatePerception(mockCharacter)).toEqual(10);
-  });
-});
+    expect(calculatePerception(mockCharacter)).toEqual(2)
+    mockCharacter.level = 4
+    expect(calculatePerception(mockCharacter)).toEqual(4)
+    mockCharacter.level = 5
+    expect(calculatePerception(mockCharacter)).toEqual(4)
+    mockCharacter.level = 6
+    expect(calculatePerception(mockCharacter)).toEqual(10)
+  })
+})

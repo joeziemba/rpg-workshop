@@ -1,6 +1,6 @@
-import React from "react";
-import Row from "./Row";
-import Column from "./Column";
+import React from "react"
+import Row from "./Row"
+import Column from "./Column"
 
 const InputFlat = (props) => {
   return (
@@ -27,7 +27,7 @@ const InputFlat = (props) => {
         <Column className="col col-6"></Column>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default InputFlat;
+export default InputFlat

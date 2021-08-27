@@ -1,14 +1,14 @@
-import React from "react";
-import { Row, Input, Column, Textarea } from "../../_globalComponents";
+import React from "react"
+import { Row, Input, Column, Textarea } from "../../_globalComponents"
 
 class Features extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       title: "Title",
       content: "Content",
-    };
+    }
   }
 
   renderFeatures() {
@@ -45,8 +45,8 @@ class Features extends React.Component {
             </Column>
           </Row>
         </div>
-      );
-    });
+      )
+    })
   }
 
   render() {
@@ -61,8 +61,8 @@ class Features extends React.Component {
           Add Feature
         </button>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Features;
+export default Features

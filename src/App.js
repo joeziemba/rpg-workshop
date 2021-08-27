@@ -1,36 +1,36 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { Component } from "react"
+import { Route } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
-import "./App.css";
-import "./_assets/css/main.css";
-import { UserContext } from "./context";
+import "./App.css"
+import "./_assets/css/main.css"
+import { UserContext } from "./context"
 
-import { StatblockGenerator } from "./StatblockGenerator";
-import About from "./views/About";
-import Home from "./views/Home";
-import CharacterBuilder from "./views/pf2/CharacterBuilder";
+import { StatblockGenerator } from "./StatblockGenerator"
+import About from "./views/About"
+import Home from "./views/Home"
+import CharacterBuilder from "./views/pf2/CharacterBuilder"
 
-import { TopBar } from "./_globalComponents";
+import { TopBar } from "./_globalComponents"
 
-import { firebase } from "./Firebase";
+import { firebase } from "./Firebase"
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       currentUser: null,
-    };
+    }
   }
 
   componentDidMount() {
     firebase.auth.onAuthStateChanged((currentUser) => {
       currentUser
         ? this.setState({ currentUser })
-        : this.setState({ currentUser: null });
-    });
+        : this.setState({ currentUser: null })
+    })
   }
 
   render() {
@@ -74,8 +74,8 @@ class App extends Component {
           </UserContext.Provider>
         </div>
       </>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,18 +1,18 @@
-import React from "react";
-import Statbox from "./Statbox";
-import { Abilities } from "../../_data/abilities";
-import TEMLbuttons from "./TEMLbuttons";
+import React from "react"
+import Statbox from "./Statbox"
+import { Abilities } from "../../_data/abilities"
+import TEMLbuttons from "./TEMLbuttons"
 
 const SkillsTable = ({ character, selectSkill }) => {
-  let { freeSkills, maxTrainedSkills } = character;
+  let { freeSkills, maxTrainedSkills } = character
   if (freeSkills < 0) {
-    freeSkills = 0;
+    freeSkills = 0
   }
   let sources = character.skillBoosts
     .map((boost) => boost.source)
     .filter((b) => ![undefined, "Free"].includes(b))
-    .sort();
-  sources = [...new Set(sources)];
+    .sort()
+  sources = [...new Set(sources)]
   return (
     <div id="Skills" className="pf-section">
       <h2 className="pf-section__heading">
@@ -24,14 +24,12 @@ const SkillsTable = ({ character, selectSkill }) => {
       <div className="pf-section__body">
         <p>Trained at 1st level: {maxTrainedSkills}</p>
         {Object.keys(character.skills).map((skill, i) => {
-          skill = character.skills[skill];
-          if (!skill.source) skill.source = "Free";
+          skill = character.skills[skill]
+          if (!skill.source) skill.source = "Free"
           let proficiencyBonus =
-            skill.proficiency > 0
-              ? skill.proficiency + character.level
-              : 0;
-          let abilityMod = character.abilityMods[skill.modifier];
-          let totalMod = proficiencyBonus + abilityMod;
+            skill.proficiency > 0 ? skill.proficiency + character.level : 0
+          let abilityMod = character.abilityMods[skill.modifier]
+          let totalMod = proficiencyBonus + abilityMod
           return (
             <div
               key={skill + i}
@@ -60,18 +58,18 @@ const SkillsTable = ({ character, selectSkill }) => {
                 <TEMLbuttons onClick={selectSkill} skill={skill} />
               </div>
             </div>
-          );
+          )
         })}
         {sources.map((source, i) => {
           return (
             <div key={source + i} className="p-2">
               {"*".repeat(i + 1)} {source}
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SkillsTable;
+export default SkillsTable

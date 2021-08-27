@@ -1,17 +1,17 @@
-import ClassFeats from "./classFeats.json";
-import * as GeneralFeats from "./generalFeats";
+import ClassFeats from "./classFeats.json"
+import * as GeneralFeats from "./generalFeats"
 
 export const featTypes = {
   ANCESTRY: "ancestry",
   CLASS: "class",
   GENERAL: "general",
   SKILL: "skill",
-};
+}
 
 const SOURCES = {
   CRB: "Core Rulebook",
   LOCG: "Lost Omens Character Guide",
-};
+}
 
 const GNOME_FEATS = [
   {
@@ -144,7 +144,7 @@ const GNOME_FEATS = [
     prerequisites: ["Gnome Weapon Familiarity"],
     source: SOURCES.CRB,
   },
-];
+]
 
 const DWARF_FEATS = [
   {
@@ -246,7 +246,7 @@ const DWARF_FEATS = [
     prerequisites: ["Dwarven Weapon Familiarity"],
     source: SOURCES.CRB,
   },
-];
+]
 
 const ELF_FEATS = [
   {
@@ -367,7 +367,7 @@ const ELF_FEATS = [
     source: SOURCES.CRB,
     frequency: "once per day",
   },
-];
+]
 
 const GOBLIN_FEATS = [
   {
@@ -497,7 +497,7 @@ const GOBLIN_FEATS = [
     prerequisites: ["Very Sneaky"],
     source: SOURCES.CRB,
   },
-];
+]
 
 const HALFLING_FEATS = [
   {
@@ -627,7 +627,7 @@ const HALFLING_FEATS = [
     prerequisites: ["Halfling Weapon Familiarity"],
     source: SOURCES.CRB,
   },
-];
+]
 
 const HUMAN_FEATS = [
   {
@@ -752,7 +752,7 @@ const HUMAN_FEATS = [
     ],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const FEATS = [].concat(
   GNOME_FEATS,
@@ -780,6 +780,6 @@ export const FEATS = [].concat(
   GeneralFeats.STEALTH_FEATS,
   GeneralFeats.SURVIVAL_FEATS,
   GeneralFeats.THIEVERY_FEATS
-);
+)
 
-export default FEATS;
+export default FEATS

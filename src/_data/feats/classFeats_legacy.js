@@ -3,7 +3,7 @@ const SOURCES = {
   LOCG: "Lost Omens Character Guide",
   FPS: "Fall of Plaguestone",
   APG: "Advanced Player's Guide",
-};
+}
 
 export const ALCHEMIST_FEATS = [
   {
@@ -505,7 +505,7 @@ export const ALCHEMIST_FEATS = [
     trigger: "",
     frequency: "",
   },
-];
+]
 
 export const BARBARIAN_FEATS = [
   {
@@ -666,7 +666,8 @@ export const BARBARIAN_FEATS = [
     name: "Spiritual Guides",
     level: "4",
     traits: ["Barbarian", "Concentrate", "Fortune"],
-    description: "Though no one sees them and only you can hear them, the spirits around you constantly chatter, save when you are raging. Sometimes they're even helpful. You can heed the spirits' guidance to reroll the triggering check, using the second result even if it's worse.",
+    description:
+      "Though no one sees them and only you can hear them, the spirits around you constantly chatter, save when you are raging. Sometimes they're even helpful. You can heed the spirits' guidance to reroll the triggering check, using the second result even if it's worse.",
     prerequisites: ["Spirit Instinct"],
     source: SOURCES.APG,
   },
@@ -674,15 +675,17 @@ export const BARBARIAN_FEATS = [
     name: "Supernatural Senses",
     level: "4",
     traits: ["Barbarian", "Rage"],
-    description: "Your scent is preternaturally sharp, and you can always rely on your sense of smell to help guide you when your vision is compromised. When you target a concealed or hidden opponent while you are raging, you reduce the DC of the flat check to 3 for a concealed target or to 9 for a hidden one.",
+    description:
+      "Your scent is preternaturally sharp, and you can always rely on your sense of smell to help guide you when your vision is compromised. When you target a concealed or hidden opponent while you are raging, you reduce the DC of the flat check to 3 for a concealed target or to 9 for a hidden one.",
     prerequisites: ["Acute Scent"],
     source: SOURCES.APG,
   },
   {
     name: "Swipe",
     level: "4",
-    traits: ["Barbarian","Fighter","Flourish"],
-    description: "You make a wide, arcing swing. Make a single melee Strike and compare the attack roll result to the ACs of up to two foes, each of whom must be within your melee reach and adjacent to the other. Roll damage only once and apply it to each creature you hit. A Swipe counts as two attacks for your multiple attack penalty. If you’re using a weapon with the sweep trait, its modifier applies to all your Swipe attacks.",
+    traits: ["Barbarian", "Fighter", "Flourish"],
+    description:
+      "You make a wide, arcing swing. Make a single melee Strike and compare the attack roll result to the ACs of up to two foes, each of whom must be within your melee reach and adjacent to the other. Roll damage only once and apply it to each creature you hit. A Swipe counts as two attacks for your multiple attack penalty. If you’re using a weapon with the sweep trait, its modifier applies to all your Swipe attacks.",
     prerequisites: [],
     source: SOURCES.CRB,
   },
@@ -690,16 +693,18 @@ export const BARBARIAN_FEATS = [
     name: "Wounded Rage [Reaction]",
     level: "4",
     traits: ["Barbarian"],
-    description: "You roar in pain, awakening the rage within you. You Rage.",
+    description:
+      "You roar in pain, awakening the rage within you. You Rage.",
     prerequisites: [],
     source: SOURCES.CRB,
-    trigger: "You take damage and are capable of entering a rage."
+    trigger: "You take damage and are capable of entering a rage.",
   },
   {
     name: "",
     level: "",
     traits: ["Barbarian"],
-    description: "You roar in pain, awakening the rage within you. You Rage.",
+    description:
+      "You roar in pain, awakening the rage within you. You Rage.",
     prerequisites: [],
     source: "",
   },
@@ -743,7 +748,7 @@ export const BARBARIAN_FEATS = [
     prerequisites: [],
     source: "",
   },
-];
+]
 
 export const BARD_FEATS = [
   {
@@ -837,7 +842,7 @@ export const BARD_FEATS = [
     special:
       "You can take this feat multiple times. Each time you do, you must choose a different type of muse other than that of your own.",
   },
-];
+]
 
 export const CHAMPION_FEATS = [
   {
@@ -923,7 +928,7 @@ export const CHAMPION_FEATS = [
     prerequisites: ["paladin cause"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const CLERIC_FEATS = [
   {
@@ -1022,7 +1027,7 @@ export const CLERIC_FEATS = [
     ],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const DRUID_FEATS = [
   {
@@ -1099,7 +1104,7 @@ export const DRUID_FEATS = [
     prerequisites: [],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const FIGHTER_FEATS = [
   {
@@ -1233,7 +1238,7 @@ export const FIGHTER_FEATS = [
     prerequisites: ["You are wielding a melee weapon"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const MONK_FEATS = [
   {
@@ -1354,7 +1359,7 @@ export const MONK_FEATS = [
     prerequisites: ["Flurry of Blows"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const RANGER_FEATS = [
   {
@@ -1451,7 +1456,7 @@ export const RANGER_FEATS = [
     prerequisites: [],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const ROGUE_FEATS = [
   {
@@ -1541,7 +1546,7 @@ export const ROGUE_FEATS = [
     prerequisites: ["thief racket"],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const SORCERER_FEATS = [
   {
@@ -1574,7 +1579,7 @@ export const SORCERER_FEATS = [
     prerequisites: [],
     source: SOURCES.CRB,
   },
-];
+]
 
 export const WIZARD_FEAS = [
   {
@@ -1614,4 +1619,4 @@ export const WIZARD_FEAS = [
     prerequisites: [],
     source: SOURCES.CRB,
   },
-];
+]

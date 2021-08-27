@@ -1,6 +1,6 @@
-import React from "react";
-import "react-bootstrap-typeahead/css/Typeahead.css";
-import { Typeahead } from "react-bootstrap-typeahead";
+import React from "react"
+import "react-bootstrap-typeahead/css/Typeahead.css"
+import { Typeahead } from "react-bootstrap-typeahead"
 
 import {
   Input,
@@ -8,12 +8,12 @@ import {
   Row,
   SelectField,
   Accordion,
-} from "../../_globalComponents/";
-import { Actions, Features } from "./index";
+} from "../../_globalComponents/"
+import { Actions, Features } from "./index"
 
 class StatBlockForm extends React.Component {
   renderAbilityFields() {
-    const abilities = ["str", "dex", "con", "int", "wis", "cha"];
+    const abilities = ["str", "dex", "con", "int", "wis", "cha"]
     // return Object.keys(this.props.stats.abilities).map(ability => {
     return abilities.map((ability) => {
       return (
@@ -29,8 +29,8 @@ class StatBlockForm extends React.Component {
             center
           />
         </Column>
-      );
-    });
+      )
+    })
   }
 
   render() {
@@ -266,8 +266,8 @@ class StatBlockForm extends React.Component {
           />
         </Accordion>
       </div>
-    );
+    )
   }
 }
 
-export default StatBlockForm;
+export default StatBlockForm

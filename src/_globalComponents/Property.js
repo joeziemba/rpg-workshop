@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Property = (props) => {
   return (
@@ -6,7 +6,7 @@ const Property = (props) => {
       <span className="statblock__property-name">{props.title}</span>{" "}
       {props.content}
     </div>
-  );
-};
+  )
+}
 
-export default Property;
+export default Property

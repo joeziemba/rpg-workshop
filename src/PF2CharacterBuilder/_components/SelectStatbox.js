@@ -1,10 +1,10 @@
-import React from "react";
-import Statbox from "./Statbox";
+import React from "react"
+import Statbox from "./Statbox"
 
 const SelectStatbox = (props) => {
-  const levels = [];
+  const levels = []
   for (let i = 1; i < 21; i++) {
-    levels.push(i);
+    levels.push(i)
   }
   return (
     <Statbox title="Level" large>
@@ -14,11 +14,11 @@ const SelectStatbox = (props) => {
             <option value={level} key={i}>
               {level}
             </option>
-          );
+          )
         })}
       </select>
     </Statbox>
-  );
-};
+  )
+}
 
-export default SelectStatbox;
+export default SelectStatbox

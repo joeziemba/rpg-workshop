@@ -6,4 +6,4 @@ export const Abilities = {
   WIS: "Wisdom",
   CHA: "Charisma",
   FREE: "Free",
-};
+}

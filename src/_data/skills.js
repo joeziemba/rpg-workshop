@@ -1,4 +1,4 @@
-import { Abilities } from "./abilities";
+import { Abilities } from "./abilities"
 
 export const Skills = {
   Acrobatics: {
@@ -104,11 +104,11 @@ export const Skills = {
     modifier: Abilities.DEX,
     proficiency: 0,
   },
-};
+}
 
 export const Proficiencies = {
   TRAINED: 2,
   EXPERT: 4,
   MASTER: 6,
   LEGEND: 8,
-};
+}

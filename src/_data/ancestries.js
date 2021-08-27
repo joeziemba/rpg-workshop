@@ -1,4 +1,4 @@
-import { Abilities } from "./abilities";
+import { Abilities } from "./abilities"
 
 export const Ancestries = {
   Dwarf: {
@@ -193,4 +193,4 @@ export const Ancestries = {
     ],
     languages: ["Common", "Halfling"],
   },
-};
+}

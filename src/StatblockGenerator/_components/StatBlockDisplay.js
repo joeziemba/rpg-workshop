@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
 
-import { Property, PropertyBlock } from "../../_globalComponents";
+import { Property, PropertyBlock } from "../../_globalComponents"
 
 class StatBlockDisplay extends React.Component {
   renderAbilities() {
-    let { abilities } = this.props.stats;
-    let orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"];
+    let { abilities } = this.props.stats
+    let orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]
     return orderedAbilities.map((ability) => {
-      let score = abilities[ability];
-      let mod = this.getAbilityMod(score);
+      let score = abilities[ability]
+      let mod = this.getAbilityMod(score)
 
       return (
         <div className="ability" key={ability}>
@@ -18,12 +18,12 @@ class StatBlockDisplay extends React.Component {
             {mod})
           </span>
         </div>
-      );
-    });
+      )
+    })
   }
 
   renderFeatures() {
-    let { features } = this.props.stats;
+    let { features } = this.props.stats
 
     return features.map((feature) => {
       return (
@@ -32,47 +32,47 @@ class StatBlockDisplay extends React.Component {
           title={feature.title}
           content={feature.content}
         />
-      );
-    });
+      )
+    })
   }
 
   getAbilityMod(score) {
-    return Math.floor((score - 10) / 2);
+    return Math.floor((score - 10) / 2)
   }
 
   renderActions(legendary) {
-    let { actions } = this.props.stats;
+    let { actions } = this.props.stats
 
     if (legendary) {
-      actions = this.props.stats.legendaryActions;
+      actions = this.props.stats.legendaryActions
     }
 
     return actions.map((action, i) => {
       if (action.attack) {
         let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } =
-          action.attack;
+          action.attack
         // Get hit mod
-        let toHit;
+        let toHit
         if (dex) {
-          toHit = this.getAbilityMod(this.props.stats.abilities.dex);
+          toHit = this.getAbilityMod(this.props.stats.abilities.dex)
         } else {
-          toHit = this.getAbilityMod(this.props.stats.abilities.str);
+          toHit = this.getAbilityMod(this.props.stats.abilities.str)
         }
 
         // Get Damage Mod
 
-        let avg = (dieNum * dmgDie) / 2 + toHit;
+        let avg = (dieNum * dmgDie) / 2 + toHit
 
-        let operator = "+";
-        let dmgMod = toHit;
+        let operator = "+"
+        let dmgMod = toHit
         if (toHit < 0) {
-          operator = "-";
-          dmgMod = toHit *= -1;
+          operator = "-"
+          dmgMod = toHit *= -1
         }
 
-        let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType.toLowerCase()}.`;
+        let damage = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType.toLowerCase()}.`
 
-        if (prof) toHit += parseInt(this.props.stats.proficiency);
+        if (prof) toHit += parseInt(this.props.stats.proficiency)
 
         return (
           <div
@@ -91,7 +91,7 @@ class StatBlockDisplay extends React.Component {
             {targets} target{targets > 1 ? "s" : ""}.&ensp; Damage:&ensp;
             {damage}
           </div>
-        );
+        )
       }
 
       if (!action.attack) {
@@ -101,30 +101,30 @@ class StatBlockDisplay extends React.Component {
             title={action.title}
             content={action.content}
           />
-        );
+        )
       }
-      return null;
-    });
+      return null
+    })
   }
 
   render() {
-    let { stats } = this.props;
-    let { abilities } = stats;
-    let { hitDie, dieNum, manualHp } = stats.hp;
+    let { stats } = this.props
+    let { abilities } = stats
+    let { hitDie, dieNum, manualHp } = stats.hp
 
-    let conMod = Math.floor((abilities.con - 10) / 2);
+    let conMod = Math.floor((abilities.con - 10) / 2)
 
-    hitDie = parseInt(hitDie);
-    dieNum = parseInt(dieNum);
+    hitDie = parseInt(hitDie)
+    dieNum = parseInt(dieNum)
 
     let totalHp =
-      (hitDie * dieNum) / 2 + Math.ceil(dieNum * 0.5) + dieNum * conMod;
+      (hitDie * dieNum) / 2 + Math.ceil(dieNum * 0.5) + dieNum * conMod
 
-    let mod = dieNum * conMod;
+    let mod = dieNum * conMod
 
     let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${
       mod < 0 ? "-" : "+"
-    } ${mod < 0 ? mod * -1 : mod})`;
+    } ${mod < 0 ? mod * -1 : mod})`
 
     return (
       <div
@@ -221,8 +221,8 @@ class StatBlockDisplay extends React.Component {
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default StatBlockDisplay;
+export default StatBlockDisplay

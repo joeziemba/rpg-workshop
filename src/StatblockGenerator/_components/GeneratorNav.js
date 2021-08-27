@@ -1,45 +1,45 @@
-import React from "react";
-import { UserContext } from "../../context";
-import { firebase } from "../../Firebase";
+import React from "react"
+import { UserContext } from "../../context"
+import { firebase } from "../../Firebase"
 
 class GeneratorNav extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       statblocks: [],
       showOpenModal: false,
-    };
-    this.getCharacters = this.getCharacters.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.saveStatblock = this.saveStatblock.bind(this);
-    this.selectStatblock = this.selectStatblock.bind(this);
+    }
+    this.getCharacters = this.getCharacters.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.saveStatblock = this.saveStatblock.bind(this)
+    this.selectStatblock = this.selectStatblock.bind(this)
   }
 
   getCharacters() {
     firebase
       .load5eStatblocksForUser(this.context.currentUser.uid)
       .then((snapshot) => {
-        let statblocks = [];
+        let statblocks = []
         snapshot.forEach((doc) => {
-          statblocks.push({ ...doc.data(), uid: doc.id });
-        });
-        this.setState({ statblocks, showOpenModal: true });
-      });
+          statblocks.push({ ...doc.data(), uid: doc.id })
+        })
+        this.setState({ statblocks, showOpenModal: true })
+      })
   }
 
   closeModal() {
-    this.setState({ showOpenModal: false });
+    this.setState({ showOpenModal: false })
   }
 
   selectStatblock(statblock) {
-    this.closeModal();
-    this.props.setStatblock(statblock);
-    this.props.history.push("/dnd5e/statblock-generator/" + statblock.uid);
+    this.closeModal()
+    this.props.setStatblock(statblock)
+    this.props.history.push("/dnd5e/statblock-generator/" + statblock.uid)
   }
 
   saveStatblock(statblock) {
-    firebase.saveStatblock(statblock);
+    firebase.saveStatblock(statblock)
   }
 
   render() {
@@ -62,7 +62,7 @@ class GeneratorNav extends React.Component {
                   <button
                     className="btn btn-sm mr-3 mt-1 nav-button"
                     onClick={() => {
-                      this.saveStatblock(this.props.statblock);
+                      this.saveStatblock(this.props.statblock)
                     }}
                   >
                     Save
@@ -103,7 +103,7 @@ class GeneratorNav extends React.Component {
                   >
                     {statblock.name}
                   </button>
-                );
+                )
               })}
               <button className="c-modal__close" onClick={this.closeModal}>
                 <i className="fas fa-times"></i>
@@ -112,10 +112,10 @@ class GeneratorNav extends React.Component {
           </div>
         )}
       </nav>
-    );
+    )
   }
 }
 
-GeneratorNav.contextType = UserContext;
+GeneratorNav.contextType = UserContext
 
-export default GeneratorNav;
+export default GeneratorNav

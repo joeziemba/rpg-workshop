@@ -13,12 +13,12 @@ global.creatureTypes = [
   "Ooze",
   "Plant",
   "Undead",
-];
+]
 
 global.abilityScores = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-];
+]
 
 global.damageTypes = [
   "Acid",
@@ -34,7 +34,7 @@ global.damageTypes = [
   "Radiant",
   "Slashing",
   "Thunder",
-];
+]
 
 global.skills = [
   {
@@ -109,7 +109,7 @@ global.skills = [
     name: "Persuasion",
     ability: "cha",
   },
-];
+]
 
 global.languages = [
   "Common",
@@ -131,7 +131,7 @@ global.languages = [
   "Terran (Primordial)",
   "Sylvan",
   "Undercommon",
-];
+]
 
 global.conditions = [
   "Blinded",
@@ -149,4 +149,4 @@ global.conditions = [
   "Restrained",
   "Stunned",
   "Unconscious",
-];
+]
