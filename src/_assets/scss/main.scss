@@ -1,6 +1,10 @@
 @import "./_variables";
 @import "./_utilities";
 
+p {
+  margin: 0;
+}
+
 input,
 button,
 button:focus {

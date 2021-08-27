@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react";
-import FeatEntry from "./FeatEntry";
-import FeatSelection from "./FeatSelection";
-import { Modal } from "../../_globalComponents";
+import React, { useState, useEffect } from "react"
+import FeatEntry from "./FeatEntry"
+import FeatSelection from "./FeatSelection"
+import { Modal } from "../../_globalComponents"
 
 const FeatsSection = (props) => {
-  const [showFeatSelection, setShowFeatSelection] = useState(false);
+  const [showFeatSelection, setShowFeatSelection] = useState(false)
 
-  const [featKey, setFeatKey] = useState("");
+  const [featKey, setFeatKey] = useState("")
 
-  const [numMiscFeats, setNumMiscFeats] = useState(0);
+  const [numMiscFeats, setNumMiscFeats] = useState(0)
 
   useEffect(() => {
     let miscFeats = props.character.feats.filter((feat) =>
       feat.type.includes("misc")
-    );
+    )
 
-    setNumMiscFeats(miscFeats.length + 1);
-  }, [props.character.feats]);
+    setNumMiscFeats(miscFeats.length + 1)
+  }, [props.character.feats])
 
   const openFeatSelection = (featKey) => {
-    setFeatKey(featKey);
-    setShowFeatSelection(true);
-  };
+    setFeatKey(featKey)
+    setShowFeatSelection(true)
+  }
 
   const selectFeat = (feat) => {
-    props.selectFeat(featKey, feat);
-    setShowFeatSelection(false);
-  };
+    props.selectFeat(featKey, feat)
+    setShowFeatSelection(false)
+  }
 
   return (
     <React.Fragment>
@@ -39,11 +39,14 @@ const FeatsSection = (props) => {
             character sheet. Modifiers and proficiencies have to be added
             manually for now.
           </p>
-          <h3 className="c-gray-block-heading">Ancestry Feats</h3>
-
-          {props.character.ancestry.name &&
+          <h3 className="c-boost-group__heading">Ancestry Feats</h3>
+          {!props.character.ancestry.name ? (
+            <p className="col u-placeholder-text">
+              choose an ancestry above
+            </p>
+          ) : (
             props.character.feats.map((feat, i) => {
-              let [type, level] = feat.type.split("_");
+              let [type, level] = feat.type.split("_")
               if (props.character.level >= level && type === "ancestry") {
                 return (
                   <FeatEntry
@@ -53,15 +56,18 @@ const FeatsSection = (props) => {
                     addFeat={() => openFeatSelection(feat.type)}
                     removeFeat={() => props.deleteFeat(feat.type)}
                   />
-                );
+                )
               } else {
-                return null;
+                return null
               }
-            })}
-          <h3 className="c-gray-block-heading mt-3">Class Feats</h3>
-          {props.character.class.name &&
+            })
+          )}
+          <h3 className="c-boost-group__heading mt-3">Class Feats</h3>
+          {!props.character.class.name ? (
+            <p className="col u-placeholder-text">choose a class above</p>
+          ) : (
             props.character.feats.map((feat, i) => {
-              let [type, level] = feat.type.split("_");
+              let [type, level] = feat.type.split("_")
               if (props.character.level >= level && type === "class") {
                 return (
                   <FeatEntry
@@ -71,29 +77,38 @@ const FeatsSection = (props) => {
                     addFeat={() => openFeatSelection(feat.type)}
                     removeFeat={() => props.deleteFeat(feat.type)}
                   />
-                );
+                )
               } else {
-                return null;
+                return null
               }
-            })}
-          <h3 className="c-gray-block-heading mt-3">Skill Feats</h3>
-          {props.character.feats.map((feat, i) => {
-            let [type, level] = feat.type.split("_");
-            if (props.character.level >= level && type === "skill") {
-              return (
-                <FeatEntry
-                  key={i}
-                  label={"Lv" + level}
-                  feat={feat}
-                  addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => props.deleteFeat(feat.type)}
-                />
-              );
-            } else {
-              return null;
-            }
-          })}
-          <h3 className="c-gray-block-heading mt-3">Other Feats</h3>
+            })
+          )}
+          <h3 className="c-boost-group__heading mt-3">Skill Feats</h3>
+          {!props.character.class.name ? (
+            <p className="col u-placeholder-text">choose a class above</p>
+          ) : props.character.level === 1 ? (
+            <p className="col u-placeholder-text">
+              skill feats start at level 2
+            </p>
+          ) : (
+            props.character.feats.map((feat, i) => {
+              let [type, level] = feat.type.split("_")
+              if (props.character.level >= level && type === "skill") {
+                return (
+                  <FeatEntry
+                    key={i}
+                    label={"Lv" + level}
+                    feat={feat}
+                    addFeat={() => openFeatSelection(feat.type)}
+                    removeFeat={() => props.deleteFeat(feat.type)}
+                  />
+                )
+              } else {
+                return null
+              }
+            })
+          )}
+          <h3 className="c-boost-group__heading mt-3">Other Feats</h3>
           {props.character.feats.map((feat, i) => {
             if (feat.name && feat.type.includes("misc")) {
               return (
@@ -104,15 +119,15 @@ const FeatsSection = (props) => {
                   addFeat={() => openFeatSelection(feat.type)}
                   removeFeat={() => props.deleteFeat(feat.type)}
                 />
-              );
+              )
             } else {
-              return null;
+              return null
             }
           })}
           <FeatEntry
             label=""
             feat={{}}
-            addFeat={() => openFeatSelection("misc" + numMiscFeats)}
+            addFeat={() => openFeatSelection("misc_20")}
           />
         </div>
       </div>
@@ -129,7 +144,7 @@ const FeatsSection = (props) => {
         />
       </Modal>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default FeatsSection;
+export default FeatsSection

@@ -5,6 +5,13 @@
   overflow: auto;
   padding: 0.1rem 0.5rem;
 
+  &:nth-child(even) {
+    background: $color-n1;
+  }
+  &:nth-child(odd) {
+    background: #fff;
+  }
+
   & div {
     float: left;
   }

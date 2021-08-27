@@ -1,17 +1,17 @@
-import React from "react";
-import { PF2CharacterContext } from "../../context";
-import Statbox from "./Statbox";
-import TEMLbuttons from "./TEMLbuttons";
+import React from "react"
+import { PF2CharacterContext } from "../../context"
+import Statbox from "./Statbox"
+import TEMLbuttons from "./TEMLbuttons"
 
 class CharacterBasics extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showClassSelect: true,
-    };
+    }
   }
   toggleClassSelect() {
-    this.setState({ showClassSelect: !this.state.showClassSelect });
+    this.setState({ showClassSelect: !this.state.showClassSelect })
   }
 
   render() {
@@ -21,8 +21,8 @@ class CharacterBasics extends React.Component {
       selectClass,
       character,
       setLevel,
-    } = this.props;
-    let { Classes, Backgrounds, Ancestries } = this.context;
+    } = this.props
+    let { Classes, Backgrounds, Ancestries } = this.context
 
     return (
       <React.Fragment>
@@ -33,7 +33,7 @@ class CharacterBasics extends React.Component {
               <h2 className="pf-section__heading">Details</h2>
               <div className="pf-section__body pf-section__body--pad">
                 <div>
-                  <label className="pf-select__label">
+                  <label className="pf-select__label  mb-2">
                     Name
                     <input
                       aria-label="Character Name"
@@ -46,7 +46,7 @@ class CharacterBasics extends React.Component {
                   </label>
                 </div>
                 <div>
-                  <label className="pf-select__label">
+                  <label className="pf-select__label mb-2">
                     Ancestry
                     <select
                       onChange={selectAncestry}
@@ -64,7 +64,7 @@ class CharacterBasics extends React.Component {
                   </label>
                 </div>
                 <div>
-                  <label className="pf-select__label">
+                  <label className="pf-select__label mb-2">
                     Background
                     <select
                       onChange={selectBackground}
@@ -86,7 +86,7 @@ class CharacterBasics extends React.Component {
                 <div className="row">
                   <div className="col-8">
                     <label
-                      className="pf-select__label"
+                      className="pf-select__label "
                       htmlFor="classSelect"
                     >
                       Class
@@ -94,7 +94,7 @@ class CharacterBasics extends React.Component {
                         id="classSelect"
                         onChange={selectClass}
                         value={character.class.name || ""}
-                        className="pf-select"
+                        className="pf-select mb-0"
                         aria-label="Class"
                       >
                         <option value="">Choose Class</option>
@@ -116,7 +116,7 @@ class CharacterBasics extends React.Component {
                         id="levelSelect"
                         onChange={setLevel}
                         value={character.level}
-                        className="pf-select"
+                        className="pf-select mb-0"
                         aria-label="Class"
                       >
                         {[...Array(21).keys()].slice(1).map((x, i) => (
@@ -136,47 +136,46 @@ class CharacterBasics extends React.Component {
             <div className="pf-section">
               <h2 className="pf-section__heading">Stats</h2>
               <div className="pf-section__body pf-section__body--pad">
-                <div className="mb-3">
-                  <Statbox stat={character.level} title="Level" large />
-                  <Statbox
-                    stat={character.hitPoints}
-                    title="HP"
-                    large
-                    className="ml-4"
-                  />
-                  <Statbox
-                    stat={character.speed}
-                    title="Speed"
-                    large
-                    className="ml-4"
-                  />
+                <div className="row mb-4">
+                  <div className="col">
+                    <Statbox stat={character.level} title="Level" large />
+                  </div>
+                  <div className="col">
+                    <Statbox stat={character.hitPoints} title="HP" large />
+                  </div>
+                  <div className="col">
+                    <Statbox stat={character.speed} title="Speed" large />
+                  </div>
                 </div>
-                <div className="mb-3 clearfix">
-                  <Statbox
-                    className="float-left"
-                    large
-                    stat={
-                      character.perceptionProficiency +
-                      character.abilityMods.Wisdom +
-                      character.level
-                    }
-                    title="PCPT"
-                  />
-                  <span className="float-left m-2">=</span>
-                  <Statbox
-                    className="float-left"
-                    stat={character.abilityMods.Wisdom}
-                    title="WIS"
-                  />
-                  <span className="float-left m-2">+</span>
-                  <Statbox
-                    className="float-left"
-                    stat={
-                      character.perceptionProficiency + character.level
-                    }
-                    title="PROF"
-                  />
-                  <div className="float-left ml-2">
+                <div className="mb-4 row">
+                  <div className="col">
+                    <Statbox
+                      large
+                      stat={
+                        character.perceptionProficiency +
+                        character.abilityMods.Wisdom +
+                        character.level
+                      }
+                      title="PCPT"
+                    />
+                  </div>
+                  <div className="col">
+                    <span className="float-left my-2 mr-2">=</span>
+                    <Statbox
+                      className="float-left"
+                      stat={character.abilityMods.Wisdom}
+                      title="WIS"
+                    />
+                    <span className="float-left m-2">+</span>
+                    <Statbox
+                      className="float-left"
+                      stat={
+                        character.perceptionProficiency + character.level
+                      }
+                      title="PROF"
+                    />
+                  </div>
+                  <div className="col">
                     <TEMLbuttons
                       skill={{
                         proficiency: character.perceptionProficiency,
@@ -204,108 +203,103 @@ class CharacterBasics extends React.Component {
           </div>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
-CharacterBasics.contextType = PF2CharacterContext;
+CharacterBasics.contextType = PF2CharacterContext
 
-export default CharacterBasics;
+export default CharacterBasics
 
 const Saves = ({ character, saveType }) => {
-  let abilityAbbreviation, modifier, saveName;
+  let abilityAbbreviation, modifier, saveName
 
   switch (saveType) {
     case "will": {
-      abilityAbbreviation = "WIS";
-      modifier = character.abilityMods.Wisdom;
-      saveName = "WILL";
-      break;
+      abilityAbbreviation = "WIS"
+      modifier = character.abilityMods.Wisdom
+      saveName = "WILL"
+      break
     }
     case "fortitude": {
-      abilityAbbreviation = "CON";
-      modifier = character.abilityMods.Constitution;
-      saveName = "FORT";
-      break;
+      abilityAbbreviation = "CON"
+      modifier = character.abilityMods.Constitution
+      saveName = "FORT"
+      break
     }
     case "reflex": {
-      abilityAbbreviation = "DEX";
-      modifier = character.abilityMods.Dexterity;
-      saveName = "REF";
-      break;
+      abilityAbbreviation = "DEX"
+      modifier = character.abilityMods.Dexterity
+      saveName = "REF"
+      break
     }
     default:
-      break;
+      break
   }
 
-  let proficiencyBonus = 0;
+  let proficiencyBonus = 0
 
   if (character.saves[saveType] > 0) {
-    // proficiencyBonus += character.class.saves[saveType] + character.level;
-    proficiencyBonus += character.saves[saveType] + character.level;
+    proficiencyBonus += character.saves[saveType] + character.level
   }
 
-  let totalBonus = proficiencyBonus + modifier;
+  let totalBonus = proficiencyBonus + modifier
   return (
-    <div className="mb-3 clearfix">
-      <Statbox
-        className="float-left"
-        large
-        stat={totalBonus}
-        title={saveName}
-      />
-      <span className="float-left m-2">=</span>
-      <Statbox
-        className="float-left"
-        stat={modifier}
-        title={abilityAbbreviation}
-      />
-      <span className="float-left m-2">+</span>
-      <Statbox
-        className="float-left"
-        stat={proficiencyBonus}
-        title="PROF"
-      />
-      <div className="float-left ml-2">
-        <TEMLbuttons
-          skill={{
-            proficiency: character.saves[saveType],
-            id: saveName,
-            name: saveName,
-          }}
-          disabled
+    <div className="mb-4 row">
+      <div className="col col-4">
+        <Statbox large stat={totalBonus} title={saveName} />
+      </div>
+      <div className="col-8">
+        <span className="float-left my-2 mr-2">=</span>
+        <Statbox
+          className="float-left"
+          stat={modifier}
+          title={abilityAbbreviation}
         />
+        <span className="float-left m-2">+</span>
+        <Statbox
+          className="float-left"
+          stat={proficiencyBonus}
+          title="PROF"
+        />
+        <div className="float-left ml-2">
+          <TEMLbuttons
+            skill={{
+              proficiency: character.saves[saveType],
+              id: saveName,
+              name: saveName,
+            }}
+            disabled
+          />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const AC = ({ character }) => {
   function calculateAC(character) {
-    let ac = 10;
-    ac += character.abilityMods.Dexterity;
+    let ac = 10
+    ac += character.abilityMods.Dexterity
     // TODO this Will: need to be refactored to enable proficiencies with armor
 
     if (
       character.class.defenses &&
       character.class.defenses.unarmored > 0
     ) {
-      ac += character.class.defenses.unarmored;
-      ac += character.level;
+      ac += character.class.defenses.unarmored
+      ac += character.level
     }
-    return ac;
+    return ac
   }
-  let hasClass = !!character.class.name;
+  let hasClass = !!character.class.name
   return (
-    <div style={{ position: "relative" }}>
-      <div className="mb-3 clearfix">
-        <Statbox
-          className="float-left"
-          stat={calculateAC(character)}
-          title="AC"
-          large
-        />
-        <span className="float-left m-2">=</span>
+    <div className="row">
+      <div className="col col-4">
+        <Statbox stat={calculateAC(character)} title="AC" large />
+      </div>
+      <div className="col col-8">
+        <span className="float-left my-2 mr-2">=</span>
         <Statbox className="float-left" stat={10} title="Base" />
         <span className="float-left m-2">+</span>
         <Statbox
@@ -329,20 +323,21 @@ const AC = ({ character }) => {
               : "Prof"
           }
         />
-      </div>
-      {hasClass && character.class.defenses.unarmored > 0 ? (
-        <div
-          style={{
-            position: "absolute",
-            left: "3.6rem",
-            bottom: "-.4rem",
-            fontSize: ".8rem",
-            color: "#505050",
-          }}
-        >
-          * Trained in Unarmored Defense
-        </div>
-      ) : null}
+
+        {hasClass && character.class.defenses.unarmored > 0 ? (
+          <div
+            style={{
+              position: "absolute",
+              left: "1rem",
+              bottom: "-1.25rem",
+              fontSize: ".8rem",
+              color: "#505050",
+            }}
+          >
+            * Trained in Unarmored Defense
+          </div>
+        ) : null}
+      </div>{" "}
     </div>
-  );
-};
+  )
+}

@@ -12,7 +12,7 @@
 
 .u-placeholder-text {
   font-size: 0.8rem;
-  color: #aaa;
+  color: $color-n6;
   text-align: center;
 }
 
@@ -98,4 +98,31 @@
 .container-fluid {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+}
+
+.u-color-n {
+  &1 {
+    color: $color-n1;
+  }
+  &2 {
+    color: $color-n2;
+  }
+  &3 {
+    color: $color-n3;
+  }
+  &4 {
+    color: $color-n4;
+  }
+  &5 {
+    color: $color-n5;
+  }
+  &6 {
+    color: $color-n6;
+  }
+  &7 {
+    color: $color-n7;
+  }
+  &8 {
+    color: $color-n8;
+  }
 }

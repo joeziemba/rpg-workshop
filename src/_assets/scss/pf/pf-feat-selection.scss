@@ -7,22 +7,50 @@
 
   &__row {
     display: flex;
+    align-items: center;
     width: 100%;
     text-align: left !important;
-    // padding: 0.75rem;
-    border-bottom: 2px solid gray;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dedede;
+    min-height: 65px;
+
+    & > div {
+      flex: 1 1;
+      padding: 0;
+    }
   }
 
-  & th,
-  td {
-    padding: 0.5rem 0.25rem;
+  &__tag {
+    padding: 0.25rem;
+    background-color: #e2e2e2;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+    line-height: 1;
   }
 
-  & tr:nth-child(even) {
-    background: #eee;
-  }
+  &__add-button {
+    position: absolute;
+    left: 0;
+    top: 0;
 
-  & p {
-    margin-bottom: 0.5rem;
+    border: 2px solid $color-n2;
+    border-radius: 50%;
+    color: $color-n2;
+    background-color: transparent;
+    line-height: 0;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin-right: 0.75rem;
+
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      border-color: $pf-maroon;
+      background-color: $pf-maroon;
+      color: white;
+    }
   }
 }

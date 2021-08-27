@@ -5,7 +5,7 @@ import { LoginButton } from "./index";
 
 const TopBar = (props) => {
   return (
-    <nav className="navbar topbar fixed-top">
+    <nav className="navbar topbar fixed-top" aria-label="Primary">
       <div>
         <Link to="/">
           <span className="navbar-brand mb-0">RPG Workshop</span>

@@ -1,0 +1,29 @@
+@import "../../_assets/scss/variables";
+
+.c-teml {
+  display: flex;
+  margin-left: 0.5rem;
+  margin-top: 0.75rem;
+
+  &__item {
+    left: 6px;
+    top: 10px;
+    width: 1.1rem;
+    height: 1rem;
+    border: solid 1px $color-n4;
+    margin-right: 0.15rem;
+    transform: skewX(-12deg);
+
+    &:first-child {
+      border-radius: 50% 0 0 50%;
+    }
+    &:last-child {
+      border-radius: 0 50% 50% 0;
+    }
+
+    &--checked {
+        background-color: $pf-maroon;
+        border-color: $pf-maroon;
+    }
+  }
+}

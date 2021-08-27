@@ -1,5 +1,5 @@
 import { Ancestries } from "./ancestries";
-import { Classes } from "./classes";
+import  Classes  from "./classes";
 import {
   calculateHP,
   calculateAbilityScores,

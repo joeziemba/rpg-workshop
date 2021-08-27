@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const FeatEntry = (props) => {
   return (
@@ -8,7 +8,11 @@ const FeatEntry = (props) => {
         <span className="pf-font-family">{props.feat.name}</span>
         <div className="float-right">
           {!props.feat.name && (
-            <button onClick={props.addFeat} className="pf-button">
+            <button
+              onClick={props.addFeat}
+              className="pf-button"
+              aria-label="Choose Feat"
+            >
               <i className="fas fa-plus"></i>
             </button>
           )}
@@ -17,10 +21,15 @@ const FeatEntry = (props) => {
               <button
                 onClick={props.removeFeat}
                 className="pf-button mr-1"
+                aria-label="Remove Feat"
               >
                 <i className="fas fa-times"></i>
               </button>
-              <button onClick={props.addFeat} className="pf-button">
+              <button
+                onClick={props.addFeat}
+                className="pf-button"
+                aria-label="Change Feat"
+              >
                 <i className="far fa-edit"></i>
               </button>
             </>
@@ -28,12 +37,10 @@ const FeatEntry = (props) => {
         </div>
       </div>
       <div className="ml-3" style={{ fontSize: "12px" }}>
-        <p
-          dangerouslySetInnerHTML={{ __html: props.feat.desc }}
-        ></p>
+        <p dangerouslySetInnerHTML={{ __html: props.feat.desc }}></p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeatEntry;
+export default FeatEntry

@@ -1,0 +1,127 @@
+import { Abilities } from "../abilities"
+import { Proficiencies, Skills } from "../skills"
+import { Saves } from "./saves"
+import { generateSkillBoosts } from "../models/SkillBoost"
+
+const nameOfClass = "Swashbuckler"
+
+export const Swashbuckler = {
+  name: nameOfClass,
+  abilityBoosts: [
+    {
+      ability: Abilities.DEX,
+      source: nameOfClass,
+      id: nameOfClass + "1",
+    },
+  ],
+  hp: 10,
+  perceptionProficiency: Proficiencies.EXPERT,
+  perceptionBoosts: [
+    {
+      source: nameOfClass,
+      proficiency: Proficiencies.EXPERT,
+      type: nameOfClass + "_1",
+    },
+    {
+      source: nameOfClass,
+      proficiency: Proficiencies.MASTER,
+      type: nameOfClass + "_11",
+    },
+  ],
+  saveBoosts: [
+    {
+      save: Saves.FORT,
+      source: nameOfClass,
+      id: nameOfClass + "1",
+      type: nameOfClass + "_1",
+      proficiency: Proficiencies.TRAINED,
+    },
+    {
+      save: Saves.REF,
+      source: nameOfClass,
+      id: nameOfClass + "2",
+      type: nameOfClass + "_1",
+      proficiency: Proficiencies.EXPERT,
+    },
+    {
+      save: Saves.WILL,
+      source: nameOfClass,
+      id: nameOfClass + "3",
+      type: nameOfClass + "_1",
+      proficiency: Proficiencies.EXPERT,
+    },
+    {
+      save: Saves.FORT,
+      source: nameOfClass,
+      id: nameOfClass + "4",
+      type: nameOfClass + "_3",
+      proficiency: Proficiencies.EXPERT,
+    },
+    {
+      save: Saves.REF,
+      source: nameOfClass,
+      id: nameOfClass + "5",
+      type: nameOfClass + "_7",
+      proficiency: Proficiencies.MASTER,
+    },
+    {
+      save: Saves.REF,
+      source: nameOfClass,
+      id: nameOfClass + "6",
+      type: nameOfClass + "_13",
+      proficiency: Proficiencies.LEGEND,
+    },
+    {
+      save: Saves.WILL,
+      source: nameOfClass,
+      id: nameOfClass + "7",
+      type: nameOfClass + "_17",
+      proficiency: Proficiencies.MASTER,
+    },
+  ],
+  defenses: { unarmored: Proficiencies.TRAINED },
+  skillBoosts: generateSkillBoosts([
+    {
+      skill: Skills.Acrobatics,
+      source: nameOfClass,
+      level: 1,
+    },
+    {
+      skill: { id: "Free" },
+      source: nameOfClass,
+      level: 1,
+    },
+    {
+      skill: { id: "Free" },
+      source: nameOfClass,
+      level: 1,
+    },
+    {
+      skill: { id: "Free" },
+      source: nameOfClass,
+      level: 1,
+    },
+    {
+      skill: { id: "Free" },
+      source: nameOfClass,
+      level: 1,
+    },
+    {
+      skill: { id: "Free" },
+      source: nameOfClass,
+      level: 1,
+    },
+  ]),
+  feats: [
+    { type: "skill_1" },
+    { type: "skill_3" },
+    { type: "skill_5" },
+    { type: "skill_7" },
+    { type: "skill_9" },
+    { type: "skill_11" },
+    { type: "skill_13" },
+    { type: "skill_15" },
+    { type: "skill_17" },
+    { type: "skill_19" },
+  ],
+}
