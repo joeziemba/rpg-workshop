@@ -1,6 +1,8 @@
 import CLASSES from "./_data/classes"
 import { Backgrounds } from "./_data/backgrounds"
 import FEATS from "./_data/feats/allFeats.json"
+import { getBlankCharacter } from "./_data/classTemplate"
+import { cloneDeep } from "lodash"
 
 export function v1_0_1(character) {
   character.abilityBoosts.forEach((boost) => {
@@ -9,25 +11,38 @@ export function v1_0_1(character) {
   })
 }
 
-export function v1_1_0(character) {
-  character.skillBoosts = character.skillBoosts.map((oldBoost) => {
-    // Replace old skill boosts with new ones
-    let newBoost = CLASSES[character.class.name]?.skillBoosts.find(
+export function v1_1_1(character) {
+  // Map all old skillBoosts onto new skillBoost format
+  let reconstructedSkillBoosts = character.skillBoosts.map((oldBoost) => {
+    let existingBoost = CLASSES[character.class.name]?.skillBoosts.find(
       (b) => b.id === oldBoost.id
     )
 
-    if (!newBoost)
-      newBoost = Backgrounds[character.background.name]?.skillBoosts.find(
+    if (!existingBoost)
+      existingBoost = Backgrounds[
+        character.background.name
+      ]?.skillBoosts.find((b) => b.id === oldBoost.id)
+
+    if (!existingBoost) {
+      let charTemplate = getBlankCharacter()
+      existingBoost = charTemplate.skillBoosts.find(
         (b) => b.id === oldBoost.id
       )
+    }
 
-    if (!newBoost) return oldBoost
+    if (!existingBoost) return
+
+    let newBoost = cloneDeep(existingBoost)
+
     // retain assigned skill
-    newBoost.skill = oldBoost.skill
     newBoost.isStatic = !!newBoost.skill.name
+
+    newBoost.skill = oldBoost.skill
 
     return newBoost
   })
+
+  character.skillBoosts = reconstructedSkillBoosts.filter((b) => !!b)
 
   character.feats = character.feats.map((oldFeat) => {
     if (!oldFeat.name) return oldFeat
@@ -54,7 +69,7 @@ export function v1_1_0(character) {
       .filter((b) => !!b)
   }
 
-  character.builderVersion = "1.1.0"
+  character.builderVersion = "1.1.1"
 }
 
 export function migrateToLatest(character) {
@@ -63,7 +78,7 @@ export function migrateToLatest(character) {
     character.builderVersion = "1.0.1"
   }
 
-  if (character.builderVersion < "1.1.0") {
-    v1_1_0(character)
+  if (character.builderVersion < "1.1.1") {
+    v1_1_1(character)
   }
 }
