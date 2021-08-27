@@ -1,6 +1,6 @@
-import { Abilities } from "./abilities";
-import { Proficiencies } from "./skills";
-import { Skills } from "./skills";
+import { Abilities } from "./abilities"
+import { Proficiencies } from "./skills"
+import { Skills } from "./skills"
 
 export const Backgrounds = {
   Acolyte: {
@@ -30,6 +30,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Religion,
         source: "Acolyte",
         id: "Acolyte1",
@@ -38,6 +40,8 @@ export const Backgrounds = {
         id: "Acolyte2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Acolyte",
         type: "Scribing",
       },
@@ -71,6 +75,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Acrobatics,
         source: "Acrobat",
         id: "Acrobat1",
@@ -79,6 +85,8 @@ export const Backgrounds = {
         id: "Acrobat2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Acrobat",
         type: "Circus",
       },
@@ -112,6 +120,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Nature,
         source: "AnimalWhisperer",
         id: "AnimalWhisperer1",
@@ -120,6 +130,8 @@ export const Backgrounds = {
         id: "AnimalWhisperer2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "AnimalWhisperer",
         type: "One Terrain",
       },
@@ -153,6 +165,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Crafting,
         source: "Artisan",
         id: "Guild1",
@@ -161,6 +175,8 @@ export const Backgrounds = {
         id: "Guild2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Artisan",
         type: "Guild",
       },
@@ -194,6 +210,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Crafting,
         source: "Artist",
         id: "Artist1",
@@ -202,6 +220,8 @@ export const Backgrounds = {
         id: "Artist2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Artist",
         type: "Art",
       },
@@ -235,6 +255,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Diplomacy,
         source: "Barkeep",
         id: "Barkeep1",
@@ -244,6 +266,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Alcohol",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Barkeep",
       },
     ],
@@ -276,6 +300,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Diplomacy,
         source: "Barrister",
         id: "Barrister1",
@@ -285,6 +311,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Barrister",
       },
     ],
@@ -317,6 +345,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Survival,
         source: "BountyHunter",
         id: "BountyHunter1",
@@ -326,6 +356,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "BountyHunter",
       },
     ],
@@ -358,6 +390,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Deception,
         source: "Charlatan",
         id: "Charlatan1",
@@ -367,6 +401,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Charlatan",
       },
     ],
@@ -399,6 +435,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Stealth,
         source: "Criminal",
         id: "Criminal1",
@@ -408,6 +446,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Criminal",
       },
     ],
@@ -440,6 +480,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Society,
         source: "Detective",
         id: "Detective1",
@@ -449,6 +491,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Detective",
       },
     ],
@@ -481,6 +525,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Society,
         source: "Emissary",
         id: "Emissary1",
@@ -490,6 +536,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "One City",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Emissary",
       },
     ],
@@ -522,6 +570,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Performance,
         source: "Entertainer",
         id: "Entertainer1",
@@ -531,6 +581,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Theater",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Entertainer",
       },
     ],
@@ -563,6 +615,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Athletics,
         source: "Farmhand",
         id: "Farmhand1",
@@ -572,6 +626,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Farming",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Farmhand",
       },
     ],
@@ -604,6 +660,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Medicine,
         source: "FieldMedic",
         id: "FieldMedic1",
@@ -613,6 +671,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Warfare",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "FieldMedic",
       },
     ],
@@ -645,6 +705,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Occultism,
         source: "FortuneTeller",
         id: "FortuneTeller1",
@@ -653,6 +715,8 @@ export const Backgrounds = {
         id: "FortuneTeller2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "FortuneTeller",
         type: "Fortune Telling",
       },
@@ -685,6 +749,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Deception,
         source: "Gambler",
         id: "Gambler1",
@@ -693,6 +759,8 @@ export const Backgrounds = {
         id: "Gambler2",
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Gambler",
         type: "Games",
       },
@@ -725,6 +793,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Performance,
         source: "Gladiator",
         id: "Gladiator1",
@@ -734,6 +804,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Gladitorial",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Gladiator",
       },
     ],
@@ -766,6 +838,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Intimidation,
         source: "Guard",
         id: "Guard1",
@@ -775,6 +849,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Legal",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Guard",
       },
     ],
@@ -807,6 +883,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Nature,
         source: "Herbalist",
         id: "Herbalist1",
@@ -816,6 +894,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Herbalism",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Herbalist",
       },
     ],
@@ -848,6 +928,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Nature, // TODO: Implement skill choices from backgrounds
         source: "Hermit",
         id: "Hermit1",
@@ -857,6 +939,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Terrain",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Hermit",
       },
     ],
@@ -889,6 +973,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Survival,
         source: "Hunter",
         id: "Hunter1",
@@ -898,6 +984,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Tanning",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Hunter",
       },
     ],
@@ -930,6 +1018,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Athletics,
         source: "Laborer",
         id: "Laborer1",
@@ -939,6 +1029,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Labor",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Laborer",
       },
     ],
@@ -971,6 +1063,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Athletics, //TODO: Implement choice of skills from backgrounds
         source: "MartialDisciple",
         id: "MartialDisciple1",
@@ -980,6 +1074,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Warfare",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "MartialDisciple",
       },
     ],
@@ -1012,6 +1108,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Diplomacy,
         source: "Merchant",
         id: "Merchant1",
@@ -1019,6 +1117,8 @@ export const Backgrounds = {
       {
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Merchant",
         id: "Merchant2",
         type: "Merchantile",
@@ -1052,6 +1152,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Survival,
         source: "Miner",
         id: "Miner1",
@@ -1061,6 +1163,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Mining",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Miner",
       },
     ],
@@ -1093,6 +1197,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Society,
         source: "Noble",
         id: "Noble1",
@@ -1102,6 +1208,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Genealogy",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Noble",
       },
     ],
@@ -1135,6 +1243,8 @@ export const Backgrounds = {
       {
         skill: Skills.Survival,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Nomad",
         id: "Nomad1",
       },
@@ -1142,6 +1252,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "One Travelled Terrain",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Nomad",
         id: "Nomad2",
       },
@@ -1174,6 +1286,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Stealth,
         source: "Prisoner",
         id: "Prisoner1",
@@ -1183,6 +1297,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Underworld",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Prisoner",
       },
     ],
@@ -1215,6 +1331,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Athletics,
         source: "Sailor",
         id: "Sailor1",
@@ -1224,6 +1342,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Sailing",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Sailor",
       },
     ],
@@ -1256,6 +1376,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Arcana, //TODO: Choices
         source: "Scholar",
         id: "Scholar1",
@@ -1265,6 +1387,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Academia",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Scholar",
       },
     ],
@@ -1297,6 +1421,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Survival,
         source: "Scout",
         id: "Scout1",
@@ -1306,6 +1432,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Terrain",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Scout",
       },
     ],
@@ -1313,7 +1441,7 @@ export const Backgrounds = {
   },
   StreetUrchin: {
     id: "StreetUrchin",
-    name: "StreetUrchin",
+    name: "Street Urchin",
     abilityBoosts: [
       {
         ability: Abilities.FREE,
@@ -1338,6 +1466,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Thievery,
         source: "StreetUrchin",
         id: "StreetUrchin1",
@@ -1347,6 +1477,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "City",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "StreetUrchin",
       },
     ],
@@ -1379,6 +1511,8 @@ export const Backgrounds = {
     skillBoosts: [
       {
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         skill: Skills.Crafting,
         source: "Tinker",
         id: "Tinker1",
@@ -1388,6 +1522,8 @@ export const Backgrounds = {
         skill: Skills.Lore,
         type: "Engineering",
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Tinker",
       },
     ],
@@ -1421,12 +1557,16 @@ export const Backgrounds = {
       {
         skill: Skills.Intimidation,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Warrior",
         id: "Warrior1",
       },
       {
         skill: Skills.Lore,
         proficiency: Proficiencies.TRAINED,
+        isStatic: true,
+        level: 1,
         source: "Warrior",
         id: "Warrior2",
         type: "Warfare",
@@ -1434,4 +1574,4 @@ export const Backgrounds = {
     ],
     feat: "Intimidating Glare",
   },
-};
+}

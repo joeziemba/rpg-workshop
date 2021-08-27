@@ -1,7 +1,8 @@
 .pf-section {
-  margin: 0.5rem auto;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: transparent;
+
+  background-color: white;
 
   &__heading {
     color: #fff;
@@ -15,21 +16,32 @@
   }
 
   &__body {
-    min-height: 260px;
-    border: 1px solid rgb(221, 221, 221);
-    border-top: none;
-
+    min-height: 250px;
+    margin-bottom: 1rem;
     &--pad {
       padding: 0.75rem;
     }
   }
 }
 
-.c-gray-block-heading {
-  font-size: 0.8rem;
-  background-color: $pf-light-gray;
-  padding: 0.25rem 0.5rem;
-  color: #555;
-  text-transform: uppercase;
+.c-boost-group {
   margin-bottom: 0.75rem;
+
+  &__heading {
+    font-size: 0.8rem;
+    background-color: $color-n2;
+    padding: 0.25rem 0.5rem;
+    color: #555;
+    text-transform: uppercase;
+    // margin: 0 0.5rem;
+    // margin-bottom: 0.75rem;
+  }
+
+  & .row {
+    margin: 0;
+  }
+
+  & .col {
+    flex: 0 0 25%;
+  }
 }

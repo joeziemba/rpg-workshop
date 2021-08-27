@@ -1,135 +1,161 @@
-import React, { useState, useEffect } from "react";
-import _ from "lodash";
-import FEATS from "../../_data/feats/allFeats.json";
+import React, { useState, useEffect } from "react"
+import _ from "lodash"
+import FEATS from "../../_data/feats/allFeats.json"
 
-const FeatSelection = (props) => {
-  const [query, setQuery] = useState("");
-  const [feats, setFeats] = useState(
-    FEATS.sort((a, b) => {
-      if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-      return 1;
+const FeatSelection = ({ featKey, character, selectFeat }) => {
+  const [query, setQuery] = useState("")
+  const [feats, setFeats] = useState([])
+
+  const filterFeatsBy = (feats, trait, level) => {
+    return feats.filter((feat) => {
+      let hasTrait =
+        !trait ||
+        feat.traits
+          .map((t) => t.toLowerCase())
+          .includes(trait.toLowerCase())
+
+      let isLevel = Number(feat.level) <= Number(level)
+
+      return hasTrait && isLevel
     })
-  );
+  }
+
+  const getFeatTag = (featType) => {
+    switch (featType) {
+      case "ancestry":
+        return character.ancestry.name
+      case "class":
+        return character.class.name
+      case "skill":
+        return "Skill"
+      default:
+        return ""
+    }
+  }
+
+  const filterFeatsByQuery = (feats) => {
+    // Filter by query in traits or name
+    return feats.filter((feat) => {
+      let hasMatchingTrait = false
+
+      // Check traits for match
+      for (let trait of feat.traits)
+        if (trait.toLowerCase().includes(query.toLowerCase())) {
+          hasMatchingTrait = true
+          break
+        }
+
+      return (
+        hasMatchingTrait ||
+        feat.name.toLowerCase().includes(query.toLowerCase())
+      )
+    })
+  }
 
   useEffect(() => {
-    let filteredFeats = _.cloneDeep(FEATS);
-    let [type, level] = props.featKey.split("_");
+    let filteredFeats = _.cloneDeep(FEATS)
+    let [type, level] = featKey.split("_")
+    // Filter to correct feat list
+    filteredFeats = filterFeatsBy(filteredFeats, getFeatTag(type), level)
 
-    if (type === "ancestry") {
-      filteredFeats = filteredFeats.filter((feat) => {
-        return (
-          feat.traits.includes(props.character.ancestry.name) &&
-          parseInt(feat.level, 10) <= parseInt(level, 10)
-        );
-      });
-    }
-
-    if (type === "class") {
-      filteredFeats = filteredFeats.filter((feat) => {
-        let isCorrectClass = feat.traits.includes(
-          props.character.class.name
-        );
-        let isCorrectLevel =
-          parseInt(feat.level, 10) <= parseInt(level, 10);
-        return isCorrectClass && isCorrectLevel;
-      });
-    }
-
-    if (type === "skill") {
-      filteredFeats = filteredFeats.filter((feat) => {
-        return (
-          feat.traits.includes("Skill") &&
-          parseInt(feat.level, 10) <= parseInt(level, 10)
-        );
-      });
-    }
-
-    if (type === "misc") {
-      filteredFeats = filteredFeats.filter((feat) => {
-        return feat.traits.includes("General");
-      });
-    }
-
-    filteredFeats = filteredFeats.filter((feat) => {
-      for (const trait of feat.traits) {
-        if (trait.toLowerCase().includes(query.toLowerCase())) return true;
-      }
-      return feat.name.toLowerCase().includes(query.toLowerCase());
-    });
+    // Additionally filter by query if present
+    if (query) filteredFeats = filterFeatsByQuery()
 
     setFeats(
       filteredFeats.sort((a, b) =>
         Number(a.level) < Number(b.level) ? -1 : 1
       )
-    );
-  }, [
-    query,
-    props.character.ancestry.name,
-    props.character.class.name,
-    props.featKey,
-  ]);
+    )
+  }, [query, character.ancestry.name, character.class.name, featKey])
 
   return (
     <div style={{ position: "relative" }}>
-      <label
-        className=""
-        style={{
-          position: "fixed",
-          display: "block",
-          right: "8rem",
-          zIndex: "999",
-          marginTop: "-3rem",
-        }}
-      >
-        Search by Name or Trait:{" "}
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </label>
-
-      <table className="c-feat-selection">
-        <thead>
-          <tr className="c-feat-selection__row">
-            <th style={{ flex: "1" }}></th>
-            <th style={{ flex: "2" }}>Name</th>
-            <th style={{ flex: "1", textAlign: "center" }}>Level</th>
-            <th style={{ flex: "1" }}>Traits</th>
-            <th style={{ flex: "10" }}>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {feats.map((feat) => {
-            return (
-              <tr className="c-feat-selection__row" key={feat.name}>
-                <td style={{ flex: "1", textAlign: "center" }}>
-                  <button
-                    onClick={() => props.selectFeat(feat)}
-                    className="pf-button"
-                  >
-                    <i className="fas fa-plus fa"></i>
-                  </button>
-                </td>
-                <td style={{ flex: "2" }}>{feat.name}</td>
-                <td style={{ flex: "1", textAlign: "center" }}>
-                  {feat.level}
-                </td>
-                <td style={{ flex: "1" }}>{feat.traits.join(", ")}</td>
-                <td style={{ flex: "10" }}>
-                  <p>
-                    <b>Prerequisites:</b> {feat.prerequisites}
-                  </p>
-
+      <Search onChange={setQuery} query={query} />
+      <div className="c-feat-selection__row">
+        <div className="col col-2">Name</div>
+        <div
+          className="col col-1 text-center"
+          style={{ maxWidth: "80px" }}
+        >
+          Level
+        </div>
+        <div className="col col-2">Traits</div>
+        <div className="col col-6 pl-4">Description</div>
+        <div className="col col-2">Source</div>
+      </div>
+      {feats.length > 0 &&
+        feats.map((feat) => {
+          return (
+            <div className="c-feat-selection__row" key={feat.name}>
+              <div className="col col-2" style={{ position: "relative" }}>
+                <button
+                  onClick={() => selectFeat(feat)}
+                  className="c-feat-selection__add-button"
+                  aria-label={"Select Feat " + feat.name}
+                >
+                  <i className="fas fa-plus fa"></i>
+                </button>
+                <span
+                  style={{ display: "inline-block", marginLeft: "2rem" }}
+                >
+                  {feat.name}
+                </span>
+              </div>
+              <div
+                className="col col-1 text-center"
+                style={{ maxWidth: "80px" }}
+              >
+                <small>{feat.level}</small>
+              </div>
+              <div
+                className="col col-2"
+                style={{ display: "flex", flexWrap: "wrap" }}
+              >
+                {feat.traits.map((t) => (
+                  <small className="c-feat-selection__tag">{t}</small>
+                ))}
+              </div>
+              <div className="col col-6 pl-4 pr-2">
+                <small>
                   <p dangerouslySetInnerHTML={{ __html: feat.desc }}></p>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                  {feat.prerequisites.length > 1 && (
+                    <p className="mt-1 u-color-n6">
+                      <b>Prerequisites:</b> {feat.prerequisites}
+                    </p>
+                  )}
+                </small>
+              </div>
+              <div className="col col-2">
+                <small>{feat.source}</small>
+              </div>
+            </div>
+          )
+        })}
     </div>
-  );
-};
+  )
+}
 
-export default FeatSelection;
+export default FeatSelection
+
+const Search = ({ onChange, query }) => {
+  return (
+    <label
+      className=""
+      style={{
+        position: "fixed",
+        display: "block",
+        right: "10rem",
+        zIndex: "999",
+        marginTop: "-3rem",
+      }}
+    >
+      Search by name or tag
+      <input
+        style={{ marginLeft: ".5rem", fontSize: "1rem" }}
+        type="text"
+        value={query}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </label>
+  )
+}

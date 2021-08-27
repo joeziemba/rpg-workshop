@@ -13,16 +13,16 @@
 }
 
 .c-modal__window {
-  flex: 0 0 40%;
+  flex: 0 0 60%;
   position: relative;
   align-self: center;
   margin: auto;
   background-color: white;
   border: 1px solid #cecece;
   color: black;
-  padding: 20px;
-  height: 80vh;
+  padding: 1.5rem;
   overflow: hidden;
+  max-height: 80vh;
 }
 
 .c-modal__window--large {
@@ -31,14 +31,14 @@
 }
 
 .c-modal__scroller {
-  max-height: 95%;
-  overflow-y: scroll;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .c-modal__close {
   position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
+  top: 1.5rem;
+  right: 1.5rem;
 
   cursor: pointer;
 
@@ -52,6 +52,7 @@
   color: #ababab;
 
   transition: all 0.2s ease;
+  background-color: transparent;
 }
 
 .c-modal__close:hover {
@@ -63,4 +64,7 @@
   color: #922610;
   border-bottom: 2px solid #922610;
   padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+
+  box-shadow: 2px 2px rbga(0, 0, 0, 0.8);
 }

@@ -22,7 +22,7 @@
   background-size: 0.65em auto, 100%;
   outline: none;
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 1rem;
 
   &--center {
     text-align-last: center;
@@ -34,7 +34,7 @@
 
   &__label {
     width: 100%;
-    color: #aaa;
+    color: $color-n6;
   }
 
   &__default {

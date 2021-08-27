@@ -1,5 +1,5 @@
 import React from "react";
-import { Classes } from "./_data/classes";
+import  Classes  from "./_data/classes";
 import { Ancestries } from "./_data/ancestries";
 import { Backgrounds } from "./_data/backgrounds";
 

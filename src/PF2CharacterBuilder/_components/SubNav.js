@@ -1,41 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { UserContext } from "../../context";
-import { firebase } from "../../Firebase";
-import { toast } from "react-toastify";
+import React from "react"
+import { Link } from "react-router-dom"
+import { UserContext } from "../../context"
+import { firebase } from "../../Firebase"
+import { toast } from "react-toastify"
 
 class SubNav extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       characters: [],
       showOpenModal: false,
-    };
+    }
 
-    this.getCharacters = this.getCharacters.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.getCharacters = this.getCharacters.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   getCharacters() {
     firebase
       .getPF2CharacrersForUser(this.context.currentUser.uid)
       .then((snapshot) => {
-        let characters = [];
+        let characters = []
         snapshot.forEach((doc) => {
-          characters.push({ ...doc.data(), uid: doc.id });
-        });
-        this.setState({ characters, showOpenModal: true });
-      });
+          characters.push({ ...doc.data(), uid: doc.id })
+        })
+        this.setState({ characters, showOpenModal: true })
+      })
   }
 
   closeModal() {
-    this.setState({ showOpenModal: false });
+    this.setState({ showOpenModal: false })
   }
 
   render() {
     return (
-      <nav className="navbar navbar-expand secondary-nav fixed-top navbar--pathfinder">
+      <nav
+        className="navbar navbar-expand secondary-nav fixed-top navbar--pathfinder"
+        aria-label="secondary"
+      >
         <h1 className="navbar-brand mb-0">PF2 Character Builder</h1>
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -53,11 +56,9 @@ class SubNav extends React.Component {
                   className="btn btn-sm mr-3 mt-1 nav-button"
                   onClick={() => {
                     if (this.props.character.name) {
-                      firebase.savePF2Character(this.props.character);
+                      firebase.savePF2Character(this.props.character)
                     } else {
-                      toast.error(
-                        "Cannot Save a character without a name"
-                      );
+                      toast.error("Cannot Save a character without a name")
                     }
                   }}
                 >
@@ -90,7 +91,7 @@ class SubNav extends React.Component {
                   >
                     {character.name}
                   </Link>
-                );
+                )
               })}
               <button className="c-modal__close" onClick={this.closeModal}>
                 <i className="fas fa-times"></i>
@@ -99,10 +100,10 @@ class SubNav extends React.Component {
           </div>
         )}
       </nav>
-    );
+    )
   }
 }
 
-SubNav.contextType = UserContext;
+SubNav.contextType = UserContext
 
-export default SubNav;
+export default SubNav
