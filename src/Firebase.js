@@ -142,7 +142,7 @@ class Firebase {
             toast.success("Saved " + character.name, { autoClose: 1000 })
         })
     } else {
-      this.getPF2CharacrersForUser(character.uid).then((response) => {
+      this.getPF2CharactersForUser(character.uid).then((response) => {
         if (response.docs.length >= 5) {
           toast.error("You can only save up to 5 characters.")
         } else {
@@ -165,7 +165,7 @@ class Firebase {
     return this.db.collection("pf2-characters").doc(characterID).get()
   }
 
-  getPF2CharacrersForUser() {
+  getPF2CharactersForUser() {
     return this.db
       .collection("pf2-characters")
       .where("userId", "==", this.auth.currentUser.uid)

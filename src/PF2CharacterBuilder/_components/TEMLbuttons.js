@@ -14,7 +14,7 @@ const TEMLbuttons = ({ skill }) => {
         }`}
       ></div>
       <div
-        className={`c-teml__item 
+        className={`c-teml__item ${
           proficiency > 3 ? " c-teml__item--checked" : ""
         }`}
       ></div>

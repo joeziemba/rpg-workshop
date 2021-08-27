@@ -5,41 +5,20 @@ import { Skills } from "../../_data/skills"
 import TEMLbuttons from "./TEMLbuttons"
 
 const SkillsTable = ({ character, selectSkill }) => {
-  function freeSkillTraining(source) {
+  function freeSkillTraining(source, level) {
     let { skillBoosts } = character
 
     // Get skill boosts for the correct source and below character level
     let availableBoosts = skillBoosts.filter((boost) => {
       return (
         boost.source === source &&
-        (!boost.level || Number(boost.level) <= character.level)
+        boost.level === level &&
+        (!level || boost.level <= character.level)
       )
     })
 
     // Map skill boosts into select fields
     return availableBoosts.map((boost, i) => {
-      // TODO extrace excludion gen to service
-      // Get skills to be excluded from the select menu
-      let skillsToExclude = []
-
-      // if (source === "int")
-      // If source is Intelligence ('int') exclude any skill already boosted.
-      // Int skills can only be used to become Trained
-      // skillsToExclude = skillBoosts.map((b) => {
-      //   if (b.skill.name && b.id !== boost.id) return b.skill.id
-      // })
-      // else
-      skillsToExclude = skillBoosts.map((b) => {
-        // exclude only skills already boosted from the current source
-        const skillIsAssigned = !!b.skill.name
-        const isNotThisBoost = b.id !== boost.id
-        const isTrainedBySameSource = b.source === boost.source
-
-        if (skillIsAssigned && isNotThisBoost && isTrainedBySameSource) {
-          return b.skill.id
-        }
-      })
-
       return (
         <div
           key={boost.id}
@@ -57,7 +36,7 @@ const SkillsTable = ({ character, selectSkill }) => {
           >
             <option value="FREE"></option>
             {Object.keys(Skills).map((skillName) => {
-              return skillsToExclude.includes(skillName) ? null : (
+              return (
                 <option key={skillName} value={skillName}>
                   {skillName}
                 </option>
@@ -70,11 +49,8 @@ const SkillsTable = ({ character, selectSkill }) => {
   }
 
   let upperLevelBoosts = character.skillBoosts
-    .filter((boost) => Number(boost.source.split("_")[1]) > 1)
-    .sort(
-      (a, b) =>
-        Number(a.source.split("_")[1]) - Number(b.source.split("_")[1])
-    )
+    .filter((boost) => Number(boost.level > 1))
+    .sort((a, b) => a.level - b.level)
 
   return (
     <div id="Skills" className="pf-section">
@@ -90,7 +66,7 @@ const SkillsTable = ({ character, selectSkill }) => {
                   Background Skills: {character.background.name}
                 </h3>
                 <div className="row">
-                  {freeSkillTraining(character.background.id)}
+                  {freeSkillTraining(character.background.id, 1)}
                 </div>
               </div>
             )}
@@ -108,22 +84,21 @@ const SkillsTable = ({ character, selectSkill }) => {
                   Level 1 Class Skills
                 </h3>
                 <div className="row">
-                  {freeSkillTraining(character.class.name)}
+                  {freeSkillTraining(character.class.name, 1)}
                 </div>
               </div>
             )}
             {upperLevelBoosts.map((boost, i) => {
-              let level = boost.source.split("_")[1]
-              if (level > character.level) return null
+              if (boost.level > character.level) return null
               return (
                 <div
                   key={boost.id + i}
                   className="c-boost-group col col-3"
                 >
                   <h3 className="c-boost-group__heading">
-                    Lv {level} Boost
+                    Lv {boost.level} Boost
                   </h3>
-                  {freeSkillTraining(boost.source, level)}
+                  {freeSkillTraining(boost.source, boost.level)}
                 </div>
               )
             })}

@@ -19,7 +19,7 @@ class SubNav extends React.Component {
 
   getCharacters() {
     firebase
-      .getPF2CharacrersForUser(this.context.currentUser.uid)
+      .getPF2CharactersForUser(this.context.currentUser.uid)
       .then((snapshot) => {
         let characters = []
         snapshot.forEach((doc) => {

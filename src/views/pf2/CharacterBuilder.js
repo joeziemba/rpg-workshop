@@ -331,7 +331,7 @@ class CharacterBuilder extends React.Component {
       return
     }
 
-    if (alreadyTrained.length > 0 && character.level == 1) {
+    if (alreadyTrained.length > 0 && boost.level == 1) {
       toast("Cannot train skill " + skill.name + " twice at first level")
       return
     }

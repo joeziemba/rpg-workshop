@@ -1,5 +1,6 @@
 import React from "react"
 import { PF2CharacterContext } from "../../context"
+import { SaveRow } from "./SaveRow"
 import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
 
@@ -31,9 +32,16 @@ class CharacterBasics extends React.Component {
           <div className="col-12 col-lg-4">
             <div className="pf-section">
               <h2 className="pf-section__heading">Details</h2>
-              <div className="pf-section__body pf-section__body--pad">
+              <div
+                className="pf-section__body pf-section__body--pad"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-around",
+                }}
+              >
                 <div>
-                  <label className="pf-select__label  mb-2">
+                  <label className="pf-select__label">
                     Name
                     <input
                       aria-label="Character Name"
@@ -46,7 +54,7 @@ class CharacterBasics extends React.Component {
                   </label>
                 </div>
                 <div>
-                  <label className="pf-select__label mb-2">
+                  <label className="pf-select__label">
                     Ancestry
                     <select
                       onChange={selectAncestry}
@@ -64,7 +72,7 @@ class CharacterBasics extends React.Component {
                   </label>
                 </div>
                 <div>
-                  <label className="pf-select__label mb-2">
+                  <label className="pf-select__label">
                     Background
                     <select
                       onChange={selectBackground}
@@ -135,8 +143,15 @@ class CharacterBasics extends React.Component {
           <div className="col-md-6 col-lg-4">
             <div className="pf-section">
               <h2 className="pf-section__heading">Stats</h2>
-              <div className="pf-section__body pf-section__body--pad">
-                <div className="row mb-4">
+              <div
+                className="pf-section__body pf-section__body--pad"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-around",
+                }}
+              >
+                <div className="row">
                   <div className="col">
                     <Statbox stat={character.level} title="Level" large />
                   </div>
@@ -147,7 +162,7 @@ class CharacterBasics extends React.Component {
                     <Statbox stat={character.speed} title="Speed" large />
                   </div>
                 </div>
-                <div className="mb-4 row">
+                <div className="row">
                   <div className="col">
                     <Statbox
                       large
@@ -194,10 +209,17 @@ class CharacterBasics extends React.Component {
           <div className="col-md-6 col-lg-4">
             <div className="pf-section">
               <h2 className="pf-section__heading">Saves</h2>
-              <div className="pf-section__body pf-section__body--pad">
-                <Saves saveType="fortitude" character={character} />
-                <Saves saveType="reflex" character={character} />
-                <Saves saveType="will" character={character} />
+              <div
+                className="pf-section__body pf-section__body--pad"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-around",
+                }}
+              >
+                <SaveRow saveType="fortitude" character={character} />
+                <SaveRow saveType="reflex" character={character} />
+                <SaveRow saveType="will" character={character} />
               </div>
             </div>
           </div>
@@ -210,72 +232,6 @@ class CharacterBasics extends React.Component {
 CharacterBasics.contextType = PF2CharacterContext
 
 export default CharacterBasics
-
-const Saves = ({ character, saveType }) => {
-  let abilityAbbreviation, modifier, saveName
-
-  switch (saveType) {
-    case "will": {
-      abilityAbbreviation = "WIS"
-      modifier = character.abilityMods.Wisdom
-      saveName = "WILL"
-      break
-    }
-    case "fortitude": {
-      abilityAbbreviation = "CON"
-      modifier = character.abilityMods.Constitution
-      saveName = "FORT"
-      break
-    }
-    case "reflex": {
-      abilityAbbreviation = "DEX"
-      modifier = character.abilityMods.Dexterity
-      saveName = "REF"
-      break
-    }
-    default:
-      break
-  }
-
-  let proficiencyBonus = 0
-
-  if (character.saves[saveType] > 0) {
-    proficiencyBonus += character.saves[saveType] + character.level
-  }
-
-  let totalBonus = proficiencyBonus + modifier
-  return (
-    <div className="mb-4 row">
-      <div className="col col-4">
-        <Statbox large stat={totalBonus} title={saveName} />
-      </div>
-      <div className="col-8">
-        <span className="float-left my-2 mr-2">=</span>
-        <Statbox
-          className="float-left"
-          stat={modifier}
-          title={abilityAbbreviation}
-        />
-        <span className="float-left m-2">+</span>
-        <Statbox
-          className="float-left"
-          stat={proficiencyBonus}
-          title="PROF"
-        />
-        <div className="float-left ml-2">
-          <TEMLbuttons
-            skill={{
-              proficiency: character.saves[saveType],
-              id: saveName,
-              name: saveName,
-            }}
-            disabled
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
 
 const AC = ({ character }) => {
   function calculateAC(character) {
