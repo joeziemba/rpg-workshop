@@ -139,6 +139,7 @@ class CharacterBuilder extends React.Component {
           }`
         )
         skillBoost.skill = { id: "Free" }
+        skillBoost.isStatic = false
       })
     }
 
@@ -167,9 +168,18 @@ class CharacterBuilder extends React.Component {
       _.cloneDeep(character.class.abilityBoosts)
     )
 
-    character.skillBoosts = character.skillBoosts.concat(
-      _.cloneDeep(character.class.skillBoosts)
-    )
+    // Make any class boost assigned by background a free boost
+    let newClassBoosts = character.class.skillBoosts.map((classBoost) => {
+      let isAssignedByBackground = character.background.skillBoosts.find(
+        (bb) => bb.skill.name === classBoost.skill.name
+      )
+      if (isAssignedByBackground)
+        return { ...classBoost, skill: { id: "Free" }, isStatic: false }
+
+      return { ...classBoost }
+    })
+
+    character.skillBoosts = character.skillBoosts.concat(newClassBoosts)
 
     // Remove old class and even skill feats
     character.feats = character.feats.filter((feat) => {
