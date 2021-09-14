@@ -57,6 +57,7 @@ class CharacterBasics extends React.Component {
                   <label className="pf-select__label">
                     Ancestry
                     <select
+                      id="ancestry-select"
                       onChange={selectAncestry}
                       value={character.ancestry.name || ""}
                       className="pf-select"
