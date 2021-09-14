@@ -14,7 +14,7 @@ const NewFeatureModal = () => {
   }, [])
   return (
     <Modal
-      show={show}
+      show={false}
       title="Version 1.1 is here!"
       closeFunction={onClose}
     >

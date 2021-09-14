@@ -18,7 +18,8 @@
     "test:cover": "npm run test -- --coverage --watchAll=false --onlyChanged=false",
     "test:watch-cover": "npm run test -- --coverage --onlyChanged=false",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "test:all": "react-scripts test --env=jest-environment-jsdom-sixteen --watchAll=false"
+    "test:all": "react-scripts test --env=jest-environment-jsdom-sixteen --watchAll=false",
+    "regress": "testcafe chrome ./testing/main.spec.js -r json:./testing/reports/chrome-report.json"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
@@ -55,7 +56,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest-environment-jsdom-sixteen": "^2.0.0",
     "node-sass": "^4.14.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "testcafe": "^1.16.0"
   },
   "jest": {
     "resetMocks": false

@@ -13,15 +13,21 @@ const Statbox = ({
   if (secondary) classes += " c-statbox--secondary"
   classes += " " + className
 
+  let idRoot = title?.toLowerCase()
+
   return (
     <div className={classes}>
       {stat !== undefined ? (
-        <span className="c-statbox__stat">{stat}</span>
+        <span className="c-statbox__stat" id={idRoot + "-stat"}>
+          {stat}
+        </span>
       ) : (
         children
       )}
 
-      <span className="c-statbox__title">{title}</span>
+      <span className="c-statbox__title" id={idRoot + "-title"}>
+        {title}
+      </span>
     </div>
   )
 }
