@@ -19,7 +19,7 @@
     "test:watch-cover": "npm run test -- --coverage --onlyChanged=false",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:all": "react-scripts test --env=jest-environment-jsdom-sixteen --watchAll=false",
-    "regress": "testcafe chrome ./testing/main.spec.js -r json:./testing/reports/chrome-report.json"
+    "regress": "testcafe chrome ./testing/main.spec.js -r spec"
   },
   "author": "Joe Ziemba",
   "license": "ISC",

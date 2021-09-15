@@ -58,13 +58,19 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
             className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}
           >
             <span className="pf-ability__name">{abilityKey}</span>
-            <span className="pf-ability__score">
+            <span
+              className="pf-ability__score"
+              id={abilityKey.toLowerCase() + "-mod"}
+            >
               {character.abilityMods[Abilities[abilityKey]] < 0
-                ? " "
-                : " +"}
+                ? ""
+                : "+"}
               {character.abilityMods[Abilities[abilityKey]]}
             </span>
-            <span className="pf-ability__mod">
+            <span
+              className="pf-ability__mod"
+              id={abilityKey.toLowerCase() + "-score"}
+            >
               {character.abilities[Abilities[abilityKey]]}
             </span>
           </div>
