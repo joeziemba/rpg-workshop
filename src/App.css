@@ -1,75 +1,19 @@
-@import url("//fonts.googleapis.com/css?family=Lato:400,700,900|Lora:400,700|Vollkorn:400,600,700|Inknut+Antiqua:300,400,600,800");
+@import url("//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900|Lora:400,700|Vollkorn:400,600,700|Inknut+Antiqua:300,400,600,800");
 
 html,
 body,
 #root {
   height: 100vh;
-  background-color: #f5f5f5;
 }
 
 .c-site-container {
   font-family: "Lato", Helvetica, sans-serif;
-  font-size: 0.9rem;
-  top: 2.5rem;
+  top: 4rem;
   position: absolute;
   left: 0;
   right: 0;
 }
 
-.navbar {
-  background-color: #4d1308;
-  color: white;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.navbar a:hover {
-  text-decoration: none !important;
-}
-
-.secondary-nav {
-  top: 2.5rem;
-}
-
-.navbar-brand {
-  font-family: "Lato", sans-serif;
-  color: #fff;
-  display: inline;
-  text-decoration: none;
-}
-
-.navbar-brand:hover {
-  color: #ffffff;
-  text-decoration: none !important;
-}
-
-.nav-button {
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.25rem 0.75rem;
-  color: #fff;
-  border-radius: 2px;
-}
-
-.nav-button:after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  width: 80%;
-  bottom: 3px;
-  transition: all 0.2s ease;
-  left: 50%;
-  margin-left: -40%;
-}
-
-.nav-button:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
 @import "./StatblockGenerator/StatblockGenerator.css";
-
-@import "./_styles/Dropdown.css";
-@import "./_styles/Topbar.css";
 @import "./_styles/Modal.css";
-@import "./_styles/generalContent.css";
 @import "./_styles/animations.css";

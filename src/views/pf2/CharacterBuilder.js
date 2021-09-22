@@ -390,6 +390,7 @@ class CharacterBuilder extends React.Component {
       selectAncestry: this.selectAncestry,
       selectBackground: this.selectBackground,
       selectClass: this.selectClass,
+      selectSkill: this.selectSkill,
       Classes,
       Ancestries,
       Backgrounds,
@@ -397,15 +398,15 @@ class CharacterBuilder extends React.Component {
 
     return (
       <div>
-        <main className="container-fluid pf-body">
+        <main className="">
           <NewFeatureModal />
-          <div className="page__container page__container--subnav">
-            <PF2CharacterContext.Provider value={context}>
-              <SubNav
-                reset={this.reset}
-                character={character}
-                setCharacter={this.setCharacter}
-              />
+          <PF2CharacterContext.Provider value={context}>
+            <SubNav
+              reset={this.reset}
+              character={character}
+              setCharacter={this.setCharacter}
+            />
+            <div className="pt-16 max-w-6xl mx-auto">
               <CharacterBasics
                 selectAncestry={this.selectAncestry}
                 selectBackground={this.selectBackground}
@@ -414,8 +415,8 @@ class CharacterBuilder extends React.Component {
                 character={character}
                 setLevel={this.setLevel}
               />
-              <div className="row">
-                <div className="col-md-6">
+              <div className="flex flex-wrap">
+                <div className="flex-full md:flex-1 flex flex-col">
                   <AbilityScoreSection
                     character={this.state.character}
                     boostAbility={this.boostAbility}
@@ -426,15 +427,15 @@ class CharacterBuilder extends React.Component {
                     deleteFeat={this.deleteFeat}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="flex-full md:flex-1">
                   <SkillsTable
                     character={character}
                     selectSkill={this.selectSkill}
                   />
                 </div>
               </div>
-            </PF2CharacterContext.Provider>
-          </div>
+            </div>
+          </PF2CharacterContext.Provider>
         </main>
         <footer className="pf-footer">
           <div className="pb-2 text-center">

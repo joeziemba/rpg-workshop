@@ -1,32 +1,5 @@
-@import "./pf-section.scss";
 @import "./statbox.scss";
 @import "./ability.scss";
-@import "./check.scss";
-@import "./pf-select.scss";
-@import "./pf-input.scss";
-@import "./pf-skillrow.scss";
-
-.navbar--pathfinder {
-  background-color: $pf-navy !important;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.navbar--pathfinder .navbar-brand {
-  font-family: "Inknut Antiqua";
-}
-
-#CharacterBasics {
-  padding-top: 1rem;
-}
-
-label {
-  margin: 0;
-}
-
-.pf-body {
-  background-color: #ddd;
-  padding-bottom: 1rem;
-}
 
 .pf-button {
   background-color: $pf-maroon;
@@ -51,10 +24,6 @@ label {
   &--small {
     font-size: 0.75rem;
   }
-}
-
-.pf-font-family {
-  font-family: "Inknut Antiqua", Times, serif;
 }
 
 .pf-footer {

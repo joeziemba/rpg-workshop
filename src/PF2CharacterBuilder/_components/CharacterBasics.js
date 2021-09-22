@@ -3,6 +3,8 @@ import { PF2CharacterContext } from "../../context"
 import { SaveRow } from "./SaveRow"
 import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
+import { Card } from "./Card"
+import { Select } from "./Select"
 
 class CharacterBasics extends React.Component {
   constructor(props) {
@@ -27,202 +29,156 @@ class CharacterBasics extends React.Component {
 
     return (
       <React.Fragment>
-        <div id="CharacterBasics" className="row">
-          {/* Dropdown Menus */}
-          <div className="col-12 col-lg-4">
-            <div className="pf-section">
-              <h2 className="pf-section__heading">Details</h2>
-              <div
-                className="pf-section__body pf-section__body--pad"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-around",
-                }}
-              >
-                <div>
-                  <label className="pf-select__label">
-                    Name
-                    <input
-                      aria-label="Character Name"
-                      id="character-name"
-                      value={character.name}
-                      className="pf-input"
-                      placeholder="Character Name"
-                      onChange={this.props.updateName}
-                    />
-                  </label>
-                </div>
-                <div>
-                  <label className="pf-select__label">
-                    Ancestry
-                    <select
-                      id="ancestry-select"
-                      onChange={selectAncestry}
-                      value={character.ancestry.name || ""}
-                      className="pf-select"
-                      aria-label="Ancestry"
-                    >
-                      <option value="">Choose Ancestry</option>
-                      {Object.keys(Ancestries).map((ancestry) => (
-                        <option value={ancestry} key={ancestry}>
-                          {ancestry}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-                <div>
-                  <label className="pf-select__label">
-                    Background
-                    <select
-                      onChange={selectBackground}
-                      value={character.background.id || ""}
-                      className="pf-select"
-                      aria-label="Background"
-                    >
-                      <option className="pf-select__default" value="">
-                        Choose Background
+        <div
+          id="CharacterBasics"
+          className="flex flex-wrap justify-between"
+        >
+          <div className="flex-full md:flex-1">
+            <Card title="Details">
+              <label className="px-2">
+                <input
+                  aria-label="Character Name"
+                  id="character-name"
+                  value={character.name}
+                  className={`border-b px-2 border-gray-500 w-full my-2 px-2 text-lg 
+                    ${!character.name && " italic"}`}
+                  placeholder="Character Name"
+                  onChange={this.props.updateName}
+                />
+              </label>
+
+              <label className="px-2">
+                <Select
+                  id="ancestry-select"
+                  onChange={selectAncestry}
+                  value={character.ancestry.name || ""}
+                  aria-label="Ancestry"
+                  isDefault={!character.ancestry.name}
+                >
+                  <option value="">Choose Ancestry</option>
+                  {Object.keys(Ancestries).map((ancestry) => (
+                    <option value={ancestry} key={ancestry}>
+                      {ancestry}
+                    </option>
+                  ))}
+                </Select>
+              </label>
+
+              <label className="px-2">
+                <Select
+                  onChange={selectBackground}
+                  value={character.background.id || ""}
+                  aria-label="Background"
+                  isDefault={!character.background.name}
+                >
+                  <option value="">Choose Background</option>
+                  {Object.keys(Backgrounds).map((background) => (
+                    <option value={background} key={background}>
+                      {Backgrounds[background].name}
+                    </option>
+                  ))}
+                </Select>
+              </label>
+
+              <div className="flex">
+                <label className="flex-1 flex-grow-2 px-2">
+                  <Select
+                    id="classSelect"
+                    onChange={selectClass}
+                    value={character.class.name || ""}
+                    aria-label="Class"
+                    isDefault={!character.class.name}
+                  >
+                    <option value="FREE">Choose Class</option>
+                    {Object.keys(Classes).map((class_name) => (
+                      <option value={class_name} key={class_name}>
+                        {class_name}
                       </option>
-                      {Object.keys(Backgrounds).map((background) => (
-                        <option value={background} key={background}>
-                          {Backgrounds[background].name}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-                <div className="row">
-                  <div className="col-8">
-                    <label
-                      className="pf-select__label "
-                      htmlFor="classSelect"
-                    >
-                      Class
-                      <select
-                        id="classSelect"
-                        onChange={selectClass}
-                        value={character.class.name || ""}
-                        className="pf-select mb-0"
-                        aria-label="Class"
-                      >
-                        <option value="">Choose Class</option>
-                        {Object.keys(Classes).map((class_name) => (
-                          <option value={class_name} key={class_name}>
-                            {class_name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  </div>
-                  <div className="col-4">
-                    <label
-                      className="pf-select__label"
-                      htmlFor="levelSelect"
-                    >
-                      Level
-                      <select
-                        id="levelSelect"
-                        onChange={setLevel}
-                        value={character.level}
-                        className="pf-select mb-0"
-                        aria-label="Class"
-                      >
-                        {[...Array(21).keys()].slice(1).map((x, i) => (
-                          <option value={i + 1} key={i + 1}>
-                            {i + 1}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  </div>
-                </div>
+                    ))}
+                  </Select>
+                </label>
+
+                <label className="flex-1 px-2">
+                  <Select
+                    id="levelSelect"
+                    onChange={setLevel}
+                    value={character.level}
+                    aria-label="Level"
+                  >
+                    {[...Array(21).keys()].slice(1).map((x, i) => (
+                      <option value={i + 1} key={i + 1}>
+                        {i + 1}
+                      </option>
+                    ))}
+                  </Select>
+                </label>
               </div>
-            </div>
+            </Card>
           </div>
-          {/* Basic Stats */}
-          <div className="col-md-6 col-lg-4">
-            <div className="pf-section">
-              <h2 className="pf-section__heading">Stats</h2>
-              <div
-                className="pf-section__body pf-section__body--pad"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-around",
-                }}
-              >
-                <div className="row">
-                  <div className="col">
-                    <Statbox stat={character.level} title="Level" large />
-                  </div>
-                  <div className="col">
-                    <Statbox stat={character.hitPoints} title="HP" large />
-                  </div>
-                  <div className="col">
-                    <Statbox stat={character.speed} title="Speed" large />
-                  </div>
+          <div className="flex-full md:flex-1">
+            {/* Basic Stats */}
+            <Card title="Stats">
+              <div className="flex-1 flex items-center">
+                <div className="flex-1">
+                  <Statbox stat={character.level} title="Level" large />
                 </div>
-                <div className="row">
-                  <div className="col">
-                    <Statbox
-                      large
-                      stat={
-                        character.perceptionProficiency +
-                        character.abilityMods.Wisdom +
-                        character.level
-                      }
-                      title="PCPT"
-                    />
-                  </div>
-                  <div className="col">
-                    <span className="float-left my-2 mr-2">=</span>
-                    <Statbox
-                      className="float-left"
-                      stat={character.abilityMods.Wisdom}
-                      title="WIS"
-                    />
-                    <span className="float-left m-2">+</span>
-                    <Statbox
-                      className="float-left"
-                      stat={
-                        character.perceptionProficiency + character.level
-                      }
-                      title="PROF"
-                    />
-                  </div>
-                  <div className="col">
-                    <TEMLbuttons
-                      skill={{
-                        proficiency: character.perceptionProficiency,
-                        id: "Perception",
-                        name: "Perception",
-                      }}
-                      disabled
-                    />
-                  </div>
+                <div className="flex-1">
+                  <Statbox stat={character.hitPoints} title="HP" large />
                 </div>
-                <AC character={character} />
+                <div className="flex-1">
+                  <Statbox stat={character.speed} title="Speed" large />
+                </div>
               </div>
-            </div>
+
+              <div className="flex-1 flex items-center">
+                <div className="flex-1">
+                  <Statbox
+                    large
+                    stat={
+                      character.perceptionProficiency +
+                      character.abilityMods.Wisdom +
+                      character.level
+                    }
+                    title="PCPT"
+                  />
+                </div>
+                <div className="flex-1 flex items-center">
+                  <span className="flex-none mr-2">=</span>
+                  <Statbox
+                    className="flex-1"
+                    stat={character.abilityMods.Wisdom}
+                    title="WIS"
+                  />
+                  <span className="flex-none text-center mx-2">+</span>
+                  <Statbox
+                    className="flex-1"
+                    stat={
+                      character.perceptionProficiency + character.level
+                    }
+                    title="PROF"
+                  />
+                </div>
+                <div className="flex-1 flex justify-around">
+                  <TEMLbuttons
+                    skill={{
+                      proficiency: character.perceptionProficiency,
+                      id: "Perception",
+                      name: "Perception",
+                    }}
+                  />
+                </div>
+              </div>
+
+              <AC character={character} />
+            </Card>
           </div>
           {/* Saves */}
-          <div className="col-md-6 col-lg-4">
-            <div className="pf-section">
-              <h2 className="pf-section__heading">Saves</h2>
-              <div
-                className="pf-section__body pf-section__body--pad"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-around",
-                }}
-              >
-                <SaveRow saveType="fortitude" character={character} />
-                <SaveRow saveType="reflex" character={character} />
-                <SaveRow saveType="will" character={character} />
-              </div>
-            </div>
+          <div className="flex-full md:flex-1">
+            <Card title="Saves">
+              <SaveRow saveType="fortitude" character={character} />
+              <SaveRow saveType="reflex" character={character} />
+              <SaveRow saveType="will" character={character} />
+            </Card>
           </div>
         </div>
       </React.Fragment>
@@ -251,24 +207,24 @@ const AC = ({ character }) => {
   }
   let hasClass = !!character.class.name
   return (
-    <div className="row">
-      <div className="col col-4">
+    <div className="flex-1 flex items-center">
+      <div className="flex-1">
         <Statbox stat={calculateAC(character)} title="AC" large />
       </div>
-      <div className="col col-8">
-        <span className="float-left my-2 mr-2">=</span>
-        <Statbox className="float-left" stat={10} title="Base" />
-        <span className="float-left m-2">+</span>
+      <div className="flex-1 flex-grow-2 flex items-center">
+        <span className="mr-2">=</span>
+        <Statbox className="flex-1" stat={10} title="Base" />
+        <span className="mx-2">+</span>
         <Statbox
-          className="float-left"
+          className="flex-1"
           stat={character.abilityMods.Dexterity}
           title="DEX"
         />
-        <span className="float-left m-2">+</span>
-        <Statbox className="float-left" stat={0} title="Item" />
-        <span className="float-left m-2">+</span>
+        <span className="mx-2">+</span>
+        <Statbox className="flex-1" stat={0} title="Item" />
+        <span className="mx-2">+</span>
         <Statbox
-          className="float-left"
+          className="flex-1"
           stat={
             hasClass && character.class.defenses.unarmored > 0
               ? character.class.defenses.unarmored + character.level
