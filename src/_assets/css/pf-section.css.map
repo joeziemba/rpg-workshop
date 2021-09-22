@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "check.css",
+	"file": "pf-section.css",
 	"sources": [
-		"../scss/pf/check.scss"
+		"../scss/pf/pf-section.scss"
 	],
 	"names": [],
 	"mappings": ""

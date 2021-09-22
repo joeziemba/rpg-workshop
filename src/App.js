@@ -8,7 +8,6 @@ import "./_assets/css/main.css"
 import { UserContext } from "./context"
 
 import { StatblockGenerator } from "./StatblockGenerator"
-import About from "./views/About"
 import Home from "./views/Home"
 import CharacterBuilder from "./views/pf2/CharacterBuilder"
 
@@ -60,7 +59,6 @@ class App extends Component {
               path="/dnd5e/statblock-generator/"
               component={StatblockGenerator}
             />
-            <Route exact path="/about" component={About} />
             <Route
               exact
               path="/pf2/character-builder/:characterId"

@@ -2,12 +2,8 @@
 
 .c-teml {
   display: flex;
-  margin-left: 0.5rem;
-  margin-top: 0.75rem;
-
   &__item {
-    left: 6px;
-    top: 10px;
+    display: inline-block;
     width: 1.1rem;
     height: 1rem;
     border: solid 1px $color-n4;

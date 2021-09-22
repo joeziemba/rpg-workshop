@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { UserContext } from "../../context"
 import { firebase } from "../../Firebase"
 import { toast } from "react-toastify"
+import NavButton from "../../_globalComponents/NavButton"
 
 class SubNav extends React.Component {
   constructor(props) {
@@ -35,48 +36,36 @@ class SubNav extends React.Component {
 
   render() {
     return (
-      <nav
-        className="navbar navbar-expand secondary-nav fixed-top navbar--pathfinder"
-        aria-label="secondary"
-      >
-        <h1 className="navbar-brand mb-0">PF2 Character Builder</h1>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <button
-              className="btn btn-sm mr-3 mt-1 nav-button"
-              onClick={this.props.reset}
-            >
-              {this.context.currentUser ? "New" : "Clear Sheet"}
-            </button>
-          </li>
-          {this.context.currentUser && (
-            <React.Fragment>
-              <li className="nav-item">
-                <button
-                  className="btn btn-sm mr-3 mt-1 nav-button"
-                  onClick={() => {
-                    if (this.props.character.name) {
-                      firebase.savePF2Character(this.props.character)
-                    } else {
-                      toast.error("Cannot Save a character without a name")
-                    }
-                  }}
-                >
-                  Save
-                </button>
-              </li>
+      <div className="fixed w-full px-3 md:px-8 py-3 bg-navy-700 text-white flex z-50">
+        <h1 className="m-0 mr-8 text-2xl leading-tight">
+          Character Builder
+        </h1>
 
-              <li className="nav-item">
-                <button
-                  className="btn btn-sm mr-3 mt-1 nav-button"
-                  onClick={this.getCharacters}
-                >
-                  Open
-                </button>
-              </li>
-            </React.Fragment>
-          )}
-        </ul>
+        <NavButton color="navy-700" onClick={this.props.reset}>
+          {this.context.currentUser ? "New" : "Clear Sheet"}
+        </NavButton>
+
+        {this.context.currentUser && (
+          <React.Fragment>
+            <NavButton
+              color="navy-700"
+              onClick={() => {
+                if (this.props.character.name) {
+                  firebase.savePF2Character(this.props.character)
+                } else {
+                  toast.error("Cannot Save a character without a name")
+                }
+              }}
+            >
+              Save
+            </NavButton>
+
+            <NavButton color="navy-700" onClick={this.getCharacters}>
+              Open
+            </NavButton>
+          </React.Fragment>
+        )}
+
         {this.state.showOpenModal && (
           <div className="c-modal">
             <div className="c-modal__window">
@@ -99,7 +88,7 @@ class SubNav extends React.Component {
             </div>
           </div>
         )}
-      </nav>
+      </div>
     )
   }
 }

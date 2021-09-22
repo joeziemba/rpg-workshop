@@ -1,6 +1,9 @@
 import React from "react"
 import _ from "lodash"
 import { Abilities } from "../../_data/abilities"
+import { Card } from "./Card"
+import { Select } from "./Select"
+import { SubHeading } from "./SubHeading"
 
 const AbilityScoreSection = ({ character, boostAbility }) => {
   function freeAbilityOptions(source) {
@@ -16,29 +19,30 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
       if (boost.exclude) excludedAbilities.push(...boost.exclude)
 
       return (
-        <div key={boost.id} className="col">
-          <select
-            key={i}
+        <div key={boost.id} className="flex-1 mx-2 lg:mx-4">
+          <Select
             onChange={boostAbility}
             name={boost.id}
-            className="text-center float-left pf-select pf-select--float pf-select--center"
             aria-label={"Level 1 Ability Boost: " + i}
             value={boost.ability}
+            isDefault={boost.ability == "Free"}
+            center
           >
-            <option value="FREE"></option>
+            <option value="FREE">Free</option>
             {Object.keys(Abilities).map((ability) => {
               if (ability !== "FREE") {
                 return excludedAbilities.includes(
                   Abilities[ability]
                 ) ? null : (
                   <option key={ability} value={Abilities[ability]}>
+                    {" "}
                     {ability}
                   </option>
                 )
               }
               return null
             })}
-          </select>
+          </Select>
         </div>
       )
     })
@@ -55,16 +59,16 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
         return (
           <div
             key={abilityKey}
-            className={`pf-ability ${isKey ? "pf-ability--key" : ""}`}
+            className={`flex-1 pf-ability ${
+              isKey ? "pf-ability--key" : ""
+            }`}
           >
             <span className="pf-ability__name">{abilityKey}</span>
             <span
               className="pf-ability__score"
               id={abilityKey.toLowerCase() + "-mod"}
             >
-              {character.abilityMods[Abilities[abilityKey]] < 0
-                ? ""
-                : "+"}
+              {character.abilityMods[Abilities[abilityKey]] < 0 ? "" : "+"}
               {character.abilityMods[Abilities[abilityKey]]}
             </span>
             <span
@@ -81,108 +85,86 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
   }
 
   return (
-    <div className="pf-section">
-      <h2 className="pf-section__heading">Ability Scores</h2>
-      <div className="pf-section__body">
-        <div className="clearfix">{renderAbilities()}</div>
-        <div className="pf-section__body--pad">
-          <div className="c-boost-group">
-            <h3 className="c-boost-group__heading">Level 1 Boosts</h3>
-            <div className="row">{freeAbilityOptions("Level_1")}</div>
-          </div>
-          <div className="c-boost-group">
-            <h3 className="c-boost-group__heading mt-2">
-              Ancestry Boosts{" "}
-              {character.ancestry.name && " - " + character.ancestry.name}
-            </h3>
-            <div className="row">
-              {_.isEmpty(character.ancestry) ? (
-                <p className="col-12 u-placeholder-text">
-                  choose an ancestry above
-                </p>
-              ) : (
-                freeAbilityOptions(character.ancestry.name)
-              )}
-            </div>
-          </div>
-          <div className="c-boost-group">
-            <h3 className="c-boost-group__heading mt-2">
-              Background Boosts{" "}
-              {character.background.name &&
-                " - " + character.background.name}
-            </h3>
-            <div className="row">
-              {!character.background.name ? (
-                <div className="col-12 u-placeholder-text">
-                  choose a background above
-                </div>
-              ) : (
-                freeAbilityOptions(character.background.id)
-              )}
-            </div>
-          </div>
-          {character.class.name &&
-            character.class.abilityBoosts[0].ability ===
-              Abilities.FREE && (
-              <div className="c-boost-group">
-                <h3 className="c-boost-group__heading mt-2 mb-2">
-                  Class Boost{" "}
-                  {character.class.name && " - " + character.class.name}
-                </h3>
-                <div className="row mb-2">
-                  {!character.class.name ? (
-                    <div className="col-12 u-placeholder-text mb-3">
-                      choose a class above
-                    </div>
-                  ) : (
-                    freeAbilityOptions(character.class.name)
-                  )}
-                </div>
-              </div>
-            )}
-          {character.level >= 5 && (
-            <div className="c-boost-group">
-              <h3 className="c-boost-group__heading mt-2 mb-2">
-                Level 5 Boosts
-              </h3>
-              <div className="row mb-2">
-                {freeAbilityOptions("Level_5")}
-              </div>
-            </div>
-          )}
-          {character.level >= 10 && (
-            <div className="c-boost-group">
-              <h3 className="c-boost-group__heading mt-2 mb-2">
-                Level 10 Boosts
-              </h3>
-              <div className="row mb-2">
-                {freeAbilityOptions("Level_10")}
-              </div>
-            </div>
-          )}
-          {character.level >= 15 && (
-            <div className="c-boost-group">
-              <h3 className="c-boost-group__heading mt-2 mb-2">
-                Level 15 Boosts
-              </h3>
-              <div className="row mb-2">
-                {freeAbilityOptions("Level_15")}
-              </div>
-            </div>
-          )}
-          {character.level >= 20 && (
-            <div className="c-boost-group">
-              <h3 className="c-boost-group__heading mt-2 mb-2">
-                Level 20 Boosts
-              </h3>
-              <div className="row mb-2">
-                {freeAbilityOptions("Level_20")}
-              </div>
-            </div>
+    <Card title="Abilities">
+      <div className="flex-1 w-full flex p-4">{renderAbilities()}</div>
+
+      <div className="">
+        <SubHeading>Level 1 Boosts</SubHeading>
+        <div className="flex">{freeAbilityOptions("Level_1")}</div>
+      </div>
+      <div className="">
+        <SubHeading>
+          Ancestry Boosts{" "}
+          {character.ancestry.name && " - " + character.ancestry.name}
+        </SubHeading>
+        <div className="flex">
+          {_.isEmpty(character.ancestry) ? (
+            <p className="flex-1 u-placeholder-text my-2">
+              choose an ancestry above
+            </p>
+          ) : (
+            freeAbilityOptions(character.ancestry.name)
           )}
         </div>
       </div>
-    </div>
+      <div className="">
+        <SubHeading>
+          Background Boosts{" "}
+          {character.background.name && " - " + character.background.name}
+        </SubHeading>
+        <div className="flex">
+          {!character.background.name ? (
+            <div className="flex-1 u-placeholder-text my-2">
+              choose a background above
+            </div>
+          ) : (
+            freeAbilityOptions(character.background.id)
+          )}
+        </div>
+      </div>
+      {character.class.name &&
+        character.class.abilityBoosts[0].ability === Abilities.FREE && (
+          <div>
+            <SubHeading>
+              Class Boost{" "}
+              {character.class.name && " - " + character.class.name}
+            </SubHeading>
+            <div className="flex">
+              {!character.class.name ? (
+                <div className="flex-1 u-placeholder-text my-2">
+                  choose a class above
+                </div>
+              ) : (
+                freeAbilityOptions(character.class.name)
+              )}
+            </div>
+          </div>
+        )}
+      {character.level >= 5 && (
+        <div>
+          <SubHeading>Level 5 Boosts</SubHeading>
+          <div className="row mb-2">{freeAbilityOptions("Level_5")}</div>
+        </div>
+      )}
+      {character.level >= 10 && (
+        <div>
+          <SubHeading>Level 10 Boosts</SubHeading>
+          <div className="row mb-2">{freeAbilityOptions("Level_10")}</div>
+        </div>
+      )}
+      {character.level >= 15 && (
+        <div>
+          <SubHeading>Level 15 Boosts</SubHeading>
+          <div className="row mb-2">{freeAbilityOptions("Level_15")}</div>
+        </div>
+      )}
+      {character.level >= 20 && (
+        <div>
+          <SubHeading>Level 20 Boosts</SubHeading>
+          <div className="row mb-2">{freeAbilityOptions("Level_20")}</div>
+        </div>
+      )}
+    </Card>
   )
 }
 

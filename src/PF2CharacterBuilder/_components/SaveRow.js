@@ -36,33 +36,29 @@ export const SaveRow = ({ character, saveType }) => {
 
   let totalBonus = proficiencyBonus + modifier
   return (
-    <div className="row">
-      <div className="col col-4">
+    <div className="flex-1 flex items-center">
+      <div className="flex-1">
         <Statbox large stat={totalBonus} title={saveName} />
       </div>
-      <div className="col-8">
-        <span className="float-left my-2 mr-2">=</span>
+      <div className="flex-1 flex items-center">
+        <span className="mr-2">=</span>
         <Statbox
-          className="float-left"
+          className="flex-1"
           stat={modifier}
           title={abilityAbbreviation}
         />
-        <span className="float-left m-2">+</span>
-        <Statbox
-          className="float-left"
-          stat={proficiencyBonus}
-          title="PROF"
+        <span className="mx-2">+</span>
+        <Statbox className="flex-1" stat={proficiencyBonus} title="PROF" />
+      </div>
+      <div className="flex-1 flex justify-around">
+        <TEMLbuttons
+          skill={{
+            proficiency: character.saves[saveType],
+            id: saveName,
+            name: saveName,
+          }}
+          disabled
         />
-        <div className="float-left ml-2">
-          <TEMLbuttons
-            skill={{
-              proficiency: character.saves[saveType],
-              id: saveName,
-              name: saveName,
-            }}
-            disabled
-          />
-        </div>
       </div>
     </div>
   )
