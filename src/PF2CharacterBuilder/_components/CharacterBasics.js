@@ -35,19 +35,19 @@ class CharacterBasics extends React.Component {
         >
           <div className="flex-full md:flex-1">
             <Card title="Details">
-              <label className="px-2">
+              <label className="px-4">
                 <input
                   aria-label="Character Name"
                   id="character-name"
                   value={character.name}
-                  className={`border-b px-2 border-gray-500 w-full my-2 px-2 text-lg 
-                    ${!character.name && " italic"}`}
+                  className={`bg-gray-200 p-2 border-gray-500 w-full rounded-md text-lg 
+                    ${!character.name && " text-center"}`}
                   placeholder="Character Name"
                   onChange={this.props.updateName}
                 />
               </label>
 
-              <label className="px-2">
+              <label className="px-4">
                 <Select
                   id="ancestry-select"
                   onChange={selectAncestry}
@@ -64,7 +64,7 @@ class CharacterBasics extends React.Component {
                 </Select>
               </label>
 
-              <label className="px-2">
+              <label className="px-4">
                 <Select
                   onChange={selectBackground}
                   value={character.background.id || ""}
@@ -81,7 +81,7 @@ class CharacterBasics extends React.Component {
               </label>
 
               <div className="flex">
-                <label className="flex-1 flex-grow-2 px-2">
+                <label className="flex-1 flex-grow-2 pl-4 pr-2">
                   <Select
                     id="classSelect"
                     onChange={selectClass}
@@ -98,7 +98,7 @@ class CharacterBasics extends React.Component {
                   </Select>
                 </label>
 
-                <label className="flex-1 px-2">
+                <label className="flex-1 pr-4 pl-2">
                   <Select
                     id="levelSelect"
                     onChange={setLevel}
@@ -211,7 +211,7 @@ const AC = ({ character }) => {
       <div className="flex-1">
         <Statbox stat={calculateAC(character)} title="AC" large />
       </div>
-      <div className="flex-1 flex-grow-2 flex items-center">
+      <div className="flex-1 flex-grow-2 flex items-center relative mr-4">
         <span className="mr-2">=</span>
         <Statbox className="flex-1" stat={10} title="Base" />
         <span className="mx-2">+</span>

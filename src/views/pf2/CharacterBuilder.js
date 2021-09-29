@@ -391,6 +391,8 @@ class CharacterBuilder extends React.Component {
       selectBackground: this.selectBackground,
       selectClass: this.selectClass,
       selectSkill: this.selectSkill,
+      selectFeat: this.selectFeat,
+      deleteFeat: this.deleteFeat,
       Classes,
       Ancestries,
       Backgrounds,
@@ -406,7 +408,7 @@ class CharacterBuilder extends React.Component {
               character={character}
               setCharacter={this.setCharacter}
             />
-            <div className="pt-16 max-w-6xl mx-auto">
+            <div className="pt-20 max-w-6xl mx-auto">
               <CharacterBasics
                 selectAncestry={this.selectAncestry}
                 selectBackground={this.selectBackground}
@@ -437,8 +439,8 @@ class CharacterBuilder extends React.Component {
             </div>
           </PF2CharacterContext.Provider>
         </main>
-        <footer className="pf-footer">
-          <div className="pb-2 text-center">
+        <footer className="w-full p-4 text-sm bg-gray-700 text-gray-300">
+          <div className="pb-2 text-center font-bold">
             Builder v{BUILDER_VERSION} | Published {PUBLISHED_ON}
           </div>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -448,12 +450,12 @@ class CharacterBuilder extends React.Component {
             this content. This website is not published, endorsed, or
             specifically approved by Paizo Inc. For more information about
             Paizo&apos;s Community Use Policy, please visit{" "}
-            <a href="http://www.paizo.com/communityuse" target="__blank">
+            <a className="font-bold text-white" href="http://www.paizo.com/communityuse" target="__blank">
               paizo.com/communityuse
             </a>
             . For more information about Paizo Inc. and Paizo products,
             please visit{" "}
-            <a href="http://www.paizo.com" target="__blank">
+            <a className="font-bold text-white" href="http://www.paizo.com" target="__blank">
               paizo.com
             </a>
             .

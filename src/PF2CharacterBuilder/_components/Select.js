@@ -10,6 +10,7 @@ export const Select = ({
   ariaLabel = "",
   center,
   isDisabled,
+  id,
 }) => {
   const selectClasses = cn({
     "bg-gray-200 rounded-md w-full cursor-pointer": true,
@@ -20,13 +21,6 @@ export const Select = ({
     "text-center": center,
   })
 
-  // const selectClasses = cn({
-  //   "border-b px-2 border-gray-500 w-full": true,
-  //   "appearance-none my-2 text-lg leading-loose": true,
-  //   "text-gray-400 italic": isDefault,
-  //   "text-center": center,
-  //   "text-gray-400": isDisabled,
-  // })
   return (
     <select
       onChange={onChange}
@@ -36,6 +30,7 @@ export const Select = ({
       value={value}
       disabled={isDisabled}
       style={{ textAlignLast: "center" }}
+      id={id}
     >
       {children}
     </select>

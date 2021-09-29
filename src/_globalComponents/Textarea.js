@@ -1,22 +1,31 @@
 import React from "react"
 
-const Textarea = (props) => {
+const Textarea = ({
+  id,
+  label,
+  hideLabel,
+  placeholder,
+  onChange,
+  value,
+  fieldName,
+  rows,
+  supportText,
+}) => {
   return (
     <div className="form-group">
-      {!props.hideLabel && <label htmlFor={props.id}>{props.label}</label>}
+      {!hideLabel && <label htmlFor={fieldName}>{label}</label>}
       <textarea
-        type={props.type}
-        className="form-control form-control-sm"
-        id={props.id}
-        aria-describedby={`${props.id}Help`}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        value={props.value}
-        name={props.fieldName}
-        rows={props.rows}
+        className="p-2 border rounded-md border-gray-300 block w-full"
+        id={fieldName}
+        aria-describedby={`${id}Help`}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+        name={fieldName}
+        rows={rows}
       />
-      <small id={`${props.id}Help`} className="form-text text-muted">
-        {props.supportText}
+      <small id={`${id}Help`} className="form-text text-muted">
+        {supportText}
       </small>
     </div>
   )

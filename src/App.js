@@ -14,6 +14,7 @@ import CharacterBuilder from "./views/pf2/CharacterBuilder"
 import { TopBar } from "./_globalComponents"
 
 import { firebase } from "./Firebase"
+import { RedesignAnnounceModal } from "./PF2CharacterBuilder/_modals/RedesignAnnounceModal"
 
 class App extends Component {
   constructor(props) {
@@ -40,8 +41,9 @@ class App extends Component {
           autoClose={3000}
           hideProgressBar={true}
         />
+        {/* <RedesignAnnounceModal /> */}
         <TopBar currentUser={this.state.currentUser} />
-        <div className="c-site-container">
+        <div className="pt-12">
           <UserContext.Provider
             value={{
               currentUser: this.state.currentUser,

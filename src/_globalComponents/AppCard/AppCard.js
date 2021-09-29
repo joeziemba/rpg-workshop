@@ -58,7 +58,7 @@ const AppCard = ({
   return (
     <div
       className={
-        "flex-initial w-10/12 lg:w-5/12 " +
+        "flex-initial w-10/12 md:w-5/12 " +
         "bg-white rounded-sm shadow-lg " +
         `border-t-4 border-${color} ` +
         "group hover:shadow-2xl transition-shadow duration-200 " +
@@ -67,13 +67,12 @@ const AppCard = ({
     >
       <Link to={linkURL} className="block relative min-h-full">
         <div
-          className={`app-card-image text-lg pl-10 pt-10 pb-20 text-white bg-cover relative`}
+          className={`app-card-image text-lg pl-10 pt-8 pb-10 lg:pb-20 text-white bg-cover relative`}
           style={{
             backgroundImage: "url(" + image + ")",
             backgroundPosition: "right top",
           }}
         >
-          {/* <p className={`inline-block z-10 uppercase font-medium text-sm p-1 px-3 border border-white tracking-widest`}>{tag}</p> */}
           <p
             className={`inline-block z-10 uppercase font-bold text-sm tracking-widest`}
           >
@@ -87,7 +86,10 @@ const AppCard = ({
           {/* <div className="z-0 opacity-50 w-full h-full bg-navy-900">k</div> */}
         </div>
 
-        <p className="text-lg p-8 py-10 mb-12 flex items-center " style={{}}>
+        <p
+          className="text-lg p-8 py-4 mb-12 flex items-center "
+          style={{}}
+        >
           {content}
         </p>
 

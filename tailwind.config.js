@@ -32,6 +32,7 @@ module.exports = {
   variants: {
     extend: {
       translate: ["responsive", "hover", "focus", "group-hover"],
+      margin: ["last"]
     },
   },
   plugins: [],

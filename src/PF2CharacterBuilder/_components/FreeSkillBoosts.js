@@ -24,7 +24,11 @@ export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {
           <div
             key={boost.id + i}
             className="px-2 lg:px-2"
-            style={{ flex: "0 1 25%" }}
+            style={
+              availableBoosts.length > 1
+                ? { flex: "0 1 25%" }
+                : { flex: "0 0 100%" }
+            }
           >
             <Select
               isDisabled={boost.isStatic}

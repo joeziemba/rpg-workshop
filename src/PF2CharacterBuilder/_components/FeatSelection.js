@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
-import FEATS from "../../_data/feats/allFeats.json"
+import FEATS from "src/_data/feats/allFeats.json"
 
 const FeatSelection = ({ featKey, character, selectFeat }) => {
   const [query, setQuery] = useState("")
@@ -65,7 +65,7 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
     filteredFeats = filterFeatsBy(filteredFeats, getFeatTag(type), level)
 
     // Additionally filter by query if present
-    if (query) filteredFeats = filterFeatsByQuery()
+    if (query) filteredFeats = filterFeatsByQuery(filteredFeats)
 
     setFeats(
       filteredFeats.sort((a, b) =>
@@ -82,71 +82,60 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
   ])
 
   return (
-    <div style={{ position: "relative" }}>
+    <>
       <Search onChange={setQuery} query={query} />
-      <div className="c-feat-selection__row">
-        <div className="col col-2">Name</div>
-        <div
-          className="col col-1 text-center"
-          style={{ maxWidth: "80px" }}
-        >
-          Level
-        </div>
-        <div className="col col-2">Traits</div>
-        <div className="col col-6 pl-4">Description</div>
-        <div className="col col-2">Source</div>
-      </div>
+
       {feats.length > 0 &&
         feats.map((feat) => {
           return (
-            <div className="c-feat-selection__row" key={feat.name}>
-              <div className="col col-2" style={{ position: "relative" }}>
+            <div
+              className="grid grid-cols-10 my-2 py-2 border-b"
+              key={feat.name}
+            >
+              <div className="col-span-2 flex items-center group">
                 <button
                   onClick={() => selectFeat(feat)}
-                  className="c-feat-selection__add-button"
+                  className={
+                    "h-full w-full text-5xl text-gray-300 text-center " +
+                    "group-hover:text-blue-900 transition-colors"
+                  }
                   aria-label={"Select Feat " + feat.name}
                 >
-                  <i className="fas fa-plus fa"></i>
+                  <i className="fas fa-plus-circle" />
                 </button>
-                <span
-                  style={{ display: "inline-block", marginLeft: "2rem" }}
-                >
-                  {feat.name}
-                </span>
               </div>
-              <div
-                className="col col-1 text-center"
-                style={{ maxWidth: "80px" }}
-              >
-                <small>{feat.level}</small>
-              </div>
-              <div
-                className="col col-2"
-                style={{ display: "flex", flexWrap: "wrap" }}
-              >
-                {feat.traits.map((t) => (
-                  <small className="c-feat-selection__tag" key={t}>
-                    {t}
-                  </small>
-                ))}
-              </div>
-              <div className="col col-6 pl-4 pr-2">
-                <small>
-                  <p dangerouslySetInnerHTML={{ __html: feat.desc }}></p>
-                  {feat.prerequisites.length > 1 && (
-                    <p className="mt-1 u-color-n6">
-                      <b>Prerequisites:</b> {feat.prerequisites}
-                    </p>
-                  )}
-                </small>
-              </div>
-              <div className="col col-2">
-                <small>{feat.source}</small>
+
+              <div className="col-span-8">
+                <h4 className="text-xl mb-2">{feat.name}</h4>
+
+                <div className="uppercase text-xs mb-2 text-blue-800">
+                  <div className="mr-2 inline-block py-1 px-2 bg-blue-100 rounded-sm">
+                    Level {feat.level}
+                  </div>
+                  {feat.traits.map((t) => (
+                    <div
+                      className="mr-2 inline-block py-1 px-2 bg-blue-100 rounded-sm"
+                      key={t}
+                    >
+                      {t}
+                    </div>
+                  ))}
+                </div>
+                {feat.prerequisites.length > 1 && (
+                  <p className="mb-2">
+                    <b>Prerequisites:</b> {feat.prerequisites}
+                  </p>
+                )}
+
+                <p dangerouslySetInnerHTML={{ __html: feat.desc }}></p>
+                <div className="mt-2 text-sm italic text-gray-700">
+                  Source: {feat.source}
+                </div>
               </div>
             </div>
           )
         })}
-    </div>
+    </>
   )
 }
 
@@ -154,23 +143,24 @@ export default FeatSelection
 
 const Search = ({ onChange, query }) => {
   return (
-    <label
-      className=""
-      style={{
-        position: "fixed",
-        display: "block",
-        right: "10rem",
-        zIndex: "999",
-        marginTop: "-3rem",
-      }}
-    >
-      Search by name or tag
-      <input
-        style={{ marginLeft: ".5rem", fontSize: "1rem" }}
-        type="text"
-        value={query}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </label>
+    <div className="sticky top-0 w-full py-4 px-8 bg-white text-lg shadow-md">
+      <label className="m-0">
+        Search by name or tag
+        <input
+          className="border ml-4 border-gray-400 rounded-md py-2 px-4"
+          type="text"
+          value={query}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      </label>
+      {query && (
+        <button
+          className="text-sm uppercase text-gray-500 ml-2 hover:text-gray-800"
+          onClick={() => onChange("")}
+        >
+          <i className="fa fa-close"></i> Clear Filter
+        </button>
+      )}
+    </div>
   )
 }

@@ -1,143 +1,164 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import FeatEntry from "./FeatEntry"
 import FeatSelection from "./FeatSelection"
 import { Modal } from "../../_globalComponents"
 import { Card } from "./Card"
+import { SubHeading } from "./SubHeading"
+import { PlaceholderText } from "./PlaceholderText"
+import { PF2CharacterContext } from "src/context"
 
-const FeatsSection = (props) => {
+const FeatsSection = () => {
+  const { character, selectFeat, deleteFeat } = useContext(
+    PF2CharacterContext
+  )
   const [showFeatSelection, setShowFeatSelection] = useState(false)
-
   const [featKey, setFeatKey] = useState("")
-
   const [numMiscFeats, setNumMiscFeats] = useState(0)
 
   useEffect(() => {
-    let miscFeats = props.character.feats.filter((feat) =>
+    let miscFeats = character.feats.filter((feat) =>
       feat.type.includes("misc")
     )
-
     setNumMiscFeats(miscFeats.length + 1)
-  }, [props.character.feats])
+  }, [character.feats])
 
   const openFeatSelection = (featKey) => {
     setFeatKey(featKey)
     setShowFeatSelection(true)
   }
 
-  const selectFeat = (feat) => {
-    props.selectFeat(featKey, feat)
+  const localSelectFeat = (feat) => {
+    selectFeat(featKey, feat)
     setShowFeatSelection(false)
   }
 
+  const hasClass = !!character.class.name,
+    hasAncestry = !!character.ancestry.name
+
+  const classFeats = [],
+    ancestryFeats = [],
+    skillFeats = [],
+    miscFeats = []
+
+  character.feats.forEach((feat) => {
+    let [type, level] = feat.type.split("_")
+    if (level > character.level) return
+    switch (type) {
+      case "class":
+        classFeats.push(feat)
+        break
+      case "ancestry":
+        ancestryFeats.push(feat)
+        break
+      case "skill":
+        skillFeats.push(feat)
+        break
+      default:
+        miscFeats.push(feat)
+        break
+    }
+  })
+
   return (
-    <Card title="Feats">
-      <div className="pf-section__body pf-section__body--pad">
-        <p className="mb-2" style={{ fontSize: ".75rem" }}>
+    <Card title="Feats" className="pb-4">
+      <PlaceholderText>
+        <span className="block pt-2">
           Feats added here <b>do not</b> modify any stats on this character
           sheet. Modifiers and proficiencies have to be added manually for
           now.
-        </p>
-        <h3 className="c-boost-group__heading">Ancestry Feats</h3>
-        {!props.character.ancestry.name ? (
-          <p className="col u-placeholder-text">
-            choose an ancestry above
-          </p>
+        </span>
+      </PlaceholderText>
+
+      <SubHeading>Ancestry Feats</SubHeading>
+      <div>
+        {!hasAncestry ? (
+          <PlaceholderText>choose an ancestry above</PlaceholderText>
         ) : (
-          props.character.feats.map((feat, i) => {
-            let [type, level] = feat.type.split("_")
-            if (props.character.level >= level && type === "ancestry") {
-              return (
-                <FeatEntry
-                  key={i}
-                  label={"Lv" + level}
-                  feat={feat}
-                  addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => props.deleteFeat(feat.type)}
-                />
-              )
-            } else {
-              return null
-            }
-          })
-        )}
-        <h3 className="c-boost-group__heading mt-3">Class Feats</h3>
-        {!props.character.class.name ? (
-          <p className="col u-placeholder-text">choose a class above</p>
-        ) : (
-          props.character.feats.map((feat, i) => {
-            let [type, level] = feat.type.split("_")
-            if (props.character.level >= level && type === "class") {
-              return (
-                <FeatEntry
-                  key={i}
-                  label={"Lv" + level}
-                  feat={feat}
-                  addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => props.deleteFeat(feat.type)}
-                />
-              )
-            } else {
-              return null
-            }
-          })
-        )}
-        <h3 className="c-boost-group__heading mt-3">Skill Feats</h3>
-        {!props.character.class.name ? (
-          <p className="col u-placeholder-text">choose a class above</p>
-        ) : props.character.level === 1 ? (
-          <p className="col u-placeholder-text">
-            skill feats start at level 2
-          </p>
-        ) : (
-          props.character.feats.map((feat, i) => {
-            let [type, level] = feat.type.split("_")
-            if (props.character.level >= level && type === "skill") {
-              return (
-                <FeatEntry
-                  key={i}
-                  label={"Lv" + level}
-                  feat={feat}
-                  addFeat={() => openFeatSelection(feat.type)}
-                  removeFeat={() => props.deleteFeat(feat.type)}
-                />
-              )
-            } else {
-              return null
-            }
-          })
-        )}
-        <h3 className="c-boost-group__heading mt-3">Other Feats</h3>
-        {props.character.feats.map((feat, i) => {
-          if (feat.name && feat.type.includes("misc")) {
+          ancestryFeats.map((feat, i) => {
             return (
               <FeatEntry
                 key={i}
-                label=""
+                label={"Lv" + feat.type.split("_")[1]}
                 feat={feat}
                 addFeat={() => openFeatSelection(feat.type)}
-                removeFeat={() => props.deleteFeat(feat.type)}
+                removeFeat={() => deleteFeat(feat.type)}
               />
             )
-          } else {
-            return null
-          }
+          })
+        )}
+      </div>
+
+      <SubHeading>Class Feats</SubHeading>
+      <div>
+        {!hasClass ? (
+          <PlaceholderText>choose a class above</PlaceholderText>
+        ) : (
+          classFeats.map((feat, i) => {
+            return (
+              <FeatEntry
+                key={i}
+                label={"Lv" + feat.type.split("_")[1]}
+                feat={feat}
+                addFeat={() => openFeatSelection(feat.type)}
+                removeFeat={() => deleteFeat(feat.type)}
+              />
+            )
+          })
+        )}
+      </div>
+
+      <SubHeading>Skill Feats</SubHeading>
+      <div>
+        {!hasClass ? (
+          <PlaceholderText>choose a class above</PlaceholderText>
+        ) : character.level === 1 ? (
+          <PlaceholderText>skill feats start at level 2</PlaceholderText>
+        ) : (
+          skillFeats.map((feat, i) => {
+            return (
+              <FeatEntry
+                key={i}
+                label={"Lv" + feat.type.split("_")[1]}
+                feat={feat}
+                addFeat={() => openFeatSelection(feat.type)}
+                removeFeat={() => deleteFeat(feat.type)}
+              />
+            )
+          })
+        )}
+      </div>
+
+      <SubHeading className="c-boost-group__heading mt-3">
+        Other Feats
+      </SubHeading>
+      <div>
+        {miscFeats.map((feat, i) => {
+          return (
+            <FeatEntry
+              key={i}
+              label=""
+              feat={feat}
+              addFeat={() => openFeatSelection(feat.type)}
+              removeFeat={() => deleteFeat(feat.type)}
+            />
+          )
         })}
         <FeatEntry
           label=""
           feat={{}}
           addFeat={() => openFeatSelection("misc_" + numMiscFeats)}
-        />
+        />{" "}
       </div>
       <Modal
         show={showFeatSelection}
-        large
         closeFunction={() => setShowFeatSelection(false)}
         title="Feats"
+  
       >
         <FeatSelection
-          selectFeat={selectFeat}
+          selectFeat={localSelectFeat}
           featKey={featKey}
-          character={props.character}
+          character={character}
         />
       </Modal>
     </Card>
