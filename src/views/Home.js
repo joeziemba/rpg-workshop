@@ -5,7 +5,7 @@ import castle_png from "../_assets/img/castle.png"
 
 const Home = () => {
   return (
-    <div className={"flex flex-wrap justify-evenly mt-10 pt-5 "}>
+    <div className={"flex flex-wrap justify-evenly mt-6 pt-5 "}>
       <AppCard
         color="red-900"
         content="Homebrewing a monster or NPCs for a D&D game? Turn all those custom stats into a legit statblock! This generator will format everything to look like the statblocks from Dungeons &amp; Dragons fifth edition."

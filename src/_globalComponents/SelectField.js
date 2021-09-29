@@ -5,33 +5,14 @@ const SelectField = (props) => {
     return <option key={opt}>{opt}</option>
   })
 
-  if (props.flat) {
-    return (
-      <div className={`form-group ${props.center ? "text-center" : ""}`}>
-        <label htmlFor="exampleFormControlSelect1">{props.label}</label>
-        <select
-          className={`form-control form-control-sm ${
-            props.center ? "text-center" : ""
-          }`}
-          id="exampleFormControlSelect1"
-          value={props.value}
-          onChange={props.onChange}
-          name={props.fieldName}
-        >
-          {options}
-        </select>
-      </div>
-    )
-  }
-
   return (
     <div className={`form-group ${props.center ? "text-center" : ""}`}>
-      <label htmlFor="exampleFormControlSelect1">{props.label}</label>
+      <label className="" htmlFor={props.fieldName}>{props.label}</label>
       <select
-        className={`form-control form-control-sm ${
+        className={`py-1 px-2 border rounded-md text-sm block w-full border-gray-300 ${
           props.center ? "text-center" : ""
         }`}
-        id="exampleFormControlSelect1"
+        id={props.fieldName}
         value={props.value}
         onChange={props.onChange}
         name={props.fieldName}

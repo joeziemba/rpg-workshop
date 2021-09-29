@@ -1,4 +1,6 @@
 import React from "react"
+import { Modal } from "src/_globalComponents"
+import NavButton from "src/_globalComponents/NavButton"
 import { UserContext } from "../../context"
 import { firebase } from "../../Firebase"
 
@@ -44,73 +46,56 @@ class GeneratorNav extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand secondary-nav fixed-top">
-        <span className="navbar-brand mb-0 h1">Statblock Generator</span>
-        <div className=" navbar-collapse " id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <button
-                className="btn btn-sm mr-3 mt-1 nav-button"
-                onClick={this.props.reset}
-              >
-                New
-              </button>
-            </li>
-            {this.context.currentUser && (
-              <>
-                <li className="nav-item">
-                  <button
-                    className="btn btn-sm mr-3 mt-1 nav-button"
-                    onClick={() => {
-                      this.saveStatblock(this.props.statblock)
-                    }}
-                  >
-                    Save
-                  </button>
-                </li>
+      <nav className="fixed w-full px-3 md:px-8 py-3 bg-red-900 text-white flex z-50">
+        <h1 className="m-0 mr-8 text-2xl leading-tight">
+          Statblock Generator
+        </h1>
 
-                <li className="nav-item">
-                  <button
-                    className="btn btn-sm mr-3 mt-1 nav-button"
-                    onClick={this.getCharacters}
-                  >
-                    Open
-                  </button>
-                </li>
-              </>
-            )}
+        <NavButton color="red-900" onClick={this.props.reset}>
+          New
+        </NavButton>
 
-            <li className="nav-item">
-              <button
-                className="btn btn-sm mr-3 mt-1 nav-button"
-                onClick={this.props.toggleExportView}
-              >
-                {this.props.exportView ? "Generator" : "Export"} View
-              </button>
-            </li>
-          </ul>
-        </div>
-        {this.state.showOpenModal && (
-          <div className="c-modal">
-            <div className="c-modal__window">
-              <h2 className="c-modal__header">Choose a Statblock</h2>
-              {this.state.statblocks.map((statblock, i) => {
-                return (
-                  <button
-                    key={i}
-                    className="c-modal-button-row"
-                    onClick={() => this.selectStatblock(statblock)}
-                  >
-                    {statblock.name}
-                  </button>
-                )
-              })}
-              <button className="c-modal__close" onClick={this.closeModal}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
+        {this.context.currentUser && (
+          <React.Fragment>
+            <NavButton
+              color="red-900"
+              onClick={() => {
+                this.saveStatblock(this.props.statblock)
+              }}
+            >
+              Save
+            </NavButton>
+
+            <NavButton color="red-900" onClick={this.getCharacters}>
+              Open
+            </NavButton>
+            <NavButton
+              color="red-900"
+              onClick={this.props.toggleExportView}
+            >
+              {this.props.exportView ? "Generator" : "Export"} View
+            </NavButton>
+          </React.Fragment>
         )}
+
+        <Modal
+          show={this.state.showOpenModal}
+          title="Choose a Statblock"
+          color="red-900"
+          closeFunction={this.closeModal}
+        >
+          {this.state.statblocks.map((statblock, i) => {
+            return (
+              <button
+                key={i}
+                className="text-left block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
+                onClick={() => this.selectStatblock(statblock)}
+              >
+                {statblock.name}
+              </button>
+            )
+          })}
+        </Modal>
       </nav>
     )
   }

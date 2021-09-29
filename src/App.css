@@ -1,19 +1,46 @@
-@import url("//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900|Lora:400,700|Vollkorn:400,600,700|Inknut+Antiqua:300,400,600,800");
+@import url("//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900|Vollkorn:400,600,700");
 
 html,
 body,
 #root {
-  height: 100vh;
+  font-family: "Lato", Helvetica, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-y: overlay;
+  line-height: 125%;
 }
 
-.c-site-container {
-  font-family: "Lato", Helvetica, sans-serif;
-  top: 4rem;
-  position: absolute;
-  left: 0;
-  right: 0;
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.scroller {
+  overflow-y: overlay;
+}
+
+.scroller::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.fancy-font {
+  font-family: "Vollkorn", Georgia, Times, serif;
+}
+
+option {
+  text-align: left;
+  background-color: white;
+  color: black;
 }
 
 @import "./StatblockGenerator/StatblockGenerator.css";
-@import "./_styles/Modal.css";
 @import "./_styles/animations.css";

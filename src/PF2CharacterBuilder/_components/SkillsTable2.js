@@ -45,18 +45,20 @@ const SkillsTable = () => {
               />
             </>
           )}
-          {upperLevelBoosts.map((boost, i) => {
-            if (boost.level > character.level) return null
-            return (
-              <>
-                <SubHeading>Lv {boost.level} Boost</SubHeading>
-                <FreeSkillBoosts
-                  boostSource={boost.source}
-                  boostLevel={boost.level}
-                />
-              </>
-            )
-          })}
+          <div className="flex flex-wrap">
+            {upperLevelBoosts.map((boost, i) => {
+              if (boost.level > character.level) return null
+              return (
+                <div key={i} style={{ flex: "0 0 25%" }}>
+                  <SubHeading>Lv {boost.level} Boost</SubHeading>
+                  <FreeSkillBoosts
+                    boostSource={boost.source}
+                    boostLevel={boost.level}
+                  />
+                </div>
+              )
+            })}
+          </div>
         </div>
       )}
 

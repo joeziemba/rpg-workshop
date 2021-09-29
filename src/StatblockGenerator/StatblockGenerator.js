@@ -83,11 +83,13 @@ const initialState = {
   legendaryActions: [
     {
       id: "1",
-      title: "Sample",
-      content: "This is a sample feature, change my content!",
+      title: "Legendary",
+      content: "This is a sample legendary action, change my content!",
     },
   ],
 }
+
+export const StatblockContext = React.createContext()
 class StatblockGenerator extends Component {
   constructor(props) {
     super(props)
@@ -363,9 +365,22 @@ class StatblockGenerator extends Component {
   render() {
     return (
       <React.Fragment>
-        <div
-          className="container-fluid"
-          style={{ position: "relative", background: "#f5f5f5" }}
+        <StatblockContext.Provider
+          value={{
+            stats: this.state,
+            updateState: this.updateState,
+            updateAbility: this.updateAbility,
+            updateAC: this.updateAC,
+            updateHP: this.updateHP,
+            updatePropertyList: this.updatePropertyList,
+            addFeature: this.addFeature,
+            updateFeature: this.updateFeature,
+            addAction: this.addAction,
+            updateAction: this.updateAction,
+            deleteAction: this.deleteAction,
+            deleteFeature: this.deleteFeature,
+            addLegendaryAction: this.addLegendaryAction,
+          }}
         >
           <GeneratorNav
             statblock={this.state}
@@ -375,28 +390,32 @@ class StatblockGenerator extends Component {
             setStatblock={this.setStatblock}
             history={this.props.history}
           />
-          {this.state.exportView && (
-            <Row>
-              <div className="col">
-                <div className="statblock-container--export">
-                  <div className="statblock-container__inner--export">
-                    <StatBlockDisplay stats={this.state} export />
+          <div className="" style={{ position: "relative" }}>
+            {this.state.exportView && (
+              <Row>
+                <div className="flex-1">
+                  <div className="statblock-container--export">
+                    <div className="statblock-container__inner--export">
+                      <StatBlockDisplay stats={this.state} export />
+                    </div>
+                  </div>
+                  <div id="exportInstructions">
+                    Recommended method of export:
+                    <br />
+                    <i>
+                      File &lsquo;Print&rsquo; &gt; &lsquo;Save as
+                      PDF&rsquo;
+                    </i>
                   </div>
                 </div>
-                <div id="exportInstructions">
-                  Recommended method of export:
-                  <br />
-                  <i>
-                    File &lsquo;Print&rsquo; &gt; &lsquo;Save as PDF&rsquo;
-                  </i>
-                </div>
-              </div>
-            </Row>
-          )}
-          {!this.state.exportView && (
-            <div className="row" style={{ background: "#f5f5f5" }}>
-              <div className="col-12 col-md-6">
-                <div className="statblock-form-container">
+              </Row>
+            )}
+            {!this.state.exportView && (
+              <div className="flex flex-wrap mt-12">
+                <div
+                  className="flex-1 mt-8 "
+                  style={{ minWidth: "410px" }}
+                >
                   <StatBlockForm
                     stats={this.state}
                     updateState={this.updateState}
@@ -413,17 +432,17 @@ class StatblockGenerator extends Component {
                     addLegendaryAction={this.addLegendaryAction}
                   />
                 </div>
-              </div>
-              <div className="col-12 col-md-6">
-                <div className="statblock-container">
-                  <div className="statblock-container__inner">
-                    <StatBlockDisplay stats={this.state} />
+                <div className="flex-1" style={{ minWidth: "300px" }}>
+                  <div className="statblock-container">
+                    <div className="statblock-container__inner">
+                      <StatBlockDisplay stats={this.state} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        </StatblockContext.Provider>
       </React.Fragment>
     )
   }

@@ -4,6 +4,7 @@ import { UserContext } from "../../context"
 import { firebase } from "../../Firebase"
 import { toast } from "react-toastify"
 import NavButton from "../../_globalComponents/NavButton"
+import { Modal } from "src/_globalComponents"
 
 class SubNav extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class SubNav extends React.Component {
 
   render() {
     return (
-      <div className="fixed w-full px-3 md:px-8 py-3 bg-navy-700 text-white flex z-50">
+      <div className="fixed w-full px-3 md:px-8 py-3 bg-navy-700 text-white flex z-10">
         <h1 className="m-0 mr-8 text-2xl leading-tight">
           Character Builder
         </h1>
@@ -67,26 +68,24 @@ class SubNav extends React.Component {
         )}
 
         {this.state.showOpenModal && (
-          <div className="c-modal">
-            <div className="c-modal__window">
-              <h2 className="c-modal__header">Choose a Character</h2>
-              {this.state.characters.map((character) => {
-                return (
-                  <Link
-                    key={character.uid}
-                    className="c-modal-button-row"
-                    to={"/pf2/character-builder/" + character.uid}
-                    onClick={this.closeModal}
-                  >
-                    {character.name}
-                  </Link>
-                )
-              })}
-              <button className="c-modal__close" onClick={this.closeModal}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
+          <Modal
+            title="Choose a Character"
+            show={this.state.showOpenModal}
+            closeFunction={this.closeModal}
+          >
+            {this.state.characters.map((character) => {
+              return (
+                <Link
+                  key={character.uid}
+                  className="block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
+                  to={"/pf2/character-builder/" + character.uid}
+                  onClick={this.closeModal}
+                >
+                  {character.name}
+                </Link>
+              )
+            })}
+          </Modal>
         )}
       </div>
     )

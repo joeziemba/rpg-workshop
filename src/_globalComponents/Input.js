@@ -2,13 +2,15 @@ import React from "react"
 
 const Input = (props) => {
   return (
-    <div className="form-group">
+    <div className={props.className}>
       {!props.hideLabel && (
         <label htmlFor={props.id ?? props.fieldName}>{props.label}</label>
       )}
       <input
         type={props.type}
-        className="form-control form-control-sm"
+        className={
+          "py-1 px-2 border rounded-md text-sm block w-full border-gray-300 "
+        }
         id={props.id ?? props.fieldName}
         aria-describedby={`${props.id}Help`}
         placeholder={props.placeholder}

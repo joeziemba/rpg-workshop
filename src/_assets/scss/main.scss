@@ -1,21 +1,4 @@
-@import "./_normalize";
+// @import "./_normalize";
 @import "./_variables";
-
-// Base Typography
-body {
-  font-family: "Lato", Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 175%;
-}
-
-option {
-  text-align: left;
-  background-color: white;
-  color: black;
-}
-
 @import "./toast.scss";
-@import "./modal-button-row.scss";
-@import "./pf/pathfinder.scss";
-@import "./pf/pf-feat-entry.scss";
-@import "./pf/pf-feat-selection.scss";
+@import "./pf/statbox.scss";

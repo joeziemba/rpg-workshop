@@ -1,15 +1,12 @@
 .c-statbox {
   position: relative;
-  // display: inline-block;
   text-align: center;
-  // width: 34px;
 
   &__stat {
     display: block;
-    // font-size: 1.2rem;
+    font-size: 1.3333rem;
     margin: 0;
-    margin-bottom: 0.25rem;
-    padding: 0.25rem 0;
+    padding-top: 0.25rem;
     line-height: 1;
     font-family: $inknut-font;
   }
@@ -21,9 +18,6 @@
     font-size: 0.6rem;
     text-transform: uppercase;
     border-top: 1px solid $color-n4;
-    // background-color: $pf-light-gray;
-
-    color: #111;
   }
 
   &__select {
@@ -40,7 +34,6 @@
     border: none;
     & .c-statbox__title {
       border: none;
-      // color: $color-n4;
       font-style: italic;
     }
   }
