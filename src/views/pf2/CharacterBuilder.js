@@ -61,11 +61,6 @@ class CharacterBuilder extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    localStorage.setItem(
-      "pf2-character",
-      JSON.stringify(this.state.character)
-    )
-
     if (
       prevProps.match.params.characterId !==
       this.props.match.params.characterId
@@ -408,7 +403,7 @@ class CharacterBuilder extends React.Component {
               character={character}
               setCharacter={this.setCharacter}
             />
-            <div className="pt-20 max-w-6xl mx-auto">
+            <div className="pt-20 px-2 max-w-5xl mx-auto">
               <CharacterBasics
                 selectAncestry={this.selectAncestry}
                 selectBackground={this.selectBackground}
@@ -450,12 +445,20 @@ class CharacterBuilder extends React.Component {
             this content. This website is not published, endorsed, or
             specifically approved by Paizo Inc. For more information about
             Paizo&apos;s Community Use Policy, please visit{" "}
-            <a className="font-bold text-white" href="http://www.paizo.com/communityuse" target="__blank">
+            <a
+              className="font-bold text-white"
+              href="http://www.paizo.com/communityuse"
+              target="__blank"
+            >
               paizo.com/communityuse
             </a>
             . For more information about Paizo Inc. and Paizo products,
             please visit{" "}
-            <a className="font-bold text-white" href="http://www.paizo.com" target="__blank">
+            <a
+              className="font-bold text-white"
+              href="http://www.paizo.com"
+              target="__blank"
+            >
               paizo.com
             </a>
             .

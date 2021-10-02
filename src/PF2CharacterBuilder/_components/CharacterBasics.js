@@ -116,9 +116,8 @@ class CharacterBasics extends React.Component {
             </Card>
           </div>
           <div className="flex-full md:flex-1">
-            {/* Basic Stats */}
             <Card title="Stats">
-              <div className="flex-1 flex items-center">
+              <div className="flex-initial flex items-center">
                 <div className="flex-1">
                   <Statbox stat={character.level} title="Level" large />
                 </div>
@@ -130,7 +129,7 @@ class CharacterBasics extends React.Component {
                 </div>
               </div>
 
-              <div className="flex-1 flex items-center">
+              <div className="flex-initial flex items-center">
                 <div className="flex-1">
                   <Statbox
                     large
@@ -172,7 +171,6 @@ class CharacterBasics extends React.Component {
               <AC character={character} />
             </Card>
           </div>
-          {/* Saves */}
           <div className="flex-full md:flex-1">
             <Card title="Saves">
               <SaveRow saveType="fortitude" character={character} />
@@ -207,11 +205,11 @@ const AC = ({ character }) => {
   }
   let hasClass = !!character.class.name
   return (
-    <div className="flex-1 flex items-center">
+    <div className="flex-initial flex items-center">
       <div className="flex-1">
         <Statbox stat={calculateAC(character)} title="AC" large />
       </div>
-      <div className="flex-1 flex-grow-2 flex items-center relative mr-4">
+      <div className="flex-1 flex-grow-2 flex items-center relative mr-2">
         <span className="mr-2">=</span>
         <Statbox className="flex-1" stat={10} title="Base" />
         <span className="mx-2">+</span>
@@ -250,7 +248,7 @@ const AC = ({ character }) => {
             * Trained in Unarmored Defense
           </div>
         ) : null}
-      </div>{" "}
+      </div>
     </div>
   )
 }

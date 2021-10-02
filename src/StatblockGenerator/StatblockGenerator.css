@@ -162,15 +162,7 @@ h4.form-header {
   font-size: 0.9rem;
 }
 
-input {
-  /* font-size: 0.8rem; */
-}
-
-select {
-  /* font-size: 0.8rem; */
-}
-
-label {
+.statblock label {
   /* font-size: 0.8rem; */
   margin-bottom: 0.5rem;
   display: inline-block;

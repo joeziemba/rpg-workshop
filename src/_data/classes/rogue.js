@@ -126,7 +126,6 @@ export const Rogue = {
     {
       skill: { id: "Free" },
       source: nameOfClass,
-
       level: 1,
     },
     {
