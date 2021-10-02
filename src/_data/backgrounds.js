@@ -1065,7 +1065,7 @@ export const Backgrounds = {
         proficiency: Proficiencies.TRAINED,
         isStatic: true,
         level: 1,
-        skill: Skills.Athletics, //TODO: Implement choice of skills from backgrounds
+        skill: Skills.Athletics,
         source: "MartialDisciple",
         id: "MartialDisciple1",
       },
@@ -1378,7 +1378,7 @@ export const Backgrounds = {
         proficiency: Proficiencies.TRAINED,
         isStatic: true,
         level: 1,
-        skill: Skills.Arcana, //TODO: Choices
+        skill: Skills.Arcana,
         source: "Scholar",
         id: "Scholar1",
       },

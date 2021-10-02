@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
-import NavButton from "src/_globalComponents/NavButton"
-import { Input } from "src/_globalComponents"
-import { InputFlat } from "../../_globalComponents"
-import { StatblockContext } from "../StatblockGenerator"
-import { FeatureBlock } from "src/StatblockGenerator/_components/FeatureBlock"
+import NavButton from "_globalComponents/NavButton"
+import { Input } from "_globalComponents"
+import { StatblockContext } from "context"
+import { FeatureBlock } from "StatblockGenerator/_components/FeatureBlock"
 
 export const LegendaryActionsForm = () => {
   const { stats, updateAction, deleteAction, updateState, addAction } =
@@ -12,7 +11,10 @@ export const LegendaryActionsForm = () => {
   return (
     <>
       <div className="mb-4">
-        <label className="col-span-2 mb-0 mr-4" htmlFor="legendaryActPerRound">
+        <label
+          className="col-span-2 mb-0 mr-4"
+          htmlFor="legendaryActPerRound"
+        >
           Legendary Actions Per Round:
         </label>
         <Input

@@ -1,5 +1,5 @@
 import React from "react"
-import { PF2CharacterContext } from "../../context"
+import { PF2CharacterContext } from "context"
 import { SaveRow } from "./SaveRow"
 import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
@@ -192,7 +192,7 @@ const AC = ({ character }) => {
   function calculateAC(character) {
     let ac = 10
     ac += character.abilityMods.Dexterity
-    // TODO this Will: need to be refactored to enable proficiencies with armor
+    // TODO this will need to be refactored to enable proficiencies with armor
 
     if (
       character.class.defenses &&

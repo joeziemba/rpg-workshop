@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
 import Statbox from "./Statbox"
-import { Abilities } from "../../_data/abilities"
+import { Abilities } from "_data/abilities"
 import TEMLbuttons from "./TEMLbuttons"
 import { Card } from "./Card"
 import { FreeSkillBoosts } from "./FreeSkillBoosts"
 import { SubHeading } from "./SubHeading"
-import { PF2CharacterContext } from "../../context"
+import { PF2CharacterContext } from "context"
 
 const SkillsTable = () => {
   const { character } = useContext(PF2CharacterContext)

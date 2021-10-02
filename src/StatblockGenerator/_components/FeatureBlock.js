@@ -1,5 +1,5 @@
 import React from "react"
-import { Input, Textarea } from "src/_globalComponents"
+import { Input, Textarea } from "_globalComponents"
 import "./FeatureBlock.scss"
 
 export const FeatureBlock = ({

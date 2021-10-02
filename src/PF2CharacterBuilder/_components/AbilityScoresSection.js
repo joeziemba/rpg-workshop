@@ -1,6 +1,6 @@
 import React from "react"
 import _ from "lodash"
-import { Abilities } from "../../_data/abilities"
+import { Abilities } from "_data/abilities"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Modal } from "../../_globalComponents"
+import { Modal } from "_globalComponents"
 
 const NewFeatureModal = () => {
   const [show, setShow] = useState(false)
@@ -14,7 +14,7 @@ const NewFeatureModal = () => {
   }, [])
   return (
     <Modal
-      show={false}
+      show={show}
       title="Version 1.1 is here!"
       closeFunction={onClose}
     >

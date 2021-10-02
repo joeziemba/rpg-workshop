@@ -1,20 +1,16 @@
 .a-slide-enter {
-  /* transform: translateY(-100%); */
   max-height: 0;
 }
 .a-slide-enter-active {
-  /* transform: translateY(0); */
   max-height: 50vh;
 
   transition: transform 400ms;
   transition: max-height 400ms;
 }
 .a-slide-exit {
-  /* transform: translateY(0); */
   max-height: 50vh;
 }
 .a-slide-exit-active {
-  /* transform: translateY(-100%); */
   max-height: 0;
 
   transition: transform 400ms;

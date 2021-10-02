@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { Column, Input, Row, SelectField } from "src/_globalComponents"
-import { StatblockContext } from "../StatblockGenerator"
+import { Column, Input, Row, SelectField } from "_globalComponents"
+import { StatblockContext } from "context"
 
 export const BasicsForm = () => {
   const { stats, updateState, updateAC, updateHP } =

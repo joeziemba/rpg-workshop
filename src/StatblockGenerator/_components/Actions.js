@@ -1,8 +1,7 @@
 import React, { useContext } from "react"
-import NavButton from "src/_globalComponents/NavButton"
+import NavButton from "_globalComponents/NavButton"
 
-import { InputFlat } from "../../_globalComponents"
-import { StatblockContext } from "../StatblockGenerator"
+import { StatblockContext } from "context"
 import AttackForm from "./AttackForm"
 import { FeatureBlock } from "./FeatureBlock"
 
@@ -39,21 +38,24 @@ export const Actions = ({ legendary }) => {
           className="mr-2"
           onClick={() => addAction("General")}
         >
-          <i className="fa fa-plus mr-2" />Action
+          <i className="fa fa-plus mr-2" />
+          Action
         </NavButton>
         <NavButton
           color="red-900"
           className="mr-2"
           onClick={() => addAction("Melee")}
         >
-          <i className="fa fa-plus mr-2" />Melee Attack
+          <i className="fa fa-plus mr-2" />
+          Melee Attack
         </NavButton>
         <NavButton
           color="red-900"
           className=""
           onClick={() => addAction("Ranged")}
         >
-          <i className="fa fa-plus mr-2" />Ranged Attack
+          <i className="fa fa-plus mr-2" />
+          Ranged Attack
         </NavButton>
       </div>
     </React.Fragment>

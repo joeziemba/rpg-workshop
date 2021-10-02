@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react"
 import FeatEntry from "./FeatEntry"
 import FeatSelection from "./FeatSelection"
-import { Modal } from "../../_globalComponents"
+import { Modal } from "_globalComponents"
 import { Card } from "./Card"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
-import { PF2CharacterContext } from "src/context"
+import { PF2CharacterContext } from "context"
 
 const FeatsSection = () => {
   const { character, selectFeat, deleteFeat } = useContext(
