@@ -52,14 +52,14 @@ export class GeneratorNav extends React.Component {
             Statblock Generator
           </h1>
 
-          <NavButton color="red-900" onClick={this.props.reset}>
+          <NavButton color="red" onClick={this.props.reset}>
             New
           </NavButton>
 
           {this.context.currentUser && !this.props.exportView && (
             <React.Fragment>
               <NavButton
-                color="red-900"
+                color="red"
                 onClick={() => {
                   this.saveStatblock(this.props.statblock)
                 }}
@@ -67,19 +67,19 @@ export class GeneratorNav extends React.Component {
                 Save
               </NavButton>
 
-              <NavButton color="red-900" onClick={this.getCharacters}>
+              <NavButton color="red" onClick={this.getCharacters}>
                 Open
               </NavButton>
             </React.Fragment>
           )}
-          <NavButton color="red-900" onClick={this.props.toggleExportView}>
+          <NavButton color="red" onClick={this.props.toggleExportView}>
             {this.props.exportView ? "Generator" : "Export"}
           </NavButton>
 
           <Modal
             show={this.state.showOpenModal}
             title="Choose a Statblock"
-            color="red-900"
+            color="bg-red-900"
             closeFunction={this.closeModal}
           >
             {this.state.statblocks.map((statblock, i) => {

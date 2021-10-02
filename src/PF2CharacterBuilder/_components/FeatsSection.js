@@ -147,7 +147,7 @@ const FeatsSection = () => {
           label=""
           feat={{}}
           addFeat={() => openFeatSelection("misc_" + numMiscFeats)}
-        />{" "}
+        />
       </div>
       <Modal
         show={showFeatSelection}

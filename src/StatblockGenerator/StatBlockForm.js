@@ -10,7 +10,7 @@ import { BasicsForm } from "./FormSections/BasicsForm"
 
 const StatBlockForm = (props) => {
   return (
-    <div id="StatBlockForm" className="w-11/12 mx-auto text-sm">
+    <div id="StatBlockForm" className="w-11/12 text-sm">
       <Accordion title="Basic Details" open>
         <BasicsForm />
       </Accordion>

@@ -6,7 +6,8 @@ import castle_png from "_assets/img/castle.png"
 const Home = () => {
   return (
     <div
-      className={"flex flex-wrap justify-around mt-6 max-w-5xl mx-auto"}
+      className={"flex flex-wrap justify-around max-w-5xl mx-auto"}
+      style={{ marginTop: "5%" }}
     >
       <AppCard
         buttonTextColor="text-red-900"

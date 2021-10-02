@@ -5,7 +5,7 @@ import cn from "classnames"
 const Modal = ({
   show,
   large,
-  color = "navy-700",
+  color = "bg-slate-500",
   closeFunction,
   title,
   children,
@@ -54,7 +54,7 @@ const Modal = ({
       <FocusTrap>
         <div className={containerClasses}>
           <h2
-            className={`pl-8 text-white text-2xl flex justify-between items-center bg-${color}`}
+            className={`pl-8 text-white text-2xl flex justify-between items-center ${color}`}
           >
             <span>{title}</span>
             <button

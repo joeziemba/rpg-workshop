@@ -39,18 +39,18 @@ class SubNav extends React.Component {
     return (
       <div className="fixed w-full bg-navy-700 text-white z-10 shadow-md">
         <div className="max-w-5xl mx-auto px-8 py-2 flex">
-          <h1 className="m-0 mr-8 text-2xl leading-tight">
+          <h1 className="flex-1 m-0 mr-8 text-2xl leading-tight">
             Character Builder
           </h1>
 
-          <NavButton color="navy-700" onClick={this.props.reset}>
+          <NavButton color="navy" onClick={this.props.reset}>
             {this.context.currentUser ? "New" : "Clear Sheet"}
           </NavButton>
 
           {this.context.currentUser && (
             <React.Fragment>
               <NavButton
-                color="navy-700"
+                color="navy"
                 onClick={() => {
                   if (this.props.character.name) {
                     firebase.savePF2Character(this.props.character)
@@ -62,7 +62,7 @@ class SubNav extends React.Component {
                 Save
               </NavButton>
 
-              <NavButton color="navy-700" onClick={this.getCharacters}>
+              <NavButton color="navy" onClick={this.getCharacters}>
                 Open
               </NavButton>
             </React.Fragment>

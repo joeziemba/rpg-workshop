@@ -40,7 +40,7 @@ const TopBar = (props) => {
             {showMenu && (
               <div
                 // style={{ width: "110%" }}
-                className="shadow-xl leading-snug z-50 right-0 left-0 absolute bg-slate-700 transition-colors text-white top-12 shadow-md"
+                className="shadow-xl leading-snug z-20 right-0 left-0 absolute bg-slate-700 transition-colors text-white top-12 shadow-md"
                 onClick={() => setShowMenu(false)}
               >
                 <button

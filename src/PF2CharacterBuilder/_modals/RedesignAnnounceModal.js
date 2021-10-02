@@ -30,7 +30,6 @@ export const RedesignAnnounceModal = () => {
       show={show}
       title=""
       closeFunction={onClose}
-      color="slate-500"
     >
       <div className="text-base md:text-lg leading-normal px-8 py-6 md:px-16 md:py-8">
         <h3 className={headingClasses}>RPGWorkshop has a new look!</h3>

@@ -41,7 +41,7 @@ export const LegendaryActionsForm = () => {
       })}
 
       <NavButton
-        color="red-900"
+        color="red"
         className="mr-2 mt-2"
         onClick={() => addAction("General")}
       >

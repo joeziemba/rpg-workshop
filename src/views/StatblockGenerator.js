@@ -394,7 +394,7 @@ class StatblockGenerator extends Component {
             history={this.props.history}
           />
           <div
-            className="max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto px-8"
             style={{ position: "relative" }}
           >
             {this.state.exportView && (
@@ -418,7 +418,7 @@ class StatblockGenerator extends Component {
             {!this.state.exportView && (
               <div className="flex flex-wrap mt-12">
                 <div
-                  className="flex-1 mt-8 "
+                  className="flex-1 mt-8"
                   style={{ minWidth: "410px" }}
                 >
                   <StatBlockForm
@@ -437,7 +437,7 @@ class StatblockGenerator extends Component {
                     addLegendaryAction={this.addLegendaryAction}
                   />
                 </div>
-                <div className="flex-1" style={{ minWidth: "300px" }}>
+                <div className="flex-1" style={{ minWidth: "" }}>
                   <div className="statblock-container">
                     <div className="statblock-container__inner">
                       <StatBlockDisplay stats={this.state} />

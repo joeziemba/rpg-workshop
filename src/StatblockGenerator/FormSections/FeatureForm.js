@@ -18,7 +18,7 @@ export const FeatureForm = () => {
           />
         )
       })}
-      <NavButton color="red-900 mt-2" onClick={addFeature}>
+      <NavButton color="red mt-2" onClick={addFeature}>
         <i className="fa fa-plus mr-2" />
         Feature
       </NavButton>

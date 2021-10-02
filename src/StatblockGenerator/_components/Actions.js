@@ -34,7 +34,7 @@ export const Actions = ({ legendary }) => {
       })}
       <div className="mt-4">
         <NavButton
-          color="red-900"
+          color="red"
           className="mr-2"
           onClick={() => addAction("General")}
         >
@@ -42,7 +42,7 @@ export const Actions = ({ legendary }) => {
           Action
         </NavButton>
         <NavButton
-          color="red-900"
+          color="red"
           className="mr-2"
           onClick={() => addAction("Melee")}
         >
@@ -50,7 +50,7 @@ export const Actions = ({ legendary }) => {
           Melee Attack
         </NavButton>
         <NavButton
-          color="red-900"
+          color="red"
           className=""
           onClick={() => addAction("Ranged")}
         >
