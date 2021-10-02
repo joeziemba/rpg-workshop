@@ -390,23 +390,25 @@ class StatblockGenerator extends Component {
             setStatblock={this.setStatblock}
             history={this.props.history}
           />
-          <div className="" style={{ position: "relative" }}>
+          <div
+            className="max-w-5xl mx-auto"
+            style={{ position: "relative" }}
+          >
             {this.state.exportView && (
               <Row>
-                <div className="flex-1">
+                <div className="flex-1 flex-grow-2">
                   <div className="statblock-container--export">
                     <div className="statblock-container__inner--export">
                       <StatBlockDisplay stats={this.state} export />
                     </div>
                   </div>
-                  <div id="exportInstructions">
-                    Recommended method of export:
-                    <br />
-                    <i>
-                      File &lsquo;Print&rsquo; &gt; &lsquo;Save as
-                      PDF&rsquo;
-                    </i>
-                  </div>
+                </div>
+                <div className="flex-1 mt-20 text-xl leading-loose">
+                  To Export:
+                  <br />
+                  <i>
+                    File &lsquo;Print&rsquo; &gt; &lsquo;Save as PDF&rsquo;
+                  </i>
                 </div>
               </Row>
             )}

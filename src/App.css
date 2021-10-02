@@ -6,12 +6,17 @@ body,
   font-family: "Lato", Helvetica, sans-serif;
   min-height: 100vh;
   position: relative;
-  overflow-y: overlay;
   line-height: 125%;
+}
+
+body {
+  overflow: overlay;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
   width: 8px;
+  /* background-color: #f3f4f6; */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -37,7 +42,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 option {
-  text-align: left;
+  /* text-align: left; */
   background-color: white;
   color: black;
 }

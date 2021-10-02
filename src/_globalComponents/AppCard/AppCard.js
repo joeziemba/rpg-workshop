@@ -58,12 +58,13 @@ const AppCard = ({
   return (
     <div
       className={
-        "flex-initial w-10/12 md:w-5/12 " +
+        "flex-initial mx-4 md:mx-1 max-w-lg md:max-w-md " +
         "bg-white rounded-sm shadow-lg " +
         `border-t-4 border-${color} ` +
         "group hover:shadow-2xl transition-shadow duration-200 " +
         "mb-16 "
       }
+      style={{ flex: "1 1", minWidth:'380px' }}
     >
       <Link to={linkURL} className="block relative min-h-full">
         <div

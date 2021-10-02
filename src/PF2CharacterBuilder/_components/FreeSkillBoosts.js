@@ -12,13 +12,14 @@ export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {
   // Get skill boosts for the correct source and below character level
   let availableBoosts = skillBoosts.filter((boost) => {
     return (
-      boost.source === boostSource && (!boostLevel || boost.level <= level)
+      boost.source === boostSource &&
+      (!boostLevel || (boost.level <= level && boost.level === boostLevel))
     )
   })
 
   // Map skill boosts into select fields
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       {availableBoosts.map((boost, i) => {
         return (
           <div

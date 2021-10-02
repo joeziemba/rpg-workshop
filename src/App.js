@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useEffect, useState } from "react"
 import { Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -16,66 +16,55 @@ import { TopBar } from "./_globalComponents"
 import { firebase } from "./Firebase"
 import { RedesignAnnounceModal } from "./PF2CharacterBuilder/_modals/RedesignAnnounceModal"
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+const App = (props) => {
+  const [currentUser, setUser] = useState(null)
 
-    this.state = {
-      currentUser: null,
-    }
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     firebase.auth.onAuthStateChanged((currentUser) => {
-      currentUser
-        ? this.setState({ currentUser })
-        : this.setState({ currentUser: null })
+      currentUser ? setUser(currentUser) : setUser(null)
     })
-  }
+  }, [])
 
-  render() {
-    return (
-      <>
+  return (
+    <>
+      <UserContext.Provider
+        value={{
+          currentUser: currentUser,
+        }}
+      >
         <ToastContainer
           toastClassName="c-toast"
           autoClose={3000}
           hideProgressBar={true}
         />
-        {/* <RedesignAnnounceModal /> */}
-        <TopBar currentUser={this.state.currentUser} />
+        <RedesignAnnounceModal />
+        <TopBar currentUser={currentUser} />
         <div className="pt-12">
-          <UserContext.Provider
-            value={{
-              currentUser: this.state.currentUser,
-              registerCurrentUserToState: this.registerCurrentUserToState,
-            }}
-          >
-            <Route exact path="/" component={Home} />
-            <Route
-              exact
-              path="/dnd5e/statblock-generator/:characterId"
-              component={StatblockGenerator}
-            />
-            <Route
-              exact
-              path="/dnd5e/statblock-generator/"
-              component={StatblockGenerator}
-            />
-            <Route
-              exact
-              path="/pf2/character-builder/:characterId"
-              component={CharacterBuilder}
-            />
-            <Route
-              exact
-              path="/pf2/character-builder/"
-              component={CharacterBuilder}
-            />
-          </UserContext.Provider>
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/dnd5e/statblock-generator/:characterId"
+            component={StatblockGenerator}
+          />
+          <Route
+            exact
+            path="/dnd5e/statblock-generator/"
+            component={StatblockGenerator}
+          />
+          <Route
+            exact
+            path="/pf2/character-builder/:characterId"
+            component={CharacterBuilder}
+          />
+          <Route
+            exact
+            path="/pf2/character-builder/"
+            component={CharacterBuilder}
+          />
         </div>
-      </>
-    )
-  }
+      </UserContext.Provider>
+    </>
+  )
 }
 
 export default App

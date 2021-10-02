@@ -46,56 +46,55 @@ class GeneratorNav extends React.Component {
 
   render() {
     return (
-      <nav className="fixed w-full px-3 md:px-8 py-3 bg-red-900 text-white flex z-50">
-        <h1 className="m-0 mr-8 text-2xl leading-tight">
-          Statblock Generator
-        </h1>
+      <nav className="fixed w-full bg-red-900 text-white z-10">
+        <div className="max-w-5xl px-8 py-2 mx-auto flex">
+          <h1 className="flex-1 m-0 lg:mr-8 text-2xl leading-tight">
+            Statblock Generator
+          </h1>
 
-        <NavButton color="red-900" onClick={this.props.reset}>
-          New
-        </NavButton>
+          <NavButton color="red-900" onClick={this.props.reset}>
+            New
+          </NavButton>
 
-        {this.context.currentUser && (
-          <React.Fragment>
-            <NavButton
-              color="red-900"
-              onClick={() => {
-                this.saveStatblock(this.props.statblock)
-              }}
-            >
-              Save
-            </NavButton>
-
-            <NavButton color="red-900" onClick={this.getCharacters}>
-              Open
-            </NavButton>
-            <NavButton
-              color="red-900"
-              onClick={this.props.toggleExportView}
-            >
-              {this.props.exportView ? "Generator" : "Export"} View
-            </NavButton>
-          </React.Fragment>
-        )}
-
-        <Modal
-          show={this.state.showOpenModal}
-          title="Choose a Statblock"
-          color="red-900"
-          closeFunction={this.closeModal}
-        >
-          {this.state.statblocks.map((statblock, i) => {
-            return (
-              <button
-                key={i}
-                className="text-left block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
-                onClick={() => this.selectStatblock(statblock)}
+          {this.context.currentUser && !this.props.exportView && (
+            <React.Fragment>
+              <NavButton
+                color="red-900"
+                onClick={() => {
+                  this.saveStatblock(this.props.statblock)
+                }}
               >
-                {statblock.name}
-              </button>
-            )
-          })}
-        </Modal>
+                Save
+              </NavButton>
+
+              <NavButton color="red-900" onClick={this.getCharacters}>
+                Open
+              </NavButton>
+            </React.Fragment>
+          )}
+          <NavButton color="red-900" onClick={this.props.toggleExportView}>
+            {this.props.exportView ? "Generator" : "Export"}
+          </NavButton>
+
+          <Modal
+            show={this.state.showOpenModal}
+            title="Choose a Statblock"
+            color="red-900"
+            closeFunction={this.closeModal}
+          >
+            {this.state.statblocks.map((statblock, i) => {
+              return (
+                <button
+                  key={i}
+                  className="text-left block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
+                  onClick={() => this.selectStatblock(statblock)}
+                >
+                  {statblock.name}
+                </button>
+              )
+            })}
+          </Modal>
+        </div>
       </nav>
     )
   }

@@ -18,7 +18,7 @@ const FeatEntry = (props) => {
         </button>
       ) : (
         <div className="grid grid-cols-8 gap 2">
-          <span className="col-span-1 text-gray-400 pl-2">
+          <span className="text-lg col-span-1 text-gray-400 pl-2">s
             {props.label}
           </span>
           <span className="col-span-6">

@@ -153,7 +153,7 @@ const FeatsSection = () => {
         show={showFeatSelection}
         closeFunction={() => setShowFeatSelection(false)}
         title="Feats"
-  
+        large
       >
         <FeatSelection
           selectFeat={localSelectFeat}

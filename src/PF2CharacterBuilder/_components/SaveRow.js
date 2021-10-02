@@ -36,7 +36,7 @@ export const SaveRow = ({ character, saveType }) => {
 
   let totalBonus = proficiencyBonus + modifier
   return (
-    <div className="flex-1 flex items-center">
+    <div className="flex-initial flex items-center">
       <div className="flex-1">
         <Statbox large stat={totalBonus} title={saveName} />
       </div>
