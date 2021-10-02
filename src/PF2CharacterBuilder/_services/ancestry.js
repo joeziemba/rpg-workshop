@@ -1,5 +1,5 @@
 import { cloneDeep } from "lodash"
-import { Ancestries } from "../../_data/ancestries"
+import { Ancestries } from "_data/ancestries"
 
 export function applyNewAncestry(characterToUpdate, ancestryId) {
   // Make a clone to prevent side effect.

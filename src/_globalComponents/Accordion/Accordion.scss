@@ -1,8 +1,6 @@
 .accordion {
   margin: 0.5rem 0;
-  // padding: 0.75rem;
   position: relative;
-  overflow: hidden;
   background-color: white;
   border: 1px solid #eeeeee;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -10,7 +8,7 @@
 
 .accordion__inner {
   display: block;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   padding: 0.75rem;
   padding-top: 0;
 }

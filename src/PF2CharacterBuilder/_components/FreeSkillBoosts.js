@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { PF2CharacterContext } from "../../context"
-import { Skills } from "../../_data/skills"
+import { PF2CharacterContext } from "context"
+import { Skills } from "_data/skills"
 import { Select } from "./Select"
 
 export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {

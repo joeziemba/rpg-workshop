@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { Column, Row, SelectField } from "src/_globalComponents"
-import { StatblockContext } from "../StatblockGenerator"
+import { SelectField } from "_globalComponents"
+import { StatblockContext } from "context"
 
 export const AbilityScoresForm = () => {
   const abilities = ["str", "dex", "con", "int", "wis", "cha"]

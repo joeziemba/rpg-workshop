@@ -1,10 +1,10 @@
 import React from "react"
-import { Modal } from "src/_globalComponents"
-import NavButton from "src/_globalComponents/NavButton"
-import { UserContext } from "../../context"
-import { firebase } from "../../Firebase"
+import { Modal } from "_globalComponents"
+import NavButton from "_globalComponents/NavButton"
+import { UserContext } from "context"
+import { firebase } from "services/Firebase"
 
-class GeneratorNav extends React.Component {
+export class GeneratorNav extends React.Component {
   constructor(props) {
     super(props)
 

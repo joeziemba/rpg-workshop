@@ -1,22 +1,17 @@
-import React, { Component, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-import "./App.css"
-import "./_assets/css/main.css"
-import { UserContext } from "./context"
+import { UserContext } from "context"
 
-import { StatblockGenerator } from "./StatblockGenerator"
-import Home from "./views/Home"
-import CharacterBuilder from "./views/pf2/CharacterBuilder"
+import { CharacterBuilder, Home, StatblockGenerator } from "views"
 
-import { TopBar } from "./_globalComponents"
+import { TopBar } from "_globalComponents"
+import { firebase } from "services/Firebase"
+import { RedesignAnnounceModal } from "PF2CharacterBuilder/_modals/RedesignAnnounceModal"
 
-import { firebase } from "./Firebase"
-import { RedesignAnnounceModal } from "./PF2CharacterBuilder/_modals/RedesignAnnounceModal"
-
-const App = (props) => {
+const App = () => {
   const [currentUser, setUser] = useState(null)
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Property, PropertyBlock } from "../_globalComponents"
+import { Property, PropertyBlock } from "_globalComponents"
 
 class StatBlockDisplay extends React.Component {
   renderAbilities() {

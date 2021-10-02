@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { UserContext } from "../../context"
-import { firebase } from "../../Firebase"
+import { UserContext } from "context"
+import { firebase } from "services/Firebase"
 import { toast } from "react-toastify"
-import NavButton from "../../_globalComponents/NavButton"
-import { Modal } from "src/_globalComponents"
+import NavButton from "_globalComponents/NavButton"
+import { Modal } from "_globalComponents"
 
 class SubNav extends React.Component {
   constructor(props) {

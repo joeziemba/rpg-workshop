@@ -1,10 +1,10 @@
 import React from "react"
 import _ from "lodash"
-import { firebase } from "../../Firebase"
-import Classes from "../../_data/classes"
-import { Ancestries } from "../../_data/ancestries"
-import { migrateToLatest } from "../../migrations"
-import { BUILDER_VERSION, PUBLISHED_ON } from "../../BUILDER_VERSION"
+import { firebase } from "services/Firebase"
+import Classes from "_data/classes"
+import { Ancestries } from "_data/ancestries"
+import { migrateToLatest } from "../migrations"
+import { BUILDER_VERSION, PUBLISHED_ON } from "../BUILDER_VERSION"
 
 import {
   calculateAbilityMods,
@@ -12,20 +12,19 @@ import {
   calculatePerception,
   getBlankCharacter,
   calculateHP,
-} from "../../_data/classTemplate"
-import { Skills } from "../../_data/skills"
-import { Backgrounds } from "../../_data/backgrounds"
-import SubNav from "../../PF2CharacterBuilder/_components/SubNav"
-import CharacterBasics from "../../PF2CharacterBuilder/_components/CharacterBasics"
-import SkillsTable from "../../PF2CharacterBuilder/_components/SkillsTable2"
-import { PF2CharacterContext } from "../../context"
-import AbilityScoreSection from "../../PF2CharacterBuilder/_components/AbilityScoresSection"
-import FeatsSection from "../../PF2CharacterBuilder/_components/FeatsSection"
+} from "_data/classTemplate"
+import { Skills } from "_data/skills"
+import { Backgrounds } from "_data/backgrounds"
+import SubNav from "../PF2CharacterBuilder/_components/SubNav"
+import CharacterBasics from "../PF2CharacterBuilder/_components/CharacterBasics"
+import SkillsTable from "../PF2CharacterBuilder/_components/SkillsTable2"
+import { PF2CharacterContext } from "../context"
+import AbilityScoreSection from "../PF2CharacterBuilder/_components/AbilityScoresSection"
+import FeatsSection from "../PF2CharacterBuilder/_components/FeatsSection"
 import { toast } from "react-toastify"
-import { applyNewAncestry } from "../../PF2CharacterBuilder/_services/ancestry"
-import NewFeatureModal from "../../PF2CharacterBuilder/_modals/NewFeatureModal"
+import { applyNewAncestry } from "../PF2CharacterBuilder/_services/ancestry"
 
-class CharacterBuilder extends React.Component {
+export class CharacterBuilder extends React.Component {
   constructor(props) {
     super(props)
 
@@ -76,8 +75,6 @@ class CharacterBuilder extends React.Component {
       migrateToLatest(character)
 
       this.updateStats(character, () => {
-        // TODO UNCOMMMENT THIS
-        // firebase.savePF2Character(character, false)
         this.props.history.push(`/pf2/character-builder/${characterId}`)
       })
     })
@@ -396,7 +393,6 @@ class CharacterBuilder extends React.Component {
     return (
       <div>
         <main className="">
-          <NewFeatureModal />
           <PF2CharacterContext.Provider value={context}>
             <SubNav
               reset={this.reset}
@@ -468,5 +464,3 @@ class CharacterBuilder extends React.Component {
     )
   }
 }
-
-export default CharacterBuilder

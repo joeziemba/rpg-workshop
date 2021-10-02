@@ -1,5 +1,5 @@
 import React from "react"
-import { firebase } from "../Firebase"
+import { firebase } from "services/Firebase"
 
 const LoginButton = () => {
   return (

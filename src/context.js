@@ -12,3 +12,5 @@ export const PF2CharacterContext = React.createContext({
   Ancestries,
   Backgrounds,
 })
+
+export const StatblockContext = React.createContext()

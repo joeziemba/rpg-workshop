@@ -1,5 +1,5 @@
 import React from "react"
-import { Input, SelectField } from "../../_globalComponents"
+import { Input, SelectField } from "_globalComponents"
 
 const AttackForm = (props) => {
   return (
@@ -8,14 +8,6 @@ const AttackForm = (props) => {
         "feature-block gap-2 grid grid-rows-2 grid-cols-6 text-sm"
       }
     >
-      {/* <button
-        className="delete-btn"
-        onClick={() =>
-          props.deleteAction(props.action.id, props.legendary)
-        }
-      >
-        <i className="fa fa-close" />
-      </button> */}
       <div className="col-span-2">
         <Input
           type="text"

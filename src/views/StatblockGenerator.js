@@ -1,11 +1,15 @@
 import React, { Component } from "react"
 import _ from "lodash"
 
-import { Row } from "../_globalComponents"
-import { StatBlockDisplay, StatBlockForm } from "./_components"
-import GeneratorNav from "./_components/GeneratorNav"
-import { UserContext } from "../context"
-import { firebase } from "../Firebase"
+import { Row } from "_globalComponents"
+import {
+  StatBlockDisplay,
+  StatBlockForm,
+  GeneratorNav,
+} from "StatblockGenerator/_components"
+import { StatblockContext, UserContext } from "context"
+import { firebase } from "services/Firebase"
+import "./StatblockGenerator.css"
 
 const initialState = {
   exportView: false,
@@ -89,7 +93,6 @@ const initialState = {
   ],
 }
 
-export const StatblockContext = React.createContext()
 class StatblockGenerator extends Component {
   constructor(props) {
     super(props)
