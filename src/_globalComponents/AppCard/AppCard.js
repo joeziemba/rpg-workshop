@@ -6,7 +6,8 @@ const AppCard = ({
   content,
   linkText,
   linkURL,
-  color,
+  borderColor,
+  buttonTextColor,
   tag,
   image,
 }) => {
@@ -15,7 +16,7 @@ const AppCard = ({
       className={
         "flex-initial mx-4 md:mx-1 max-w-lg md:max-w-md " +
         "bg-white rounded-sm shadow-lg " +
-        `border-t-4 border-${color} ` +
+        `border-t-4 ${borderColor} ` +
         "group hover:shadow-2xl transition-shadow duration-200 " +
         "mb-16 "
       }
@@ -50,7 +51,7 @@ const AppCard = ({
 
         <div
           className={
-            `text-${color} border-t-2 border-${color} ` +
+            `${buttonTextColor} border-t-2 ${borderColor} ` +
             ` w-full px-8 py-5 text-white leading-none flex items-center` +
             " uppercase font-bold text-sm tracking-widest absolute bottom-0"
           }
