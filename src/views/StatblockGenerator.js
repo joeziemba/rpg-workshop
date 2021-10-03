@@ -10,6 +10,7 @@ import {
 import { StatblockContext, UserContext } from "context"
 import { firebase } from "services/Firebase"
 import "./StatblockGenerator.css"
+import { toast } from "react-toastify"
 
 const initialState = {
   exportView: false,
@@ -152,6 +153,7 @@ class StatblockGenerator extends Component {
       ...state,
     })
     this.props.history.push("/dnd5e/statblock-generator")
+    toast("Sheet Cleared")
   }
 
   updateState(e) {
@@ -417,10 +419,7 @@ class StatblockGenerator extends Component {
             )}
             {!this.state.exportView && (
               <div className="flex flex-wrap mt-12">
-                <div
-                  className="flex-1 mt-8"
-                  style={{ minWidth: "410px" }}
-                >
+                <div className="flex-1 mt-8" style={{ minWidth: "410px" }}>
                   <StatBlockForm
                     stats={this.state}
                     updateState={this.updateState}

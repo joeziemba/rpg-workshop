@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
-import NavButton from "_globalComponents/NavButton"
-import { Input } from "_globalComponents"
+import { Input, NavButton } from "_globalComponents"
 import { StatblockContext } from "context"
 import { FeatureBlock } from "StatblockGenerator/_components/FeatureBlock"
 

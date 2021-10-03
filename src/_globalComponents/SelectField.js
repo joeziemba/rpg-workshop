@@ -7,7 +7,9 @@ const SelectField = (props) => {
 
   return (
     <div className={`form-group ${props.center ? "text-center" : ""}`}>
-      <label className="" htmlFor={props.fieldName}>{props.label}</label>
+      <label className="" htmlFor={props.fieldName}>
+        {props.label}
+      </label>
       <select
         className={`py-1 px-2 border rounded-md text-sm block w-full border-gray-300 ${
           props.center ? "text-center" : ""

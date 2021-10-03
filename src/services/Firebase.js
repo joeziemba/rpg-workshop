@@ -24,6 +24,7 @@ class Firebase {
     this.signInWithGoogle = this.signInWithGoogle.bind(this)
     this.getCurrentUser = this.getCurrentUser.bind(this)
     this.signOut = this.signOut.bind(this)
+    this.deletePF2Character = this.deletePF2Character.bind(this)
   }
 
   getRedirect() {
@@ -35,14 +36,6 @@ class Firebase {
         return user
       })
       .catch(function () {
-        // // Handle Errors here.
-        // var errorCode = error.code;
-        // var errorMessage = error.message;
-        // // The email of the user's account used.
-        // var email = error.email;
-        // // The firebase.auth.AuthCredential type that was used.
-        // var credential = error.credential;
-        // // ...
         return "fail"
       })
   }
@@ -88,34 +81,30 @@ class Firebase {
     this.auth.signOut()
   }
 
-  saveStatblock(statblock) {
+  async saveStatblock(statblock) {
     console.log("save")
     if (statblock.uid) {
-      this.db
+      await this.db
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(statblock)
-        .then(() => {
-          toast.success("Updated " + statblock.name, {
-            autoClose: 1000,
-          })
-        })
-    } else {
-      this.load5eStatblocksForUser().then((response) => {
-        if (response.docs.length >= 5) {
-          toast.error("You can only save up to 5 statblocks.")
-        } else {
-          statblock.userId = this.auth.currentUser.uid
-          this.db
-            .collection("5e-statblocks")
-            .add(statblock)
-            .then(() => {
-              toast.success("Saved " + statblock.name, {
-                autoClose: 1000,
-              })
-            })
-        }
+
+      toast.success("Updated " + statblock.name, {
+        autoClose: 1000,
       })
+    } else {
+      let response = await this.load5eStatblocksForUser()
+      if (response.docs.length >= 5) {
+        toast.error("You can only save up to 5 statblocks.")
+      } else {
+        statblock.userId = this.auth.currentUser.uid
+        response = await this.db.collection("5e-statblocks").add(statblock)
+
+        toast.success("Saved " + statblock.name, {
+          autoClose: 1000,
+        })
+        return response.id
+      }
     }
   }
 
@@ -129,35 +118,33 @@ class Firebase {
   getStatblock(statblockID) {
     return this.db.collection("5e-statblocks").doc(statblockID).get()
   }
-
+  async deleteStatblock(statblockID) {
+    await this.db.collection("5e-statblocks").doc(statblockID).delete()
+  }
   // Pathfinder Methods
-  savePF2Character(character, showToast = true) {
+  async savePF2Character(character, showToast = true) {
     if (character.uid) {
-      this.db
+      await this.db
         .collection("pf2-characters")
         .doc(character.uid)
         .update(character)
-        .then(() => {
-          if (showToast)
-            toast.success("Saved " + character.name, { autoClose: 1000 })
-        })
+      if (showToast)
+        toast.success("Updated " + character.name, { autoClose: 1000 })
     } else {
-      this.getPF2CharactersForUser(character.uid).then((response) => {
-        if (response.docs.length >= 5) {
-          toast.error("You can only save up to 5 characters.")
-        } else {
-          character.userId = this.auth.currentUser.uid
-          this.db
-            .collection("pf2-characters")
-            .add(character)
-            .then(() => {
-              if (showToast)
-                toast.success("Saved " + character.name, {
-                  autoClose: 1000,
-                })
-            })
-        }
-      })
+      let response = await this.getPF2CharactersForUser(character.uid)
+      if (response.docs.length >= 5) {
+        toast.error("You can only save up to 5 characters.")
+      } else {
+        character.userId = this.auth.currentUser.uid
+        response = await this.db
+          .collection("pf2-characters")
+          .add(character)
+        if (showToast)
+          toast.success("Saved " + character.name, {
+            autoClose: 1000,
+          })
+        return response
+      }
     }
   }
 
@@ -165,8 +152,12 @@ class Firebase {
     return this.db.collection("pf2-characters").doc(characterID).get()
   }
 
-  getPF2CharactersForUser() {
-    return this.db
+  async deletePF2Character(characterID) {
+    await this.db.collection("pf2-characters").doc(characterID).delete()
+  }
+
+  async getPF2CharactersForUser() {
+    return await this.db
       .collection("pf2-characters")
       .where("userId", "==", this.auth.currentUser.uid)
       .get()

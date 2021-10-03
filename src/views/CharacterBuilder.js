@@ -59,25 +59,17 @@ export class CharacterBuilder extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (
-      prevProps.match.params.characterId !==
-      this.props.match.params.characterId
-    )
-      this.getCharacter(this.props.match.params.characterId)
-  }
+  async getCharacter(characterId) {
+    const response = await firebase.getPF2Character(characterId)
+    let character = response.data()
+    character.uid = characterId
 
-  getCharacter(characterId) {
-    firebase.getPF2Character(characterId).then((response) => {
-      let character = response.data()
-      character.uid = characterId
+    migrateToLatest(character)
 
-      migrateToLatest(character)
-
-      this.updateStats(character, () => {
-        this.props.history.push(`/pf2/character-builder/${characterId}`)
-      })
+    this.updateStats(character, () => {
+      this.props.history.push(`/pf2/character-builder/${characterId}`)
     })
+    return character
   }
 
   updateName(e) {
@@ -90,6 +82,7 @@ export class CharacterBuilder extends React.Component {
     let blankCharacter = getBlankCharacter()
     this.setState({ character: blankCharacter }, () => {
       this.props.history.push("/pf2/character-builder")
+      toast("Cleared Sheet")
     })
   }
 
@@ -385,6 +378,7 @@ export class CharacterBuilder extends React.Component {
       selectSkill: this.selectSkill,
       selectFeat: this.selectFeat,
       deleteFeat: this.deleteFeat,
+      getCharacter: this.getCharacter,
       Classes,
       Ancestries,
       Backgrounds,
@@ -395,9 +389,11 @@ export class CharacterBuilder extends React.Component {
         <main className="">
           <PF2CharacterContext.Provider value={context}>
             <SubNav
+              history={this.props.history}
               reset={this.reset}
               character={character}
               setCharacter={this.setCharacter}
+              getCharacter={this.getCharacter}
             />
             <div className="pt-20 px-2 max-w-5xl mx-auto">
               <CharacterBasics
