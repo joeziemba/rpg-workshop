@@ -4,7 +4,7 @@ import { StatblockContext } from "context"
 
 export const AbilityScoresForm = () => {
   const abilities = ["str", "dex", "con", "int", "wis", "cha"]
-  const { stats } = useContext(StatblockContext)
+  const { stats, updateAbility } = useContext(StatblockContext)
   return (
     <div className="grid grid-rows-1 grid-cols-6 gap-4">
       {abilities.map((ability) => {
@@ -15,9 +15,7 @@ export const AbilityScoresForm = () => {
               options={global.abilityScores}
               value={stats.abilities[ability]}
               fieldName={ability}
-              onChange={(e) =>
-                this.props.updateAbility(ability, e.target.value)
-              }
+              onChange={(e) => updateAbility(ability, e.target.value)}
               center
             />
           </div>

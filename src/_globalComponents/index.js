@@ -1,3 +1,5 @@
+export { default as NavButton } from "./NavButton"
+export { OpenOrDeleteItem } from "./OpenAndDeleteItem"
 export { default as Accordion } from "./Accordion/Accordion"
 export { default as Column } from "./Column"
 export { default as Input } from "./Input"

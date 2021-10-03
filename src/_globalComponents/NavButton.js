@@ -1,11 +1,6 @@
 import React from "react"
 
-const NavButton = ({
-  className,
-  children,
-  onClick,
-  color = "",
-}) => {
+const NavButton = ({ className, children, onClick, color = "" }) => {
   let bg, bgHover
   if (color === "red") {
     bg = "bg-red-900"

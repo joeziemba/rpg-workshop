@@ -1,6 +1,6 @@
 import React from "react"
-import { Modal } from "_globalComponents"
-import NavButton from "_globalComponents/NavButton"
+import { toast } from "react-toastify"
+import { Modal, NavButton, OpenOrDeleteItem } from "_globalComponents"
 import { UserContext } from "context"
 import { firebase } from "services/Firebase"
 
@@ -38,10 +38,19 @@ export class GeneratorNav extends React.Component {
     this.closeModal()
     this.props.setStatblock(statblock)
     this.props.history.push("/dnd5e/statblock-generator/" + statblock.uid)
+    toast("Opened " + statblock.name)
   }
 
-  saveStatblock(statblock) {
-    firebase.saveStatblock(statblock)
+  async saveStatblock(statblock) {
+    const newId = await firebase.saveStatblock(statblock)
+    this.props.history.push("/dnd5e/statblock-generator/" + newId)
+  }
+
+  async deleteStatblock(statblock) {
+    await firebase.deleteStatblock(statblock.uid)
+    toast("Deleted " + statblock.name)
+    this.closeModal()
+    this.getCharacters()
   }
 
   render() {
@@ -60,8 +69,8 @@ export class GeneratorNav extends React.Component {
             <React.Fragment>
               <NavButton
                 color="red"
-                onClick={() => {
-                  this.saveStatblock(this.props.statblock)
+                onClick={async () => {
+                  await this.saveStatblock(this.props.statblock)
                 }}
               >
                 Save
@@ -82,17 +91,23 @@ export class GeneratorNav extends React.Component {
             color="bg-red-900"
             closeFunction={this.closeModal}
           >
-            {this.state.statblocks.map((statblock, i) => {
-              return (
-                <button
-                  key={i}
-                  className="text-left block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
-                  onClick={() => this.selectStatblock(statblock)}
-                >
-                  {statblock.name}
-                </button>
-              )
-            })}
+            <ul>
+              {this.state.statblocks.map((statblock, i) => {
+                return (
+                  <OpenOrDeleteItem
+                    key={i}
+                    id={statblock.id}
+                    className="text-left block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
+                    selectFunc={() => this.selectStatblock(statblock)}
+                    deleteFunc={async () =>
+                      await this.deleteStatblock(statblock)
+                    }
+                  >
+                    {statblock.name}
+                  </OpenOrDeleteItem>
+                )
+              })}
+            </ul>
           </Modal>
         </div>
       </nav>

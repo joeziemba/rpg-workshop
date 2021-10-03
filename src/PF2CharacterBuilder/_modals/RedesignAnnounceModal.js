@@ -25,12 +25,7 @@ export const RedesignAnnounceModal = () => {
   const headingClasses = cn("text-2xl md:text-3xl mb-4")
 
   return (
-    <Modal
-      large
-      show={show}
-      title=""
-      closeFunction={onClose}
-    >
+    <Modal large show={show} title="" closeFunction={onClose}>
       <div className="text-base md:text-lg leading-normal px-8 py-6 md:px-16 md:py-8">
         <h3 className={headingClasses}>RPGWorkshop has a new look!</h3>
         <p className="mb-5">

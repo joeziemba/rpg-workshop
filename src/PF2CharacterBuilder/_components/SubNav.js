@@ -1,10 +1,8 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import { UserContext } from "context"
 import { firebase } from "services/Firebase"
-import { toast } from "react-toastify"
-import NavButton from "_globalComponents/NavButton"
-import { Modal } from "_globalComponents"
+import { Modal, NavButton, OpenOrDeleteItem } from "_globalComponents"
 
 class SubNav extends React.Component {
   constructor(props) {
@@ -17,18 +15,43 @@ class SubNav extends React.Component {
 
     this.getCharacters = this.getCharacters.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.deleteCharacter = this.deleteCharacter.bind(this)
+    this.saveCharacter = this.saveCharacter.bind(this)
   }
 
-  getCharacters() {
-    firebase
-      .getPF2CharactersForUser(this.context.currentUser.uid)
-      .then((snapshot) => {
-        let characters = []
-        snapshot.forEach((doc) => {
-          characters.push({ ...doc.data(), uid: doc.id })
-        })
-        this.setState({ characters, showOpenModal: true })
-      })
+  async getCharacters() {
+    const snapshot = await firebase.getPF2CharactersForUser(
+      this.context.currentUser.uid
+    )
+
+    let characters = []
+    snapshot.forEach((doc) => {
+      characters.push({ ...doc.data(), uid: doc.id, id: doc.id })
+    })
+    if (characters.length === 0) toast("You have no saved characters")
+    this.setState({ characters, showOpenModal: characters.length > 0 })
+  }
+
+  async saveCharacter() {
+    if (this.props.character.name) {
+      let character = await firebase.savePF2Character(this.props.character)
+      if (character)
+        this.props.history.push(`/pf2/character-builder/${character.id}`)
+    } else {
+      toast.error("Cannot Save a character without a name")
+    }
+  }
+
+  async deleteCharacter(character) {
+    await firebase.deletePF2Character(character.id)
+    await this.getCharacters()
+    toast("Deleted " + character.name)
+  }
+
+  async selectCharacter(id) {
+    const character = await this.props.getCharacter(id)
+    this.closeModal()
+    toast("Opened " + character.name)
   }
 
   closeModal() {
@@ -49,16 +72,7 @@ class SubNav extends React.Component {
 
           {this.context.currentUser && (
             <React.Fragment>
-              <NavButton
-                color="navy"
-                onClick={() => {
-                  if (this.props.character.name) {
-                    firebase.savePF2Character(this.props.character)
-                  } else {
-                    toast.error("Cannot Save a character without a name")
-                  }
-                }}
-              >
+              <NavButton color="navy" onClick={this.saveCharacter}>
                 Save
               </NavButton>
 
@@ -74,18 +88,24 @@ class SubNav extends React.Component {
               show={this.state.showOpenModal}
               closeFunction={this.closeModal}
             >
-              {this.state.characters.map((character) => {
-                return (
-                  <Link
-                    key={character.uid}
-                    className="block text-black w-full px-8 py-2 hover:bg-gray-200 transition-colors"
-                    to={"/pf2/character-builder/" + character.uid}
-                    onClick={this.closeModal}
-                  >
-                    {character.name}
-                  </Link>
-                )
-              })}
+              <ul className="text-black">
+                {this.state.characters.map((character) => {
+                  return (
+                    <OpenOrDeleteItem
+                      key={character.uid}
+                      id={character.uid}
+                      selectFunc={async () =>
+                        await this.selectCharacter(character.uid)
+                      }
+                      deleteFunc={async () =>
+                        await this.deleteCharacter(character)
+                      }
+                    >
+                      {character.name}
+                    </OpenOrDeleteItem>
+                  )
+                })}
+              </ul>
             </Modal>
           )}
         </div>

@@ -1,3 +1,3 @@
-.c-toast{min-height:44px;padding-left:1rem;box-shadow:1px 1px 8px 2px rgba(0,0,0,0.35)}.c-toast:first-child{margin-top:5.5rem}.Toastify__toast--success{background:#04a542}
+.c-toast{min-height:44px;padding-left:1rem;color:black;box-shadow:1px 1px 8px 2px rgba(0,0,0,0.35)}.c-toast:first-child{margin-top:1rem}.Toastify__toast--success{background-color:#048535 !important;color:white !important}.Toastify__toast--default{color:black !important}.Toastify__toast--error{color:white !important}
 
 /*# sourceMappingURL=toast.css.map */
