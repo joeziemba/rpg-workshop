@@ -1,7 +1,7 @@
 import React from "react"
 import { firebase } from "services/Firebase"
 
-const LoginButton = () => {
+export const LoginButton = () => {
   return (
     <button
       className="px-4 bg-slate-700 hover:bg-slate-600 relative h-12 px-6 transition-colors"
@@ -11,5 +11,3 @@ const LoginButton = () => {
     </button>
   )
 }
-
-export default LoginButton

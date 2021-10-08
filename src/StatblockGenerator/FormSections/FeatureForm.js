@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { StatblockContext } from "context"
 import { FeatureBlock } from "../_components/FeatureBlock"
-import NavButton from "_globalComponents/NavButton"
+import { NavButton } from "components"
 
 export const FeatureForm = () => {
   const { updateFeature, deleteFeature, addFeature, stats } =
@@ -18,7 +18,7 @@ export const FeatureForm = () => {
           />
         )
       })}
-      <NavButton color="red mt-2" onClick={addFeature}>
+      <NavButton color="red" onClick={addFeature}>
         <i className="fa fa-plus mr-2" />
         Feature
       </NavButton>

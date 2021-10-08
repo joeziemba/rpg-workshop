@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import _ from "lodash"
 
-import { Row } from "_globalComponents"
 import {
   StatBlockDisplay,
   StatBlockForm,
@@ -400,7 +399,7 @@ class StatblockGenerator extends Component {
             style={{ position: "relative" }}
           >
             {this.state.exportView && (
-              <Row>
+              <div className="flex">
                 <div className="flex-1 flex-grow-2">
                   <div className="statblock-container--export">
                     <div className="statblock-container__inner--export">
@@ -415,7 +414,7 @@ class StatblockGenerator extends Component {
                     File &lsquo;Print&rsquo; &gt; &lsquo;Save as PDF&rsquo;
                   </i>
                 </div>
-              </Row>
+              </div>
             )}
             {!this.state.exportView && (
               <div className="flex flex-wrap mt-12">
