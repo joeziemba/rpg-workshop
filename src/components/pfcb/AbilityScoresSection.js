@@ -6,7 +6,7 @@ import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
 
-const AbilityScoreSection = ({ character, boostAbility }) => {
+export const AbilityScoreSection = ({ character, boostAbility }) => {
   function freeAbilityOptions(source) {
     let { abilityBoosts } = character
     let freebies = abilityBoosts.filter(
@@ -165,5 +165,3 @@ const AbilityScoreSection = ({ character, boostAbility }) => {
     </Card>
   )
 }
-
-export default AbilityScoreSection

@@ -1,7 +1,7 @@
 import React from "react"
 import { SBG_Input, SBG_Select } from "components"
 
-const AttackForm = (props) => {
+export const AttackForm = (props) => {
   return (
     <div
       className={

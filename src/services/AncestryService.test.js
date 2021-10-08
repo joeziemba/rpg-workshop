@@ -1,4 +1,4 @@
-import { applyNewAncestry } from "./ancestry"
+import { applyNewAncestry } from "./AncestryService"
 
 describe("applyNewAncestry", () => {
   let blankCharacter

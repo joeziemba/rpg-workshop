@@ -15,14 +15,18 @@ import {
 } from "_data/classTemplate"
 import { Skills } from "_data/skills"
 import { Backgrounds } from "_data/backgrounds"
-import SubNav from "../PF2CharacterBuilder/_components/SubNav"
-import CharacterBasics from "../PF2CharacterBuilder/_components/CharacterBasics"
-import SkillsTable from "../PF2CharacterBuilder/_components/SkillsTable2"
-import { PF2CharacterContext } from "../context"
-import AbilityScoreSection from "../PF2CharacterBuilder/_components/AbilityScoresSection"
-import FeatsSection from "../PF2CharacterBuilder/_components/FeatsSection"
+
+import { PF2CharacterContext } from "context"
+import {
+  AbilityScoreSection,
+  FeatsSection,
+  SubNav,
+  CharacterBasics,
+  SkillsTable,
+} from "components"
+
 import { toast } from "react-toastify"
-import { applyNewAncestry } from "../PF2CharacterBuilder/_services/ancestry"
+import { applyNewAncestry } from "services/AncestryService"
 
 export class CharacterBuilder extends React.Component {
   constructor(props) {

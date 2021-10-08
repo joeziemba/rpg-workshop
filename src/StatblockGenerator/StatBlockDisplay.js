@@ -2,7 +2,7 @@ import React from "react"
 
 import { Property } from "components"
 
-class StatBlockDisplay extends React.Component {
+export class StatBlockDisplay extends React.Component {
   renderAbilities() {
     let { abilities } = this.props.stats
     let orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]

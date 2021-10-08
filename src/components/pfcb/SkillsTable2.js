@@ -7,7 +7,7 @@ import { FreeSkillBoosts } from "./FreeSkillBoosts"
 import { SubHeading } from "./SubHeading"
 import { PF2CharacterContext } from "context"
 
-const SkillsTable = () => {
+export const SkillsTable = () => {
   const { character } = useContext(PF2CharacterContext)
   let upperLevelBoosts = character.skillBoosts
     .filter((boost) => Number(boost.level > 1))
@@ -100,5 +100,3 @@ const SkillsTable = () => {
     </Card>
   )
 }
-
-export default SkillsTable

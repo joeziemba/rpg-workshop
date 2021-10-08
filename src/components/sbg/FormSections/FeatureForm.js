@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import { StatblockContext } from "context"
-import { FeatureBlock } from "../_components/FeatureBlock"
-import { NavButton } from "components"
+import { NavButton, FeatureBlock } from "components"
 
 export const FeatureForm = () => {
   const { updateFeature, deleteFeature, addFeature, stats } =

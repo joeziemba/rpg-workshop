@@ -1,1 +1,2 @@
-export { default as StatblockGenerator } from "./StatblockGenerator"
+export { StatBlockDisplay } from "./StatBlockDisplay"
+export { StatBlockForm } from "./StatBlockForm"

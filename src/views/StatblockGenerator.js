@@ -1,11 +1,8 @@
 import React, { Component } from "react"
 import _ from "lodash"
 
-import {
-  StatBlockDisplay,
-  StatBlockForm,
-  GeneratorNav,
-} from "StatblockGenerator/_components"
+import { GeneratorNav } from "components"
+import { StatBlockDisplay, StatBlockForm } from "../StatblockGenerator"
 import { StatblockContext, UserContext } from "context"
 import { firebase } from "services/Firebase"
 import "./StatblockGenerator.css"
