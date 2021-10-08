@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { firebase } from "services/Firebase"
-import { LoginButton } from "../index"
+import { LoginButton } from "../../../components/index"
 import "./TopBar.scss"
 
-const TopBar = (props) => {
+export const TopBar = (props) => {
   const [showMenu, setShowMenu] = useState(false)
   return (
     <nav
@@ -70,5 +70,3 @@ const TopBar = (props) => {
     </nav>
   )
 }
-
-export default TopBar

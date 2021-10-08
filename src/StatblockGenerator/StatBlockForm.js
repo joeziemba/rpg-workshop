@@ -1,7 +1,7 @@
 import React from "react"
 import "react-bootstrap-typeahead/css/Typeahead.css"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { Accordion } from "_globalComponents"
+import { Accordion } from "components"
 import { Actions } from "./_components/index"
 import { FeatureForm } from "./FormSections/FeatureForm"
 import { LegendaryActionsForm } from "./FormSections/LegendaryActionsForm"

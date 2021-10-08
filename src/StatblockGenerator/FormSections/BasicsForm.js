@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Column, Input, Row, SelectField } from "_globalComponents"
+import { SBG_Input, SBG_Select } from "components"
 import { StatblockContext } from "context"
 
 export const BasicsForm = () => {
@@ -7,7 +7,7 @@ export const BasicsForm = () => {
     useContext(StatblockContext)
   return (
     <>
-      <Input
+      <SBG_Input
         type="text"
         label={"Name"}
         placeholder={"Creature Name"}
@@ -16,27 +16,27 @@ export const BasicsForm = () => {
         onChange={updateState}
       />
 
-      <Row className="mt-2">
-        <Column className="mr-4">
-          <SelectField
+      <div className="flex mt-2">
+        <div className="flex-1 mr-4">
+          <SBG_Select
             label={"Size"}
             options={["Small", "Medium", "Large", "Huge", "Gargantuan"]}
             value={stats.size}
             fieldName="size"
             onChange={updateState}
           />
-        </Column>
-        <Column className="mr-4">
-          <SelectField
+        </div>
+        <div className="flex-1 mr-4">
+          <SBG_Select
             label={"Creature Type"}
             options={global.creatureTypes}
             value={stats.creatureType}
             onChange={updateState}
             fieldName="creatureType"
           />
-        </Column>
-        <Column>
-          <Input
+        </div>
+        <div className="flex-1">
+          <SBG_Input
             type="number"
             label={"Proficiency"}
             placeholder={""}
@@ -44,13 +44,13 @@ export const BasicsForm = () => {
             fieldName="proficiency"
             onChange={updateState}
           />
-        </Column>
-      </Row>
+        </div>
+      </div>
 
-      <Row className="mt-2">
-        <Column className="mr-4">
+      <div className="flex mt-2">
+        <div className="flex-1 mr-4">
           <h4 className="form-header mb-1 font-bold">Armor Class</h4>
-          <Input
+          <SBG_Input
             label={"Score"}
             placeholder={""}
             value={stats.ac.score}
@@ -58,7 +58,7 @@ export const BasicsForm = () => {
             onChange={updateAC}
             type="number"
           />
-          <Input
+          <SBG_Input
             type="text"
             label={"Support"}
             placeholder={""}
@@ -67,19 +67,19 @@ export const BasicsForm = () => {
             onChange={updateAC}
             className="mt-2"
           />
-        </Column>
+        </div>
 
-        <Column className="mr-4">
+        <div className="flex-1 mr-4">
           <h4 className="form-header mb-1">Hit Points</h4>
 
-          <SelectField
+          <SBG_Select
             label={"Hit Die"}
             options={[4, 6, 8, 10, 12, 20]}
             value={stats.hp.hitDie}
             fieldName="hitDie"
             onChange={updateHP}
           />
-          <Input
+          <SBG_Input
             type="number"
             label={"Number of Dice"}
             placeholder={""}
@@ -88,10 +88,10 @@ export const BasicsForm = () => {
             onChange={updateHP}
             className="mt-2"
           />
-        </Column>
-        <Column className=" flex flex-wrap">
+        </div>
+        <div className="flex-1 flex flex-wrap">
           <h4 className="form-header flex-full mb-1">Speed</h4>
-          <Input
+          <SBG_Input
             type="number"
             label={"Base Speed"}
             placeholder={""}
@@ -99,9 +99,9 @@ export const BasicsForm = () => {
             fieldName="speed"
             onChange={updateState}
           />
-          <Row>
-            <Column className="mr-4 mt-2">
-              <Input
+          <div className="flex">
+            <div className="flex-1 mr-4 mt-2">
+              <SBG_Input
                 type="number"
                 label={"Fly"}
                 placeholder={""}
@@ -109,9 +109,9 @@ export const BasicsForm = () => {
                 fieldName="flySpeed"
                 onChange={updateState}
               />
-            </Column>
-            <Column className="mt-2">
-              <Input
+            </div>
+            <div className="flex-1 mt-2">
+              <SBG_Input
                 type="number"
                 label={"Swim"}
                 placeholder={""}
@@ -119,10 +119,10 @@ export const BasicsForm = () => {
                 fieldName="swimSpeed"
                 onChange={updateState}
               />
-            </Column>
-          </Row>
-        </Column>
-      </Row>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

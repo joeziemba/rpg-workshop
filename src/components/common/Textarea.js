@@ -1,6 +1,6 @@
 import React from "react"
 
-const Textarea = ({
+export const Textarea = ({
   id,
   label,
   hideLabel,
@@ -30,5 +30,3 @@ const Textarea = ({
     </div>
   )
 }
-
-export default Textarea

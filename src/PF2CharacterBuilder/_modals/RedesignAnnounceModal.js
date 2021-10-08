@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react"
-import { Modal } from "_globalComponents"
+import { Modal } from "components"
 import cn from "classnames"
 
 export const RedesignAnnounceModal = () => {

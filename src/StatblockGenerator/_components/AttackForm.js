@@ -1,5 +1,5 @@
 import React from "react"
-import { Input, SelectField } from "_globalComponents"
+import { SBG_Input, SBG_Select } from "components"
 
 const AttackForm = (props) => {
   return (
@@ -9,21 +9,22 @@ const AttackForm = (props) => {
       }
     >
       <div className="col-span-2">
-        <Input
+        <SBG_Input
           type="text"
           label={"Title"}
           placeholder={""}
           value={props.action.title}
-          fieldName={"title-" + props.action.id}
+          fieldName={"title"}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
         />
       </div>
       <div className="col-span-2">
-        <SelectField
+        <SBG_Select
           label={"Attack"}
-          fieldName={"attack-type-" + props.action.id}
+          id={"attack-type"}
+          fieldName={"type"}
           options={["Melee", "Ranged"]}
           value={props.action.attack.type}
           onChange={(e) =>
@@ -32,9 +33,9 @@ const AttackForm = (props) => {
         />
       </div>
       <div className="col-span-1">
-        <Input
+        <SBG_Input
           label={"Targets"}
-          fieldName={"targets-" + props.action.id}
+          fieldName={"targets"}
           type="number"
           value={props.action.attack.targets}
           onChange={(e) =>
@@ -43,9 +44,9 @@ const AttackForm = (props) => {
         />
       </div>
       <div className="col-span-1">
-        <Input
+        <SBG_Input
           label={props.action.attack.type === "Ranged" ? "Range" : "Reach"}
-          fieldName={"reach-" + props.action.id}
+          fieldName={"reach"}
           type="number"
           value={props.action.attack.reach}
           onChange={(e) =>
@@ -55,10 +56,10 @@ const AttackForm = (props) => {
       </div>
 
       <div className="col-span-1">
-        <Input
+        <SBG_Input
           label={"#"}
           type="number"
-          fieldName={"dieNum-" + props.action.id}
+          fieldName={"dieNum"}
           value={props.action.attack.dieNum}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
@@ -66,9 +67,9 @@ const AttackForm = (props) => {
         />
       </div>
       <div className="col-span-1">
-        <SelectField
+        <SBG_Select
           label={"Dmg Die"}
-          fieldName={"dmgDie-" + props.action.id}
+          fieldName={"dmgDie"}
           options={[4, 6, 8, 10, 12]}
           value={props.action.attack.dmgDie}
           onChange={(e) =>
@@ -77,9 +78,9 @@ const AttackForm = (props) => {
         />
       </div>
       <div className="col-span-2">
-        <SelectField
+        <SBG_Select
           label={"Dmg Type"}
-          fieldName={"dmgType-" + props.action.id}
+          fieldName={"dmgType"}
           options={global.damageTypes}
           value={props.action.attack.dmgType}
           onChange={(e) =>

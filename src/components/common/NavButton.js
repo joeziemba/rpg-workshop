@@ -1,6 +1,11 @@
 import React from "react"
 
-const NavButton = ({ className, children, onClick, color = "" }) => {
+export const NavButton = ({
+  className,
+  children,
+  onClick,
+  color = "",
+}) => {
   let bg, bgHover
   if (color === "red") {
     bg = "bg-red-900"
@@ -22,5 +27,3 @@ const NavButton = ({ className, children, onClick, color = "" }) => {
     </button>
   )
 }
-
-export default NavButton

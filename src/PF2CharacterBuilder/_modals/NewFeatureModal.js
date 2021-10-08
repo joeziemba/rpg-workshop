@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Modal } from "_globalComponents"
+import { Modal } from "components"
 
 const NewFeatureModal = () => {
   const [show, setShow] = useState(false)

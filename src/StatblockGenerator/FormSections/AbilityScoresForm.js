@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { SelectField } from "_globalComponents"
+import { SBG_Select } from "components"
 import { StatblockContext } from "context"
 
 export const AbilityScoresForm = () => {
@@ -10,7 +10,7 @@ export const AbilityScoresForm = () => {
       {abilities.map((ability) => {
         return (
           <div className="col-span-1" key={ability}>
-            <SelectField
+            <SBG_Select
               label={ability.toUpperCase()}
               options={global.abilityScores}
               value={stats.abilities[ability]}

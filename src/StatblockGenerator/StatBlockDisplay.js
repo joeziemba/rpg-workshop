@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Property, PropertyBlock } from "_globalComponents"
+import { Property } from "components"
 
 class StatBlockDisplay extends React.Component {
   renderAbilities() {
@@ -27,10 +27,11 @@ class StatBlockDisplay extends React.Component {
 
     return features.map((feature) => {
       return (
-        <PropertyBlock
+        <Property
           key={feature.title}
           title={feature.title}
           content={feature.content}
+          block
         />
       )
     })
@@ -96,7 +97,8 @@ class StatBlockDisplay extends React.Component {
 
       if (!action.attack) {
         return (
-          <PropertyBlock
+          <Property
+            block
             key={i}
             title={action.title}
             content={action.content}

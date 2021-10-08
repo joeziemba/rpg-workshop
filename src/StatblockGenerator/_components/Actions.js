@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import NavButton from "_globalComponents/NavButton"
+import { NavButton } from "components"
 
 import { StatblockContext } from "context"
 import AttackForm from "./AttackForm"

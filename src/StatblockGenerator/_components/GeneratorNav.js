@@ -1,6 +1,6 @@
 import React from "react"
 import { toast } from "react-toastify"
-import { Modal, NavButton, OpenOrDeleteItem } from "_globalComponents"
+import { Modal, NavButton, OpenOrDeleteItem } from "components"
 import { UserContext } from "context"
 import { firebase } from "services/Firebase"
 

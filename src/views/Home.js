@@ -1,5 +1,5 @@
 import React from "react"
-import AppCard from "_globalComponents/AppCard/AppCard"
+import { AppCard } from "components"
 import butterflies_png from "_assets/img/butterflies.png"
 import castle_png from "_assets/img/castle.png"
 

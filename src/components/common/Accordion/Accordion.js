@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { CSSTransition } from "react-transition-group"
 import "./Accordion.scss"
 
-const Accordion = ({ children, open, title }) => {
+export const Accordion = ({ children, open, title }) => {
   const [isOpen, setOpen] = useState(open)
 
   return (
@@ -34,5 +34,3 @@ const Accordion = ({ children, open, title }) => {
     </div>
   )
 }
-
-export default Accordion

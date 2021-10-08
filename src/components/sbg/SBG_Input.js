@@ -1,17 +1,17 @@
 import React from "react"
 
-const Input = (props) => {
+export const SBG_Input = (props) => {
+  const fieldId = props.id ?? props.fieldName.length / Math.random()
+
   return (
     <div className={props.className}>
-      {!props.hideLabel && (
-        <label htmlFor={props.id ?? props.fieldName}>{props.label}</label>
-      )}
+      {!props.hideLabel && <label htmlFor={fieldId}>{props.label}</label>}
       <input
         type={props.type}
         className={
           "py-1 px-2 border rounded-md text-sm block w-full border-gray-300 "
         }
-        id={props.id ?? props.fieldName}
+        id={fieldId}
         aria-describedby={`${props.id}Help`}
         placeholder={props.placeholder}
         onChange={props.onChange}
@@ -24,5 +24,3 @@ const Input = (props) => {
     </div>
   )
 }
-
-export default Input

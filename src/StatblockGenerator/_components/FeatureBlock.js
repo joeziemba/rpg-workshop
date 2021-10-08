@@ -1,5 +1,5 @@
 import React from "react"
-import { Input, Textarea } from "_globalComponents"
+import { SBG_Input, Textarea } from "components"
 import "./FeatureBlock.scss"
 
 export const FeatureBlock = ({
@@ -11,11 +11,11 @@ export const FeatureBlock = ({
   return (
     <div className="feature-block relative grid grid-rows-1 grid-cols-12 gap-2 mx-1 mb-2">
       <div className="col-span-4">
-        <Input
+        <SBG_Input
           type="text"
           label={typeText}
           value={feature.title}
-          fieldName={"title-" + feature.id}
+          fieldName={"title"}
           onChange={(e) => updateFunc(e, feature.id)}
         />
       </div>
@@ -24,7 +24,7 @@ export const FeatureBlock = ({
           type="text"
           label={"Description"}
           value={feature.content}
-          fieldName={"description-" + feature.id}
+          fieldName={"content"}
           rows={2}
           onChange={(e) => updateFunc(e, feature.id)}
         />

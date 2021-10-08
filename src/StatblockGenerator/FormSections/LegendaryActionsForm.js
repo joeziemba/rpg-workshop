@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Input, NavButton } from "_globalComponents"
+import { SBG_Input, NavButton } from "components"
 import { StatblockContext } from "context"
 import { FeatureBlock } from "StatblockGenerator/_components/FeatureBlock"
 
@@ -16,11 +16,12 @@ export const LegendaryActionsForm = () => {
         >
           Legendary Actions Per Round:
         </label>
-        <Input
+        <SBG_Input
           hideLabel
           type="number"
           className="inline-block w-2/12"
           id="legendaryActPerRound"
+          fieldName="legendaryActPerRound"
           onChange={updateState}
           value={stats.legendaryActPerRound}
           name="legendaryActPerRound"

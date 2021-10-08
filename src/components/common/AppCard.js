@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const AppCard = ({
+export const AppCard = ({
   title,
   content,
   linkText,
@@ -69,5 +69,3 @@ const AppCard = ({
     </div>
   )
 }
-
-export default AppCard

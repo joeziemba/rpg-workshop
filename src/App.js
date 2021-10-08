@@ -7,7 +7,7 @@ import { UserContext } from "context"
 
 import { CharacterBuilder, Home, StatblockGenerator } from "views"
 
-import { TopBar } from "_globalComponents"
+import { TopBar } from "components"
 import { firebase } from "services/Firebase"
 import { RedesignAnnounceModal } from "PF2CharacterBuilder/_modals/RedesignAnnounceModal"
 

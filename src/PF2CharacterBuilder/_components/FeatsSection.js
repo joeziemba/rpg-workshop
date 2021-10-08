@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import FeatEntry from "./FeatEntry"
 import FeatSelection from "./FeatSelection"
-import { Modal } from "_globalComponents"
+import { Modal } from "components"
 import { Card } from "./Card"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"

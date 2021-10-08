@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import FocusTrap from "focus-trap-react"
 import cn from "classnames"
 
-const Modal = ({
+export const Modal = ({
   show,
   large,
   color = "bg-slate-500",
@@ -76,5 +76,3 @@ const Modal = ({
     </div>
   )
 }
-
-export default Modal
