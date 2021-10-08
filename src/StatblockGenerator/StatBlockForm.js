@@ -1,14 +1,17 @@
 import React from "react"
 import "react-bootstrap-typeahead/css/Typeahead.css"
 import { Typeahead } from "react-bootstrap-typeahead"
-import { Accordion } from "components"
-import { Actions } from "./_components/index"
-import { FeatureForm } from "./FormSections/FeatureForm"
-import { LegendaryActionsForm } from "./FormSections/LegendaryActionsForm"
-import { AbilityScoresForm } from "./FormSections/AbilityScoresForm"
-import { BasicsForm } from "./FormSections/BasicsForm"
 
-const StatBlockForm = (props) => {
+import {
+  Accordion,
+  AbilityScoresForm,
+  LegendaryActionsForm,
+  BasicsForm,
+  FeatureForm,
+  Actions,
+} from "components"
+
+export const StatBlockForm = (props) => {
   return (
     <div id="StatBlockForm" className="w-11/12 text-sm">
       <Accordion title="Basic Details" open>

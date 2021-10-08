@@ -9,7 +9,7 @@ import { CharacterBuilder, Home, StatblockGenerator } from "views"
 
 import { TopBar } from "components"
 import { firebase } from "services/Firebase"
-import { RedesignAnnounceModal } from "PF2CharacterBuilder/_modals/RedesignAnnounceModal"
+import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
 
 const App = () => {
   const [currentUser, setUser] = useState(null)

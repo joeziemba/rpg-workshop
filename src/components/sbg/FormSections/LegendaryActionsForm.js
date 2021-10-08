@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
-import { SBG_Input, NavButton } from "components"
+import { SBG_Input, NavButton, FeatureBlock } from "components"
 import { StatblockContext } from "context"
-import { FeatureBlock } from "StatblockGenerator/_components/FeatureBlock"
 
 export const LegendaryActionsForm = () => {
   const { stats, updateAction, deleteAction, updateState, addAction } =

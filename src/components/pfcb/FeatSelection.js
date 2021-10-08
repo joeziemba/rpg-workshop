@@ -1,8 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
 import FEATS from "_data/feats/allFeats.json"
+import { Modal } from "components"
 
-const FeatSelection = ({ featKey, character, selectFeat }) => {
+export const FeatSelection = ({
+  featKey,
+  character,
+  selectFeat,
+  show,
+  closeFunction,
+}) => {
   const [query, setQuery] = useState("")
   const [feats, setFeats] = useState([])
 
@@ -82,7 +89,7 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
   ])
 
   return (
-    <>
+    <Modal show={show} closeFunction={closeFunction} title="Feats" large>
       <Search onChange={setQuery} query={query} />
 
       {feats.length > 0 &&
@@ -135,11 +142,9 @@ const FeatSelection = ({ featKey, character, selectFeat }) => {
             </div>
           )
         })}
-    </>
+    </Modal>
   )
 }
-
-export default FeatSelection
 
 const Search = ({ onChange, query }) => {
   return (

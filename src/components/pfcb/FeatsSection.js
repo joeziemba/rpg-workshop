@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from "react"
 import FeatEntry from "./FeatEntry"
-import FeatSelection from "./FeatSelection"
-import { Modal } from "components"
+import { FeatSelection } from "./FeatSelection"
 import { Card } from "./Card"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
 import { PF2CharacterContext } from "context"
 
-const FeatsSection = () => {
+export const FeatsSection = () => {
   const { character, selectFeat, deleteFeat } = useContext(
     PF2CharacterContext
   )
@@ -149,20 +148,14 @@ const FeatsSection = () => {
           addFeat={() => openFeatSelection("misc_" + numMiscFeats)}
         />
       </div>
-      <Modal
+
+      <FeatSelection
         show={showFeatSelection}
         closeFunction={() => setShowFeatSelection(false)}
-        title="Feats"
-        large
-      >
-        <FeatSelection
-          selectFeat={localSelectFeat}
-          featKey={featKey}
-          character={character}
-        />
-      </Modal>
+        selectFeat={localSelectFeat}
+        featKey={featKey}
+        character={character}
+      />
     </Card>
   )
 }
-
-export default FeatsSection
