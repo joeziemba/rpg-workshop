@@ -1,7 +1,7 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
 
-import Accordion from "./Accordion"
+import { Accordion } from "./Accordion"
 
 const titleProp = "Test Accordion"
 const childContent = "Child Content"
