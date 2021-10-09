@@ -5,11 +5,12 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { UserContext } from "context"
 
-import { CharacterBuilder, Home, StatblockGenerator } from "views"
-
 import { TopBar } from "components"
 import { firebase } from "services/Firebase"
 import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
+import { Home } from "views/Home"
+import { StatblockGenerator } from "views/StatblockGenerator"
+import { CharacterBuilder } from "views/CharacterBuilder"
 
 const App = () => {
   const [currentUser, setUser] = useState(null)

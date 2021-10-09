@@ -1,87 +1,25 @@
 import React from "react"
-import "react-bootstrap-typeahead/css/Typeahead.css"
-import { Typeahead } from "react-bootstrap-typeahead"
+import { Accordion } from "components"
+import { BasicsForm } from "./FormSections/BasicsForm"
+import { AbilityScoresForm } from "./FormSections/AbilityScoresForm"
+import { FeatureForm } from "./FormSections/FeatureForm"
+import { ActionsForm } from "./FormSections/ActionsForm"
+import { LegendaryActionsForm } from "./FormSections/LegendaryActionsForm"
+import { PropertyForm } from "./FormSections/PropertiesForm"
 
-import {
-  Accordion,
-  AbilityScoresForm,
-  LegendaryActionsForm,
-  BasicsForm,
-  FeatureForm,
-  Actions,
-} from "components"
-
-export const StatBlockForm = (props) => {
+export const StatBlockForm = () => {
   return (
     <div id="StatBlockForm" className="w-11/12 text-sm">
       <Accordion title="Basic Details" open>
         <BasicsForm />
       </Accordion>
+
       <Accordion title="Ability Scores">
         <AbilityScoresForm />
       </Accordion>
-      <Accordion title="Properties" className="text-md">
-        <div className="text-sm">
-          <label>Condition Immunities</label>
-          <Typeahead
-            multiple
-            options={global.conditions}
-            selected={props.stats.conditionImmune}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "conditionImmune")
-            }
-          />
 
-          <label>Damage Immunities</label>
-          <Typeahead
-            multiple
-            options={global.damageTypes}
-            selected={props.stats.immune}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "immune")
-            }
-          />
-
-          <label>Resistences</label>
-          <Typeahead
-            multiple
-            options={global.damageTypes}
-            selected={props.stats.resists}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "resists")
-            }
-          />
-
-          <label>Vulnerabilities</label>
-          <Typeahead
-            multiple
-            options={global.damageTypes}
-            selected={props.stats.vulnerable}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "vulnerable")
-            }
-          />
-
-          <label>Skill Proficiencies</label>
-          <Typeahead
-            multiple
-            options={global.skills.map((skill) => skill.name)}
-            selected={props.stats.skills}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "skills")
-            }
-          />
-
-          <label>Languages</label>
-          <Typeahead
-            multiple
-            options={global.languages}
-            selected={props.stats.langs}
-            onChange={(selected) =>
-              props.updatePropertyList(selected, "langs")
-            }
-          />
-        </div>
+      <Accordion title="Properties">
+        <PropertyForm />
       </Accordion>
 
       <Accordion title="Features">
@@ -89,7 +27,7 @@ export const StatBlockForm = (props) => {
       </Accordion>
 
       <Accordion title="Actions">
-        <Actions />
+        <ActionsForm />
       </Accordion>
 
       <Accordion title="Legendary Actions">

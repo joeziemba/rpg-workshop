@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Property = ({ title, content, block }) => {
+export const DisplayProperty = ({ title, content, block }) => {
   if (block) {
     return (
       <div className="statblock__property statblock__property--block">

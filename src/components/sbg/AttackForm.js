@@ -26,7 +26,7 @@ export const AttackForm = (props) => {
           id={"attack-type"}
           fieldName={"type"}
           options={["Melee", "Ranged"]}
-          value={props.action.attack.type}
+          value={props.action.type}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -37,7 +37,7 @@ export const AttackForm = (props) => {
           label={"Targets"}
           fieldName={"targets"}
           type="number"
-          value={props.action.attack.targets}
+          value={props.action.targets}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -45,10 +45,10 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-1">
         <SBG_Input
-          label={props.action.attack.type === "Ranged" ? "Range" : "Reach"}
+          label={props.action.type === "Ranged" ? "Range" : "Reach"}
           fieldName={"reach"}
           type="number"
-          value={props.action.attack.reach}
+          value={props.action.reach}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -60,7 +60,7 @@ export const AttackForm = (props) => {
           label={"#"}
           type="number"
           fieldName={"dieNum"}
-          value={props.action.attack.dieNum}
+          value={props.action.dieNum}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -71,7 +71,7 @@ export const AttackForm = (props) => {
           label={"Dmg Die"}
           fieldName={"dmgDie"}
           options={[4, 6, 8, 10, 12]}
-          value={props.action.attack.dmgDie}
+          value={props.action.dmgDie}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -82,7 +82,7 @@ export const AttackForm = (props) => {
           label={"Dmg Type"}
           fieldName={"dmgType"}
           options={global.damageTypes}
-          value={props.action.attack.dmgType}
+          value={props.action.dmgType}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -95,16 +95,16 @@ export const AttackForm = (props) => {
           </label>
           <div
             className={`dex-check ${
-              props.action.attack.dex ? "checked" : ""
+              props.action.dex ? "checked" : ""
             }`}
             name={"dex-" + props.action.id}
-            value={!props.action.attack.dex}
+            value={!props.action.dex}
             onClick={() =>
               props.updateAction(
                 {
                   target: {
                     name: "dex",
-                    value: !props.action.attack.dex,
+                    value: !props.action.dex,
                   },
                 },
                 props.action.id,
