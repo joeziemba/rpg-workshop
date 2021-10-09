@@ -84,7 +84,7 @@ class Firebase {
   async saveStatblock(statblock) {
     console.log("save")
     if (statblock.uid) {
-      await this.db
+      let response = await this.db
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(statblock)
@@ -92,6 +92,7 @@ class Firebase {
       toast.success("Updated " + statblock.name, {
         autoClose: 1000,
       })
+      return response
     } else {
       let response = await this.load5eStatblocksForUser()
       if (response.docs.length >= 5) {
@@ -103,7 +104,7 @@ class Firebase {
         toast.success("Saved " + statblock.name, {
           autoClose: 1000,
         })
-        return response.id
+        return response
       }
     }
   }

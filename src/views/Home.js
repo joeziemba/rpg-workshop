@@ -3,7 +3,7 @@ import { AppCard } from "components"
 import butterflies_png from "_assets/img/butterflies.png"
 import castle_png from "_assets/img/castle.png"
 
-const Home = () => {
+export const Home = () => {
   return (
     <div
       className={"flex flex-wrap justify-around max-w-5xl mx-auto"}
@@ -33,5 +33,3 @@ const Home = () => {
     </div>
   )
 }
-
-export default Home

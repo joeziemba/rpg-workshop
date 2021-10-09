@@ -2,16 +2,16 @@ import React, { useContext } from "react"
 import { NavButton } from "components"
 
 import { StatblockContext } from "context"
-import AttackForm from "./AttackForm"
-import { FeatureBlock } from "./FeatureBlock"
+import AttackForm from "../../components/sbg/AttackForm"
+import { FeatureBlock } from "../../components/sbg/FeatureBlock"
 
-export const Actions = ({ legendary }) => {
+export const ActionsForm = ({ legendary }) => {
   const { stats, updateAction, deleteAction, addAction } =
     useContext(StatblockContext)
   return (
     <React.Fragment>
       {stats.actions.map((action, i) => {
-        if (action.attack) {
+        if (action) {
           return (
             <AttackForm
               action={action}

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Property } from "components"
+import { DisplayProperty } from "components"
 
 export class StatBlockDisplay extends React.Component {
   renderAbilities() {
@@ -8,7 +8,7 @@ export class StatBlockDisplay extends React.Component {
     let orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]
     return orderedAbilities.map((ability) => {
       let score = abilities[ability]
-      let mod = this.getAbilityMod(score)
+      let mod = abilities[ability + "Mod"]
 
       return (
         <div className="ability" key={ability}>
@@ -27,7 +27,7 @@ export class StatBlockDisplay extends React.Component {
 
     return features.map((feature) => {
       return (
-        <Property
+        <DisplayProperty
           key={feature.title}
           title={feature.title}
           content={feature.content}
@@ -35,10 +35,6 @@ export class StatBlockDisplay extends React.Component {
         />
       )
     })
-  }
-
-  getAbilityMod(score) {
-    return Math.floor((score - 10) / 2)
   }
 
   renderActions(legendary) {
@@ -49,19 +45,15 @@ export class StatBlockDisplay extends React.Component {
     }
 
     return actions.map((action, i) => {
-      if (action.attack) {
-        let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } =
-          action.attack
+      if (["Melee", "Ranged"].includes(action.type)) {
+        let { dieNum, dmgDie, prof, dex, reach, targets, dmgType } = action
         // Get hit mod
-        let toHit
+        let toHit = this.props.stats.abilities.strMod
         if (dex) {
-          toHit = this.getAbilityMod(this.props.stats.abilities.dex)
-        } else {
-          toHit = this.getAbilityMod(this.props.stats.abilities.str)
+          toHit = this.props.stats.abilities.dexMod
         }
 
         // Get Damage Mod
-
         let avg = (dieNum * dmgDie) / 2 + toHit
 
         let operator = "+"
@@ -84,10 +76,10 @@ export class StatBlockDisplay extends React.Component {
               {action.title}.{" "}
             </span>
             <span className="italic">
-              {action.attack.type} Weapon Attack.{" "}
+              {action.type} Weapon Attack.{" "}
             </span>
             {`${toHit >= 0 ? "+" : ""}${toHit}`} to Hit.&ensp;
-            {action.attack.type === "Ranged" ? "Range" : "Reach"} {reach}
+            {action.type === "Ranged" ? "Range" : "Reach"} {reach}
             ft.&ensp;
             {targets} target{targets > 1 ? "s" : ""}.&ensp; Damage:&ensp;
             {damage}
@@ -95,9 +87,9 @@ export class StatBlockDisplay extends React.Component {
         )
       }
 
-      if (!action.attack) {
+      if (!action) {
         return (
-          <Property
+          <DisplayProperty
             block
             key={i}
             title={action.title}
@@ -110,21 +102,18 @@ export class StatBlockDisplay extends React.Component {
   }
 
   render() {
-    let { stats } = this.props
-    let { abilities } = stats
-    let { hitDie, dieNum, manualHp } = stats.hp
+    let {
+      abilities,
+      hp: { hitDie, dieNum },
+      calculatedHP,
+    } = this.props.stats
 
     let conMod = Math.floor((abilities.con - 10) / 2)
-
-    hitDie = parseInt(hitDie)
     dieNum = parseInt(dieNum)
-
-    let totalHp =
-      (hitDie * dieNum) / 2 + Math.ceil(dieNum * 0.5) + dieNum * conMod
 
     let mod = dieNum * conMod
 
-    let hitPoints = `${totalHp} (${dieNum}d${hitDie} ${
+    let hitPoints = `${calculatedHP} (${dieNum}d${hitDie} ${
       mod < 0 ? "-" : "+"
     } ${mod < 0 ? mod * -1 : mod})`
 
@@ -145,18 +134,23 @@ export class StatBlockDisplay extends React.Component {
         <div className="statblock__section red">
           <div className="statblock__property">
             <span className="statblock__property-name">Armor Class</span>
-            {stats.ac.score}
-            {stats.ac.support && ` (${stats.ac.support})`}
+            {this.props.stats.ac.score}
+            {this.props.stats.ac.support &&
+              ` (${this.props.stats.ac.support})`}
           </div>
           <div className="statblock__property">
             <span className="statblock__property-name">Hit Points</span>{" "}
-            {manualHp ? manualHp : hitPoints}
+            {hitPoints}
           </div>
           <div className="statblock__property">
             <span className="statblock__property-name">Speed</span>
-            {stats.speed}ft
-            {stats.flySpeed > 0 ? `, ${stats.flySpeed}ft (Fly)` : ""}
-            {stats.swimSpeed > 0 ? `, ${stats.swimSpeed}ft (Swim)` : ""}
+            {this.props.stats.speed}ft
+            {this.props.stats.flySpeed > 0
+              ? `, ${this.props.stats.flySpeed}ft (Fly)`
+              : ""}
+            {this.props.stats.swimSpeed > 0
+              ? `, ${this.props.stats.swimSpeed}ft (Swim)`
+              : ""}
           </div>
         </div>
 
@@ -165,38 +159,47 @@ export class StatBlockDisplay extends React.Component {
         </div>
 
         <div className="statblock__section red">
-          {stats.conditionImmune.length > 0 && (
-            <Property
+          {this.props.stats.conditionImmune.length > 0 && (
+            <DisplayProperty
               title="Condition Immunities"
-              content={stats.conditionImmune.join(", ")}
+              content={this.props.stats.conditionImmune.join(", ")}
             />
           )}
-          {stats.immune.length > 0 && (
-            <Property
+          {this.props.stats.immune.length > 0 && (
+            <DisplayProperty
               title="Damage Immunities"
-              content={stats.immune.join(", ")}
+              content={this.props.stats.immune.join(", ")}
             />
           )}
-          {stats.resists.length > 0 && (
-            <Property
+          {this.props.stats.resists.length > 0 && (
+            <DisplayProperty
               title="Damage Resistances"
-              content={stats.resists.join(", ")}
+              content={this.props.stats.resists.join(", ")}
             />
           )}
-          {stats.vulnerable.length > 0 && (
-            <Property
+          {this.props.stats.vulnerable.length > 0 && (
+            <DisplayProperty
               title="Damage Vulnerabilities"
-              content={stats.vulnerable.join(", ")}
+              content={this.props.stats.vulnerable.join(", ")}
             />
           )}
-          {stats.skills.length > 0 && (
-            <Property title="Skills" content={stats.skills.join(", ")} />
+          {this.props.stats.skills.length > 0 && (
+            <DisplayProperty
+              title="Skills"
+              content={this.props.stats.skills.join(", ")}
+            />
           )}
-          {stats.senses.length > 0 && (
-            <Property title="Senses" content={stats.senses.join(", ")} />
+          {this.props.stats.senses.length > 0 && (
+            <DisplayProperty
+              title="Senses"
+              content={this.props.stats.senses.join(", ")}
+            />
           )}
-          {stats.langs.length > 0 && (
-            <Property title="Languages" content={stats.langs.join(", ")} />
+          {this.props.stats.langs.length > 0 && (
+            <DisplayProperty
+              title="Languages"
+              content={this.props.stats.langs.join(", ")}
+            />
           )}
         </div>
 
@@ -210,16 +213,24 @@ export class StatBlockDisplay extends React.Component {
         {this.props.stats.legendaryActions.length > 0 && (
           <div className="statblock__section statblock__section--with-heading">
             <h3>Legendary Actions</h3>
-            <p>
+            <p className="mb-1 text-sm">
               {this.props.stats.name} can take{" "}
-              {this.props.stats.legendaryActPerRound} legendary action
+              <b>{this.props.stats.legendaryActPerRound}</b> legendary
+              action
               {this.props.stats.legendaryActPerRound === 1 ? "" : "s"},
               choosing from the options below. Only one legendary action
               option can be used at a time and only at the end of another
               creature&apos;s turn. They regain spent legendary actions at
               the start of their turn.
             </p>
-            {this.renderActions("legendary")}
+            {this.props.stats.legendaryActions.map((action, i) => (
+              <DisplayProperty
+                block
+                key={i + action.title}
+                title={action.title}
+                content={action.content}
+              />
+            ))}
           </div>
         )}
       </div>

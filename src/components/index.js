@@ -9,17 +9,12 @@ export { Textarea } from "./common/Textarea"
 export { Modal } from "./common/Modal"
 
 // Statblock Benerator (SBG)
-export { Property } from "./sbg/Property"
+export { DisplayProperty } from "./sbg/DisplayProperty"
 export { SBG_Input } from "./sbg/SBG_Input"
 export { SBG_Select } from "./sbg/SBG_Select"
-export { AbilityScoresForm } from "./sbg/FormSections/AbilityScoresForm"
-export { BasicsForm } from "./sbg/FormSections/BasicsForm"
-export { FeatureForm } from "./sbg/FormSections/FeatureForm"
-export { LegendaryActionsForm } from "./sbg/FormSections/LegendaryActionsForm"
 export { GeneratorNav } from "./sbg/GeneratorNav"
 export { FeatureBlock } from "./sbg/FeatureBlock"
 export { AttackForm } from "./sbg/AttackForm"
-export { Actions } from "./sbg/Actions"
 
 // Pathfinder Character Builder (PFCB)
 export { AbilityScoreSection } from "./pfcb/AbilityScoresSection"

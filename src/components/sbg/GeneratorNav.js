@@ -42,8 +42,14 @@ export class GeneratorNav extends React.Component {
   }
 
   async saveStatblock(statblock) {
-    const newId = await firebase.saveStatblock(statblock)
-    this.props.history.push("/dnd5e/statblock-generator/" + newId)
+    const savedStatblock = await firebase.saveStatblock(statblock)
+    if (savedStatblock) {
+      savedStatblock.uid = savedStatblock.id
+      this.props.setStatblock(savedStatblock)
+      this.props.history.push(
+        "/dnd5e/statblock-generator/" + savedStatblock.id
+      )
+    }
   }
 
   async deleteStatblock(statblock) {

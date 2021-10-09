@@ -2,11 +2,15 @@ import React, { Component } from "react"
 import _ from "lodash"
 
 import { GeneratorNav } from "components"
-import { StatBlockDisplay, StatBlockForm } from "../StatblockGenerator"
-import { StatblockContext, UserContext } from "context"
+
+import { StatblockContext } from "context"
 import { firebase } from "services/Firebase"
 import "./StatblockGenerator.css"
 import { toast } from "react-toastify"
+import StatBlockDisplay from "StatblockGenerator/StatBlockDisplay"
+import StatBlockForm from "StatblockGenerator/StatBlockForm"
+import { StatblockAction } from "_data/models/StatblockAction"
+import { StatblockAttack } from "_data/models/StatblockAttack"
 
 const initialState = {
   exportView: false,
@@ -15,11 +19,17 @@ const initialState = {
   creatureType: "Humanoid",
   abilities: {
     str: 10,
+    strMod: 0,
     dex: 10,
+    dexMod: 0,
     con: 10,
+    conMod: 0,
     int: 10,
+    intMod: 0,
     wis: 10,
+    wisMod: 0,
     cha: 10,
+    chaMod: 0,
   },
   ac: {
     score: 10,
@@ -28,8 +38,8 @@ const initialState = {
   hp: {
     hitDie: 4,
     dieNum: 1,
-    manualHp: "",
   },
+  calculatedHP: 0,
   proficiency: 1,
   speed: 30,
   flySpeed: 0,
@@ -48,36 +58,35 @@ const initialState = {
       id: "1",
       title: "Sample",
       content: "This is a sample feature, change my content!",
+      type: "General",
     },
   ],
   actions: [
     {
       id: 1,
       title: "Longsword",
-      attack: {
-        type: "Melee",
-        prof: true,
-        reach: 5,
-        targets: 1,
-        dmgDie: 8,
-        dieNum: 1,
-        dmgType: "Slashing",
-        dex: false,
-      },
+
+      type: "Melee",
+      prof: true,
+      reach: 5,
+      targets: 1,
+      dmgDie: 8,
+      dieNum: 1,
+      dmgType: "Slashing",
+      dex: false,
     },
     {
       id: 2,
       title: "Longbow",
-      attack: {
-        type: "Ranged",
-        prof: true,
-        reach: 120,
-        targets: 1,
-        dmgDie: 8,
-        dieNum: 1,
-        dmgType: "Piercing",
-        dex: true,
-      },
+
+      type: "Ranged",
+      prof: true,
+      reach: 120,
+      targets: 1,
+      dmgDie: 8,
+      dieNum: 1,
+      dmgType: "Piercing",
+      dex: true,
     },
   ],
   legendaryActPerRound: 1,
@@ -86,11 +95,12 @@ const initialState = {
       id: "1",
       title: "Legendary",
       content: "This is a sample legendary action, change my content!",
+      type: "Legendary",
     },
   ],
 }
 
-class StatblockGenerator extends Component {
+export class StatblockGenerator extends Component {
   constructor(props) {
     super(props)
 
@@ -119,13 +129,25 @@ class StatblockGenerator extends Component {
     let { characterId } = this.props.match.params
     if (characterId) {
       firebase.getStatblock(characterId).then((response) => {
-        this.setState({ ...response.data(), uid: characterId })
+        let stats = response.data()
+        this.updateAttacksToNewFormat(stats)
+        stats.uid = characterId
+        this.setState(stats, this.calcAbilityMods)
       })
     }
 
-    let state = _.cloneDeep(initialState)
-    this.setState({
-      ...state,
+    this.setState(_.cloneDeep(initialState))
+  }
+
+  updateAttacksToNewFormat(stats) {
+    if (!stats) return
+    stats.actions = stats.actions.map((action) => {
+      return {
+        ...action,
+        content: action.content ?? "",
+        type: action.type ?? "",
+        ...action.attack,
+      }
     })
   }
 
@@ -134,7 +156,7 @@ class StatblockGenerator extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem("stats", JSON.stringify(this.state))
+    localStorage.removeItem("stats", JSON.stringify(this.state))
   }
 
   toggleExportView() {
@@ -144,10 +166,7 @@ class StatblockGenerator extends Component {
   }
 
   reset() {
-    let state = _.cloneDeep(initialState)
-    this.setState({
-      ...state,
-    })
+    this.setState(_.cloneDeep(initialState))
     this.props.history.push("/dnd5e/statblock-generator")
     toast("Sheet Cleared")
   }
@@ -160,55 +179,69 @@ class StatblockGenerator extends Component {
   }
 
   updateAbility(ability, value) {
-    let newAbilities = Object.assign({}, this.state.abilities)
-
-    newAbilities[ability] = value
-
     this.setState({
-      abilities: newAbilities,
+      abilities: {
+        ...this.state.abilities,
+        [ability]: value,
+        [ability + "Mod"]: Math.floor((value - 10) / 2),
+      },
     })
   }
 
+  calcAbilityMods() {
+    let newAbilities = {}
+    Object.keys(this.state.abilities).forEach((ability) => {
+      newAbilities[ability] = this.state.abilities[ability]
+      newAbilities[ability + "Mod"] = Math.floor(
+        (this.state.abilities[ability] - 10) / 2
+      )
+    })
+    this.setState({ abilities: newAbilities })
+  }
+
   updateAC(e) {
-    let fieldName = e.target.name
-    let newAC = {
-      ...this.state.ac,
-      [fieldName]: e.target.value,
-    }
+    let { name, value } = e.target
     this.setState({
-      ac: newAC,
+      ac: {
+        ...this.state.ac,
+        [name]: value,
+      },
     })
   }
 
   updateHP(e) {
-    let fieldName = e.target.name
-    let newHP = {
-      ...this.state.hp,
-      [fieldName]: e.target.value,
-    }
-    this.setState({
-      hp: newHP,
-    })
+    let { name, value } = e.target
+    this.setState(
+      {
+        hp: {
+          ...this.state.hp,
+          [name]: value,
+        },
+      },
+      this.calcHP
+    )
+  }
+
+  calcHP() {
+    const {
+      hp: { hitDie, dieNum },
+      abilities: { conMod },
+    } = this.state
+
+    let calculatedHP =
+      (hitDie * dieNum) / 2 + Math.ceil(dieNum * 0.5) + dieNum * conMod
+    this.setState({ calculatedHP })
   }
 
   updatePropertyList(selected, arrayToUpdate) {
-    let sorted = selected.sort()
     this.setState({
-      [arrayToUpdate]: sorted,
+      [arrayToUpdate]: selected.sort(),
     })
   }
 
   addFeature() {
-    let newFeatures = [].concat(this.state.features)
-
-    newFeatures.push({
-      id: newFeatures.length + 1,
-      title: "",
-      content: "",
-    })
-
     this.setState({
-      features: newFeatures,
+      features: [...this.state.features, new StatblockAction()],
     })
   }
 
@@ -233,43 +266,13 @@ class StatblockGenerator extends Component {
 
     switch (actionType) {
       case "General":
-        newAction = {
-          id: newActions.length + 1,
-          title: "",
-          content: "",
-        }
+        newAction = new StatblockAction()
         break
       case "Melee":
-        newAction = {
-          id: newActions.length + 1,
-          title: "",
-          attack: {
-            type: "Melee",
-            prof: true,
-            reach: 0,
-            targets: 0,
-            dmgDie: 4,
-            dieNum: 0,
-            dmgType: "",
-            dex: false,
-          },
-        }
+        newAction = new StatblockAttack()
         break
       case "Ranged":
-        newAction = {
-          id: newActions.length + 1,
-          title: "",
-          attack: {
-            type: "Ranged",
-            prof: true,
-            reach: 0,
-            targets: 0,
-            dmgDie: 4,
-            dieNum: 0,
-            dmgType: "",
-            dex: true,
-          },
-        }
+        newAction = new StatblockAttack("", "", "Ranged")
         break
       default:
         break
@@ -300,7 +303,7 @@ class StatblockGenerator extends Component {
         } else if (name === "title") {
           action[name] = value
         } else {
-          action.attack[name] = value
+          action[name] = value
         }
       }
       return action
@@ -447,7 +450,3 @@ class StatblockGenerator extends Component {
     )
   }
 }
-
-StatblockGenerator.contextType = UserContext
-
-export default StatblockGenerator
