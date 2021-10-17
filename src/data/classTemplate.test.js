@@ -81,10 +81,6 @@ const hpTests = [
       },
       {
         source: "Dwarf",
-        ability: "Constitution",
-      },
-      {
-        source: "Level_1",
         level: 1,
         ability: "Constitution",
       },
@@ -105,15 +101,11 @@ const hpTests = [
       },
       {
         source: "Dwarf",
-        ability: "Constitution",
-      },
-      {
-        source: "Level_1",
         level: 1,
         ability: "Constitution",
       },
     ],
-    correctHP: 10 + (8 + 2) + (8 + 2) + (8 + 2) + (8 + 2) + (8 + 3),
+    correctHP: 10 + 8 * 5 + 2 * 5,
   },
   {
     testName: "lv 10 character with 3 CON boost",
@@ -128,20 +120,22 @@ const hpTests = [
         ability: "Constitution",
       },
       {
-        source: "Level_1",
-        level: 1,
+        source: "Level_5",
+        level: 5,
         ability: "Constitution",
       },
       {
         source: "Level_10",
+        level: 10,
         ability: "Constitution",
       },
       {
         source: "Level_15",
+        level: 15,
         ability: "Constitution",
       },
     ],
-    correctHP: 97,
+    correctHP: 10 * 8 + 4 + 5 * 2 + 3,
   },
   {
     testName: "lv 10 character with 3 CON boost and Flaw",
@@ -156,16 +150,18 @@ const hpTests = [
         ability: "Constitution",
       },
       {
-        source: "Level_1",
-        level: 1,
+        source: "Level_5",
+        level: 5,
         ability: "Constitution",
       },
       {
         source: "Level_10",
+        level: 10,
         ability: "Constitution",
       },
       {
         source: "Level_15",
+        level: 15,
         ability: "Constitution",
       },
     ],
@@ -176,7 +172,7 @@ const hpTests = [
         ability: "Constitution",
       },
     ],
-    correctHP: 87,
+    correctHP: 10 * 8 + 5 + 2,
   },
   {
     testName: "lv 15 character with 4 CON boosts",
@@ -191,16 +187,18 @@ const hpTests = [
         ability: "Constitution",
       },
       {
-        source: "Level_1",
-        level: 1,
+        source: "Level_5",
+        level: 5,
         ability: "Constitution",
       },
       {
         source: "Level_10",
+        level: 10,
         ability: "Constitution",
       },
       {
         source: "Level_15",
+        level: 15,
         ability: "Constitution",
       },
     ],
@@ -300,9 +298,9 @@ describe("calculatePerception", () => {
     class: {
       perceptionBoosts: [
         { type: "ANY_1", level: 1, proficiency: 2 },
-        { type: "ANY_4", proficiency: 4 },
-        { type: "ANY_6", proficiency: 6 },
-        { type: "ANOTHER_6", proficiency: 10 },
+        { type: "ANY_4", level: 4, proficiency: 4 },
+        { type: "ANY_6", level: 6, proficiency: 6 },
+        { type: "ANOTHER_6", level: 6, proficiency: 10 },
       ],
     },
   }

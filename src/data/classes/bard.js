@@ -88,7 +88,7 @@ export const Bard = {
   },
   defenses: { unarmored: Proficiencies.TRAINED },
   abilityBoosts: [
-    { ability: Abilities.CHA, source: nameOfClass, id: "Bard1" },
+    { ability: Abilities.CHA, source: nameOfClass, id: "Bard1", level: 1 },
   ],
   skillBoosts: generateSkillBoosts([
     {

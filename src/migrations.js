@@ -72,7 +72,15 @@ export function v1_1_1(character) {
   character.builderVersion = "1.1.1"
 }
 
+function v1_3_0(character) {
+  character.feats.forEach((feat) => {
+    feat.level = +feat.type.split("_")[1]
+  })
+  character.builderVersion = "1.1.3"
+}
+
 export function migrateToLatest(character) {
+  if (!character.builderVersion) character.builderVersion = "0"
   if (character.builderVersion < "1.0.1") {
     v1_0_1(character)
     character.builderVersion = "1.0.1"
@@ -80,5 +88,8 @@ export function migrateToLatest(character) {
 
   if (character.builderVersion < "1.1.1") {
     v1_1_1(character)
+  }
+  if (character.builderVersion < "1.1.3") {
+    v1_3_0(character)
   }
 }

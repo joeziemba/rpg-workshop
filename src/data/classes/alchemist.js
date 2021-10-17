@@ -102,6 +102,7 @@ export const Alchemist = {
       ability: Abilities.INT,
       source: nameOfClass,
       id: nameOfClass + "-ability-1",
+      level: 1,
     },
   ],
 }
