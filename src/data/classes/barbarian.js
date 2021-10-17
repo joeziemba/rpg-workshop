@@ -94,6 +94,6 @@ export const Barbarian = {
     },
   ]),
   abilityBoosts: [
-    { ability: Abilities.STR, source: nameOfClass, id: "Barb1" },
+    { ability: Abilities.STR, source: nameOfClass, id: "Barb1", level: 1 },
   ],
 }

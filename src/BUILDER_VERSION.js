@@ -1,2 +1,2 @@
-export const BUILDER_VERSION = "1.2.0"
-export const PUBLISHED_ON = "10/2/2021"
+export const BUILDER_VERSION = "1.1.3"
+export const PUBLISHED_ON = "10/16/2021"
