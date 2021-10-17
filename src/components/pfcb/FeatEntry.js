@@ -1,7 +1,7 @@
 import React from "react"
 
 const FeatEntry = ({ addFeat, feat, deleteFeat }) => {
-  const add = () => addFeat(feat.type)
+  const add = () => addFeat(feat.type, feat.level)
   const remove = () => {
     deleteFeat(feat)
   }
