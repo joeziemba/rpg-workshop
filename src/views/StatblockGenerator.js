@@ -9,8 +9,8 @@ import "./StatblockGenerator.css"
 import { toast } from "react-toastify"
 import StatBlockDisplay from "StatblockGenerator/StatBlockDisplay"
 import StatBlockForm from "StatblockGenerator/StatBlockForm"
-import { StatblockAction } from "_data/models/StatblockAction"
-import { StatblockAttack } from "_data/models/StatblockAttack"
+import { StatblockAction } from "data/models/StatblockAction"
+import { StatblockAttack } from "data/models/StatblockAttack"
 
 const initialState = {
   exportView: false,
@@ -190,7 +190,8 @@ export class StatblockGenerator extends Component {
 
   calcAbilityMods() {
     let newAbilities = {}
-    Object.keys(this.state.abilities).forEach((ability) => {
+    const abArray = ["str", "dex", "con", "int", "wis", "cha"]
+    abArray.forEach((ability) => {
       newAbilities[ability] = this.state.abilities[ability]
       newAbilities[ability + "Mod"] = Math.floor(
         (this.state.abilities[ability] - 10) / 2

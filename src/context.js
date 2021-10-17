@@ -1,7 +1,7 @@
 import React from "react"
-import Classes from "./_data/classes"
-import { Ancestries } from "./_data/ancestries"
-import { Backgrounds } from "./_data/backgrounds"
+import Classes from "./data/classes"
+import { Ancestries } from "./data/ancestries"
+import { Backgrounds } from "./data/backgrounds"
 
 export const UserContext = React.createContext({})
 

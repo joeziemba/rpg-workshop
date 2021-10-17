@@ -5,7 +5,7 @@ import cn from "classnames"
 export const Modal = ({
   show,
   large,
-  color = "bg-slate-500",
+  color = "bg-slate-800",
   closeFunction,
   title,
   children,
@@ -26,8 +26,8 @@ export const Modal = ({
   }
 
   const overlayClasses = cn(
-    "bg-slate-900",
-    "bg-opacity-80",
+    "bg-black",
+    "bg-opacity-50",
     "rounded-md",
     "fixed",
     "inset-0",

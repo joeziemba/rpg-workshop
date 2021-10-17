@@ -4,7 +4,7 @@
 
 @import url("//fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900|Vollkorn:400,600,700");
 @import "_assets/css/main.css";
-@import "./_styles/animations.css";
+@import "./styles/animations.css";
 
 html,
 body,

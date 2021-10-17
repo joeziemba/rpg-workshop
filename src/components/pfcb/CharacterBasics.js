@@ -77,7 +77,7 @@ export const CharacterBasics = ({
                   aria-label="Class"
                   isDefault={!character.class.name}
                 >
-                  <option value="FREE">Choose Class</option>
+                  <option value="">Choose Class</option>
                   {Object.keys(Classes).map((class_name) => (
                     <option value={class_name} key={class_name}>
                       {class_name}

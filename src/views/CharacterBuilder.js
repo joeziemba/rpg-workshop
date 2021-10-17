@@ -1,8 +1,8 @@
 import React from "react"
 import _ from "lodash"
 import { firebase } from "services/Firebase"
-import Classes from "_data/classes"
-import { Ancestries } from "_data/ancestries"
+import Classes from "data/classes"
+import { Ancestries } from "data/ancestries"
 import { migrateToLatest } from "../migrations"
 import { BUILDER_VERSION, PUBLISHED_ON } from "../BUILDER_VERSION"
 
@@ -12,9 +12,9 @@ import {
   calculatePerception,
   getBlankCharacter,
   calculateHP,
-} from "_data/classTemplate"
-import { Skills } from "_data/skills"
-import { Backgrounds } from "_data/backgrounds"
+} from "data/classTemplate"
+import { Skills } from "data/skills"
+import { Backgrounds } from "data/backgrounds"
 
 import { PF2CharacterContext } from "context"
 import {
