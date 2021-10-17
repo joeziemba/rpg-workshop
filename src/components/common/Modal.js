@@ -47,8 +47,6 @@ export const Modal = ({
     { "md:w-9/12": large, "md:w-6/12": !large }
   )
 
-  // const
-
   return (
     <div className={overlayClasses}>
       <FocusTrap>
@@ -61,6 +59,7 @@ export const Modal = ({
               className="py-2 px-8"
               onClick={closeModal}
               aria-label="Close Modal"
+              id="close-modal"
             >
               <i className="fas fa-times"></i>
             </button>

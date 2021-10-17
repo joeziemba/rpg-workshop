@@ -15,16 +15,19 @@ export const Ranger = {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.MASTER,
       type: nameOfClass + "_7",
+      level: 7,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.LEGEND,
       type: nameOfClass + "_15",
+      level: 15,
     },
   ],
   saveBoosts: [
@@ -33,6 +36,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -40,6 +44,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -47,6 +52,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -54,6 +60,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_3",
+      level: 3,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -61,6 +68,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_7",
+      level: 7,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -68,6 +76,7 @@ export const Ranger = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_11",
+      level: 11,
       proficiency: Proficiencies.MASTER,
     },
   ],

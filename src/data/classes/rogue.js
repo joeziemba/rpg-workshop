@@ -23,16 +23,19 @@ export const Rogue = {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.MASTER,
       type: nameOfClass + "_7",
+      level: 7,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.LEGEND,
       type: nameOfClass + "_13",
+      level: 13,
     },
   ],
   saveBoosts: [
@@ -41,6 +44,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -48,6 +52,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -55,6 +60,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -62,6 +68,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_7",
+      level: 7,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -69,6 +76,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -76,6 +84,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_13",
+      level: 13,
       proficiency: Proficiencies.LEGEND,
     },
     {
@@ -83,6 +92,7 @@ export const Rogue = {
       source: nameOfClass,
       id: nameOfClass + "7",
       type: nameOfClass + "_17",
+      level: 17,
       proficiency: Proficiencies.MASTER,
     },
   ],
@@ -182,13 +192,13 @@ export const Rogue = {
   feats: [
     { type: "skill_1" },
     { type: "skill_3" },
-    { type: "skill_5" },
-    { type: "skill_7" },
-    { type: "skill_9" },
-    { type: "skill_11" },
-    { type: "skill_13" },
-    { type: "skill_15" },
-    { type: "skill_17" },
-    { type: "skill_19" },
+    { type: "skill_5", level: 5 },
+    { type: "skill_7", level: 7 },
+    { type: "skill_9", level: 9 },
+    { type: "skill_11", level: 11 },
+    { type: "skill_13", level: 13 },
+    { type: "skill_15", level: 15 },
+    { type: "skill_17", level: 17 },
+    { type: "skill_19", level: 19 },
   ],
 }

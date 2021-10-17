@@ -172,11 +172,10 @@ export class CharacterBuilder extends React.Component {
 
     // Remove old class and even skill feats
     character.feats = character.feats.filter((feat) => {
-      let [type, level] = feat.type.split("_")
       // remove class feats
-      if (type === "class") return false
+      if (feat.type.includes("class")) return false
       // remove even-numbered skill feats
-      if (type === "skill" && level % 2 === 0) return false
+      if (feat.type.includes("skill") && feat.level % 2 === 0) return false
       // keep others
       return true
     })
@@ -263,8 +262,7 @@ export class CharacterBuilder extends React.Component {
     // Saves
     if (hasClass) {
       character.class.saveBoosts.forEach((boost) => {
-        let level = boost.type.split("_")[1]
-        if (parseInt(character.level, 10) >= parseInt(level, 10)) {
+        if (parseInt(character.level, 10) >= parseInt(boost.level, 10)) {
           character.saves[boost.save] = boost.proficiency
         }
       })
@@ -276,11 +274,7 @@ export class CharacterBuilder extends React.Component {
     }
 
     // Sort Feats
-    character.feats = character.feats.sort((a, b) => {
-      let aLevel = a.type.split("_")[1]
-      let bLevel = b.type.split("_")[1]
-      return parseInt(aLevel, 10) - parseInt(bLevel, 10)
-    })
+    character.feats = this.sortFeats(character.feats)
 
     // Ensure current Builder version
     if (character.builderVersion < BUILDER_VERSION)
@@ -342,25 +336,43 @@ export class CharacterBuilder extends React.Component {
     this.updateStats(character)
   }
 
-  selectFeat(featKey, newFeat) {
+  selectFeat(featType, newFeat) {
     let character = _.cloneDeep(this.state.character)
-    let newFeats = _.cloneDeep(character.feats)
-    newFeats = newFeats.filter((feat) => feat.type !== featKey)
-
-    newFeat.type = featKey
-
-    newFeats.push(newFeat)
-    character.feats = newFeats.sort((a, b) => {
-      let aLevel = a.type.split("_")[1]
-      let bLevel = b.type.split("_")[1]
-      return parseInt(aLevel, 10) - parseInt(bLevel, 10)
-    })
+    character.feats = character.feats.filter(
+      (feat) => feat.type !== featType
+    )
+    newFeat.type = featType
+    newFeat.level = featType.split("_")[1]
+    character.feats.push(newFeat)
+    character.feats = this.sortFeats(character.feats)
 
     this.setState({ character })
   }
 
-  deleteFeat(featKey) {
-    this.selectFeat(featKey, {})
+  sortFeats(feats) {
+    return feats.sort((a, b) => {
+      return a.level - b.level
+    })
+  }
+
+  deleteFeat(featToDelete) {
+    let character = _.cloneDeep(this.state.character)
+    // remove the feat
+    character.feats = character.feats.filter(
+      (feat) => feat.type !== featToDelete.type
+    )
+
+    // if not a misc feed, at placeholder back
+    if (!featToDelete.type.includes("misc")) {
+      character.feats.push({
+        type: featToDelete.type,
+        level: featToDelete.level,
+      })
+    }
+
+    character.feats = this.sortFeats(character.feats)
+
+    this.setState({ character })
   }
 
   setLevel(e) {

@@ -29,11 +29,13 @@ export const Fighter = {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.MASTER,
       type: nameOfClass + "_7",
+      level: 7,
     },
   ],
 
@@ -43,6 +45,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -50,6 +53,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -57,6 +61,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -64,6 +69,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_3",
+      level: 3,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -71,6 +77,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -78,6 +85,7 @@ export const Fighter = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_15",
+      level: 15,
       proficiency: Proficiencies.MASTER,
     },
   ],

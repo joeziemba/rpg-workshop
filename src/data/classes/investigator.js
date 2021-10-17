@@ -21,16 +21,19 @@ export const Investigator = {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.MASTER,
       type: nameOfClass + "_7",
+      level: 7,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.LEGEND,
       type: nameOfClass + "_13",
+      level: 13,
     },
   ],
 
@@ -40,6 +43,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -47,6 +51,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -54,6 +59,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -61,6 +67,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -68,6 +75,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_11",
+      level: 11,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -75,6 +83,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_15",
+      level: 15,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -82,6 +91,7 @@ export const Investigator = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_17",
+      level: 17,
       proficiency: Proficiencies.MASTER,
     },
   ],

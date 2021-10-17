@@ -9,6 +9,9 @@ fixture("Assign Ancestries").page(
 
 for (let ancestryName of Object.keys(Ancestries)) {
   test(`${ancestryName}`, async (tc) => {
+    const closeModalButton = Selector("#close-modal")
+    if (closeModalButton.exists) await tc.click(closeModalButton)
+
     const ancestrySelect = Selector("#ancestry-select")
 
     const ancestry = Ancestries[ancestryName]

@@ -15,6 +15,7 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -43,6 +44,7 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -59,6 +61,7 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -73,6 +76,7 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
@@ -80,7 +84,8 @@ const hpTests = [
         ability: "Constitution",
       },
       {
-        source: "Level_5",
+        source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -95,6 +100,7 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
@@ -102,7 +108,8 @@ const hpTests = [
         ability: "Constitution",
       },
       {
-        source: "Level_5",
+        source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -117,10 +124,12 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
-        source: "Level_5",
+        source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
@@ -143,10 +152,12 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
-        source: "Level_5",
+        source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
@@ -161,6 +172,7 @@ const hpTests = [
     abilityFlaws: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
     ],
@@ -175,10 +187,12 @@ const hpTests = [
     abilityBoosts: [
       {
         source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
-        source: "Level_5",
+        source: "Level_1",
+        level: 1,
         ability: "Constitution",
       },
       {
@@ -285,7 +299,7 @@ describe("calculatePerception", () => {
     level: 1,
     class: {
       perceptionBoosts: [
-        { type: "ANY_1", proficiency: 2 },
+        { type: "ANY_1", level: 1, proficiency: 2 },
         { type: "ANY_4", proficiency: 4 },
         { type: "ANY_6", proficiency: 6 },
         { type: "ANOTHER_6", proficiency: 10 },

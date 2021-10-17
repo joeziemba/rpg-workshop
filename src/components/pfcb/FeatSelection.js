@@ -4,7 +4,7 @@ import FEATS from "data/feats/allFeats.json"
 import { Modal } from "components"
 
 export const FeatSelection = ({
-  featKey,
+  featType,
   character,
   selectFeat,
   show,
@@ -21,7 +21,7 @@ export const FeatSelection = ({
           .map((t) => t.toLowerCase())
           .includes(trait.toLowerCase())
 
-      let isLevel = Number(feat.level) <= Number(level)
+      let isLevel = +feat.reqLevel <= +level
 
       return hasTrait && isLevel
     })
@@ -67,25 +67,28 @@ export const FeatSelection = ({
 
   useEffect(() => {
     let filteredFeats = _.cloneDeep(FEATS)
-    let [type, level] = featKey.split("_")
+    let [type] = featType.split("_")
     // Filter to correct feat list
-    filteredFeats = filterFeatsBy(filteredFeats, getFeatTag(type), level)
+    filteredFeats = filterFeatsBy(
+      filteredFeats,
+      getFeatTag(type),
+      character.level
+    )
 
     // Additionally filter by query if present
     if (query) filteredFeats = filterFeatsByQuery(filteredFeats)
 
     setFeats(
-      filteredFeats.sort((a, b) =>
-        Number(a.level) < Number(b.level) ? -1 : 1
-      )
+      filteredFeats.sort((a, b) => Number(a.reqLevel) - Number(b.reqLevel))
     )
   }, [
     query,
     character.ancestry.name,
     character.class.name,
-    featKey,
+    featType,
     filterFeatsByQuery,
     getFeatTag,
+    character.level,
   ])
 
   return (
@@ -117,7 +120,7 @@ export const FeatSelection = ({
 
                 <div className="uppercase text-xs mb-2 text-blue-800">
                   <div className="mr-2 inline-block py-1 px-2 bg-blue-100 rounded-sm">
-                    Level {feat.level}
+                    Level {feat.reqLevel}
                   </div>
                   {feat.traits.map((t) => (
                     <div

@@ -22,11 +22,13 @@ export const Druid = {
       source: nameOfClass,
       proficiency: Proficiencies.TRAINED,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_3",
+      level: 3,
     },
   ],
 
@@ -36,6 +38,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -43,6 +46,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -50,6 +54,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -57,6 +62,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -64,6 +70,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_3",
+      level: 3,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -71,6 +78,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_5",
+      level: 5,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -78,6 +86,7 @@ export const Druid = {
       source: nameOfClass,
       id: nameOfClass + "7",
       type: nameOfClass + "_11",
+      level: 11,
       proficiency: Proficiencies.MASTER,
     },
   ],

@@ -15,11 +15,13 @@ export const Oracle = {
       source: nameOfClass,
       proficiency: Proficiencies.TRAINED,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_11",
+      level: 11,
     },
   ],
   saveBoosts: [
@@ -28,6 +30,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -35,6 +38,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -42,6 +46,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -49,6 +54,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_7",
+      level: 7,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -56,6 +62,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -63,6 +70,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_13",
+      level: 13,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -70,6 +78,7 @@ export const Oracle = {
       source: nameOfClass,
       id: nameOfClass + "7",
       type: nameOfClass + "_17",
+      level: 17,
       proficiency: Proficiencies.LEGEND,
     },
   ],

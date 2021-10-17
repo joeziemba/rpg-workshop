@@ -16,11 +16,13 @@ export const Barbarian = {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.MASTER,
       type: nameOfClass + "_17",
+      level: 17,
     },
   ],
 
