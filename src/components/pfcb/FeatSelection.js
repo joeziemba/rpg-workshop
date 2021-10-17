@@ -5,6 +5,7 @@ import { Modal } from "components"
 
 export const FeatSelection = ({
   featType,
+  featLevel,
   character,
   selectFeat,
   show,
@@ -72,7 +73,7 @@ export const FeatSelection = ({
     filteredFeats = filterFeatsBy(
       filteredFeats,
       getFeatTag(type),
-      character.level
+      featLevel
     )
 
     // Additionally filter by query if present
@@ -88,7 +89,7 @@ export const FeatSelection = ({
     featType,
     filterFeatsByQuery,
     getFeatTag,
-    character.level,
+    featLevel,
   ])
 
   return (

@@ -13,9 +13,11 @@ export const FeatsSection = () => {
   )
   const [showFeatSelection, setShowFeatSelection] = useState(false)
   const [featType, setfeatType] = useState("")
+  const [featLevel, setfeatLevel] = useState("")
 
-  const openFeatSelection = (featType) => {
+  const openFeatSelection = (featType, featLevel) => {
     setfeatType(featType)
+    setfeatLevel(featLevel)
     setShowFeatSelection(true)
   }
 
@@ -114,6 +116,7 @@ export const FeatsSection = () => {
         closeFunction={() => setShowFeatSelection(false)}
         selectFeat={localSelectFeat}
         featType={featType}
+        featLevel={featLevel}
         character={character}
       />
     </Card>
