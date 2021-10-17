@@ -29,7 +29,7 @@ export function applyNewAncestry(characterToUpdate, ancestryId) {
   // Clear old ancestry feats
   character.feats = character.feats.map((feat) => {
     if (!feat.type.includes("ancestry")) return feat
-    else return { type: feat.type }
+    else return { type: feat.type, level: feat.level }
   })
 
   return character

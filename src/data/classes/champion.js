@@ -28,11 +28,13 @@ export const Champion = {
       source: nameOfClass,
       proficiency: Proficiencies.TRAINED,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_11",
+      level: 11,
     },
   ],
   hp: 10,
@@ -42,6 +44,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -49,6 +52,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.TRAINED,
     },
     {
@@ -56,6 +60,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -63,6 +68,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "4",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.MASTER,
     },
     {
@@ -70,6 +76,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "5",
       type: nameOfClass + "_9",
+      level: 9,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -77,6 +84,7 @@ export const Champion = {
       source: nameOfClass,
       id: nameOfClass + "6",
       type: nameOfClass + "_11",
+      level: 11,
       proficiency: Proficiencies.MASTER,
     },
   ],

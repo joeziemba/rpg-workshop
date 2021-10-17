@@ -5,29 +5,22 @@ import { Card } from "./Card"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
 import { PF2CharacterContext } from "context"
+import { Guid } from "js-guid"
 
 export const FeatsSection = () => {
   const { character, selectFeat, deleteFeat } = useContext(
     PF2CharacterContext
   )
   const [showFeatSelection, setShowFeatSelection] = useState(false)
-  const [featKey, setFeatKey] = useState("")
-  const [numMiscFeats, setNumMiscFeats] = useState(0)
+  const [featType, setfeatType] = useState("")
 
-  useEffect(() => {
-    let miscFeats = character.feats.filter((feat) =>
-      feat.type.includes("misc")
-    )
-    setNumMiscFeats(miscFeats.length + 1)
-  }, [character.feats])
-
-  const openFeatSelection = (featKey) => {
-    setFeatKey(featKey)
+  const openFeatSelection = (featType) => {
+    setfeatType(featType)
     setShowFeatSelection(true)
   }
 
   const localSelectFeat = (feat) => {
-    selectFeat(featKey, feat)
+    selectFeat(featType, feat)
     setShowFeatSelection(false)
   }
 
@@ -37,11 +30,12 @@ export const FeatsSection = () => {
   const classFeats = [],
     ancestryFeats = [],
     skillFeats = [],
+    generalFeats = [],
     miscFeats = []
 
   character.feats.forEach((feat) => {
-    let [type, level] = feat.type.split("_")
-    if (level > character.level) return
+    if (feat.level > character.level) return
+    let [type] = feat.type.split("_")
     switch (type) {
       case "class":
         classFeats.push(feat)
@@ -51,6 +45,9 @@ export const FeatsSection = () => {
         break
       case "skill":
         skillFeats.push(feat)
+        break
+      case "general":
+        generalFeats.push(feat)
         break
       default:
         miscFeats.push(feat)
@@ -68,94 +65,89 @@ export const FeatsSection = () => {
         </span>
       </PlaceholderText>
 
-      <SubHeading>Ancestry Feats</SubHeading>
-      <div>
-        {!hasAncestry ? (
-          <PlaceholderText>choose an ancestry above</PlaceholderText>
-        ) : (
-          ancestryFeats.map((feat, i) => {
-            return (
-              <FeatEntry
-                key={i}
-                label={"Lv" + feat.type.split("_")[1]}
-                feat={feat}
-                addFeat={() => openFeatSelection(feat.type)}
-                removeFeat={() => deleteFeat(feat.type)}
-              />
-            )
-          })
-        )}
-      </div>
+      <FeatList
+        addFunc={openFeatSelection}
+        deleteFeat={deleteFeat}
+        featKey="ancestry"
+        featList={ancestryFeats}
+        title="Ancestry Feats"
+        noListMessage="choose an ancestry above"
+        hideListIf={!hasAncestry}
+      />
 
-      <SubHeading>Class Feats</SubHeading>
-      <div>
-        {!hasClass ? (
-          <PlaceholderText>choose a class above</PlaceholderText>
-        ) : (
-          classFeats.map((feat, i) => {
-            return (
-              <FeatEntry
-                key={i}
-                label={"Lv" + feat.type.split("_")[1]}
-                feat={feat}
-                addFeat={() => openFeatSelection(feat.type)}
-                removeFeat={() => deleteFeat(feat.type)}
-              />
-            )
-          })
-        )}
-      </div>
+      <FeatList
+        addFunc={openFeatSelection}
+        deleteFeat={deleteFeat}
+        featKey="class"
+        featList={classFeats}
+        title="Class Feats"
+        noListMessage="choose a class above"
+        hideListIf={!hasClass}
+      />
 
-      <SubHeading>Skill Feats</SubHeading>
-      <div>
-        {!hasClass ? (
-          <PlaceholderText>choose a class above</PlaceholderText>
-        ) : character.level === 1 ? (
-          <PlaceholderText>skill feats start at level 2</PlaceholderText>
-        ) : (
-          skillFeats.map((feat, i) => {
-            return (
-              <FeatEntry
-                key={i}
-                label={"Lv" + feat.type.split("_")[1]}
-                feat={feat}
-                addFeat={() => openFeatSelection(feat.type)}
-                removeFeat={() => deleteFeat(feat.type)}
-              />
-            )
-          })
-        )}
-      </div>
+      <FeatList
+        addFunc={openFeatSelection}
+        deleteFeat={deleteFeat}
+        featKey="skill"
+        featList={skillFeats}
+        title="Skill Feats"
+        noListMessage="skill feats start at level 2"
+        hideListIf={character.level === 1}
+      />
 
-      <SubHeading className="c-boost-group__heading mt-3">
-        Other Feats
-      </SubHeading>
-      <div>
-        {miscFeats.map((feat, i) => {
-          return (
-            <FeatEntry
-              key={i}
-              label=""
-              feat={feat}
-              addFeat={() => openFeatSelection(feat.type)}
-              removeFeat={() => deleteFeat(feat.type)}
-            />
-          )
-        })}
-        <FeatEntry
-          label=""
-          feat={{}}
-          addFeat={() => openFeatSelection("misc_" + numMiscFeats)}
-        />
-      </div>
+      <FeatList
+        addFunc={openFeatSelection}
+        deleteFeat={deleteFeat}
+        featKey="misc"
+        featList={miscFeats}
+        title="Other Feats"
+      />
+
+      <FeatEntry
+        label=""
+        feat={{ type: "misc_" + Guid.newGuid() }}
+        addFeat={openFeatSelection}
+      />
 
       <FeatSelection
         show={showFeatSelection}
         closeFunction={() => setShowFeatSelection(false)}
         selectFeat={localSelectFeat}
-        featKey={featKey}
+        featType={featType}
         character={character}
       />
     </Card>
+  )
+}
+
+const FeatList = ({
+  hideListIf,
+  noListMessage,
+  featList,
+  addFunc,
+  deleteFeat,
+  title,
+}) => {
+  return (
+    <>
+      <SubHeading>{title}</SubHeading>
+      <div>
+        {hideListIf ? (
+          <PlaceholderText>{noListMessage}</PlaceholderText>
+        ) : (
+          featList.map((feat, i) => {
+            return (
+              <FeatEntry
+                key={i}
+                label={"Lv" + feat.level}
+                feat={feat}
+                addFeat={addFunc}
+                deleteFeat={deleteFeat}
+              />
+            )
+          })
+        )}
+      </div>
+    </>
   )
 }

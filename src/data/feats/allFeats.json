@@ -6,7 +6,7 @@
     "prerequisites": "\u2014",
     "desc": "Your mind resonates with the inscrutable thought processes that inhuman aberrations use to communicate.",
     "traits": ["Fleshwarp"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -16,7 +16,7 @@
     "prerequisites": "trained in Acrobatics",
     "desc": "Use Acrobatics to Perform.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -26,7 +26,7 @@
     "prerequisites": "\u2014",
     "desc": "Your sense improve when you are raging.",
     "traits": ["Barbarian"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -36,7 +36,7 @@
     "prerequisites": "spellcasting class feature",
     "desc": "Through study of multiple magical traditions, you\u2019ve altered a spell to suit your spellcasting style.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -46,7 +46,7 @@
     "prerequisites": "\u2014",
     "desc": "After years of using black powder weaponry in dimly lit spaces, you've become accustomed to dazzling flashes of light and sudden shifts in illumination.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -56,7 +56,7 @@
     "prerequisites": "trained in Lore",
     "desc": "Become trained in another Lore subcategory.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -66,7 +66,7 @@
     "prerequisites": "\u2014",
     "desc": "You descend from the rare psychic vampires known as vetalaranas.",
     "traits": ["Dhampir", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -76,7 +76,7 @@
     "prerequisites": "\u2014",
     "desc": "Gain access to ancestry feats from another ancestry.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -86,7 +86,7 @@
     "prerequisites": "\u2014",
     "desc": "In the heat of battle, you are capable of amazing feats of strength.",
     "traits": ["Barbarian", "Rage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -96,7 +96,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve fiddled with knots, locks, and blacksmith\u2019s puzzles since you were a child to give your hands something to do.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -106,7 +106,7 @@
     "prerequisites": "\u2014",
     "desc": "Your eidolon's attack evolves.",
     "traits": ["Evolution", "Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -116,7 +116,7 @@
     "prerequisites": "\u2014",
     "desc": "You remember more about your previous incarnations than most leshys.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -126,7 +126,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Craft alchemical items.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -136,7 +136,7 @@
     "prerequisites": "\u2014",
     "desc": "You have used alchemy to create life, a simple creature formed from alchemical materials, reagents, and a bit of your own blood.",
     "traits": ["Alchemist"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -146,7 +146,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "You can identify alchemical items quickly.",
     "traits": ["Alchemist"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -156,7 +156,7 @@
     "prerequisites": "\u2014",
     "desc": "You learn formulas more easily.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -166,7 +166,7 @@
     "prerequisites": "\u2014",
     "desc": "Although you may not even be aware, the alghollthus your ancestors once served maintain a stranglehold on the deepest, tethered parts of your mind.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -176,7 +176,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned how to provide for your community, be it through hard-earned sustenance or useful crafts.",
     "traits": ["Anadi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -186,7 +186,7 @@
     "prerequisites": "\u2014",
     "desc": "The magic of your bloodline mixes with that of your ancestry.",
     "traits": ["Sorcerer"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -196,7 +196,7 @@
     "prerequisites": "\u2014",
     "desc": "You have extensive knowledge of your ancestors' ancient origins.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -206,7 +206,7 @@
     "prerequisites": "at least 100 years old",
     "desc": "Over your extensive lifespan, you've studied many languages.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -216,7 +216,7 @@
     "prerequisites": "at least 100 years old",
     "desc": "You have accumulated a vast array of lived knowledge over the years.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -226,7 +226,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a keen interest in the origins of your people.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -236,7 +236,7 @@
     "prerequisites": "\u2014",
     "desc": "You descend from an angel\u2014a winged messenger from Nirvana or one of the other celestial realms\u2014which gives you a knack for cultures and languages.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -246,7 +246,7 @@
     "prerequisites": "\u2014",
     "desc": "You build a rapport with an animal, which becomes magically bonded to you.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -256,7 +256,7 @@
     "prerequisites": "[Druid] animal order",
     "desc": "You gain the service of a young animal companion that travels with you.",
     "traits": ["Druid", "Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -266,7 +266,7 @@
     "prerequisites": "\u2014",
     "desc": "You gain one of the following senses available to your inherent animal: darkvision, low-light vision, or scent (imprecise) 30 feet.",
     "traits": ["Beastkin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -276,7 +276,7 @@
     "prerequisites": "\u2014",
     "desc": "As your connection to water grows, you can see more easily in places with less light, such as the depths of the ocean.",
     "traits": ["Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -286,7 +286,7 @@
     "prerequisites": "\u2014",
     "desc": "You can deliver silent messages.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -296,7 +296,7 @@
     "prerequisites": "low-light vision",
     "desc": "Your eye has been magically enhanced to pierce darkness.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -306,7 +306,7 @@
     "prerequisites": "\u2014",
     "desc": "Your physical training encompasses unarmed combat forms.",
     "traits": ["Magus"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -316,7 +316,7 @@
     "prerequisites": "trained in Arcana",
     "desc": "Cast detect magic at will as an arcane innate spell.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -326,7 +326,7 @@
     "prerequisites": "\u2014",
     "desc": "You have tattoos on your body corresponding to one of the ancient Thassilonian schools of magic.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -336,7 +336,7 @@
     "prerequisites": "trained in Athletics or trained in Warfare Lore",
     "desc": "Don armor more quickly.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -346,7 +346,7 @@
     "prerequisites": "\u2014",
     "desc": "Become trained in a type of armor.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -356,7 +356,7 @@
     "prerequisites": "trained in at least one skill",
     "desc": "Receive a fixed result on a skill check.",
     "traits": ["Fortune", "General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -366,7 +366,7 @@
     "prerequisites": "\u2014",
     "desc": "You've been provided a body part designed for combat.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -376,7 +376,7 @@
     "prerequisites": "\u2014",
     "desc": "You have come to better understand the process that made your body and the magic that powers it.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -386,7 +386,7 @@
     "prerequisites": "\u2014",
     "desc": "You honor your ally\u2019s life, gaining temporary Hit Points equal to your level for 1 minute.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -396,7 +396,7 @@
     "prerequisites": "\u2014",
     "desc": "You possess a strong understanding of process among mortals and lawful outsiders alike.",
     "traits": ["Aphorite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -406,7 +406,7 @@
     "prerequisites": "\u2014",
     "desc": "You have learned the history and origins of your people and how to connect to both your land and sea heritage.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -416,7 +416,7 @@
     "prerequisites": "\u2014",
     "desc": "You are familiar with weapons that excel underwater.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -426,7 +426,7 @@
     "prerequisites": "enigma muse",
     "desc": "Your studies make you informed on every subject.",
     "traits": ["Bard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -436,7 +436,7 @@
     "prerequisites": "trained in Diplomacy",
     "desc": "Earn Income by searching for deals.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -446,7 +446,7 @@
     "prerequisites": "trained in Medicine",
     "desc": "Heal yourself or an ally in battle.",
     "traits": ["General", "Healing", "Manipulate", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -456,7 +456,7 @@
     "prerequisites": "\u2014",
     "desc": "You have an impressive innate ability to tame and command ferocious beasts.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -466,7 +466,7 @@
     "prerequisites": "\u2014",
     "desc": "One of your ancestors was a rakshasa, the corrupt and aristocratic reincarnated souls that call Golarion home.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -476,7 +476,7 @@
     "prerequisites": "\u2014",
     "desc": "Sometimes taking the shortest distance between two points involves removing an obstacle or two.",
     "traits": ["Attack", "Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -486,7 +486,7 @@
     "prerequisites": "bloodline that grants divine spells; you follow a deity",
     "desc": "Your deity\u2019s blessings manifest in your blood-borne power",
     "traits": ["Sorcerer"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -504,7 +504,7 @@
       "Mental",
       "Skill"
     ],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -514,7 +514,7 @@
     "prerequisites": "\u2014",
     "desc": "Your connection to your iruxi ancestors manifests as a simple primal spell that you cast using a fragment of an ancestor's bones.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -524,7 +524,7 @@
     "prerequisites": "Unbreakable Goblin heritage",
     "desc": "You have a particular elasticity that makes it easy for you to bounce and squish.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -534,7 +534,7 @@
     "prerequisites": "\u2014",
     "desc": "Hold your breath longer and gain benefits against inhaled threats.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -544,7 +544,7 @@
     "prerequisites": "\u2014",
     "desc": "The fire inside you asserts itself as beaming, radiant light.",
     "traits": ["Ifrit", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -554,7 +554,7 @@
     "prerequisites": "\u2014",
     "desc": "Your mother was a sea hag, granting you one sea-green or blue eye.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -564,7 +564,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elemental ancestor's legacy asserts itself as brackish water, like the seawater of the ocean.",
     "traits": ["Lineage", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -574,7 +574,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned a flexible way to position your buckler to provide more protection.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -584,7 +584,7 @@
     "prerequisites": "\u2014",
     "desc": "You've built tools into your innovation so you can access and use them easily.",
     "traits": ["Inventor", "Modification"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -594,7 +594,7 @@
     "prerequisites": "\u2014",
     "desc": "Fire fascinates you.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -604,7 +604,7 @@
     "prerequisites": "\u2014",
     "desc": "You recognize the chittering of ground creatures as its own peculiar language.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -614,7 +614,7 @@
     "prerequisites": "\u2014",
     "desc": "You can extend one of your spells with a quick burst of laughter.",
     "traits": ["Witch"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -624,7 +624,7 @@
     "prerequisites": "\u2014",
     "desc": "You are among the most common of changelings\u2014those born to green hags\u2014and a vibrant green eye signifies that parentage.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -634,7 +634,7 @@
     "prerequisites": "\u2014",
     "desc": "Become an expert in a saving throw or Perception.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -644,7 +644,7 @@
     "prerequisites": "\u2014",
     "desc": "The life energy that helped create the first hobgoblins is particularly potent in you, protecting you from ongoing maladies.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -654,7 +654,7 @@
     "prerequisites": "trained in Acrobatics",
     "desc": "Treat falls as shorter than they are.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -664,7 +664,7 @@
     "prerequisites": "\u2014",
     "desc": "You can briefly sleep to regain your energy quickly.",
     "traits": ["Catfolk", "Concentrate", "Exploration"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -674,7 +674,7 @@
     "prerequisites": "\u2014",
     "desc": "You are quick at recognizing broad details about people and things around you.",
     "traits": ["Goloma"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -684,7 +684,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a habit of always being in the way when other creatures attempt to move.",
     "traits": ["Catfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -694,7 +694,7 @@
     "prerequisites": "\u2014",
     "desc": "Growing up among catfolk has taught you the traditional values of freedom to travel, stewardship of the land, and quick reactions when your curiosity lands you in trouble.",
     "traits": ["Catfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -704,7 +704,7 @@
     "prerequisites": "\u2014",
     "desc": "You favor weapons that you can use with quick, darting slashes like a cat's claws.",
     "traits": ["Catfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -714,7 +714,7 @@
     "prerequisites": "\u2014",
     "desc": "You instinctively twist away from danger.",
     "traits": ["Catfolk", "Fortune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -724,7 +724,7 @@
     "prerequisites": "\u2014",
     "desc": "You can use the Craft activity to create oils and potions.",
     "traits": ["Witch"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -734,7 +734,7 @@
     "prerequisites": "\u2014",
     "desc": "You are a cel rau, child of a strigoi, one of the first vampires to walk Golarion.",
     "traits": ["Dhampir", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -744,7 +744,7 @@
     "prerequisites": "low-light vision",
     "desc": "You can see through darkness.",
     "traits": ["Aasimar"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -754,7 +754,7 @@
     "prerequisites": "\u2014",
     "desc": "You were raised with an aasimar or celestial relative, or you've devoted yourself to researching the secrets of the celestial realms.",
     "traits": ["Aasimar"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -764,7 +764,7 @@
     "prerequisites": "\u2014",
     "desc": "You manipulate your exoskeleton to overlap itself.",
     "traits": ["Conrasu", "Manipulate"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -774,7 +774,7 @@
     "prerequisites": "\u2014",
     "desc": "You have cultivated your exoskeleton's form for close combat, using knots, whorls, and reinforced branches.",
     "traits": ["Conrasu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -784,7 +784,7 @@
     "prerequisites": "\u2014",
     "desc": "Your previous life ended due to sheer poor luck, struck by lightning or choking on a fish bone.",
     "traits": ["Duskwalker", "Fortune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -794,7 +794,7 @@
     "prerequisites": "\u2014",
     "desc": "All too aware of your true nature, you\u2019ve studied hags and their powers.",
     "traits": ["Changeling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -804,7 +804,7 @@
     "prerequisites": "trained in Deception",
     "desc": "You\u2019ve learned to mimic the abilities of spellcasters by studying their flourishes and words",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -814,7 +814,7 @@
     "prerequisites": "trained in Deception",
     "desc": "Improve a target's attitude with your lies.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -824,7 +824,7 @@
     "prerequisites": "\u2014",
     "desc": "Your cheeks are stretchy, and you can store up to four items of light Bulk or less in these cheek pouches.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -834,7 +834,7 @@
     "prerequisites": "\u2014",
     "desc": "The fire of your elemental ancestor manifests like dying embers of a blaze, and your inner charcoal helps staunch bleeding, purify simple poisons, and absorb acid.",
     "traits": ["Ifrit", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -844,7 +844,7 @@
     "prerequisites": "\u2014",
     "desc": "You know that the greatest treasures often look like refuse, and you scoff at those who throw away perfectly good scraps.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -854,7 +854,7 @@
     "prerequisites": "\u2014",
     "desc": "Raised in the ancient halls of Dongun Hold or the surrounding region, you display your lineage with a clan pistol, rather than a clan dagger.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -864,7 +864,7 @@
     "prerequisites": "trained in clan daggers",
     "desc": "By moving your clan dagger with rapid precision, you can protect yourself more effectively.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -874,7 +874,7 @@
     "prerequisites": "\u2014",
     "desc": "Your nanites help purge your body of harmful chemicals and toxins.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -884,7 +884,7 @@
     "prerequisites": "\u2014",
     "desc": "You make a telegraphed attack to learn about your foe.",
     "traits": ["Fighter"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -894,7 +894,7 @@
     "prerequisites": "trained in Athletics",
     "desc": "Fight more effectively as you Climb.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -904,7 +904,7 @@
     "prerequisites": "trained in Thievery",
     "desc": "Conceal an Object using Thievery instead of Stealth.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -914,7 +914,7 @@
     "prerequisites": "\u2014",
     "desc": "You have learned about your history and your people from shapers.",
     "traits": ["Conrasu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -924,7 +924,7 @@
     "prerequisites": "\u2014",
     "desc": "You have taken it upon yourself to learn the ways of combat to aid with your tasks, perhaps in a role as a corrector.",
     "traits": ["Conrasu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -934,7 +934,7 @@
     "prerequisites": "\u2014",
     "desc": "You find wisdom in the movements of the heavens.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -944,7 +944,7 @@
     "prerequisites": "\u2014",
     "desc": "The short human life span lends perspective and has taught you from a young age to set aside differences and work with others to achieve greatness.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -954,7 +954,7 @@
     "prerequisites": "\u2014",
     "desc": "The smallest of fey have ridden corgis as mounts since time immemorial, leading to a pattern on corgis' backs called a \u201cfaerie saddle.",
     "traits": ["Sprite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -964,7 +964,7 @@
     "prerequisites": "\u2014",
     "desc": "When a foe Casts a Spell and you can see its manifestations, you can use your own magic to disrupt it.",
     "traits": ["Abjuration", "Arcane", "Sorcerer", "Witch", "Wizard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -974,7 +974,7 @@
     "prerequisites": "\u2014",
     "desc": "You grew up in the proud Padishah Empire, where even insults have a certain poetic wit.",
     "traits": ["Fortune", "Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -984,7 +984,7 @@
     "prerequisites": "trained in Society",
     "desc": "Use Society to get along in noble society.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -994,7 +994,7 @@
     "prerequisites": "\u2014",
     "desc": "You lay down suppressive fire to protect allies by forcing foes to take cover from your wild attacks.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1004,7 +1004,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Use Crafting to identify magic items.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1014,7 +1014,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter the stance of a crane, holding your arms in an imitation of a crane\u2019s wings.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1024,7 +1024,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a powerful creative drive, useful for prevarication and performance.",
     "traits": ["Ganzi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1034,7 +1034,7 @@
     "prerequisites": "\u2014",
     "desc": "With pitiful posturing, you cause your foe to pull back a deadly attack.",
     "traits": ["Emotion", "Kobold", "Mental", "Visual"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1044,7 +1044,7 @@
     "prerequisites": "\u2014",
     "desc": "Once per hour, you can use Change Shape to enter a critter shape.",
     "traits": ["Beastkin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1054,7 +1054,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a deep understanding of the crossbow.",
     "traits": ["Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1064,7 +1064,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a deep understanding of the crossbow.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1074,7 +1074,7 @@
     "prerequisites": "\u2014",
     "desc": "Your jaws can crush bone and bite through armor.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1084,7 +1084,7 @@
     "prerequisites": "\u2014",
     "desc": "You've been approached with suspicion and distrust throughout your life and return these sentiments back to the strangers you encounter.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1094,7 +1094,7 @@
     "prerequisites": "\u2014",
     "desc": "Your legacy grants you great destructive power.",
     "traits": ["Sorcerer"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1104,7 +1104,7 @@
     "prerequisites": "deity with a simple or unarmed attack favored weapon, trained with your deity's favored weapon",
     "desc": "Your deity\u2019s weapon is especially powerful in your hands.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1114,7 +1114,7 @@
     "prerequisites": "trained in Occultism",
     "desc": "Pass yourself off as a member of a religion.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1124,7 +1124,7 @@
     "prerequisites": "\u2014",
     "desc": "Your vision is suited for night or the underground.",
     "traits": ["Fleshwarp"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1134,7 +1134,7 @@
     "prerequisites": "\u2014",
     "desc": "You embody an aspect of your deity.",
     "traits": ["Champion"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1144,7 +1144,7 @@
     "prerequisites": "\u2014",
     "desc": "Once, you died because someone\u2014murderer or monster, soldier or executioner\u2014 chose to strike you down.",
     "traits": ["Duskwalker"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1154,7 +1154,7 @@
     "prerequisites": "\u2014",
     "desc": "You gain a +1 circumstance bonus to damage with weapons and unarmed attacks against demons.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1164,7 +1164,7 @@
     "prerequisites": "\u2014",
     "desc": "You call out to your deity in a plea for their aid.",
     "traits": ["Champion"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1174,7 +1174,7 @@
     "prerequisites": "\u2014",
     "desc": "You know more about the habits of devils than is entirely safe.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1184,7 +1184,7 @@
     "prerequisites": "\u2014",
     "desc": "Die at dying 5, rather than dying 4.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1194,7 +1194,7 @@
     "prerequisites": "ability to select ancestry feats from multiple ancestries",
     "desc": "Create a second identity for yourself with a different name, history, and background.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1204,7 +1204,7 @@
     "prerequisites": "\u2014",
     "desc": "Your hands work as effectively as shovels when you need to dig a quick hole.",
     "traits": ["Manipulate", "Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1214,7 +1214,7 @@
     "prerequisites": "\u2014",
     "desc": "It's harder for your foes to regain their grip when you knock their weapon partially out of their hands.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1224,7 +1224,7 @@
     "prerequisites": "\u2014",
     "desc": "You have learned to remain hidden by using larger folk as a distraction to avoid drawing attention to yourself.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1234,7 +1234,7 @@
     "prerequisites": "\u2014",
     "desc": "Your deity bestows a special spell related to their powers.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1244,7 +1244,7 @@
     "prerequisites": "\u2014",
     "desc": "You're knowledgeable in trades that are important to your people's survival and commercial interests.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1254,7 +1254,7 @@
     "prerequisites": "\u2014",
     "desc": "You lash out at your foe with both weapons.",
     "traits": ["Fighter"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1264,7 +1264,7 @@
     "prerequisites": "dragon instinct",
     "desc": "Few can sway you from your goals while the fury of combat fills you.",
     "traits": ["Barbarian", "Rage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1274,7 +1274,7 @@
     "prerequisites": "\u2014",
     "desc": "You have an affect that dragonkind find unusually pleasing\u2014and when that fails, you know when to duck.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1284,7 +1284,7 @@
     "prerequisites": "Tian-Dan ethnicity",
     "desc": "Many Tian-Dan claim to have dragon blood in their veins, and in your case, this is true\u2014you can spit energy, and you might have an especially visible sign of your draconic heritage.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1294,7 +1294,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter the stance of a dragon and make powerful leg strikes like a lashing dragon\u2019s tail.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1304,7 +1304,7 @@
     "prerequisites": "\u2014",
     "desc": "As a member of dragonkind, you project unflappable confidence",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1314,7 +1314,7 @@
     "prerequisites": "\u2014",
     "desc": "You are the child of a night hag, making one of your eyes violet or even black.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1324,7 +1324,7 @@
     "prerequisites": "\u2014",
     "desc": "You and your eidolon have some skills you practice on your own.",
     "traits": ["Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1334,7 +1334,7 @@
     "prerequisites": "\u2014",
     "desc": "Your suli heritage can be traced back to two geniekin ancestors of opposing elements, or to an elemental ancestor that embodied two combined elements.",
     "traits": ["Lineage", "Suli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1344,7 +1344,7 @@
     "prerequisites": "\u2014",
     "desc": "You carry your ammunition in a way that allows you to reload while holding two weapons.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1354,7 +1354,7 @@
     "prerequisites": "trained in a skill with the Recall Knowledge action",
     "desc": "Learn true and erroneous knowledge on failed check.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1364,7 +1364,7 @@
     "prerequisites": "\u2014",
     "desc": "You can parry attacks against you with your weapon.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1374,7 +1374,7 @@
     "prerequisites": "\u2014",
     "desc": "You either found another duskwalker who taught you the secrets of your kind, or you managed to research your unusual heritage.",
     "traits": ["Duskwalker"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1384,7 +1384,7 @@
     "prerequisites": "\u2014",
     "desc": "Your earth elemental ancestor's influence manifests in you as dust and dirt, like the soil of a field or the hot desert sands.",
     "traits": ["Lineage", "Oread"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1394,7 +1394,7 @@
     "prerequisites": "\u2014",
     "desc": "You are either naturally calm and collected in the face of imminent danger, or you are very good at faking it.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1404,7 +1404,7 @@
     "prerequisites": "\u2014",
     "desc": "You eagerly absorbed the old stories and traditions of your ancestors, your gods, and your people.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1414,7 +1414,7 @@
     "prerequisites": "\u2014",
     "desc": "Your kin have instilled in you an affinity for hard-hitting weapons, and you prefer these to more elegant arms.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1424,7 +1424,7 @@
     "prerequisites": "\u2014",
     "desc": "Elves are often skeptical of their half-elven kin, and you are experienced at telling stories of your accomplishments to gain their respect.",
     "traits": ["Half-Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1434,7 +1434,7 @@
     "prerequisites": "\u2014",
     "desc": "You have an amazing memory for sound.",
     "traits": ["Shisk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1444,7 +1444,7 @@
     "prerequisites": "\u2014",
     "desc": "You shroud your arms and held weapons in elemental magic.",
     "traits": ["Arcane", "Concentrate", "Evocation", "Suli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1454,7 +1454,7 @@
     "prerequisites": "\u2014",
     "desc": "You can summon a harmless but impressive elemental display.",
     "traits": ["Suli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1464,7 +1464,7 @@
     "prerequisites": "low-light vision",
     "desc": "You can see in the darkness as easily as an elemental.",
     "traits": ["Ifrit", "Oread", "Suli", "Sylph", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1474,7 +1474,7 @@
     "prerequisites": "\u2014",
     "desc": "You've devoted yourself to researching the secrets of the Inner Sphere.",
     "traits": ["Ifrit", "Oread", "Suli", "Sylph", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1484,7 +1484,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a strong connection with stone and metal.",
     "traits": ["Oread"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1494,7 +1494,7 @@
     "prerequisites": "\u2014",
     "desc": "You are so attuned to the land that you can call forth a bolt of energy from your surroundings.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1504,7 +1504,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elven blood runs particularly strong, granting you features far more elven than those of a typical half-elf.",
     "traits": ["Half-Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1514,7 +1514,7 @@
     "prerequisites": "\u2014",
     "desc": "As much as you might care for them, you've come to terms with the ephemeral nature of non-elves, and it makes their threats feel less troublesome.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1524,7 +1524,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve studied in traditional elven arts, learning about arcane magic and the world around you.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1534,7 +1534,7 @@
     "prerequisites": "\u2014",
     "desc": "While all elves are immune to the paralyzing touch of ghouls, you can shake off flesh-numbing magic of all kinds.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1544,7 +1544,7 @@
     "prerequisites": "\u2014",
     "desc": "You favor bows and other elegant weapons.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1554,7 +1554,7 @@
     "prerequisites": "\u2014",
     "desc": "A peri's roaring spirit burns in your soul.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1564,7 +1564,7 @@
     "prerequisites": "\u2014",
     "desc": "Your eyes blaze with inner flame.",
     "traits": ["Ifrit"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1574,7 +1574,7 @@
     "prerequisites": "\u2014",
     "desc": "Your malfunctioning emotional processors make it difficult for you to feel strong emotions.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1584,7 +1584,7 @@
     "prerequisites": "trained in Diplomacy",
     "desc": "The way you cringe or use those puppydog eyes you've been practicing elicits an empathetic response in the attacker.",
     "traits": ["Auditory", "Emotion", "Gnome", "Mental", "Visual"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1594,7 +1594,7 @@
     "prerequisites": "\u2014",
     "desc": "You can channel your core's power through the magical gem that serves as your eye.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1604,7 +1604,7 @@
     "prerequisites": "\u2014",
     "desc": "Your eidolon's heart beats with energy.",
     "traits": ["Evolution", "Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1614,7 +1614,7 @@
     "prerequisites": "\u2014",
     "desc": "You can use clever workarounds to replicate the arcane essence of certain materials.",
     "traits": ["Wizard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1624,7 +1624,7 @@
     "prerequisites": "\u2014",
     "desc": "Your polite manners and natural ability to comfort others make it easy for you to break down cultural barriers and earn strangers\u2019 trust.",
     "traits": ["Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1634,7 +1634,7 @@
     "prerequisites": "\u2014",
     "desc": "You've manifested wings that can flutter for brief spurts.",
     "traits": ["Sprite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1644,7 +1644,7 @@
     "prerequisites": "\u2014",
     "desc": "You brace your shield with both hands, enhancing its potential for both offense and defense.",
     "traits": ["Champion", "Fighter", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1654,7 +1654,7 @@
     "prerequisites": "\u2014",
     "desc": "You make a controlled attack, fully accounting for your momentum.",
     "traits": ["Fighter", "Press"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1664,7 +1664,7 @@
     "prerequisites": "\u2014",
     "desc": "Your eidolon evolves more acute senses.",
     "traits": ["Evolution", "Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1674,7 +1674,7 @@
     "prerequisites": "trained in Lore",
     "desc": "Prevent critical failures when Earning Income.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1684,7 +1684,7 @@
     "prerequisites": "trained in Stealth",
     "desc": "Conceal items from observers more effectively.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1694,7 +1694,7 @@
     "prerequisites": "trained in Survival",
     "desc": "Track at your full Speed at a \u20135 penalty.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1704,7 +1704,7 @@
     "prerequisites": "\u2014",
     "desc": "You aim an explosion from your innovation downward to launch yourself into the air.",
     "traits": ["Fire", "Inventor", "Move", "Unstable"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1714,7 +1714,7 @@
     "prerequisites": "\u2014",
     "desc": "A lifetime wielding firearms and explosive ordinance amid the chaos of battle has granted you great skill with volatile weapons.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1724,7 +1724,7 @@
     "prerequisites": "trained in Nature",
     "desc": "Increase your mount\u2019s travel speed.",
     "traits": ["Exploration", "General", "Move", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1734,7 +1734,7 @@
     "prerequisites": "\u2014",
     "desc": "You can increase the duration of your eidolon's boosts.",
     "traits": ["Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1744,7 +1744,7 @@
     "prerequisites": "Unbreakable Goblin heritage",
     "desc": "Your rubbery physique makes it easier for you to wedge yourself into tight spaces and more difficult for your enemies to dislodge you.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1754,7 +1754,7 @@
     "prerequisites": "trained in Society",
     "desc": "+2 to Decipher Writing about math and count items quickly.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1764,7 +1764,7 @@
     "prerequisites": "\u2014",
     "desc": "You know good artisanship when you see it and can wax poetic about crafting techniques and forms.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1774,7 +1774,7 @@
     "prerequisites": "low-light vision",
     "desc": "You can see in the darkness as easily as a true vampire.",
     "traits": ["Dhampir"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1784,7 +1784,7 @@
     "prerequisites": "worshipper of Droskar",
     "desc": "Droskar knows you may need to disguise yourself in societies that oppose your faith.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1794,7 +1794,7 @@
     "prerequisites": "\u2014",
     "desc": "An animal serves you and assists your spellcasting.",
     "traits": ["Magus", "Sorcerer", "Wizard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1804,7 +1804,7 @@
     "prerequisites": "Irongut Goblin heritage or Razortooth Goblin heritage",
     "desc": "You have filed your teeth into jagged points and have an unusually powerful jaw, making your mouth a dangerous weapon.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1814,7 +1814,7 @@
     "prerequisites": "\u2014",
     "desc": "Your incisors have grown into true fangs: long, sharp, and well-suited to drawing blood.",
     "traits": ["Dhampir"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1824,7 +1824,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve learned how to throw a longer distance.",
     "traits": ["Alchemist"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1834,7 +1834,7 @@
     "prerequisites": "trained in Performance",
     "desc": "Perform to fascinate observers.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1844,7 +1844,7 @@
     "prerequisites": "Constitution 14",
     "desc": "Regain more HP from rest, recover faster from disease and poisons.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1854,7 +1854,7 @@
     "prerequisites": "Dexterity 14",
     "desc": "Step into difficult terrain.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1864,7 +1864,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned obscure lessons about your fellow fetchlings.",
     "traits": ["Fetchling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1874,7 +1874,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned the cantrips sprites have used since time immemorial.",
     "traits": ["Sprite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1884,7 +1884,7 @@
     "prerequisites": "\u2014",
     "desc": "Your enhanced fey connection affords you a warmer reception from creatures of the First World.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1894,7 +1894,7 @@
     "prerequisites": "low-light vision",
     "desc": "You can see in the darkness as easily as a fiend.",
     "traits": ["Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1904,7 +1904,7 @@
     "prerequisites": "\u2014",
     "desc": "You were raised by a tiefling or a fiendish relative, or you've devoted yourself to researching the secrets of the fiendish realms.",
     "traits": ["Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1914,7 +1914,7 @@
     "prerequisites": "flame order",
     "desc": "A lifetime of proximity to flames has inured your lungs and eyes to smoke.",
     "traits": ["Druid"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1924,7 +1924,7 @@
     "prerequisites": "\u2014",
     "desc": "You've grown up around a forge and are well-suited to dealing with smoke and flame.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1934,7 +1934,7 @@
     "prerequisites": "\u2014",
     "desc": "Your connection to the First World grants you a primal innate spell, much like those of the fey.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1944,7 +1944,7 @@
     "prerequisites": "\u2014",
     "desc": "Increase your Speed by 5 feet.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1954,7 +1954,7 @@
     "prerequisites": "\u2014",
     "desc": "You've collected a cross-section of information on various disciplines you can refer to when preparing for various tasks.",
     "traits": ["Investigator"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1964,7 +1964,7 @@
     "prerequisites": "precise strike",
     "desc": "You've learned to apply your flashy techniques to thrown weapons as easily as melee attacks.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1974,7 +1974,7 @@
     "prerequisites": "Fascinating Performance",
     "desc": "When you use Fascinating Performance in a combat encounter, you need only a success, rather than a critical success, to fascinate your target.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1984,7 +1984,7 @@
     "prerequisites": "\u2014",
     "desc": "You are adept at disguising coded messages as folksy idioms.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -1994,7 +1994,7 @@
     "prerequisites": "trained in Survival",
     "desc": "Forage for supplies to provide for multiple creatures.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2004,7 +2004,7 @@
     "prerequisites": "trained in Medicine",
     "desc": "Rapidly examine a body and Recall Knowledge about it.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2014,7 +2014,7 @@
     "prerequisites": "\u2014",
     "desc": "Your unusual rest cycle allows you to recover faster.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2024,7 +2024,7 @@
     "prerequisites": "\u2014",
     "desc": "Watching your friends age and die fills you with moroseness that protects you against harmful emotions.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2034,7 +2034,7 @@
     "prerequisites": "\u2014",
     "desc": "Part of your body has an obvious, fiendish appearance.",
     "traits": ["Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2044,7 +2044,7 @@
     "prerequisites": "\u2014",
     "desc": "A crack of your tail sparks wisps of blue energy.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2054,7 +2054,7 @@
     "prerequisites": "\u2014",
     "desc": "The air inside you asserts itself as a toxic miasma, inuring you to most poisons.",
     "traits": ["Lineage", "Sylph"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2064,7 +2064,7 @@
     "prerequisites": "\u2014",
     "desc": "You have unusual sensory abilities passed down from your chaotic forebears.",
     "traits": ["Ganzi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2074,7 +2074,7 @@
     "prerequisites": "\u2014",
     "desc": "The earth inside you asserts itself as crystallized gemstones or metals, like a cluster of quartz or veins of iron and gold.",
     "traits": ["Lineage", "Oread"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2084,7 +2084,7 @@
     "prerequisites": "\u2014",
     "desc": "Your adaptability manifests in your mastery of a range of useful abilities.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2094,7 +2094,7 @@
     "prerequisites": "\u2014",
     "desc": "You've trained with weapons used by your genie ancestors.",
     "traits": ["Ifrit", "Oread", "Suli", "Sylph", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2104,7 +2104,7 @@
     "prerequisites": "\u2014",
     "desc": "Your connection to the Boneyard ensures that your blows strike true against spectral beings.",
     "traits": ["Duskwalker"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2114,7 +2114,7 @@
     "prerequisites": "trained in Society",
     "desc": "Decipher Writing even when you can\u2019t see the document well.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2124,7 +2124,7 @@
     "prerequisites": "\u2014",
     "desc": "You tap into the collected lore of the divine, accessing a variety of potentially useful information.",
     "traits": ["Divination", "Divine", "Oracle", "Secret"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2134,7 +2134,7 @@
     "prerequisites": "\u2014",
     "desc": "Your eidolon evolves wings, a buoyant body, or some other means to control descent.",
     "traits": ["Eidolon", "Evolution", "Move", "Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2144,7 +2144,7 @@
     "prerequisites": "Nidalese ethnicity",
     "desc": "Gloom holds few terrors for you, and the pall of darkness over Nidal has made you comfortable in dim light.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2154,7 +2154,7 @@
     "prerequisites": "\u2014",
     "desc": "You paid attention to your senior hunters to learn their tricks.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2164,7 +2164,7 @@
     "prerequisites": "\u2014",
     "desc": "You were taught to be a hunter and a raider.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2174,7 +2174,7 @@
     "prerequisites": "\u2014",
     "desc": "You might have a flighty nature, but when a topic captures your attention, you dive into it headfirst.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2184,7 +2184,7 @@
     "prerequisites": "\u2014",
     "desc": "Your extensive travels, curiosity, and love of learning help you to learn languages quickly.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2194,7 +2194,7 @@
     "prerequisites": "\u2014",
     "desc": "You favor unusual weapons tied to your people, such as blades with curved and peculiar shapes.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2204,7 +2204,7 @@
     "prerequisites": "trained in Deception",
     "desc": "When you trick a foe, you can goad them into overextending their next attack.",
     "traits": ["Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2214,7 +2214,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve picked up skills and tales from your goblin community.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2224,7 +2224,7 @@
     "prerequisites": "\u2014",
     "desc": "You take advantage of your ally\u2019s movement to adjust your position.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2234,7 +2234,7 @@
     "prerequisites": "\u2014",
     "desc": "You sing annoying goblin songs, distracting your foes with silly and repetitive lyrics.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2244,7 +2244,7 @@
     "prerequisites": "\u2014",
     "desc": "Others might look upon them with disdain, but you know that the weapons of your people are as effective as they are sharp.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2254,7 +2254,7 @@
     "prerequisites": "\u2014",
     "desc": "The most important thing you've learned living with fear is how to overcome it.",
     "traits": ["Goloma"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2264,7 +2264,7 @@
     "prerequisites": "\u2014",
     "desc": "You lived an insulated life focused on avoiding danger.",
     "traits": ["Goloma"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2274,7 +2274,7 @@
     "prerequisites": "\u2014",
     "desc": "You lower yourself to the ground and take an imposing, knuckle-walking stance.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2284,7 +2284,7 @@
     "prerequisites": "\u2014",
     "desc": "You can extend a tangle of vines or tendrils to support your arms and extend your reach.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2294,7 +2294,7 @@
     "prerequisites": "low-light vision",
     "desc": "You can see in the darkness as easily as a psychopomp.",
     "traits": ["Duskwalker"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2304,7 +2304,7 @@
     "prerequisites": "\u2014",
     "desc": "Your expertise with your weapons and commitment to taking out your targets lends you magical power.",
     "traits": ["Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2314,7 +2314,7 @@
     "prerequisites": "Umbral Gnome heritage",
     "desc": "Others\u2019 attempts to scare you often grant you insights about your would-be bullies that you can then exploit.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2324,7 +2324,7 @@
     "prerequisites": "\u2014",
     "desc": "Your lineage traces back to a daemon, one of the manifestations of horrific forms of death that devour souls within their foul home of Abaddon.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2334,7 +2334,7 @@
     "prerequisites": "\u2014",
     "desc": "You are well versed in grippli culture and tactics.",
     "traits": ["Grippli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2344,7 +2344,7 @@
     "prerequisites": "\u2014",
     "desc": "You've trained with weapons ideally suited to marshes and dense forests.",
     "traits": ["Grippli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2354,7 +2354,7 @@
     "prerequisites": "trained in Intimidation",
     "desc": "Coerce multiple targets simultaneously.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2364,7 +2364,7 @@
     "prerequisites": "trained in Diplomacy",
     "desc": "Make an Impression on multiple targets at once.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2374,7 +2374,7 @@
     "prerequisites": "\u2014",
     "desc": "When you came of age, your fingernails grew long and sharp.",
     "traits": ["Changeling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2384,7 +2384,7 @@
     "prerequisites": "\u2014",
     "desc": "You've nurtured the supernatural abilities gifted by your hag mother, particularly your sight.",
     "traits": ["Changeling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2394,7 +2394,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve dutifully learned important skills passed down through generations of halfling tradition.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2404,7 +2404,7 @@
     "prerequisites": "\u2014",
     "desc": "Your happy-go-lucky nature makes it seem like misfortune avoids you.",
     "traits": ["Fortune", "Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2414,7 +2414,7 @@
     "prerequisites": "\u2014",
     "desc": "You favor traditional halfling weapons, so you\u2019ve learned how to use them more effectively.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2424,7 +2424,7 @@
     "prerequisites": "\u2014",
     "desc": "You are surrounded by a halo of light and goodness at all times.",
     "traits": ["Aasimar"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2434,7 +2434,7 @@
     "prerequisites": "universalist wizard",
     "desc": "You can magically hurl your weapon at your foe.",
     "traits": ["Wizard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2444,7 +2444,7 @@
     "prerequisites": "\u2014",
     "desc": "You can easily craft objects.",
     "traits": ["Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2454,7 +2454,7 @@
     "prerequisites": "\u2014",
     "desc": "You quickly fix your innovation, at the cost of its stability.",
     "traits": ["Inventor", "Unstable"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2464,7 +2464,7 @@
     "prerequisites": "Tailed Goblin heritage",
     "desc": "Your tail is much stronger than most, and you can lash out with it with the strength of a whip.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2474,7 +2474,7 @@
     "prerequisites": "\u2014",
     "desc": "You're accustomed to seeing through shifting darkness and bewildering magic.",
     "traits": ["Fetchling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2484,7 +2484,7 @@
     "prerequisites": "harmful font",
     "desc": "The mordant power of your negative energy grows.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2494,7 +2494,7 @@
     "prerequisites": "\u2014",
     "desc": "You look like nothing more than an ordinary toy, doll, or statuette, and you can fool others with your innocuous appearance.",
     "traits": ["Poppet"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2504,7 +2504,7 @@
     "prerequisites": "\u2014",
     "desc": "Your size and demeanor make it easy for you to convince others that you mean no harm.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2514,7 +2514,7 @@
     "prerequisites": "\u2014",
     "desc": "Your powerful ego makes it harder for others to order you around.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2524,7 +2524,7 @@
     "prerequisites": "an animal companion",
     "desc": "You have a deep devotion to your animal companion that enables you to magically heal their wounds.",
     "traits": ["Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2534,7 +2534,7 @@
     "prerequisites": "healing font",
     "desc": "Your positive energy is even more vibrant and restorative.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2544,7 +2544,7 @@
     "prerequisites": "trained in Athletics",
     "desc": "Increase your Bulk limits by 2.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2554,7 +2554,7 @@
     "prerequisites": "\u2014",
     "desc": "Your lineage descends from devils, the conniving schemers of Hell's malevolent hierarchy.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2564,7 +2564,7 @@
     "prerequisites": "\u2014",
     "desc": "You're particularly skilled at helping others with a task.",
     "traits": ["Poppet"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2574,7 +2574,7 @@
     "prerequisites": "\u2014",
     "desc": "You fling yourself out of harm's way.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2584,7 +2584,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019ve studied traditional hobgoblin exercises and fieldcraft, all of which have a militaristic bent.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2594,7 +2594,7 @@
     "prerequisites": "\u2014",
     "desc": "You are trained with composite longbows, composite shortbows, glaives, longbows, longswords, and shortbows.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2604,7 +2604,7 @@
     "prerequisites": "trained in Diplomacy",
     "desc": "Gather Information rapidly.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2614,7 +2614,7 @@
     "prerequisites": "good alignment",
     "desc": "You combine holy energy with positive energy to damage demons, devils, and their evil ilk.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2624,7 +2624,7 @@
     "prerequisites": "\u2014",
     "desc": "You take two quick shots against the one you hunt.",
     "traits": ["Flourish", "Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2634,7 +2634,7 @@
     "prerequisites": "trained in Nature",
     "desc": "Your canny understanding of natural and primal creatures helps you predict and dodge their attacks.",
     "traits": ["Grippli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2644,7 +2644,7 @@
     "prerequisites": "\u2014",
     "desc": "Drawing moisture from the atmosphere, you create a disc of hovering water that deflects attacks.",
     "traits": ["Abjuration", "Azarketi", "Concentrate", "Primal", "Water"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2654,7 +2654,7 @@
     "prerequisites": "\u2014",
     "desc": "Hyenas serve gnolls as pets, trackers, and in your case, vessels for spirits.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2664,7 +2664,7 @@
     "prerequisites": "\u2014",
     "desc": "You learn the hymn of healing composition spell (page 228), which imbues your music with rich melodies that help your allies recover from harm.",
     "traits": ["Bard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2674,7 +2674,7 @@
     "prerequisites": "\u2014",
     "desc": "Your wild, unique features betray your agathion birthright.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2684,7 +2684,7 @@
     "prerequisites": "\u2014",
     "desc": "Your ancestors spent their days cloaked and cradled in illusions, and as a result, sensing illusion magic is second nature to you.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2694,7 +2694,7 @@
     "prerequisites": "trained in Performance",
     "desc": "Make an Impression with Performance.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2704,7 +2704,7 @@
     "prerequisites": "\u2014",
     "desc": "You are always prepared for fights that frequently disrupt seemingly peaceful times.",
     "traits": ["Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2714,7 +2714,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Craft basic tools without a basic crafter\u2019s book.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2724,7 +2724,7 @@
     "prerequisites": "\u2014",
     "desc": "+2 to initiative rolls.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2734,7 +2734,7 @@
     "prerequisites": "\u2014",
     "desc": "You can call the fire inside you into the palm of your hand.",
     "traits": ["Ifrit"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2744,7 +2744,7 @@
     "prerequisites": "\u2014",
     "desc": "Halflings have been unobtrusive assistants of larger folk for untold ages, and your people count on this assumption of innocence.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2754,7 +2754,7 @@
     "prerequisites": "trained in Medicine",
     "desc": "Grant patients +2 to saves against getting a disease again.",
     "traits": ["General", "Healing", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2764,7 +2764,7 @@
     "prerequisites": "\u2014",
     "desc": "Axis's order suffuses your body and helps it maintain coherency.",
     "traits": ["Aphorite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2774,7 +2774,7 @@
     "prerequisites": "\u2014",
     "desc": "You can hide a small object of up to light Bulk inside a hollow cavity on one of your forearms.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2784,7 +2784,7 @@
     "prerequisites": "trained in Intimidation",
     "desc": "Demoralize a creature without speaking.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2794,7 +2794,7 @@
     "prerequisites": "\u2014",
     "desc": "You are accustomed to working alongside others, relying on each other to get by.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2804,7 +2804,7 @@
     "prerequisites": "\u2014",
     "desc": "Your affinity with process and order makes you a natural artisan.",
     "traits": ["Aphorite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2814,7 +2814,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "You can jury-rig your weapons to perform in unexpected ways.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2824,7 +2824,7 @@
     "prerequisites": "\u2014",
     "desc": "Your fists have been forged by battle, your naturally tough skin and dense bone further hardened by conflict.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2834,7 +2834,7 @@
     "prerequisites": "tyrant cause",
     "desc": "Disobeying your Iron Command has lasting consequences.",
     "traits": ["Champion"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2844,7 +2844,7 @@
     "prerequisites": "\u2014",
     "desc": "Your contrary nature means you bounce back with prejudice.",
     "traits": ["Ganzi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2854,7 +2854,7 @@
     "prerequisites": "\u2014",
     "desc": "You are adept at dodging roots, foliage, and other jungle obstacles.",
     "traits": ["Grippli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2864,7 +2864,7 @@
     "prerequisites": "\u2014",
     "desc": "You can make useful tools out of even twisted or rusted scraps.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2874,7 +2874,7 @@
     "prerequisites": "\u2014",
     "desc": "Taldan pride means you never show weakness.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2884,7 +2884,7 @@
     "prerequisites": "\u2014",
     "desc": "You can use ki to move with extraordinary speed and make yourself harder to hit.",
     "traits": ["Monk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2894,7 +2894,7 @@
     "prerequisites": "\u2014",
     "desc": "Your study of the flow of mystical energy allows you to harness it into your physical strikes.",
     "traits": ["Monk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2904,7 +2904,7 @@
     "prerequisites": "\u2014",
     "desc": "You excel at navigating social situations and keeping secrets.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2914,7 +2914,7 @@
     "prerequisites": "\u2014",
     "desc": "You've picked up a few magical tricks.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2924,7 +2924,7 @@
     "prerequisites": "\u2014",
     "desc": "You center yourself and call to mind the Vudrani monastic ideals of mindfulness and self-knowledge.",
     "traits": ["Fortune", "Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2934,7 +2934,7 @@
     "prerequisites": "\u2014",
     "desc": "You've spent countless hours studying the history of elves on your world and beyond and are a studied expert in your people's ways.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2944,7 +2944,7 @@
     "prerequisites": "\u2014",
     "desc": "Whenever you Devise a Stratagem, you can also attempt a check to Recall Knowledge as part of that action.",
     "traits": ["Investigator"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2954,7 +2954,7 @@
     "prerequisites": "\u2014",
     "desc": "You channel your draconic exemplar's power into a gout of energy.",
     "traits": ["Arcane", "Evocation", "Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2964,7 +2964,7 @@
     "prerequisites": "\u2014",
     "desc": "You attentively learned key kobold survival strategies and mythology from your elders.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2974,7 +2974,7 @@
     "prerequisites": "\u2014",
     "desc": "You've trained with weapons ideal for subterranean efficiency.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2984,7 +2984,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elemental lineage manifests as magma and molten rock, and you can focus the magma into your hand to attack your foes.",
     "traits": ["Ifrit", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -2994,7 +2994,7 @@
     "prerequisites": "\u2014",
     "desc": "You trace your lineage to archons: embodiments of heavenly virtues, guardians of the seven-tiered mountain of Heaven, and nurturers of law and virtue within mortals.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3004,7 +3004,7 @@
     "prerequisites": "\u2014",
     "desc": "You are trained to capture deserters, or \u201cleeches\u201d.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3014,7 +3014,7 @@
     "prerequisites": "\u2014",
     "desc": "You've solved a tiny stepping stone in your self-discovery, awakening new depths in your sight.",
     "traits": ["Aphorite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3024,7 +3024,7 @@
     "prerequisites": "trained in Deception",
     "desc": "Remain hidden after you Create a Diversion.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3034,7 +3034,7 @@
     "prerequisites": "leaf order",
     "desc": "You gain a leshy familiar, a tiny plant that embodies one of the many spirits of nature.",
     "traits": ["Druid"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3044,7 +3044,7 @@
     "prerequisites": "\u2014",
     "desc": "You deeply understand your people\u2019s cultural traditions and innate strengths.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3054,7 +3054,7 @@
     "prerequisites": "\u2014",
     "desc": "You notice spirits that inhabit objects, learning which bring good fortune and which are unlucky.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3064,7 +3064,7 @@
     "prerequisites": "trained in Deception",
     "desc": "Use Deception to detect lies.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3074,7 +3074,7 @@
     "prerequisites": "\u2014",
     "desc": "The upwelling of innate magic refreshes your body.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3084,7 +3084,7 @@
     "prerequisites": "\u2014",
     "desc": "Your tongue darts out faster than the eye can see to retrieve loose objects.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3094,7 +3094,7 @@
     "prerequisites": "maestro muse",
     "desc": "By adding a flourish, you make your compositions last longer.",
     "traits": ["Bard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3104,7 +3104,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned to use part of your form as a weapon.",
     "traits": ["Fleshwarp"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3114,7 +3114,7 @@
     "prerequisites": "\u2014",
     "desc": "You listened carefully to the tales passed down among your community.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3124,7 +3124,7 @@
     "prerequisites": "Spellstrike",
     "desc": "You make an assessment informed by your knowledge of how a creature fights.",
     "traits": ["Magus"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3134,7 +3134,7 @@
     "prerequisites": "\u2014",
     "desc": "You can tap into some of the magic that flows through your blood to give you new life.",
     "traits": ["Changeling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3144,7 +3144,7 @@
     "prerequisites": "\u2014",
     "desc": "You conjure uncanny orbs of spiritual flame that float above or below the water's surface.",
     "traits": ["Tengu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3154,7 +3154,7 @@
     "prerequisites": "You have a swim speed",
     "desc": "You are adept at moving through marshy terrain.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3164,7 +3164,7 @@
     "prerequisites": "warrior muse",
     "desc": "Your muse has taught you how to handle a wider variety of weapons than most bards, empowering you to effortlessly blend your performance into combat even with the most inelegant tools.",
     "traits": ["Bard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3174,7 +3174,7 @@
     "prerequisites": "trained in Medicine",
     "desc": "Kassi has taught you not only how to apply medicines with your medical skills but how to craft them as well.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3184,7 +3184,7 @@
     "prerequisites": "\u2014",
     "desc": "Your physical form can combine with that of your eidolon, granting benefits but limiting your capabilities.",
     "traits": ["Summoner"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3194,7 +3194,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a connection to the muddier denizens of the Plane of Earth from its border with the Plane of Water, and your elemental lineage manifests as clay or mud, reflecting that bond.",
     "traits": ["Lineage", "Oread"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3204,7 +3204,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a connection to vaporous forms of water, such as fog and mist.",
     "traits": ["Lineage", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3214,7 +3214,7 @@
     "prerequisites": "\u2014",
     "desc": "You push back your rage for a moment in order to think clearly.",
     "traits": ["Barbarian", "Concentrate", "Rage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3224,7 +3224,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter a specialized stance for a unique martial art centered around the use of a bow.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3234,7 +3234,7 @@
     "prerequisites": "\u2014",
     "desc": "You have trained with the traditional weaponry of your monastery or school.",
     "traits": ["Monk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3244,7 +3244,7 @@
     "prerequisites": "\u2014",
     "desc": "You swiftly assess your prey and apply what you know.",
     "traits": ["Ranger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3254,7 +3254,7 @@
     "prerequisites": "\u2014",
     "desc": "Your dual human and orc nature has given you a unique perspective.",
     "traits": ["Half-Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3264,7 +3264,7 @@
     "prerequisites": "\u2014",
     "desc": "Your mother was a moon hag, a handmaiden of Groetus, and you have a single scarlet eye and a sliver of her supernal foresight.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3274,7 +3274,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter the stance of an implacable mountain allowing you to strike with the weight of an avalanche.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3284,7 +3284,7 @@
     "prerequisites": "trained in Society",
     "desc": "Learn two new languages.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3294,7 +3294,7 @@
     "prerequisites": "\u2014",
     "desc": "Bullets and bombs can be scarce in some parts, so you've learned to make your own.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3304,7 +3304,7 @@
     "prerequisites": "\u2014",
     "desc": "Your blood sings with the liberating power of the azatas, living embodiments of freedom from the wild realm of Elysium.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3314,7 +3314,7 @@
     "prerequisites": "\u2014",
     "desc": "You stimulate your nanites, forcing your body to temporarily increase its efficiency.",
     "traits": ["Android", "Concentrate"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3324,7 +3324,7 @@
     "prerequisites": "\u2014",
     "desc": "You were raised to be ambitious and always reach for the stars, leading you to progress quickly in your chosen field.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3334,7 +3334,7 @@
     "prerequisites": "trained in Nature",
     "desc": "Use Nature to Treat Wounds.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3344,7 +3344,7 @@
     "prerequisites": "\u2014",
     "desc": "Entertainment comes naturally to you.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3354,7 +3354,7 @@
     "prerequisites": "\u2014",
     "desc": "Your ingenuity allows you to learn a wide variety of skills.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3364,7 +3364,7 @@
     "prerequisites": "\u2014",
     "desc": "You trust the strength of your wings and can spread them to glide safely to the ground.",
     "traits": ["Strix"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3374,7 +3374,7 @@
     "prerequisites": "\u2014",
     "desc": "The nanites in your ocular processors have adapted to darkness, enhancing your ability to see in the dark.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3384,7 +3384,7 @@
     "prerequisites": "\u2014",
     "desc": "You deftly dodge out of the way.",
     "traits": ["Rogue", "Swashbuckler"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3394,7 +3394,7 @@
     "prerequisites": "\u2014",
     "desc": "Your muscles are tightly honed.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3404,7 +3404,7 @@
     "prerequisites": "\u2014",
     "desc": "Your legs end in hooves rather than feet, with joints and tendons that allow you to move with great haste.",
     "traits": ["Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3422,7 +3422,7 @@
       "Mental",
       "Skill"
     ],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3432,7 +3432,7 @@
     "prerequisites": "construct companion",
     "desc": "You appeal to your construct companion's bond with its creator to have it break free of a controlling effect.",
     "traits": ["Auditory", "Concentrate", "Inventor"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3442,7 +3442,7 @@
     "prerequisites": "\u2014",
     "desc": "The supernatural charm of your vampiric progenitor hangs about you, and you've learned to use it on mortals.",
     "traits": ["Dhampir"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3452,7 +3452,7 @@
     "prerequisites": "\u2014",
     "desc": "You tend to do most of your hunting and work at night and have adapted to the requirements of nocturnal life.",
     "traits": ["Grippli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3462,7 +3462,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Many psychopomps wear masks when dealing with the living, and many cultures believe that seeing an unmasked psychopomp's face invites death.",
     "traits": ["Duskwalker"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3472,7 +3472,7 @@
     "prerequisites": "trained in Occultism",
     "desc": "+2 to Occultism checks to Identify Magic with certain traits.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3482,7 +3482,7 @@
     "prerequisites": "at least 100 years old",
     "desc": "Your immortal lineage has granted you a lifespan much longer than most mortals, and you've learned a lot along the way.",
     "traits": ["Dhampir"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3499,7 +3499,7 @@
       "Mental",
       "Swashbuckler"
     ],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3509,7 +3509,7 @@
     "prerequisites": "desecrator cause",
     "desc": "Your powerful personality and incredible ego demand that you protect yourself above all else.",
     "traits": ["Champion"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3519,7 +3519,7 @@
     "prerequisites": "\u2014",
     "desc": "Fierceness in battle runs through your blood, and you refuse to fall from your injuries.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3529,7 +3529,7 @@
     "prerequisites": "\u2014",
     "desc": "The hold elders taught you your people's histories, told tales of great athletic feats, and shared with you the hardships your ancestors endured so that you can pass this wisdom down to future generations.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3539,7 +3539,7 @@
     "prerequisites": "low-light vision",
     "desc": "Your orc blood is strong enough to grant you the keen vision of your orc forebears.",
     "traits": ["Half-Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3549,7 +3549,7 @@
     "prerequisites": "\u2014",
     "desc": "You defend yourself against magic by relying on techniques derived from orc cultural superstitions.",
     "traits": ["Concentrate", "Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3559,7 +3559,7 @@
     "prerequisites": "\u2014",
     "desc": "You paint your face to create a warmask.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3569,7 +3569,7 @@
     "prerequisites": "\u2014",
     "desc": "In combat, you favor the brutal weapons that are traditional for your orc ancestors.",
     "traits": ["Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3579,7 +3579,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elven magic manifests as a simple arcane spell, even if you aren\u2019t formally trained in magic.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3589,7 +3589,7 @@
     "prerequisites": "trained in Deception",
     "desc": "When you trick a foe, instead of catching them off guard, you goad them into overextending their next attack.",
     "traits": ["Rogue"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3599,7 +3599,7 @@
     "prerequisites": "\u2014",
     "desc": "Many consider half-orcs little more than dumb brutes.",
     "traits": ["Half-Orc"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3609,7 +3609,7 @@
     "prerequisites": "\u2014",
     "desc": "You were taught how to hunt as part of a pack.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3619,7 +3619,7 @@
     "prerequisites": "\u2014",
     "desc": "Years of packing for travel have taught you how to cram vast quantities into small spaces.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3629,7 +3629,7 @@
     "prerequisites": "\u2014",
     "desc": "You were hatched from an unfertilized egg during hard times for your people, and you are a biological copy of your mother.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3639,7 +3639,7 @@
     "prerequisites": "\u2014",
     "desc": "You've learned special tricks to survive underwater.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3649,7 +3649,7 @@
     "prerequisites": "\u2014",
     "desc": "You dive into the water with exceptional skill and connection to the waves, urging the water itself to cushion your fall.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3659,7 +3659,7 @@
     "prerequisites": "trained in Thievery",
     "desc": "Steal or Palm an Object more effectively.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3669,7 +3669,7 @@
     "prerequisites": "low-light vision",
     "desc": "Your eyes have adapted to see in all circumstances, even without the assistance of light.",
     "traits": ["Goloma"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3679,7 +3679,7 @@
     "prerequisites": "trained in Religion",
     "desc": "A religious token lets you act \ufb01rst on a tie for initiative.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3689,7 +3689,7 @@
     "prerequisites": "\u2014",
     "desc": "Your blood bears the mark of a demon, a living embodiment of sin from the fetid depths of the Abyss.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3699,7 +3699,7 @@
     "prerequisites": "Pickpocket",
     "desc": "You can put a single item you're holding of light or negligible Bulk onto a person without them noticing.",
     "traits": ["Rogue"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3709,7 +3709,7 @@
     "prerequisites": "\u2014",
     "desc": "Your blood soars with the power of the magnificent garuda, proud and stoic avian warriors.",
     "traits": ["Aasimar", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3719,7 +3719,7 @@
     "prerequisites": "\u2014",
     "desc": "You take aim to pick off nearby enemies quickly.",
     "traits": ["Fighter", "Open", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3729,7 +3729,7 @@
     "prerequisites": "\u2014",
     "desc": "You unleash a particularly powerful attack that clobbers your foe but leaves you a bit unsteady.",
     "traits": ["Fighter", "Flourish"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3739,7 +3739,7 @@
     "prerequisites": "\u2014",
     "desc": "You grew up riding your clan's shaggy ponies and riding dogs.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3749,7 +3749,7 @@
     "prerequisites": "\u2014",
     "desc": "Your deity grants you limited foresight, warning you of dangers an instant before they occur.",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3759,7 +3759,7 @@
     "prerequisites": "\u2014",
     "desc": "You have created a construct companion, and while it might not be an innovation, it serves as a trustworthy minion.",
     "traits": ["Inventor"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3769,7 +3769,7 @@
     "prerequisites": "\u2014",
     "desc": "You're unnaturally in tune with your surroundings and react instinctively to danger.",
     "traits": ["Android"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3779,7 +3779,7 @@
     "prerequisites": "\u2014",
     "desc": "You were crafted in a form with four legs rather than two.",
     "traits": ["Poppet"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3789,7 +3789,7 @@
     "prerequisites": "\u2014",
     "desc": "You grew up among the Shoanti tribes, with the spirits watching over you, and they offer you guidance.",
     "traits": ["Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3799,7 +3799,7 @@
     "prerequisites": "\u2014",
     "desc": "You keep your bombs in easy-to-reach pouches from which you draw without thinking.",
     "traits": ["Alchemist"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3809,7 +3809,7 @@
     "prerequisites": "trained in Intimidation",
     "desc": "Coerce a creature quickly.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3819,7 +3819,7 @@
     "prerequisites": "trained in Arcana, Nature, Occultism, or Religion",
     "desc": "Identify Magic in 1 minute or less.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3829,7 +3829,7 @@
     "prerequisites": "trained in Athletics",
     "desc": "High Jump or Long Jump as a single action.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3839,7 +3839,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Repair items quickly.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3849,7 +3849,7 @@
     "prerequisites": "\u2014",
     "desc": "Your instincts kick in and you take on an aggressive stance.",
     "traits": ["Beastkin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3859,7 +3859,7 @@
     "prerequisites": "trained in Acrobatics",
     "desc": "Move swiftly as you Squeeze.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3869,7 +3869,7 @@
     "prerequisites": "\u2014",
     "desc": "Your biological circuitry emits light like a torch, casting bright light in a 20-foot radius (and dim light for the next 20 feet).",
     "traits": ["Android", "Concentrate", "Light"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3879,7 +3879,7 @@
     "prerequisites": "\u2014",
     "desc": "Your fury fills your foes with fear.",
     "traits": ["Barbarian"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3889,7 +3889,7 @@
     "prerequisites": "\u2014",
     "desc": "Thrown weapons become especially deadly in your fury. You apply the additional damage from Rage to your thrown weapon attacks. If you have the Brutal Critical feat or the devastator class feature, apply their benefits to thrown weapon attacks.",
     "traits": ["Barbarian"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3899,7 +3899,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter the stance of an enraged phoenix, holding your fingers as rigid as deadly talons while moving with quick, flickering gestures that dance with biting flames.",
     "traits": ["Fire", "Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3909,7 +3909,7 @@
     "prerequisites": "\u2014",
     "desc": "You raise up the book you're holding and flip it open to defend yourself and expedite your studies.",
     "traits": ["Magus"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3919,7 +3919,7 @@
     "prerequisites": "paladin cause",
     "desc": "You can use Retributive Strike with a ranged weapon.",
     "traits": ["Champion"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3929,7 +3929,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a pet rat that has become magically bonded to you.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3939,7 +3939,7 @@
     "prerequisites": "\u2014",
     "desc": "Years of experience among ratfolk communities have made you nimble, and you've learned to run and hide when enemies threaten.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3949,7 +3949,7 @@
     "prerequisites": "\u2014",
     "desc": "To you, the squeaking of rats and other rodents makes a strange kind of sense.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3959,7 +3959,7 @@
     "prerequisites": "trained in Zevgavizeb Lore",
     "desc": "Your study of the Beast of Gluttondark has taught you how to make do in the most trying of circumstances rather than succumb to weakness.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3969,7 +3969,7 @@
     "prerequisites": "\u2014",
     "desc": "Your have honed your claws to be deadly.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3979,7 +3979,7 @@
     "prerequisites": "\u2014",
     "desc": "You've spent considerable time practicing the manipulation of light, weaponizing your blade's reflection or bolstering the luminosity of magical displays to unconventional heights.",
     "traits": ["Gnome"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -3999,7 +3999,7 @@
       "Witch",
       "Wizard"
     ],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4009,7 +4009,7 @@
     "prerequisites": "\u2014",
     "desc": "You can snap your shield into place just as you would take a blow, avoiding the hit at the last second.",
     "traits": ["Fighter"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4019,7 +4019,7 @@
     "prerequisites": "trained in Society",
     "desc": "Read the lips of people you can see.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4029,7 +4029,7 @@
     "prerequisites": "\u2014",
     "desc": "You serve as an anchor to your close companions, calming them in times of stress.",
     "traits": ["Anadi", "Auditory", "Visual"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4039,7 +4039,7 @@
     "prerequisites": "trained in Arcana, Nature, Occultism, or Religion",
     "desc": " Identify a spell as a reaction as it's being cast.",
     "traits": ["General", "Secret", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4049,7 +4049,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter a stance of fluid grace as small amounts of water flow with your movements and attacks.",
     "traits": ["Evocation", "Monk", "Stance", "Water"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4059,7 +4059,7 @@
     "prerequisites": "\u2014",
     "desc": "Your body is designed to be particularly resilient.",
     "traits": ["Automaton"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4069,7 +4069,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019re skilled at beating a foe when their morale is already breaking.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4079,7 +4079,7 @@
     "prerequisites": "\u2014",
     "desc": "To you, crocodilians, giant lizards, and dinosaurs are loyal steeds, not monsters.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4089,7 +4089,7 @@
     "prerequisites": "\u2014",
     "desc": "You hear the sounds of reptiles as language.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4099,7 +4099,7 @@
     "prerequisites": "\u2014",
     "desc": "You gain a claw unarmed attack that deals 1d4 slashing damage.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4117,7 +4117,7 @@
       "Skill",
       "True Name"
     ],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4127,7 +4127,7 @@
     "prerequisites": "\u2014",
     "desc": "Automatically succeed at commanding your mount to move.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4137,7 +4137,7 @@
     "prerequisites": "\u2014",
     "desc": "Long ago, qlippoth marked someone in your lineage, most likely through their ancient runestones that dot Golarion's surface.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4147,7 +4147,7 @@
     "prerequisites": "\u2014",
     "desc": "The water inside you is cold and frozen, like sheets of ice and frigid glaciers.",
     "traits": ["Lineage", "Undine"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4157,7 +4157,7 @@
     "prerequisites": "trained in Medicine",
     "desc": "Deal damage to a patient to gain +2 to Treat Wounds.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4167,7 +4167,7 @@
     "prerequisites": "\u2014",
     "desc": "Your innate connection to stone makes you adept at moving across uneven surfaces.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4177,7 +4177,7 @@
     "prerequisites": "trained in Occultism",
     "desc": "Create a token that grants a bonus against a spell or haunt.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4187,7 +4187,7 @@
     "prerequisites": "\u2014",
     "desc": "You are especially good at riding traditional goblin mounts.",
     "traits": ["Goblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4197,7 +4197,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elven lineage is subtle enough that you look barely different from other humans, and you\u2019ve learned to use that to your advantage.",
     "traits": ["Half-Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4207,7 +4207,7 @@
     "prerequisites": "\u2014",
     "desc": "You were born to a jiang-shi, one of the so-called hopping vampires found most often in Tian-Xia.",
     "traits": ["Dhampir", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4217,7 +4217,7 @@
     "prerequisites": "\u2014",
     "desc": "You have long fangs, natural or augmented.",
     "traits": ["Catfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4227,7 +4227,7 @@
     "prerequisites": "\u2014",
     "desc": "The ancient Saoc Brethren were the masters of astrology, and while your knowledge may be but a pale shadow of their wisdom, it still comes in handy.",
     "traits": ["Concentrate", "Human"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4237,7 +4237,7 @@
     "prerequisites": "\u2014",
     "desc": "You instinctively know how to flee danger.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4247,7 +4247,7 @@
     "prerequisites": "\u2014",
     "desc": "You are used to ducking under foes and can scurry around the battlefield with ease.",
     "traits": ["Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4257,7 +4257,7 @@
     "prerequisites": "\u2014",
     "desc": "You're always on the lookout for supplies and valuables.",
     "traits": ["Tengu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4267,7 +4267,7 @@
     "prerequisites": "\u2014",
     "desc": "Your parents devoted themselves to alchemical experiments involving elemental energy.",
     "traits": ["Suli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4277,7 +4277,7 @@
     "prerequisites": "trained in Occultism",
     "desc": "Gather Information about secret societies and mystery cults.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4287,7 +4287,7 @@
     "prerequisites": "trained in Alcohol Lore, Cooking Lore, or Crafting",
     "desc": "+1 to Craft food and drink, including potions.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4297,7 +4297,7 @@
     "prerequisites": "trained in Deception",
     "desc": "Learn the secret language of a society.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4307,7 +4307,7 @@
     "prerequisites": "\u2014",
     "desc": "Your body produces a nearly endless supply of hard seedpods.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4317,7 +4317,7 @@
     "prerequisites": "\u2014",
     "desc": "Your large black nose isn't just for show.",
     "traits": ["Gnoll"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4327,7 +4327,7 @@
     "prerequisites": "\u2014",
     "desc": "Your lineage shows the signs of velstrac tampering, including some curious quirk bequeathed by those shadowy surgeons of flesh and souls.",
     "traits": ["Lineage", "Tiefling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4337,7 +4337,7 @@
     "prerequisites": "\u2014",
     "desc": "You draw shadows close to create a shroud.",
     "traits": ["Fetchling", "Illusion", "Occult", "Shadow"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4347,7 +4347,7 @@
     "prerequisites": "\u2014",
     "desc": "It\u2019s difficult to notice your passage through wild areas.",
     "traits": ["Leshy"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4357,7 +4357,7 @@
     "prerequisites": "\u2014",
     "desc": "A lifetime of experience helps you see through disguises.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4367,7 +4367,7 @@
     "prerequisites": "Mualijae ethnicity, Ilverani ethnicity, or Vourinoi ethnicity",
     "desc": "You have an uncanny knack of communicating with other elves without speaking, though this habit that is often uncomfortable to observers.",
     "traits": ["Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4377,7 +4377,7 @@
     "prerequisites": "\u2014",
     "desc": "Your teeth are formidable weapons.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4387,7 +4387,7 @@
     "prerequisites": "\u2014",
     "desc": "Ward off a blow with your shield.",
     "traits": ["General"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4397,7 +4397,7 @@
     "prerequisites": "\u2014",
     "desc": "You've polished your eyes to reflect the smallest details in dimmest light.",
     "traits": ["Poppet"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4407,7 +4407,7 @@
     "prerequisites": "\u2014",
     "desc": "You hoard knowledge like a dragon hoards gold.",
     "traits": ["Shisk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4417,7 +4417,7 @@
     "prerequisites": "\u2014",
     "desc": "Growing up in shoony society, you learned the value of honesty, friendship, and hard work, even during trying times.",
     "traits": ["Shoony"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4427,7 +4427,7 @@
     "prerequisites": "wave order",
     "desc": "The shallows and tide pools have always called to you and let you pass unhindered.",
     "traits": ["Druid"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4437,7 +4437,7 @@
     "prerequisites": "\u2014",
     "desc": "Choose one cantrip from the occult spell list.",
     "traits": ["Fetchling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4447,7 +4447,7 @@
     "prerequisites": "\u2014",
     "desc": "You're used to dealing with dangerous situations and sinister creatures.",
     "traits": ["Fetchling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4457,7 +4457,7 @@
     "prerequisites": "trained in Society",
     "desc": "Learn sign languages.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4467,7 +4467,7 @@
     "prerequisites": "\u2014",
     "desc": "You possess horns, a tail, or red eyes, or could otherwise be mistaken for a tiefling.",
     "traits": ["Ifrit"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4477,7 +4477,7 @@
     "prerequisites": "Intelligence 12",
     "desc": "Become trained in a skill.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4487,7 +4487,7 @@
     "prerequisites": "\u2014",
     "desc": "You can ask questions of, receive answers from, and use the Diplomacy skill with spiders and other arachnids.",
     "traits": ["Anadi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4497,7 +4497,7 @@
     "prerequisites": "\u2014",
     "desc": "You wear skulls to demoralize foes.",
     "traits": ["Ratfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4507,7 +4507,7 @@
     "prerequisites": "\u2014",
     "desc": "Your mother was an annis hag, known for physical prowess, and you have one violet or steel-gray eye.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4517,7 +4517,7 @@
     "prerequisites": "\u2014",
     "desc": "You can move through gloom with the speed of darkness.",
     "traits": ["Fetchling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4527,7 +4527,7 @@
     "prerequisites": "\u2014",
     "desc": "You are an expert at moving through extremely tight spaces.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4537,7 +4537,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a tail that serves as a potent weapon.",
     "traits": ["Ganzi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4547,7 +4547,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a connection to smoke and haze.",
     "traits": ["Lineage", "Sylph"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4557,7 +4557,7 @@
     "prerequisites": "\u2014",
     "desc": "You combine an attack with quick grappling moves to throw an enemy off balance as long as it stays in your reach.",
     "traits": ["Fighter"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4567,7 +4567,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Craft snares.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4577,7 +4577,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "You are adept at the time-honored kobold art of trap making.",
     "traits": ["Kobold"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4587,7 +4587,7 @@
     "prerequisites": "\u2014",
     "desc": "Stealth is an important tool in your arsenal.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4597,7 +4597,7 @@
     "prerequisites": "\u2014",
     "desc": "You're the child of a winter hag, with one blue-white eye and an affinity for rime and snow.",
     "traits": ["Changeling", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4607,7 +4607,7 @@
     "prerequisites": "\u2014",
     "desc": "You\u2019re extremely extroverted, and you often spend your time carousing or otherwise socializing.",
     "traits": ["Half-Elf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4617,7 +4617,7 @@
     "prerequisites": "Nyktera heritage",
     "desc": "You can ask questions of, receive answers from, and use the Diplomacy skill with bats.",
     "traits": ["Sprite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4627,7 +4627,7 @@
     "prerequisites": "trained in Crafting",
     "desc": "Gain bonuses to Craft certain items.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4637,7 +4637,7 @@
     "prerequisites": "trained in Arcana",
     "desc": "You are particularly adept at learning spells to add to your spellbook.",
     "traits": ["Wizard"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4647,7 +4647,7 @@
     "prerequisites": "\u2014",
     "desc": "Living underground, you have learned to find your way without landmarks or even solid ground.",
     "traits": ["Shisk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4657,7 +4657,7 @@
     "prerequisites": "\u2014",
     "desc": "The quills on your arms are particularly sharp and sturdy.",
     "traits": ["Shisk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4667,7 +4667,7 @@
     "prerequisites": "\u2014",
     "desc": "Your faith in your deity is represented in an extremely unusual way that some might call heretical",
     "traits": ["Champion", "Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4677,7 +4677,7 @@
     "prerequisites": "\u2014",
     "desc": "You can fling a portion of your magic at foes.",
     "traits": ["Sprite"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4687,7 +4687,7 @@
     "prerequisites": "\u2014",
     "desc": "You let out an awkward squawk, ruffle your feathers, or fake some other birdlike tic to cover up a social misstep or faux pas.",
     "traits": ["Tengu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4697,7 +4697,7 @@
     "prerequisites": "\u2014",
     "desc": "Your magic has crystallized into a spherical stone.",
     "traits": ["Kitsune"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4707,7 +4707,7 @@
     "prerequisites": "\u2014",
     "desc": "Your appearance is enough to frighten without words.",
     "traits": ["Fleshwarp"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4717,7 +4717,7 @@
     "prerequisites": "trained in Acrobatics",
     "desc": "Maintain your balance in adverse conditions.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4727,7 +4727,7 @@
     "prerequisites": "\u2014",
     "desc": "Your connection to the earth makes natural uneven surfaces less of a hindrance for you.",
     "traits": ["Oread"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4737,7 +4737,7 @@
     "prerequisites": "stone order",
     "desc": "The earth has taught you how to remain unyielding and firm.",
     "traits": ["Druid"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4747,7 +4747,7 @@
     "prerequisites": "\u2014",
     "desc": "You enter a stance of fast, fiery movements.",
     "traits": ["Evocation", "Fire", "Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4757,7 +4757,7 @@
     "prerequisites": "\u2014",
     "desc": "Through conditioning or experience, you've mastered the art of composure, even in the face of fear.",
     "traits": ["Hobgoblin"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4767,7 +4767,7 @@
     "prerequisites": "\u2014",
     "desc": "You have a knack for noticing even small inconsistencies and craftsmanship techniques in the stonework around you.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4777,7 +4777,7 @@
     "prerequisites": "storm order",
     "desc": "You are at home out in the elements, reveling in the power of nature unleashed.",
     "traits": ["Druid"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4787,7 +4787,7 @@
     "prerequisites": "\u2014",
     "desc": "Wind and lightning have always been close friends to you.",
     "traits": ["Tengu"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4797,7 +4797,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elemental ancestor's influence manifests in you as tumultuous, thundering storms, with dark clouds and bolts of lightning.",
     "traits": ["Lineage", "Sylph"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4807,7 +4807,7 @@
     "prerequisites": "\u2014",
     "desc": "You're a talented story weaver and use your voice effectively.",
     "traits": ["Strix"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4817,7 +4817,7 @@
     "prerequisites": "\u2014",
     "desc": "You descend from one of the truly ancient vampires, a nosferatu cursed to eternal life but not eternal youth.",
     "traits": ["Dhampir", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4827,7 +4827,7 @@
     "prerequisites": "trained in Society",
     "desc": "Use Society to Gather Information and Recall Knowledge.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4837,7 +4837,7 @@
     "prerequisites": "\u2014",
     "desc": "You have an appropriately intense hatred for alghollthus.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4847,7 +4847,7 @@
     "prerequisites": "\u2014",
     "desc": "Your ancestral feud with humans gives you experience dealing with vicious foes, and your vengeance knows no bounds.",
     "traits": ["Strix"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4857,7 +4857,7 @@
     "prerequisites": "\u2014",
     "desc": "You're well connected to your tribe and perhaps even strix communities beyond your own, where you've learned about the land and techniques of graceful movement.",
     "traits": ["Strix"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4867,7 +4867,7 @@
     "prerequisites": "trained in Religion",
     "desc": "More accurately recognize the tenets of your faith or philosophy.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4877,7 +4877,7 @@
     "prerequisites": "\u2014",
     "desc": "You've taken an interest in anadi arcane traditions.",
     "traits": ["Anadi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4887,7 +4887,7 @@
     "prerequisites": "trained in Deception",
     "desc": "You enter a seemingly unfocused stance that mimics the movements of the inebriated\u2014bobbing, weaving, leaving false openings, and distracting your enemies from your true movements.",
     "traits": ["Monk", "Stance"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4897,7 +4897,7 @@
     "prerequisites": "\u2014",
     "desc": "You can capably deliver toxins with a blowgun.",
     "traits": ["Alchemist"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4907,7 +4907,7 @@
     "prerequisites": "trained in Thievery",
     "desc": "Your thefts are harder to notice.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4917,7 +4917,7 @@
     "prerequisites": "\u2014",
     "desc": "With a quick sprint, you dash up to your foe and swing.",
     "traits": ["Barbarian", "Fighter", "Flourish", "Open"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4927,7 +4927,7 @@
     "prerequisites": "\u2014",
     "desc": "Your elemental ancestor was a janni, genies that walk the mortal world and embody all four elements together.",
     "traits": ["Lineage", "Suli"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4937,7 +4937,7 @@
     "prerequisites": "\u2014",
     "desc": "Whether keeping your balance or scrambling up a tricky climb, your hairy, calloused feet easily find purchase.",
     "traits": ["Halfling"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4947,7 +4947,7 @@
     "prerequisites": "\u2014",
     "desc": "Your interactions with other cultures on the surface have not only taught you about many other ancestries, but have also helped you realize the value of your own.",
     "traits": ["Dwarf"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4957,7 +4957,7 @@
     "prerequisites": "\u2014",
     "desc": "By sinking gently beneath the waves, you obscure your presence and utilize the water as a barrier between you and land combatants.",
     "traits": ["Azarketi"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4967,7 +4967,7 @@
     "prerequisites": "trained in Survival",
     "desc": "Identify nearby creatures through signs and clues.",
     "traits": ["General", "Skill"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4977,7 +4977,7 @@
     "prerequisites": "\u2014",
     "desc": "You were born to one of the moroi, the most common vampires, and you share their supernatural fortitude and power of persuasion.",
     "traits": ["Dhampir", "Lineage"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4987,7 +4987,7 @@
     "prerequisites": "\u2014",
     "desc": "You move with the wind always at your back.",
     "traits": ["Sylph"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -4997,7 +4997,7 @@
     "prerequisites": "\u2014",
     "desc": "You're comfortable wielding a firearm or crossbow in one hand and a melee weapon in the other, combining melee attacks with shots from the firearm.",
     "traits": ["Gunslinger"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -5007,7 +5007,7 @@
     "prerequisites": "you follow a deity",
     "desc": "You have come to see the overlap between two deities\u2019 teachings",
     "traits": ["Cleric"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -5017,7 +5017,7 @@
     "prerequisites": "\u2014",
     "desc": "By birth or through training, your tail is strong enough to make for a powerful melee weapon.",
     "traits": ["Lizardfolk"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -5027,7 +5027,7 @@
     "prerequisites": "\u2014",
     "desc": "You've mastered combat practices that let you get up close and bring down perpetrators alive.",
     "traits": ["Investigator"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   },
   {
@@ -5037,7 +5037,7 @@
     "prerequisites": "\u2014",
     "desc": "You tamper with a foe's weapon or armor, using a free hand.",
     "traits": ["Inventor", "Manipulate"],
-    "level": "1",
+    "reqLevel": "1",
     "last_scrape": "2021-10-16 17:38:13"
   }
 ]

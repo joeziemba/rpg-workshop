@@ -28,11 +28,13 @@ export const Monk = {
       source: nameOfClass,
       proficiency: Proficiencies.TRAINED,
       type: nameOfClass + "_1",
+      level: 1,
     },
     {
       source: nameOfClass,
       proficiency: Proficiencies.EXPERT,
       type: nameOfClass + "_5",
+      level: 5,
     },
   ],
 
@@ -42,6 +44,7 @@ export const Monk = {
       source: nameOfClass,
       id: nameOfClass + "1",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -49,6 +52,7 @@ export const Monk = {
       source: nameOfClass,
       id: nameOfClass + "2",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
     {
@@ -56,6 +60,7 @@ export const Monk = {
       source: nameOfClass,
       id: nameOfClass + "3",
       type: nameOfClass + "_1",
+      level: 1,
       proficiency: Proficiencies.EXPERT,
     },
   ],
