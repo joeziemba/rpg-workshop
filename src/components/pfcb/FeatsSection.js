@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import FeatEntry from "./FeatEntry"
 import { FeatSelection } from "./FeatSelection"
 import { Card } from "./Card"
