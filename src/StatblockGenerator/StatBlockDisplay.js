@@ -75,9 +75,7 @@ export class StatBlockDisplay extends React.Component {
             <span className="statblock__property-name italic">
               {action.title}.{" "}
             </span>
-            <span className="italic">
-              {action.type} Weapon Attack.{" "}
-            </span>
+            <span className="italic">{action.type} Weapon Attack. </span>
             {`${toHit >= 0 ? "+" : ""}${toHit}`} to Hit.&ensp;
             {action.type === "Ranged" ? "Range" : "Reach"} {reach}
             ft.&ensp;

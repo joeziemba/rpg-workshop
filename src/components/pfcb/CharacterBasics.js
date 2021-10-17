@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { PF2CharacterContext } from "context"
 import { SaveRow } from "./SaveRow"
 import Statbox from "./Statbox"

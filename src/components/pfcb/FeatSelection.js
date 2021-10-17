@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
-import FEATS from "_data/feats/allFeats.json"
+import FEATS from "data/feats/allFeats.json"
 import { Modal } from "components"
 
 export const FeatSelection = ({
