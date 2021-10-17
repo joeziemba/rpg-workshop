@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Statbox from "./Statbox"
-import { Abilities } from "_data/abilities"
+import { Abilities } from "data/abilities"
 import TEMLbuttons from "./TEMLbuttons"
 import { Card } from "./Card"
 import { FreeSkillBoosts } from "./FreeSkillBoosts"

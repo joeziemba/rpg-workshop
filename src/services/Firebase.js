@@ -82,14 +82,16 @@ class Firebase {
   }
 
   async saveStatblock(statblock) {
-    console.log("save")
-    if (statblock.uid) {
+    // Stringify and parse data to convert all class instances to objects
+    const preppedData = JSON.parse(JSON.stringify(statblock))
+
+    if (preppedData.uid) {
       let response = await this.db
         .collection("5e-statblocks")
         .doc(statblock.uid)
-        .update(statblock)
+        .update(preppedData)
 
-      toast.success("Updated " + statblock.name, {
+      toast.success("Updated " + preppedData.name, {
         autoClose: 1000,
       })
       return response
@@ -98,10 +100,14 @@ class Firebase {
       if (response.docs.length >= 5) {
         toast.error("You can only save up to 5 statblocks.")
       } else {
-        statblock.userId = this.auth.currentUser.uid
-        response = await this.db.collection("5e-statblocks").add(statblock)
+        // assign user ID to character
+        preppedData.userId = this.auth.currentUser.uid
 
-        toast.success("Saved " + statblock.name, {
+        response = await this.db
+          .collection("5e-statblocks")
+          .add(preppedData)
+
+        toast.success("Saved " + response.name, {
           autoClose: 1000,
         })
         return response

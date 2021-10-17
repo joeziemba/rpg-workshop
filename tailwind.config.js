@@ -8,15 +8,15 @@ module.exports = {
         full: "0 0 100%",
       },
       colors: {
-        "slate-100": "#D6DBDF",
-        "slate-200": "#AEB6BF",
-        "slate-300": "#85929E",
-        "slate-400": "#5D6D7E",
-        "slate-500": "#34495E",
-        "slate-600": "#2E4053",
-        "slate-700": "#283747",
-        "slate-800": "#212F3C",
-        "slate-900": "#1B2631",
+        "slate-100": "#d7d9db",
+        "slate-200": "#bcbfc2",
+        "slate-300": "#a1a6aa",
+        "slate-400": "#878c92",
+        "slate-500": "#6d7378",
+        "slate-600": "#55595e",
+        "slate-700": "#3d4043",
+        "slate-800": "#303336",
+        "slate-900": "#26282a",
         "navy-100": "#527bc7",
         "navy-200": "#3e6cc1",
         "navy-300": "#3861ad",
@@ -32,7 +32,7 @@ module.exports = {
   variants: {
     extend: {
       translate: ["responsive", "hover", "focus", "group-hover"],
-      margin: ["last"]
+      margin: ["last"],
     },
   },
   plugins: [],

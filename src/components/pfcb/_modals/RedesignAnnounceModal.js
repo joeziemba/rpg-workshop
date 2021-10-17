@@ -47,10 +47,10 @@ export const RedesignAnnounceModal = () => {
           className={
             "w-full md:w-auto text-center order-0 " +
             "rounded-sm inline-block " +
-            "border-2 border-slate-500 " +
+            "border-2 border-slate-900 " +
             "font-bold text-white " +
-            "bg-slate-500 " +
-            "hover:bg-slate-800 hover:border-slate-800 transition-all " +
+            "bg-slate-900 " +
+            "hover:bg-slate-700 hover:border-slate-700 transition-all " +
             "py-2 md:py-1 px-4 "
           }
         >
