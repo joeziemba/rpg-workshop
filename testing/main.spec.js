@@ -1,7 +1,7 @@
 /* eslint-disable jest/expect-expect */
 /* eslint-disable jest/no-done-callback */
 import { Selector, fixture } from "testcafe"
-import { Ancestries } from "../src/_data/ancestries"
+import { Ancestries } from "../src/data/ancestries"
 
 fixture("Assign Ancestries").page(
   "http://localhost:3000/pf2/character-builder"

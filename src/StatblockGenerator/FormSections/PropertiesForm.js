@@ -3,7 +3,6 @@ import React, { useContext } from "react"
 import { Typeahead } from "react-bootstrap-typeahead"
 import "react-bootstrap-typeahead/css/Typeahead.css"
 
-
 export const PropertyForm = () => {
   const { stats, updatePropertyList } = useContext(StatblockContext)
   return (

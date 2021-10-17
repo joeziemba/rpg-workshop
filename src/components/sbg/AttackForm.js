@@ -94,9 +94,7 @@ export const AttackForm = (props) => {
             Dex?
           </label>
           <div
-            className={`dex-check ${
-              props.action.dex ? "checked" : ""
-            }`}
+            className={`dex-check ${props.action.dex ? "checked" : ""}`}
             name={"dex-" + props.action.id}
             value={!props.action.dex}
             onClick={() =>
