@@ -8,6 +8,7 @@ export const BasicsForm = () => {
   return (
     <>
       <SBG_Input
+        id="name-input"
         type="text"
         label={"Name"}
         placeholder={"Creature Name"}
@@ -19,6 +20,7 @@ export const BasicsForm = () => {
       <div className="flex mt-2">
         <div className="flex-1 mr-4">
           <SBG_Select
+            id="size-select"
             label={"Size"}
             options={["Small", "Medium", "Large", "Huge", "Gargantuan"]}
             value={stats.size}
@@ -28,6 +30,7 @@ export const BasicsForm = () => {
         </div>
         <div className="flex-1 mr-4">
           <SBG_Select
+            id="type-select"
             label={"Creature Type"}
             options={global.creatureTypes}
             value={stats.creatureType}
@@ -37,6 +40,7 @@ export const BasicsForm = () => {
         </div>
         <div className="flex-1">
           <SBG_Input
+            id="prof-input"
             type="number"
             label={"Proficiency"}
             placeholder={""}
@@ -51,6 +55,7 @@ export const BasicsForm = () => {
         <div className="flex-1 mr-4">
           <h4 className="form-header mb-1 font-bold">Armor Class</h4>
           <SBG_Input
+            id="ac-input"
             label={"Score"}
             placeholder={""}
             value={stats.ac.score}
@@ -59,6 +64,7 @@ export const BasicsForm = () => {
             type="number"
           />
           <SBG_Input
+            id="ac-support-input"
             type="text"
             label={"Support"}
             placeholder={""}
@@ -73,6 +79,7 @@ export const BasicsForm = () => {
           <h4 className="form-header mb-1">Hit Points</h4>
 
           <SBG_Select
+            id="hit-die-select"
             label={"Hit Die"}
             options={[4, 6, 8, 10, 12, 20]}
             value={stats.hp.hitDie}
@@ -80,6 +87,7 @@ export const BasicsForm = () => {
             onChange={updateHP}
           />
           <SBG_Input
+            id="number-hit-die-input"
             type="number"
             label={"Number of Dice"}
             placeholder={""}
@@ -92,6 +100,7 @@ export const BasicsForm = () => {
         <div className="flex-1 flex flex-wrap">
           <h4 className="form-header flex-full mb-1">Speed</h4>
           <SBG_Input
+            id="base-speed"
             type="number"
             label={"Base Speed"}
             placeholder={""}
@@ -102,6 +111,7 @@ export const BasicsForm = () => {
           <div className="flex">
             <div className="flex-1 mr-4 mt-2">
               <SBG_Input
+                id="fly-speed"
                 type="number"
                 label={"Fly"}
                 placeholder={""}
@@ -112,6 +122,7 @@ export const BasicsForm = () => {
             </div>
             <div className="flex-1 mt-2">
               <SBG_Input
+                id="swim-speed"
                 type="number"
                 label={"Swim"}
                 placeholder={""}

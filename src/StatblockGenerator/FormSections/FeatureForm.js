@@ -11,13 +11,14 @@ export const FeatureForm = () => {
         return (
           <FeatureBlock
             key={i}
+            index={i}
             feature={feature}
             deleteFunc={deleteFeature}
             updateFunc={updateFeature}
           />
         )
       })}
-      <NavButton color="red" onClick={addFeature}>
+      <NavButton id="add-feature" color="red" onClick={addFeature}>
         <i className="fa fa-plus mr-2" />
         Feature
       </NavButton>

@@ -4,11 +4,13 @@ import "./Accordion.scss"
 
 export const Accordion = ({ children, open, title }) => {
   const [isOpen, setOpen] = useState(open)
+  const toggleOpen = () => setOpen(!isOpen)
 
   return (
-    <div className="accordion">
+    <div className="accordion bg-white border shadow-md">
       <button
-        onClick={() => setOpen(!isOpen)}
+        id={`accordion-` + title.replace(" ", "-").toLowerCase()}
+        onClick={toggleOpen}
         className="accordion__button"
       >
         {title}
@@ -27,7 +29,11 @@ export const Accordion = ({ children, open, title }) => {
         in={isOpen}
         timeout={300}
       >
-        <div data-testid="accordion__inner" className="accordion__inner">
+        <div
+          data-testid="accordion__inner"
+          className="accordion__inner"
+          id={`accordion-content-` + title.replace(" ", "-").toLowerCase()}
+        >
           {children}
         </div>
       </CSSTransition>

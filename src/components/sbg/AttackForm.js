@@ -1,5 +1,6 @@
 import React from "react"
 import { SBG_Input, SBG_Select } from "components"
+import { CheckboxButton } from "./CheckboxButton"
 
 export const AttackForm = (props) => {
   return (
@@ -10,6 +11,7 @@ export const AttackForm = (props) => {
     >
       <div className="col-span-2">
         <SBG_Input
+          id={"attack-title-input-" + props.index}
           type="text"
           label={"Title"}
           placeholder={""}
@@ -22,8 +24,8 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-2">
         <SBG_Select
+          id={"attack-type-select-" + props.index}
           label={"Attack"}
-          id={"attack-type"}
           fieldName={"type"}
           options={["Melee", "Ranged"]}
           value={props.action.type}
@@ -34,6 +36,7 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-1">
         <SBG_Input
+          id={"attack-targets-input-" + props.index}
           label={"Targets"}
           fieldName={"targets"}
           type="number"
@@ -45,6 +48,7 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-1">
         <SBG_Input
+          id={"attack-reach-input-" + props.index}
           label={props.action.type === "Ranged" ? "Range" : "Reach"}
           fieldName={"reach"}
           type="number"
@@ -57,7 +61,8 @@ export const AttackForm = (props) => {
 
       <div className="col-span-1">
         <SBG_Input
-          label={"#"}
+          id={"attack-die-num-input-" + props.index}
+          label={"# "}
           type="number"
           fieldName={"dieNum"}
           value={props.action.dieNum}
@@ -68,6 +73,7 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-1">
         <SBG_Select
+          id={"attack-dmg-die-select-" + props.index}
           label={"Dmg Die"}
           fieldName={"dmgDie"}
           options={[4, 6, 8, 10, 12]}
@@ -79,6 +85,7 @@ export const AttackForm = (props) => {
       </div>
       <div className="col-span-2">
         <SBG_Select
+          id={"attack-dmg-type-select-" + props.index}
           label={"Dmg Type"}
           fieldName={"dmgType"}
           options={global.damageTypes}
@@ -89,31 +96,19 @@ export const AttackForm = (props) => {
         />
       </div>
       <div className="col-span-1">
-        <div className="form-group text-center">
-          <label className="" htmlFor="dex">
-            Dex?
-          </label>
-          <div
-            className={`dex-check ${props.action.dex ? "checked" : ""}`}
-            name={"dex-" + props.action.id}
-            value={!props.action.dex}
-            onClick={() =>
-              props.updateAction(
-                {
-                  target: {
-                    name: "dex",
-                    value: !props.action.dex,
-                  },
-                },
-                props.action.id,
-                props.legendary
-              )
-            }
-          ></div>
-        </div>
+        <CheckboxButton
+          id={"attack-type-select-" + props.index}
+          label="Dex?"
+          fieldName="dex"
+          checked={props.action.dex}
+          onClick={(e) =>
+            props.updateAction(e, props.action.id, props.legendary)
+          }
+        />
       </div>
       <div className="col-span-1">
         <button
+          id={"delete-action-" + props.index}
           onClick={() =>
             props.deleteAction(props.action.id, props.legendary)
           }

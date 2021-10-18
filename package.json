@@ -19,7 +19,10 @@
     "test:watch-cover": "npm run test -- --coverage --onlyChanged=false",
     "test": "craco test",
     "test:all": "craco test --watchAll=false --onlyChanged=false",
-    "regress": "testcafe chrome ./testing/main.spec.js -r spec"
+    "e2e:chrome": "testcafe chrome:headless testing/main.e2e.js -r spec,json:testing/reports/chrome.json",
+    "e2e:ff": "testcafe firefox:headless testing/main.e2e.js -r spec,json:testing/reports/ff.json",
+    "e2e:edge": "testcafe edge testing/main.e2e.js -r spec,json:testing/reports/edge.json",
+    "e2e:all": "npm run e2e:chrome && npm run e2e:ff"
   },
   "author": "Joe Ziemba",
   "license": "ISC",

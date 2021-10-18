@@ -32,7 +32,7 @@
   max-width: 500px;
   margin: 0 10px;
 
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .statblock--export {
@@ -88,7 +88,7 @@
 
 .statblock__section {
   padding: 16px 4px;
-  border-top: 4px solid #922610;
+  border-top: 3px solid #922610;
 }
 
 .statblock__section--with-heading {
@@ -98,23 +98,12 @@
 
 .statblock__section--with-heading h3 {
   color: #922610;
-  font-size: 1.2rem;
-  line-height: 1.2em;
-  letter-spacing: 1px;
-  font-variant: small-caps;
+  font-size: 1.35rem;
   margin: 0;
   position: relative;
-  margin-bottom: 18px;
-}
-
-.statblock__section--with-heading h3::after {
-  content: "";
-  position: absolute;
-  top: 105%;
-  height: 2px;
-  width: 100%;
-  left: 0;
-  background-color: #922610;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #922610;
 }
 
 .statblock__property-name {
@@ -166,6 +155,7 @@ h4.form-header {
 }
 
 .dex-check {
+  display: block;
   width: 24px;
   height: 24px;
   margin: 3px auto;
@@ -216,7 +206,14 @@ h4.form-header {
 }
 
 @media print {
-  #exportInstructions {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+  #root {
+    background-color: transparent;
+  }
+  #export-instructions,
+  nav {
     display: none;
   }
 }

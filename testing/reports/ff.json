@@ -1,0 +1,90 @@
+{
+  "startTime": "2021-10-18T09:04:15.494Z",
+  "endTime": "2021-10-18T09:05:41.882Z",
+  "userAgents": [
+    "Firefox 93.0 / Windows 10"
+  ],
+  "passed": 7,
+  "total": 7,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "SBG",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.js",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Statblock Generator",
+          "meta": {},
+          "errs": [],
+          "durationMs": 68493,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    },
+    {
+      "name": "PF2 - Assign Ancestries",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.js",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Dwarf",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3252,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Elf",
+          "meta": {},
+          "errs": [],
+          "durationMs": 2842,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Gnome",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3281,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Goblin",
+          "meta": {},
+          "errs": [],
+          "durationMs": 2613,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Human",
+          "meta": {},
+          "errs": [],
+          "durationMs": 2889,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Halfling",
+          "meta": {},
+          "errs": [],
+          "durationMs": 2968,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

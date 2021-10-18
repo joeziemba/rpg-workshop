@@ -1,4 +1,5 @@
 .a-slide-enter {
+  overflow: hidden;
   max-height: 0;
 }
 .a-slide-enter-active {
@@ -9,9 +10,11 @@
 }
 .a-slide-exit {
   max-height: 50vh;
+  overflow: hidden;
 }
 .a-slide-exit-active {
   max-height: 0;
+  overflow: hidden;
 
   transition: transform 400ms;
   transition: max-height 400ms;

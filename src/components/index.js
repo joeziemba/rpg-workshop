@@ -15,6 +15,7 @@ export { SBG_Select } from "./sbg/SBG_Select"
 export { GeneratorNav } from "./sbg/GeneratorNav"
 export { FeatureBlock } from "./sbg/FeatureBlock"
 export { AttackForm } from "./sbg/AttackForm"
+export { DisplayAttack } from "./sbg/DisplayAttack"
 
 // Pathfinder Character Builder (PFCB)
 export { AbilityScoreSection } from "./pfcb/AbilityScoresSection"

@@ -13,10 +13,10 @@ export const Textarea = ({
 }) => {
   return (
     <div className="form-group">
-      {!hideLabel && <label htmlFor={fieldName}>{label}</label>}
+      {!hideLabel && <label htmlFor={id}>{label}</label>}
       <textarea
         className="p-2 border rounded-md border-gray-300 block w-full"
-        id={fieldName}
+        id={id}
         aria-describedby={`${id}Help`}
         placeholder={placeholder}
         onChange={onChange}
