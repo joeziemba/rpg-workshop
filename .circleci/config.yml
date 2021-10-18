@@ -99,7 +99,7 @@ jobs:
 workflows:
   end-to-end-tests:
     jobs:
-      - e2e:chrome
-      - e2e:firefox:
+      - e2e-chrome
+      - e2e-firefox:
           requires:
-            - e2e:chrome
+            - e2e-chrome
