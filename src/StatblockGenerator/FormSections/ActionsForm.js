@@ -11,10 +11,11 @@ export const ActionsForm = ({ legendary }) => {
   return (
     <React.Fragment>
       {stats.actions.map((action, i) => {
-        if (action) {
+        if (["Melee", "Ranged"].includes(action.type)) {
           return (
             <AttackForm
               action={action}
+              index={i}
               key={i}
               updateAction={updateAction}
               deleteAction={deleteAction}
@@ -34,6 +35,7 @@ export const ActionsForm = ({ legendary }) => {
       })}
       <div className="mt-4">
         <NavButton
+          id="add-action"
           color="red"
           className="mr-2"
           onClick={() => addAction("General")}
@@ -42,6 +44,7 @@ export const ActionsForm = ({ legendary }) => {
           Action
         </NavButton>
         <NavButton
+          id="add-melee-attack"
           color="red"
           className="mr-2"
           onClick={() => addAction("Melee")}
@@ -50,6 +53,7 @@ export const ActionsForm = ({ legendary }) => {
           Melee Attack
         </NavButton>
         <NavButton
+          id="add-ranged-attack"
           color="red"
           className=""
           onClick={() => addAction("Ranged")}

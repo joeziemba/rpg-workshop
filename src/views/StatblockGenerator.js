@@ -14,9 +14,17 @@ import { StatblockAttack } from "data/models/StatblockAttack"
 
 const initialState = {
   exportView: false,
-  name: "Monster Name",
+  name: "Creature Name",
   size: "Medium",
   creatureType: "Humanoid",
+  saves: {
+    str: false,
+    dex: false,
+    con: false,
+    int: false,
+    wis: false,
+    cha: false,
+  },
   abilities: {
     str: 10,
     strMod: 0,
@@ -123,6 +131,7 @@ export class StatblockGenerator extends Component {
     this.addLegendaryAction = this.addLegendaryAction.bind(this)
     this.toggleExportView = this.toggleExportView.bind(this)
     this.setStatblock = this.setStatblock.bind(this)
+    this.toggleSave = this.toggleSave.bind(this)
   }
 
   componentDidMount() {
@@ -179,13 +188,16 @@ export class StatblockGenerator extends Component {
   }
 
   updateAbility(ability, value) {
-    this.setState({
-      abilities: {
-        ...this.state.abilities,
-        [ability]: value,
-        [ability + "Mod"]: Math.floor((value - 10) / 2),
+    this.setState(
+      {
+        abilities: {
+          ...this.state.abilities,
+          [ability]: value,
+          [ability + "Mod"]: Math.floor((value - 10) / 2),
+        },
       },
-    })
+      this.calcHP
+    )
   }
 
   calcAbilityMods() {
@@ -286,9 +298,18 @@ export class StatblockGenerator extends Component {
     })
   }
 
+  toggleSave(save) {
+    this.setState({
+      ...this.state,
+      saves: {
+        ...this.state.saves,
+        [save]: !this.state.saves[save],
+      },
+    })
+  }
+
   updateAction(e, actionId, legendary) {
     let { name, value } = e.target
-
     let actions
 
     if (legendary) {
@@ -303,6 +324,8 @@ export class StatblockGenerator extends Component {
           action[name] = value
         } else if (name === "title") {
           action[name] = value
+        } else if (name === "dex") {
+          action.dex = !action.dex
         } else {
           action[name] = value
         }
@@ -385,6 +408,7 @@ export class StatblockGenerator extends Component {
             deleteAction: this.deleteAction,
             deleteFeature: this.deleteFeature,
             addLegendaryAction: this.addLegendaryAction,
+            toggleSave: this.toggleSave,
           }}
         >
           <GeneratorNav
@@ -404,11 +428,14 @@ export class StatblockGenerator extends Component {
                 <div className="flex-1 flex-grow-2">
                   <div className="statblock-container--export">
                     <div className="statblock-container__inner--export">
-                      <StatBlockDisplay stats={this.state} export />
+                      <StatBlockDisplay stats={this.state} exportView />
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 mt-20 text-xl leading-loose">
+                <div
+                  id="export-instructions"
+                  className="flex-1 mt-20 text-xl leading-loose"
+                >
                   To Export:
                   <br />
                   <i>

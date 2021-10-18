@@ -3,8 +3,13 @@ import { SBG_Input, NavButton, FeatureBlock } from "components"
 import { StatblockContext } from "context"
 
 export const LegendaryActionsForm = () => {
-  const { stats, updateAction, deleteAction, updateState, addAction } =
-    useContext(StatblockContext)
+  const {
+    stats,
+    updateAction,
+    deleteAction,
+    updateState,
+    addLegendaryAction,
+  } = useContext(StatblockContext)
 
   return (
     <>
@@ -31,6 +36,7 @@ export const LegendaryActionsForm = () => {
         return (
           <FeatureBlock
             key={i}
+            index={i}
             typeText="Action"
             updateFunc={(e) => updateAction(e, action.id, true)}
             deleteFunc={() => deleteAction(action.id, true)}
@@ -40,9 +46,10 @@ export const LegendaryActionsForm = () => {
       })}
 
       <NavButton
+        id="add-legendary-action"
         color="red"
         className="mr-2 mt-2"
-        onClick={() => addAction("General")}
+        onClick={() => addLegendaryAction("General")}
       >
         <i className="fa fa-plus mr-2" />
         Action

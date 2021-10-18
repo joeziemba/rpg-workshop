@@ -1,28 +1,22 @@
 import React from "react"
+import cn from "classnames"
 
 export const NavButton = ({
-  className,
   children,
-  onClick,
+  className,
   color = "",
+  id,
+  onClick,
 }) => {
-  let bg, bgHover
-  if (color === "red") {
-    bg = "bg-red-900"
-    bgHover = "hover:bg-red-500"
-  }
-  if (color === "navy") {
-    bg = "bg-navy-700"
-    bgHover = "hover:bg-navy-500"
-  }
+  const classes = cn("px-4 py-2 rounded-sm transition-colors text-white", {
+    "bg-red-900": color === "red",
+    "hover:bg-red-900": color === "red",
+    "bg-navy-900": color === "navy",
+    "hover:bg-navy-900": color === "navy",
+    [className]: className,
+  })
   return (
-    <button
-      className={
-        `px-4 py-2 rounded-sm ${bg} ${bgHover} transition-colors text-white ` +
-        className
-      }
-      onClick={onClick}
-    >
+    <button id={id} className={classes} onClick={onClick}>
       {children}
     </button>
   )
