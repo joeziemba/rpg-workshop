@@ -67,7 +67,9 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
 
       - run: npm run build
-      - run: npm start
+      - run:
+          command: npm start
+          background: true
       - run: npm run e2e:chrome
   e2e-firefox:
     docker:
@@ -98,7 +100,9 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
 
       - run: npm run build
-      - run: npm start
+      - run:
+          command: npm start
+          background: true
       - run: npm run e2e:ff
 workflows:
   end-to-end-tests:
