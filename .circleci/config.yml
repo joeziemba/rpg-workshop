@@ -66,6 +66,8 @@ jobs:
             - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
 
+      - run: npm run build
+      - run: npm start
       - run: npm run e2e:chrome
   e2e-firefox:
     docker:
