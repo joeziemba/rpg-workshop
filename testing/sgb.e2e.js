@@ -8,7 +8,7 @@ fixture("SBG")
   .page("http://localhost:3000/dnd5e/statblock-generator")
   .beforeEach(async (tc) => {
     const closeModalButton = Selector("#close-modal")
-    await tc.resizeWindow(1024, 768)
+    // await tc.resizeWindow(1024, 768)
 
     if (closeModalButton.exists) await tc.click(closeModalButton)
   })
