@@ -22,7 +22,8 @@
     "e2e:chrome": "testcafe chrome:headless testing/main.e2e.js -r spec,json:testing/reports/chrome.json",
     "e2e:ff": "testcafe firefox:headless testing/main.e2e.js -r spec,json:testing/reports/ff.json",
     "e2e:edge": "testcafe edge testing/main.e2e.js -r spec,json:testing/reports/edge.json",
-    "e2e:all": "npm run e2e:chrome && npm run e2e:ff"
+    "e2e:all": "npm run e2e:chrome && npm run e2e:ff",
+    "start:ci": "serve -s build -l 3000"
   },
   "author": "Joe Ziemba",
   "license": "ISC",
@@ -42,7 +43,8 @@
     "react-scripts": "^4.0.3",
     "react-toastify": "^7.0.0",
     "react-transition-group": "^4.4.2",
-    "sass": "^1.43.2"
+    "sass": "^1.43.2",
+    "serve": "^12.0.1"
   },
   "browserslist": [
     ">0.2%",

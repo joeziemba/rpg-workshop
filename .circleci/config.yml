@@ -68,7 +68,7 @@ jobs:
 
       - run: npm run build
       - run:
-          command: npm start
+          command: npm run start:ci
           background: true
       - run: npm run e2e:chrome
   e2e-firefox:
@@ -101,7 +101,7 @@ jobs:
 
       - run: npm run build
       - run:
-          command: npm start
+          command: npm run start:ci
           background: true
       - run: npm run e2e:ff
 workflows:
