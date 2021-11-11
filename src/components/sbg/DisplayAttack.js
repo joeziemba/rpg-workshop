@@ -7,7 +7,9 @@ export const DisplayAttack = ({ action, id }) => {
   } = useContext(StatblockContext)
   let { dieNum, dmgDie, dex, reach, targets, dmgType } = action
   // Get hit mod
-  const toHit = (dex ? abilities.dexMod : abilities.strMod) + proficiency
+  const toHit =
+    (dex ? Number(abilities.dexMod) : Number(abilities.strMod)) +
+    Number(proficiency)
 
   // Get Damage Mod
   let avg = (dieNum * dmgDie) / 2 + toHit
