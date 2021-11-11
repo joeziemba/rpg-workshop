@@ -15,7 +15,15 @@ export const Modal = ({
       document.body.style.overflow = "hidden"
     }
 
-    return () => (document.body.style.overflow = "overlay")
+    return () => {
+      // https://codepedia.info/detect-browser-in-javascript
+      let userAgent = navigator.userAgent
+      if (userAgent.match(/firefox|fxios/i)) {
+        document.body.style.overflow = "auto"
+      } else {
+        document.body.style.overflow = "overlay"
+      }
+    }
   }, [show])
 
   if (!show) return null

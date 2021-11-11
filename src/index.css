@@ -15,9 +15,15 @@ body,
   line-height: 125%;
 }
 
+* {
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(243, 244, 246, 1);
+}
+
 body {
-  overflow: overlay;
   overflow-x: hidden;
+  overflow: overlay;
 }
 
 body::-webkit-scrollbar {
@@ -30,6 +36,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .scroller {
+  overflow-y: auto;
   overflow-y: overlay;
 }
 
