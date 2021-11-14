@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { generateSkillBoosts } from "../models/SkillBoost"
 import { Proficiencies } from "../skills"
 import { Saves } from "./saves"
@@ -9,7 +9,7 @@ export const Sorcerer = {
   name: nameOfClass,
   abilityBoosts: [
     {
-      ability: Abilities.CHA,
+      ability: Ability.CHA,
       source: nameOfClass,
       id: "1",
     },

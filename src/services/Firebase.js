@@ -171,5 +171,5 @@ class Firebase {
   }
 }
 
-export default Firebase
-export const firebase = new Firebase()
+// export default Firebase
+export const firebaseService = new Firebase()

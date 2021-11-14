@@ -1,6 +1,6 @@
 import React from "react"
 import _ from "lodash"
-import { Abilities } from "data/abilities"
+import { Ability } from "data/abilities"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"
@@ -10,7 +10,7 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
   function freeAbilityOptions(source) {
     let { abilityBoosts } = character
     let freebies = abilityBoosts.filter(
-      (boost) => boost.type === Abilities.FREE && boost.source === source
+      (boost) => boost.type === Ability.FREE && boost.source === source
     )
     return freebies.map((boost, i) => {
       let boostsFromSameSource = abilityBoosts.filter(
@@ -30,12 +30,12 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
             center
           >
             <option value="FREE"></option>
-            {Object.keys(Abilities).map((ability) => {
+            {Object.keys(Ability).map((ability) => {
               if (ability !== "FREE") {
                 return excludedAbilities.includes(
-                  Abilities[ability]
+                  Ability[ability]
                 ) ? null : (
-                  <option key={ability} value={Abilities[ability]}>
+                  <option key={ability} value={Ability[ability]}>
                     {" "}
                     {ability}
                   </option>
@@ -50,13 +50,13 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
   }
 
   function renderAbilities() {
-    return Object.keys(Abilities).map((abilityKey) => {
+    return Object.keys(Ability).map((abilityKey) => {
       if (abilityKey !== "FREE") {
         let keyAbility = character.abilityBoosts.find(
           (b) => b.source === character.class.name
         )
         let isKey =
-          keyAbility && keyAbility.ability === Abilities[abilityKey]
+          keyAbility && keyAbility.ability === Ability[abilityKey]
         return (
           <div
             key={abilityKey}
@@ -69,14 +69,14 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
               className="block text-3xl"
               id={abilityKey.toLowerCase() + "-mod"}
             >
-              {character.abilityMods[Abilities[abilityKey]] < 0 ? "" : "+"}
-              {character.abilityMods[Abilities[abilityKey]]}
+              {character.abilityMods[Ability[abilityKey]] < 0 ? "" : "+"}
+              {character.abilityMods[Ability[abilityKey]]}
             </span>
             <span
               className="block text-lg"
               id={abilityKey.toLowerCase() + "-score"}
             >
-              {character.abilities[Abilities[abilityKey]]}
+              {character.abilities[Ability[abilityKey]]}
             </span>
           </div>
         )
@@ -119,7 +119,7 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
       </div>
 
       {character.class.name &&
-        character.class.abilityBoosts[0].ability === Abilities.FREE && (
+        character.class.abilityBoosts[0].ability === Ability.FREE && (
           <>
             <SubHeading>
               Class Boost

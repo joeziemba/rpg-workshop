@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -9,7 +9,7 @@ export const Swashbuckler = {
   name: nameOfClass,
   abilityBoosts: [
     {
-      ability: Abilities.DEX,
+      ability: Ability.DEX,
       source: nameOfClass,
       id: nameOfClass + "1",
     },

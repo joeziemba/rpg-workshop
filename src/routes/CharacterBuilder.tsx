@@ -1,6 +1,6 @@
 import React from "react"
 import _ from "lodash"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 import Classes from "data/classes"
 import { Ancestries } from "data/ancestries"
 import { migrateToLatest } from "../migrations"
@@ -12,7 +12,8 @@ import {
   calculatePerception,
   getBlankCharacter,
   calculateHP,
-} from "data/classTemplate"
+  character,
+} from "data/character"
 import { Skills } from "data/skills"
 import { Backgrounds } from "data/backgrounds"
 
@@ -28,7 +29,8 @@ import {
 import { toast } from "react-toastify"
 import { applyNewAncestry } from "services/AncestryService"
 
-export class CharacterBuilder extends React.Component {
+export class CharacterBuilder extends React.Component<any, any> {
+  blankCharacter
   constructor(props) {
     super(props)
 
@@ -53,6 +55,7 @@ export class CharacterBuilder extends React.Component {
   }
 
   componentDidMount() {
+    // @ts-ignore
     let { characterId } = this.props.match.params
 
     if (characterId) {
@@ -64,16 +67,16 @@ export class CharacterBuilder extends React.Component {
   }
 
   async getCharacter(characterId) {
-    const response = await firebase.getPF2Character(characterId)
-    let character = response.data()
-    character.uid = characterId
+    const response = await firebaseService.getPF2Character(characterId)
+    let returnedCharacter = new character(response.data() as character)
+    returnedCharacter.uid = characterId
 
-    migrateToLatest(character)
+    migrateToLatest(returnedCharacter)
 
-    this.updateStats(character, () => {
+    this.updateStats(returnedCharacter, () => {
       this.props.history.push(`/pf2/character-builder/${characterId}`)
     })
-    return character
+    return returnedCharacter
   }
 
   updateName(e) {
@@ -202,7 +205,7 @@ export class CharacterBuilder extends React.Component {
     this.updateStats(updatedCharacter)
   }
 
-  updateStats(character, callback) {
+  updateStats(character, callback?) {
     const hasClass = !!character.class.name
     const hasAncestry = !!character.ancestry.name
     character.abilities = calculateAbilityScores(character)
@@ -408,7 +411,6 @@ export class CharacterBuilder extends React.Component {
               history={this.props.history}
               reset={this.reset}
               character={character}
-              setCharacter={this.setCharacter}
               getCharacter={this.getCharacter}
             />
             <div className="pt-20 px-2 max-w-5xl mx-auto">
@@ -426,17 +428,10 @@ export class CharacterBuilder extends React.Component {
                     character={this.state.character}
                     boostAbility={this.boostAbility}
                   />
-                  <FeatsSection
-                    character={this.state.character}
-                    selectFeat={this.selectFeat}
-                    deleteFeat={this.deleteFeat}
-                  />
+                  <FeatsSection />
                 </div>
                 <div className="flex-full md:flex-1">
-                  <SkillsTable
-                    character={character}
-                    selectSkill={this.selectSkill}
-                  />
+                  <SkillsTable />
                 </div>
               </div>
             </div>

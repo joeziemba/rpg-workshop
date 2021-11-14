@@ -1852,7 +1852,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "\u2014",
-    "desc": "Your adaptability manifests in your mastery of a range of useful abilities.",
+    "desc": "Your adaptability manifests in your mastery of a range of useful Ability.",
     "traits": ["Human"],
     "reqLevel": "1",
     "last_scrape": "2021-08-22 02:09:34"
@@ -6068,7 +6068,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "a familiar",
-    "desc": "You infuse your familiar with additional primal energy, increasing its abilities.",
+    "desc": "You infuse your familiar with additional primal energy, increasing its Ability.",
     "traits": ["Druid", "Sorcerer", "Witch", "Wizard"],
     "reqLevel": "2",
     "last_scrape": "2021-08-22 02:09:34"
@@ -7248,7 +7248,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Uncommon",
     "prerequisites": "trained in Deception",
-    "desc": "You have two identities, each with its own name, alignment, and abilities.",
+    "desc": "You have two identities, each with its own name, alignment, and Ability.",
     "traits": ["Archetype", "Dedication"],
     "reqLevel": "2",
     "last_scrape": "2021-08-22 02:09:34"
@@ -7518,7 +7518,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "warden spells",
-    "desc": "You are so connected with the animal world that you can grant yourself an animal's features and abilities.",
+    "desc": "You are so connected with the animal world that you can grant yourself an animal's features and Ability.",
     "traits": ["Ranger"],
     "reqLevel": "4",
     "last_scrape": "2021-08-22 02:09:34"
@@ -8988,7 +8988,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "Animal Companion",
-    "desc": "Your animal companion grows up, becoming a mature animal companion, which grants it additional capabilities.",
+    "desc": "Your animal companion grows up, becoming a mature animal companion, which grants it additional capAbility.",
     "traits": ["Druid"],
     "reqLevel": "4",
     "last_scrape": "2021-08-22 02:09:34"
@@ -8998,7 +8998,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "Beastmaster Dedication",
-    "desc": "All of your animal companions grow up, becoming mature animal companions and gaining additional capabilities.",
+    "desc": "All of your animal companions grow up, becoming mature animal companions and gaining additional capAbility.",
     "traits": ["Archetype"],
     "reqLevel": "4",
     "last_scrape": "2021-08-22 02:09:34"
@@ -9708,7 +9708,7 @@
     "source": "World Guide",
     "rarity": "Common",
     "prerequisites": "Runescarred Dedication",
-    "desc": "The magical runes on your body grant you several magical abilities.",
+    "desc": "The magical runes on your body grant you several magical Ability.",
     "traits": ["Archetype"],
     "reqLevel": "4",
     "last_scrape": "2021-08-22 02:09:34"
@@ -12120,7 +12120,7 @@
     "source": "Character Guide",
     "rarity": "Common",
     "prerequisites": "Mask Familiar",
-    "desc": "Your mask familiar adapts quickly to material form, allowing it to gain more familiar and master abilities.",
+    "desc": "Your mask familiar adapts quickly to material form, allowing it to gain more familiar and master Ability.",
     "traits": ["Archetype"],
     "reqLevel": "6",
     "last_scrape": "2021-08-22 02:09:34"
@@ -13440,7 +13440,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "Animal Companion",
-    "desc": "Your animal companion grows up, gaining additional capabilities.",
+    "desc": "Your animal companion grows up, gaining additional capAbility.",
     "traits": ["Ranger"],
     "reqLevel": "6",
     "last_scrape": "2021-08-22 02:09:35"
@@ -15596,7 +15596,7 @@
     "source": "Pathfinder Society Guide",
     "rarity": "Common",
     "prerequisites": "Scrollmaster Dedication",
-    "desc": "You've spent countless hours learning to recognize and predict a creature's innate magical abilities.",
+    "desc": "You've spent countless hours learning to recognize and predict a creature's innate magical Ability.",
     "traits": ["Archetype"],
     "reqLevel": "8",
     "last_scrape": "2021-08-22 02:09:35"
@@ -16616,7 +16616,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "\u2014",
-    "desc": "By pointing out vulnerabilities, you grant an ally benefits from your hunting abilities.",
+    "desc": "By pointing out vulnerabilities, you grant an ally benefits from your hunting Ability.",
     "traits": ["Ranger"],
     "reqLevel": "8",
     "last_scrape": "2021-08-22 02:09:35"
@@ -18945,7 +18945,7 @@
     "source": "Pathfinder #166: Despair on Danger Island",
     "rarity": "Uncommon",
     "prerequisites": "\u2014",
-    "desc": "You can transform your inner power into a type of energy to empower your ki abilities.",
+    "desc": "You can transform your inner power into a type of energy to empower your ki Ability.",
     "traits": ["Monk"],
     "reqLevel": "10",
     "last_scrape": "2021-08-22 02:09:35"
@@ -21790,7 +21790,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "\u2014",
-    "desc": "Over the course of adventuring, your adaptability has let you pick up numerous useful abilities.",
+    "desc": "Over the course of adventuring, your adaptability has let you pick up numerous useful Ability.",
     "traits": ["Human"],
     "reqLevel": "13",
     "last_scrape": "2021-08-22 02:09:35"

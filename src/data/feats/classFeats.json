@@ -3751,7 +3751,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "a familiar",
-    "desc": "You infuse your familiar with additional primal energy, increasing its abilities.",
+    "desc": "You infuse your familiar with additional primal energy, increasing its Ability.",
     "traits": ["Druid", "Sorcerer", "Witch", "Wizard"],
     "level": "2",
     "type": "class"
@@ -3801,7 +3801,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "Animal Companion",
-    "desc": "Your animal companion grows up, becoming a mature animal companion, which grants it additional capabilities.",
+    "desc": "Your animal companion grows up, becoming a mature animal companion, which grants it additional capAbility.",
     "traits": ["Druid"],
     "level": "4",
     "type": "class"
@@ -5961,7 +5961,7 @@
     "source": "Pathfinder #166: Despair on Danger Island",
     "rarity": "Uncommon",
     "prerequisites": "\u2014",
-    "desc": "You can transform your inner power into a type of energy to empower your ki abilities.",
+    "desc": "You can transform your inner power into a type of energy to empower your ki Ability.",
     "traits": ["Monk"],
     "level": "10",
     "type": "class"
@@ -6851,7 +6851,7 @@
     "source": "Advanced Player's Guide",
     "rarity": "Common",
     "prerequisites": "warden spells",
-    "desc": "You are so connected with the animal world that you can grant yourself an animal's features and abilities.",
+    "desc": "You are so connected with the animal world that you can grant yourself an animal's features and Ability.",
     "traits": ["Ranger"],
     "level": "4",
     "type": "class"
@@ -6971,7 +6971,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "Animal Companion",
-    "desc": "Your animal companion grows up, gaining additional capabilities.",
+    "desc": "Your animal companion grows up, gaining additional capAbility.",
     "traits": ["Ranger"],
     "level": "6",
     "type": "class"
@@ -7081,7 +7081,7 @@
     "source": "Core Rulebook",
     "rarity": "Common",
     "prerequisites": "\u2014",
-    "desc": "By pointing out vulnerabilities, you grant an ally benefits from your hunting abilities.",
+    "desc": "By pointing out vulnerabilities, you grant an ally benefits from your hunting Ability.",
     "traits": ["Ranger"],
     "level": "8",
     "type": "class"

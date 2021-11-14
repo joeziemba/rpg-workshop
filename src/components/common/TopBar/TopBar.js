@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 import { LoginButton } from "../../../components/index"
 import "./TopBar.scss"
 

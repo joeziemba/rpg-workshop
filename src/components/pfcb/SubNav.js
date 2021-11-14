@@ -1,7 +1,7 @@
 import React from "react"
 import { toast } from "react-toastify"
 import { UserContext } from "context"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 import { Modal, NavButton, OpenOrDeleteItem } from "components"
 
 class SubNav extends React.Component {

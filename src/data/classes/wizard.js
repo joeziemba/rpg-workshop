@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { generateSkillBoosts } from "../models/SkillBoost"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
@@ -9,7 +9,7 @@ export default {
   name: nameOfClass,
   abilityBoosts: [
     {
-      ability: Abilities.INT,
+      ability: Ability.INT,
       source: nameOfClass,
       id: "1",
     },

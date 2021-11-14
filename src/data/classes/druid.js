@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -7,10 +7,10 @@ const nameOfClass = "Druid"
 
 export const Druid = {
   name: nameOfClass,
-  keyAbility: Abilities.WIS,
+  keyAbility: Ability.WIS,
   abilityBoosts: [
     {
-      ability: Abilities.WIS,
+      ability: Ability.WIS,
       source: nameOfClass,
       id: nameOfClass + "1",
     },

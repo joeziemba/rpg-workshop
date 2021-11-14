@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -9,11 +9,11 @@ export const Rogue = {
   name: nameOfClass,
   abilityBoosts: [
     {
-      ability: Abilities.FREE,
+      ability: Ability.FREE,
       source: nameOfClass,
       id: nameOfClass + "1",
-      exclude: [Abilities.CON, Abilities.INT, Abilities.WIS],
-      type: Abilities.FREE,
+      exclude: [Ability.CON, Ability.INT, Ability.WIS],
+      type: Ability.FREE,
     },
   ],
   hp: 8,

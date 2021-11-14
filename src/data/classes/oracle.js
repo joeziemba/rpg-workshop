@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { generateSkillBoosts } from "../models/SkillBoost"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
@@ -7,7 +7,7 @@ const nameOfClass = "Oracle"
 
 export const Oracle = {
   name: nameOfClass,
-  keyAbility: Abilities.CHA,
+  keyAbility: Ability.CHA,
   perceptionProficiency: Proficiencies.EXPERT,
   hp: 8,
   perceptionBoosts: [
@@ -88,7 +88,7 @@ export const Oracle = {
   },
   defenses: { unarmored: Proficiencies.TRAINED },
   abilityBoosts: [
-    { ability: Abilities.CHA, source: nameOfClass, id: "Bard1" },
+    { ability: Ability.CHA, source: nameOfClass, id: "Bard1" },
   ],
   skillBoosts: generateSkillBoosts([
     {

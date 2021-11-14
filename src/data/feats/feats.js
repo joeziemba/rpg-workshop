@@ -653,7 +653,7 @@ const HUMAN_FEATS = [
     level: "1",
     traits: ["Human"],
     description:
-      "Your adaptability manifests in your mastery of a range of useful abilities. You gain a 1st-level general feat. You must meet the feat’s prerequisites, but if you select this feat during character creation, you can select the feat later in the process in order to determine which prerequisites you meet.\n<b>Special</b> You can select this feat multiple times, choosing a different feat each time.",
+      "Your adaptability manifests in your mastery of a range of useful Ability. You gain a 1st-level general feat. You must meet the feat’s prerequisites, but if you select this feat during character creation, you can select the feat later in the process in order to determine which prerequisites you meet.\n<b>Special</b> You can select this feat multiple times, choosing a different feat each time.",
     prerequisites: [],
     source: SOURCES.CRB,
   },

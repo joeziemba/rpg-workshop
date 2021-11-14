@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import Statbox from "./Statbox"
-import { Abilities } from "data/abilities"
+import { Ability } from "data/abilities"
 import TEMLbuttons from "./TEMLbuttons"
 import { Card } from "./Card"
 import { FreeSkillBoosts } from "./FreeSkillBoosts"
@@ -85,8 +85,8 @@ export const SkillsTable = () => {
               <span className="m-2">+</span>
               <Statbox
                 stat={`${abilityMod}`}
-                title={Object.keys(Abilities).find(
-                  (a) => Abilities[a] === skill.modifier
+                title={Object.keys(Ability).find(
+                  (a) => Ability[a] === skill.modifier
                 )}
               />
             </div>

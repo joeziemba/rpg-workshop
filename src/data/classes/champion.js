@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -7,19 +7,19 @@ const nameOfClass = "Champion"
 
 export const Champion = {
   name: nameOfClass,
-  keyAbility: Abilities.STR,
+  keyAbility: Ability.STR,
   abilityBoosts: [
     {
-      ability: Abilities.FREE,
+      ability: Ability.FREE,
       source: nameOfClass,
       id: "Champ1",
       exclude: [
-        Abilities.CON,
-        Abilities.INT,
-        Abilities.WIS,
-        Abilities.CHA,
+        Ability.CON,
+        Ability.INT,
+        Ability.WIS,
+        Ability.CHA,
       ],
-      type: Abilities.FREE,
+      type: Ability.FREE,
     },
   ],
   perceptionProficiency: Proficiencies.TRAINED,

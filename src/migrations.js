@@ -1,7 +1,7 @@
 import CLASSES from "./data/classes"
 import { Backgrounds } from "./data/backgrounds"
 import FEATS from "./data/feats/allFeats.json"
-import { getBlankCharacter } from "./data/classTemplate"
+import { getBlankCharacter } from "./data/character"
 import { cloneDeep } from "lodash"
 
 export function v1_0_1(character) {

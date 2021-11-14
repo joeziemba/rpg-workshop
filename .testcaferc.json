@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "typescript": {
+      "customCompilerModulePath": "./node_modules/typescript",
+      "options": { "experimentalDecorators": "true", "newLine": "crlf" }
+    }
+  }
+}

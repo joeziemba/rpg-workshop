@@ -2,6 +2,7 @@ import React from "react"
 import { DisplayProperty, DisplayAttack } from "components"
 
 const orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]
+
 export const StatBlockDisplay = ({ stats, exportView }) => {
   let dieNum = +stats.hp.dieNum
   let mod = dieNum * stats.abilities.conMod

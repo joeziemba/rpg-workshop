@@ -2,7 +2,7 @@ import React from "react"
 import { toast } from "react-toastify"
 import { Modal, NavButton, OpenOrDeleteItem } from "components"
 import { UserContext } from "context"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 
 export class GeneratorNav extends React.Component {
   constructor(props) {

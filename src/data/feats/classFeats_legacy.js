@@ -1035,7 +1035,7 @@ export const DRUID_FEATS = [
     level: "1",
     traits: ["Druid", "Ranger"],
     description:
-      "You gain the service of a young animal companion that travels with you on your adventures and obeys any simple commands you give it to the best of its abilities. See Animal Companions for more information.",
+      "You gain the service of a young animal companion that travels with you on your adventures and obeys any simple commands you give it to the best of its Ability. See Animal Companions for more information.",
     prerequisites: ["animal order"],
     source: SOURCES.CRB,
   },
@@ -1089,7 +1089,7 @@ export const DRUID_FEATS = [
     level: "2",
     traits: ["Druid"],
     description:
-      "You have learned the secrets of another druidic order, passing whatever rites of initiation that order requires and gaining access to its secrets. Choose an order other than your own. You gain a 1st-level feat that lists that order as a prerequisite, and you are now a member of that order for the purpose of meeting feat prerequisites. If you commit acts anathema to your new order, you lose all feats and abilities requiring that order but retain your other druid feats and abilities. You don’t gain any of the other benefits of the order you chose.",
+      "You have learned the secrets of another druidic order, passing whatever rites of initiation that order requires and gaining access to its secrets. Choose an order other than your own. You gain a 1st-level feat that lists that order as a prerequisite, and you are now a member of that order for the purpose of meeting feat prerequisites. If you commit acts anathema to your new order, you lose all feats and abilities requiring that order but retain your other druid feats and Ability. You don’t gain any of the other benefits of the order you chose.",
     prerequisites: [],
     source: SOURCES.CRB,
     special:

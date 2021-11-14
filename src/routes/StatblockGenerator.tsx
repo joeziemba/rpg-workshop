@@ -1,10 +1,12 @@
 import React, { Component } from "react"
+import { RouteProps } from "react-router"
+import { Guid } from "js-guid"
 import _ from "lodash"
 
 import { GeneratorNav } from "components"
 
 import { StatblockContext } from "context"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 import "./StatblockGenerator.css"
 import { toast } from "react-toastify"
 import StatBlockDisplay from "StatblockGenerator/StatBlockDisplay"
@@ -12,20 +14,60 @@ import StatBlockForm from "StatblockGenerator/StatBlockForm"
 import { StatblockAction } from "data/models/StatblockAction"
 import { StatblockAttack } from "data/models/StatblockAttack"
 
-const initialState = {
-  exportView: false,
-  name: "Creature Name",
-  size: "Medium",
-  creatureType: "Humanoid",
-  saves: {
+class abilityObject {
+  constructor(
+    public str = 10,
+    public strMod = 0,
+    public dex = 10,
+    public dexMod = 0,
+    public con = 10,
+    public conMod = 0,
+    public int = 10,
+    public intMod = 0,
+    public wis = 10,
+    public wisMod = 0,
+    public cha = 10,
+    public chaMod = 0
+  ) {}
+}
+
+class attack {
+  id = 1
+  title = "Longsword"
+  type = "Melee"
+  prof = true
+  reach = 5
+  targets = 1
+  dmgDie = 8
+  dieNum = 1
+  dmgType = "Slashing"
+  dex = false
+  constructor() {}
+}
+
+class feature {
+  public id = new Guid()
+  constructor(
+    public title = "Sample",
+    public content = "This is a sample feature, change my content!",
+    public type = "General"
+  ) {}
+}
+
+class State {
+  public exportView = false
+  public name = "Creature Name"
+  public size = "Medium"
+  public creatureType = "Humanoid"
+  public saves = {
     str: false,
     dex: false,
     con: false,
     int: false,
     wis: false,
     cha: false,
-  },
-  abilities: {
+  }
+  public abilities: abilityObject = {
     str: 10,
     strMod: 0,
     dex: 10,
@@ -38,42 +80,34 @@ const initialState = {
     wisMod: 0,
     cha: 10,
     chaMod: 0,
-  },
-  ac: {
+  }
+  public ac = {
     score: 10,
     support: "",
-  },
-  hp: {
+  }
+  public hp = {
     hitDie: 4,
     dieNum: 1,
-  },
-  calculatedHP: 0,
-  proficiency: 1,
-  speed: 30,
-  flySpeed: 0,
-  swimSpeed: 0,
-  skills: [],
-  conditionImmune: [],
-  immune: [],
-  resists: [],
-  vulnerable: [],
-  senses: [],
-  langs: ["Common"],
-  challenge: "",
-  xp: "",
-  features: [
-    {
-      id: "1",
-      title: "Sample",
-      content: "This is a sample feature, change my content!",
-      type: "General",
-    },
-  ],
-  actions: [
+  }
+  public calculatedHP = 0
+  public proficiency = 1
+  public speed = 30
+  public flySpeed = 0
+  public swimSpeed = 0
+  public skills = []
+  public conditionImmune = []
+  public immune = []
+  public resists = []
+  public vulnerable = []
+  public senses = []
+  public langs = ["Common"]
+  public challenge = ""
+  public xp = ""
+  public features: feature[] = [new feature()]
+  public actions: (attack | feature)[] = [
     {
       id: 1,
       title: "Longsword",
-
       type: "Melee",
       prof: true,
       reach: 5,
@@ -86,7 +120,6 @@ const initialState = {
     {
       id: 2,
       title: "Longbow",
-
       type: "Ranged",
       prof: true,
       reach: 120,
@@ -96,25 +129,31 @@ const initialState = {
       dmgType: "Piercing",
       dex: true,
     },
-  ],
-  legendaryActPerRound: 1,
-  legendaryActions: [
-    {
-      id: "1",
-      title: "Legendary",
-      content: "This is a sample legendary action, change my content!",
-      type: "Legendary",
-    },
-  ],
+  ]
+  public legendaryActPerRound = 1
+  public legendaryActions: feature[] = [
+    new feature(
+      "Legendary",
+      "This is a sample legendary action, change my content!",
+      "Legendary"
+    ),
+  ]
+  constructor() {}
 }
 
-export class StatblockGenerator extends Component {
-  constructor(props) {
+interface Props {
+  match: { params: string[] }
+  history: { push: Function }
+}
+
+export class StatblockGenerator extends Component<
+  Props & RouteProps,
+  State
+> {
+  constructor(props: any) {
     super(props)
 
-    this.state = {
-      ..._.cloneDeep(initialState),
-    }
+    this.state = new State()
 
     this.updateState = this.updateState.bind(this)
     this.updateAbility = this.updateAbility.bind(this)
@@ -135,17 +174,24 @@ export class StatblockGenerator extends Component {
   }
 
   componentDidMount() {
+    // @ts-ignore
     let { characterId } = this.props.match.params
     if (characterId) {
-      firebase.getStatblock(characterId).then((response) => {
-        let stats = response.data()
-        this.updateAttacksToNewFormat(stats)
-        stats.uid = characterId
-        this.setState(stats, this.calcAbilityMods)
-      })
+      firebaseService
+        .getStatblock(characterId)
+        .then((response) => {
+          let stats = response.data()
+          if (!stats) throw new Error("No character found")
+          this.updateAttacksToNewFormat(stats)
+          stats.uid = characterId
+          this.setState(stats as State, this.calcAbilityMods)
+        })
+        .catch((err) => {
+          toast(err.message)
+        })
     }
 
-    this.setState(_.cloneDeep(initialState))
+    this.setState(new State())
   }
 
   updateAttacksToNewFormat(stats) {
@@ -165,7 +211,7 @@ export class StatblockGenerator extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.removeItem("stats", JSON.stringify(this.state))
+    localStorage.removeItem("stats")
   }
 
   toggleExportView() {
@@ -175,14 +221,15 @@ export class StatblockGenerator extends Component {
   }
 
   reset() {
-    this.setState(_.cloneDeep(initialState))
+    this.setState(new State())
     this.props.history.push("/dnd5e/statblock-generator")
     toast("Sheet Cleared")
   }
 
   updateState(e) {
-    let { name, value } = e.target
+    let { name, value }: { name: string; value: string } = e.target
     this.setState({
+      ...this.state,
       [name]: value,
     })
   }
@@ -201,7 +248,7 @@ export class StatblockGenerator extends Component {
   }
 
   calcAbilityMods() {
-    let newAbilities = {}
+    let newAbilities = new abilityObject()
     const abArray = ["str", "dex", "con", "int", "wis", "cha"]
     abArray.forEach((ability) => {
       newAbilities[ability] = this.state.abilities[ability]
@@ -248,6 +295,7 @@ export class StatblockGenerator extends Component {
 
   updatePropertyList(selected, arrayToUpdate) {
     this.setState({
+      ...this.state,
       [arrayToUpdate]: selected.sort(),
     })
   }
@@ -273,7 +321,7 @@ export class StatblockGenerator extends Component {
   }
 
   addAction(actionType) {
-    let newActions = [].concat(this.state.actions)
+    let newActions = [...this.state.actions]
 
     let newAction
 
@@ -313,9 +361,9 @@ export class StatblockGenerator extends Component {
     let actions
 
     if (legendary) {
-      actions = [].concat(this.state.legendaryActions)
+      actions = [...this.state.legendaryActions]
     } else {
-      actions = [].concat(this.state.actions)
+      actions = [this.state.actions]
     }
 
     let newActions = actions.map((action) => {
@@ -348,9 +396,9 @@ export class StatblockGenerator extends Component {
     let actions
 
     if (legendary) {
-      actions = [].concat(this.state.legendaryActions)
+      actions = [this.state.legendaryActions]
     } else {
-      actions = [].concat(this.state.actions)
+      actions = [this.state.actions]
     }
 
     let newActions = actions.filter((action) => action.id !== actionId)
@@ -375,15 +423,9 @@ export class StatblockGenerator extends Component {
   }
 
   addLegendaryAction() {
-    let newActions = [].concat(this.state.legendaryActions)
+    let newActions = [...this.state.legendaryActions]
 
-    let newAction = {
-      id: newActions.length + 1,
-      title: "",
-      content: "",
-    }
-
-    newActions.push(newAction)
+    newActions.push(new feature())
 
     this.setState({
       legendaryActions: newActions,
@@ -447,26 +489,15 @@ export class StatblockGenerator extends Component {
             {!this.state.exportView && (
               <div className="flex flex-wrap mt-12">
                 <div className="flex-1 mt-8" style={{ minWidth: "410px" }}>
-                  <StatBlockForm
-                    stats={this.state}
-                    updateState={this.updateState}
-                    updateAbility={this.updateAbility}
-                    updateAC={this.updateAC}
-                    updateHP={this.updateHP}
-                    updatePropertyList={this.updatePropertyList}
-                    addFeature={this.addFeature}
-                    updateFeature={this.updateFeature}
-                    addAction={this.addAction}
-                    updateAction={this.updateAction}
-                    deleteAction={this.deleteAction}
-                    deleteFeature={this.deleteFeature}
-                    addLegendaryAction={this.addLegendaryAction}
-                  />
+                  <StatBlockForm />
                 </div>
                 <div className="flex-1" style={{ minWidth: "" }}>
                   <div className="statblock-container">
                     <div className="statblock-container__inner">
-                      <StatBlockDisplay stats={this.state} />
+                      <StatBlockDisplay
+                        stats={this.state}
+                        exportView={this.state.exportView}
+                      />
                     </div>
                   </div>
                 </div>

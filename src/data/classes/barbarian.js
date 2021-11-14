@@ -1,5 +1,5 @@
 import SaveBoost from "../models/SaveBoost"
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -8,7 +8,7 @@ const nameOfClass = "Barbarian"
 
 export const Barbarian = {
   name: nameOfClass,
-  keyAbility: Abilities.STR,
+  keyAbility: Ability.STR,
   hp: 12,
   perceptionProficiency: Proficiencies.EXPERT,
   perceptionBoosts: [
@@ -94,6 +94,6 @@ export const Barbarian = {
     },
   ]),
   abilityBoosts: [
-    { ability: Abilities.STR, source: nameOfClass, id: "Barb1", level: 1 },
+    { ability: Ability.STR, source: nameOfClass, id: "Barb1", level: 1 },
   ],
 }

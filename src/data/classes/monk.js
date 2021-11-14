@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -9,16 +9,16 @@ export const Monk = {
   name: nameOfClass,
   abilityBoosts: [
     {
-      ability: Abilities.FREE,
+      ability: Ability.FREE,
       source: nameOfClass,
       id: "1",
       exclude: [
-        Abilities.CON,
-        Abilities.INT,
-        Abilities.WIS,
-        Abilities.CHA,
+        Ability.CON,
+        Ability.INT,
+        Ability.WIS,
+        Ability.CHA,
       ],
-      type: Abilities.FREE,
+      type: Ability.FREE,
     },
   ],
   hp: 10,

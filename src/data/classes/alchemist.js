@@ -1,4 +1,4 @@
-import { Abilities } from "../abilities"
+import { Ability } from "../abilities"
 import { Proficiencies, Skills } from "../skills"
 import { Saves } from "./saves"
 import { generateSkillBoosts } from "../models/SkillBoost"
@@ -7,7 +7,7 @@ const nameOfClass = "Alchemist"
 
 export const Alchemist = {
   name: nameOfClass,
-  keyAbility: Abilities.INT,
+  keyAbility: Ability.INT,
   hp: 8,
   perceptionProficiency: Proficiencies.TRAINED,
   perceptionBoosts: [
@@ -99,7 +99,7 @@ export const Alchemist = {
   ]),
   abilityBoosts: [
     {
-      ability: Abilities.INT,
+      ability: Ability.INT,
       source: nameOfClass,
       id: nameOfClass + "-ability-1",
       level: 1,

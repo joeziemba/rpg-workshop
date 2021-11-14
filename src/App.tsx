@@ -6,18 +6,20 @@ import "react-toastify/dist/ReactToastify.css"
 import { UserContext } from "context"
 
 import { TopBar } from "components"
-import { firebase } from "services/Firebase"
+import { firebaseService } from "services/Firebase"
 import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
-import { Home } from "views/Home"
-import { StatblockGenerator } from "views/StatblockGenerator"
-import { CharacterBuilder } from "views/CharacterBuilder"
+import { Home } from "routes/Home"
+import { StatblockGenerator } from "routes/StatblockGenerator"
+import { CharacterBuilder } from "routes/CharacterBuilder"
+import firebase from "firebase"
 
 const App = () => {
-  const [currentUser, setUser] = useState(null)
+  const [currentUser, setUser] = useState({} as firebase.User)
 
   useEffect(() => {
-    firebase.auth.onAuthStateChanged((currentUser) => {
-      currentUser ? setUser(currentUser) : setUser(null)
+    firebaseService.auth.onAuthStateChanged((currentUser) => {
+      currentUser ? setUser(currentUser) : setUser({} as firebase.User)
+      return
     })
   }, [])
 

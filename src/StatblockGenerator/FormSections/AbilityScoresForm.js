@@ -8,7 +8,7 @@ export const AbilityScoresForm = () => {
   const { stats, updateAbility, toggleSave } = useContext(StatblockContext)
   return (
     <div className="grid grid-rows-1 grid-cols-6 gap-4">
-      {abilities.map((ability) => {
+      {Ability.map((ability) => {
         return (
           <div className="col-span-1" key={ability}>
             <SBG_Select
