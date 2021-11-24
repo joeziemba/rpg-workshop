@@ -1,11 +1,11 @@
 import { Ability } from "./abilities"
 
-// interface Skill {
-//   id: string
-//   name:string
-//   modifier: Ability
-//   proficiency: number
-// }
+export interface Skill {
+  id: string
+  name: string
+  modifier: Ability
+  proficiency: number
+}
 
 export const Skills = {
   Acrobatics: {

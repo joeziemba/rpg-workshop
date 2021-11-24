@@ -4,11 +4,14 @@
     "es6": true,
     "node": true
   },
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jest/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -21,11 +24,19 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest", "prettier", "jsx-a11y", "react-hooks"],
+  "plugins": [
+    "react",
+    "jest",
+    "prettier",
+    "jsx-a11y",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
   "rules": {
     "semi": ["error", "never"],
     "react/prop-types": 0,
-    "no-unused-vars": 1
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off"
   },
   "settings": {
     "react": {

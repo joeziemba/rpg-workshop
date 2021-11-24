@@ -14,6 +14,10 @@ const config = {
 }
 
 class Firebase {
+  public auth
+  public currentUser
+  public db
+  public googleProvider
   constructor() {
     app.initializeApp(config)
 
@@ -138,7 +142,7 @@ class Firebase {
       if (showToast)
         toast.success("Updated " + character.name, { autoClose: 1000 })
     } else {
-      let response = await this.getPF2CharactersForUser(character.uid)
+      let response = await this.getPF2CharactersForUser()
       if (response.docs.length >= 5) {
         toast.error("You can only save up to 5 characters.")
       } else {

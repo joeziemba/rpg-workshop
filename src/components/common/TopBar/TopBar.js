@@ -45,7 +45,7 @@ export const TopBar = (props) => {
               >
                 <button
                   className="leading-snug text-right w-full px-4 py-3 hover:bg-slate-600"
-                  onClick={firebase.signOut}
+                  onClick={firebaseService.signOut}
                 >
                   Logout
                 </button>

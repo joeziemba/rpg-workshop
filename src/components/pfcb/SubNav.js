@@ -20,7 +20,7 @@ class SubNav extends React.Component {
   }
 
   async getCharacters() {
-    const snapshot = await firebase.getPF2CharactersForUser(
+    const snapshot = await firebaseService.getPF2CharactersForUser(
       this.context.currentUser.uid
     )
 
@@ -34,7 +34,9 @@ class SubNav extends React.Component {
 
   async saveCharacter() {
     if (this.props.character.name) {
-      let character = await firebase.savePF2Character(this.props.character)
+      let character = await firebaseService.savePF2Character(
+        this.props.character
+      )
       if (character)
         this.props.history.push(`/pf2/character-builder/${character.id}`)
     } else {
@@ -43,7 +45,7 @@ class SubNav extends React.Component {
   }
 
   async deleteCharacter(character) {
-    await firebase.deletePF2Character(character.id)
+    await firebaseService.deletePF2Character(character.id)
     await this.getCharacters()
     toast("Deleted " + character.name)
   }

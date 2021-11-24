@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { RouteProps } from "react-router"
 import { Guid } from "js-guid"
-import _ from "lodash"
 
 import { GeneratorNav } from "components"
 
@@ -13,6 +12,8 @@ import StatBlockDisplay from "StatblockGenerator/StatBlockDisplay"
 import StatBlockForm from "StatblockGenerator/StatBlockForm"
 import { StatblockAction } from "data/models/StatblockAction"
 import { StatblockAttack } from "data/models/StatblockAttack"
+import { Skill } from "data/skills"
+import { Ability } from "data/abilities"
 
 class abilityObject {
   constructor(
@@ -31,7 +32,7 @@ class abilityObject {
   ) {}
 }
 
-class attack {
+class Attack {
   id = 1
   title = "Longsword"
   type = "Melee"
@@ -42,10 +43,9 @@ class attack {
   dieNum = 1
   dmgType = "Slashing"
   dex = false
-  constructor() {}
 }
 
-class feature {
+class Feature {
   public id = new Guid()
   constructor(
     public title = "Sample",
@@ -54,7 +54,11 @@ class feature {
   ) {}
 }
 
-class State {
+type Action = Feature | Attack
+
+export class Statblock {
+  public uid?: string
+  public id?: string
   public exportView = false
   public name = "Creature Name"
   public size = "Medium"
@@ -94,7 +98,7 @@ class State {
   public speed = 30
   public flySpeed = 0
   public swimSpeed = 0
-  public skills = []
+  public skills: Skill[] = []
   public conditionImmune = []
   public immune = []
   public resists = []
@@ -103,8 +107,8 @@ class State {
   public langs = ["Common"]
   public challenge = ""
   public xp = ""
-  public features: feature[] = [new feature()]
-  public actions: (attack | feature)[] = [
+  public features: Feature[] = [new Feature()]
+  public actions: Action[] = [
     {
       id: 1,
       title: "Longsword",
@@ -131,29 +135,28 @@ class State {
     },
   ]
   public legendaryActPerRound = 1
-  public legendaryActions: feature[] = [
-    new feature(
+  public legendaryActions: Feature[] = [
+    new Feature(
       "Legendary",
       "This is a sample legendary action, change my content!",
       "Legendary"
     ),
   ]
-  constructor() {}
 }
 
 interface Props {
-  match: { params: string[] }
-  history: { push: Function }
+  match: { params: { characterId: string } }
+  history: { push(arg: string): void }
 }
 
 export class StatblockGenerator extends Component<
   Props & RouteProps,
-  State
+  Statblock
 > {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props)
 
-    this.state = new State()
+    this.state = new Statblock()
 
     this.updateState = this.updateState.bind(this)
     this.updateAbility = this.updateAbility.bind(this)
@@ -174,29 +177,28 @@ export class StatblockGenerator extends Component<
   }
 
   componentDidMount() {
-    // @ts-ignore
-    let { characterId } = this.props.match.params
+    const { characterId } = this.props.match.params
     if (characterId) {
       firebaseService
         .getStatblock(characterId)
         .then((response) => {
-          let stats = response.data()
+          const stats = response.data()
           if (!stats) throw new Error("No character found")
           this.updateAttacksToNewFormat(stats)
           stats.uid = characterId
-          this.setState(stats as State, this.calcAbilityMods)
+          this.setState(stats as Statblock, this.calcAbilityMods)
         })
-        .catch((err) => {
+        .catch((err: Error) => {
           toast(err.message)
         })
     }
 
-    this.setState(new State())
+    this.setState(new Statblock())
   }
 
-  updateAttacksToNewFormat(stats) {
-    if (!stats) return
-    stats.actions = stats.actions.map((action) => {
+  updateAttacksToNewFormat(statblock: Statblock) {
+    if (!statblock) return
+    statblock.actions = statblock.actions.map((action: any) => {
       return {
         ...action,
         content: action.content ?? "",
@@ -206,7 +208,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  setStatblock(statblock) {
+  setStatblock(statblock: Statblock) {
     this.setState({ ...statblock })
   }
 
@@ -221,20 +223,20 @@ export class StatblockGenerator extends Component<
   }
 
   reset() {
-    this.setState(new State())
+    this.setState(new Statblock())
     this.props.history.push("/dnd5e/statblock-generator")
     toast("Sheet Cleared")
   }
 
-  updateState(e) {
-    let { name, value }: { name: string; value: string } = e.target
+  updateState(e: { target: HTMLInputElement }) {
+    const { name, value }: { name: string; value: string } = e.target
     this.setState({
       ...this.state,
       [name]: value,
     })
   }
 
-  updateAbility(ability, value) {
+  updateAbility(ability: Ability, value: number) {
     this.setState(
       {
         abilities: {
@@ -248,7 +250,7 @@ export class StatblockGenerator extends Component<
   }
 
   calcAbilityMods() {
-    let newAbilities = new abilityObject()
+    const newAbilities = new abilityObject()
     const abArray = ["str", "dex", "con", "int", "wis", "cha"]
     abArray.forEach((ability) => {
       newAbilities[ability] = this.state.abilities[ability]
@@ -259,8 +261,8 @@ export class StatblockGenerator extends Component<
     this.setState({ abilities: newAbilities })
   }
 
-  updateAC(e) {
-    let { name, value } = e.target
+  updateAC(e: { target: HTMLInputElement }) {
+    const { name, value } = e.target
     this.setState({
       ac: {
         ...this.state.ac,
@@ -269,8 +271,8 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateHP(e) {
-    let { name, value } = e.target
+  updateHP(e: { target: HTMLInputElement }) {
+    const { name, value } = e.target
     this.setState(
       {
         hp: {
@@ -288,7 +290,7 @@ export class StatblockGenerator extends Component<
       abilities: { conMod },
     } = this.state
 
-    let calculatedHP =
+    const calculatedHP =
       (hitDie * dieNum) / 2 + Math.ceil(dieNum * 0.5) + dieNum * conMod
     this.setState({ calculatedHP })
   }
@@ -307,8 +309,8 @@ export class StatblockGenerator extends Component<
   }
 
   updateFeature(e, featureId) {
-    let { name, value } = e.target
-    let newFeatures = this.state.features.map((feat) => {
+    const { name, value } = e.target
+    const newFeatures = this.state.features.map((feat) => {
       if (feat.id === featureId) {
         feat[name] = value
       }
@@ -321,14 +323,11 @@ export class StatblockGenerator extends Component<
   }
 
   addAction(actionType) {
-    let newActions = [...this.state.actions]
+    const newActions = [...this.state.actions]
 
-    let newAction
+    let newAction: Action
 
     switch (actionType) {
-      case "General":
-        newAction = new StatblockAction()
-        break
       case "Melee":
         newAction = new StatblockAttack()
         break
@@ -336,6 +335,7 @@ export class StatblockGenerator extends Component<
         newAction = new StatblockAttack("", "", "Ranged")
         break
       default:
+        newAction = new StatblockAction()
         break
     }
 
@@ -356,23 +356,27 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateAction(e, actionId, legendary) {
-    let { name, value } = e.target
-    let actions
+  updateAction(
+    e: { target: HTMLButtonElement },
+    actionId: Guid,
+    legendary: boolean
+  ) {
+    const { name, value } = e.target
+    let actions: Action[]
 
     if (legendary) {
       actions = [...this.state.legendaryActions]
     } else {
-      actions = [this.state.actions]
+      actions = [...this.state.actions]
     }
 
-    let newActions = actions.map((action) => {
+    const newActions = actions.map((action) => {
       if (action.id === actionId) {
         if (name === "content") {
           action[name] = value
         } else if (name === "title") {
           action[name] = value
-        } else if (name === "dex") {
+        } else if ("dex" in action && name === "dex") {
           action.dex = !action.dex
         } else {
           action[name] = value
@@ -383,7 +387,7 @@ export class StatblockGenerator extends Component<
 
     if (legendary) {
       this.setState({
-        legendaryActions: newActions,
+        legendaryActions: newActions as Feature[],
       })
     } else {
       this.setState({
@@ -392,20 +396,20 @@ export class StatblockGenerator extends Component<
     }
   }
 
-  deleteAction(actionId, legendary) {
-    let actions
+  deleteAction(actionId: Guid, legendary: boolean) {
+    let actions: Action[]
 
     if (legendary) {
-      actions = [this.state.legendaryActions]
+      actions = [...this.state.legendaryActions]
     } else {
-      actions = [this.state.actions]
+      actions = [...this.state.actions]
     }
 
-    let newActions = actions.filter((action) => action.id !== actionId)
+    const newActions = actions.filter((action) => action.id !== actionId)
 
     if (legendary) {
       this.setState({
-        legendaryActions: newActions,
+        legendaryActions: newActions as Feature[],
       })
     } else {
       this.setState({
@@ -414,8 +418,8 @@ export class StatblockGenerator extends Component<
     }
   }
 
-  deleteFeature(featureId) {
-    let newFeats = this.state.features.filter((f) => f.id !== featureId)
+  deleteFeature(featureId: Guid) {
+    const newFeats = this.state.features.filter((f) => f.id !== featureId)
 
     this.setState({
       features: newFeats,
@@ -423,9 +427,9 @@ export class StatblockGenerator extends Component<
   }
 
   addLegendaryAction() {
-    let newActions = [...this.state.legendaryActions]
+    const newActions = [...this.state.legendaryActions]
 
-    newActions.push(new feature())
+    newActions.push(new Feature())
 
     this.setState({
       legendaryActions: newActions,
