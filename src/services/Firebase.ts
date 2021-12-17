@@ -2,6 +2,7 @@ import app from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
 import { toast } from "react-toastify"
+import { Statblock } from "routes/StatblockGenerator"
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -36,7 +37,7 @@ class Firebase {
       .getRedirectResult()
       .then(function (result) {
         // The signed-in user info.
-        var user = result.user
+        const user = result.user
         return user
       })
       .catch(function () {
@@ -45,8 +46,7 @@ class Firebase {
   }
 
   getCurrentUser() {
-    let user = this.auth.currentUser
-    return user
+    return this.auth.currentUser
   }
 
   signInWithGoogle() {
@@ -57,16 +57,16 @@ class Firebase {
         // This gives you a Google Access Token. You can use it to access the Google API.
         // var token = result.credential.accessToken;
         // The signed-in user info.
-        var user = result.user
+        const user = result.user
         // ...
-        toast.success("Signed in with " + user.email)
+        if (user) toast.success("Signed in with " + user.email)
       })
       .catch(function (error) {
         // Handle Errors here.
-        var errorCode = error.code
-        var errorMessage = error.message
+        const errorCode = error.code
+        const errorMessage = error.message
         // The email of the user's account used.
-        var email = error.email
+        const email = error.email
         // The firebase.auth.AuthCredential type that was used.
         // var credential = error.credential;
         // ...
@@ -85,12 +85,12 @@ class Firebase {
     this.auth.signOut()
   }
 
-  async saveStatblock(statblock) {
+  async saveStatblock(statblock: Statblock) {
     // Stringify and parse data to convert all class instances to objects
     const preppedData = JSON.parse(JSON.stringify(statblock))
 
     if (preppedData.uid) {
-      let response = await this.db
+      const updatedStatblock = await this.db
         .collection("5e-statblocks")
         .doc(statblock.uid)
         .update(preppedData)
@@ -98,23 +98,23 @@ class Firebase {
       toast.success("Updated " + preppedData.name, {
         autoClose: 1000,
       })
-      return response
+      return updatedStatblock
     } else {
-      let response = await this.load5eStatblocksForUser()
-      if (response.docs.length >= 5) {
+      const userStatblocks = await this.load5eStatblocksForUser()
+      if (userStatblocks.docs.length >= 5) {
         toast.error("You can only save up to 5 statblocks.")
       } else {
         // assign user ID to character
-        preppedData.userId = this.auth.currentUser.uid
+        preppedData.userId = this.currentUser?.uid
 
-        response = await this.db
+        const newStatblock = await this.db
           .collection("5e-statblocks")
           .add(preppedData)
 
-        toast.success("Saved " + response.name, {
+        toast.success("Saved " + preppedData.name, {
           autoClose: 1000,
         })
-        return response
+        return newStatblock
       }
     }
   }
@@ -122,14 +122,14 @@ class Firebase {
   load5eStatblocksForUser() {
     return this.db
       .collection("5e-statblocks")
-      .where("userId", "==", this.auth.currentUser.uid)
+      .where("userId", "==", this.currentUser?.uid)
       .get()
   }
 
-  getStatblock(statblockID) {
-    return this.db.collection("5e-statblocks").doc(statblockID).get()
+  async getStatblock(statblockID: string) {
+    return await this.db.collection("5e-statblocks").doc(statblockID).get()
   }
-  async deleteStatblock(statblockID) {
+  async deleteStatblock(statblockID: string) {
     await this.db.collection("5e-statblocks").doc(statblockID).delete()
   }
   // Pathfinder Methods
@@ -142,35 +142,35 @@ class Firebase {
       if (showToast)
         toast.success("Updated " + character.name, { autoClose: 1000 })
     } else {
-      let response = await this.getPF2CharactersForUser()
-      if (response.docs.length >= 5) {
+      const userCharacters = await this.getPF2CharactersForUser()
+      if (userCharacters.docs.length >= 5) {
         toast.error("You can only save up to 5 characters.")
       } else {
-        character.userId = this.auth.currentUser.uid
-        response = await this.db
+        character.userId = this.auth.currentUser?.uid
+        const newCharacter = await this.db
           .collection("pf2-characters")
           .add(character)
         if (showToast)
           toast.success("Saved " + character.name, {
             autoClose: 1000,
           })
-        return response
+        return newCharacter
       }
     }
   }
 
-  getPF2Character(characterID) {
+  getPF2Character(characterID: string) {
     return this.db.collection("pf2-characters").doc(characterID).get()
   }
 
-  async deletePF2Character(characterID) {
+  async deletePF2Character(characterID: string) {
     await this.db.collection("pf2-characters").doc(characterID).delete()
   }
 
   async getPF2CharactersForUser() {
     return await this.db
       .collection("pf2-characters")
-      .where("userId", "==", this.auth.currentUser.uid)
+      .where("userId", "==", this.auth.currentUser?.uid)
       .get()
   }
 }

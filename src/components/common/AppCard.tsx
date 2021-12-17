@@ -1,16 +1,27 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
+type AppCardProps = {
+  content: string
+  borderColor: string
+  buttonTextColor: string
+  image: string
+  linkText: string
+  linkUrl: string
+  tag: string
+  title: string
+}
+
 export const AppCard = ({
-  title,
   content,
-  linkText,
-  linkURL,
   borderColor,
   buttonTextColor,
-  tag,
   image,
-}) => {
+  linkText,
+  linkUrl,
+  tag,
+  title,
+}: AppCardProps) => {
   return (
     <div
       className={
@@ -22,7 +33,7 @@ export const AppCard = ({
       }
       style={{ flex: "1 1", minWidth: "380px" }}
     >
-      <Link to={linkURL} className="block relative min-h-full">
+      <Link to={linkUrl} className="block relative min-h-full">
         <div
           className={`app-card-image text-lg pl-10 pt-8 pb-10 lg:pb-20 text-white bg-cover relative`}
           style={{

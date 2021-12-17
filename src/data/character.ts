@@ -3,26 +3,25 @@ import { Saves } from "./classes"
 import { Ability } from "./abilities"
 import { Skills } from "./skills"
 import { abilityBoost } from "./models/abilityBoost.model"
-import SaveBoost from "./models/SaveBoost"
+// import SaveBoost from "./models/SaveBoost"
 import SkillBoost from "./models/SkillBoost"
-import { Guid } from "js-guid"
 
-class perceptionBoost {
-  constructor(
-    public type = "ANY_1",
-    public level = 1,
-    public proficiency = 2
-  ) {}
-}
-interface characterClass {
-  name: string
-  keyAbility: Ability
-  hp: number
-  perceptionBoosts: perceptionBoost[]
-  saveBoosts: SaveBoost[]
-  skillBoosts: SkillBoost[]
-  abilityBoosts: abilityBoost[]
-}
+// class perceptionBoost {
+//   constructor(
+//     public type = "ANY_1",
+//     public level = 1,
+//     public proficiency = 2
+//   ) {}
+// }
+// interface characterClass {
+//   name: string
+//   keyAbility: Ability
+//   hp: number
+//   perceptionBoosts: perceptionBoost[]
+//   saveBoosts: SaveBoost[]
+//   skillBoosts: SkillBoost[]
+//   abilityBoosts: abilityBoost[]
+// }
 
 export class character {
   public uid = ""
@@ -128,7 +127,7 @@ export class character {
 
 export function calculateAbilityScores(character) {
   // All abilities start at 10
-  let abilities = {
+  const abilities = {
     [Ability.STR]: 10,
     [Ability.DEX]: 10,
     [Ability.CON]: 10,
@@ -162,9 +161,8 @@ export function calculateHP(character) {
   if (character.class.hp) hitPoints += character.class.hp * character.level
 
   // Calculate Ability scores for every level to add CON mod to HP
-  let lv1mods, lv5mods, lv10mods, lv15mods
   // 1st
-  let lv1boosts = character.abilityBoosts.filter(
+  const lv1boosts = character.abilityBoosts.filter(
     (boost) =>
       boost.source === "Level_1" ||
       boost.source === character.background.name ||
@@ -172,16 +170,16 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   )
 
-  let lv1scores = calculateAbilityScores({
+  const lv1scores = calculateAbilityScores({
     abilityBoosts: lv1boosts,
     abilityFlaws: character.abilityFlaws,
   })
-  lv1mods = calculateAbilityMods({
+  const lv1mods = calculateAbilityMods({
     abilities: lv1scores,
   })
 
   // 5th
-  let lv5boosts = character.abilityBoosts.filter(
+  const lv5boosts = character.abilityBoosts.filter(
     (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
@@ -190,16 +188,16 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   )
 
-  let lv5scores = calculateAbilityScores({
+  const lv5scores = calculateAbilityScores({
     abilityBoosts: lv5boosts,
     abilityFlaws: character.abilityFlaws,
   })
-  lv5mods = calculateAbilityMods({
+  const lv5mods = calculateAbilityMods({
     abilities: lv5scores,
   })
 
   // 10th
-  let lv10boosts = character.abilityBoosts.filter(
+  const lv10boosts = character.abilityBoosts.filter(
     (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
@@ -209,16 +207,16 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   )
 
-  let lv10scores = calculateAbilityScores({
+  const lv10scores = calculateAbilityScores({
     abilityBoosts: lv10boosts,
     abilityFlaws: character.abilityFlaws,
   })
-  lv10mods = calculateAbilityMods({
+  const lv10mods = calculateAbilityMods({
     abilities: lv10scores,
   })
 
   // 15th
-  let lv15boosts = character.abilityBoosts.filter(
+  const lv15boosts = character.abilityBoosts.filter(
     (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
@@ -229,11 +227,11 @@ export function calculateHP(character) {
       boost.source === character.ancestry.name
   )
 
-  let lv15scores = calculateAbilityScores({
+  const lv15scores = calculateAbilityScores({
     abilityBoosts: lv15boosts,
     abilityFlaws: character.abilityFlaws,
   })
-  lv15mods = calculateAbilityMods({
+  const lv15mods = calculateAbilityMods({
     abilities: lv15scores,
   })
 
@@ -250,7 +248,7 @@ export function calculateHP(character) {
 }
 
 export function calculateAbilityMods(character) {
-  let mods = {}
+  const mods = {}
 
   Object.keys(character.abilities).forEach((ability) => {
     mods[ability] = abMod(character.abilities[ability])
@@ -267,7 +265,7 @@ export function calculatePerception(character) {
   let prof = 0
   if (character.class.perceptionBoosts)
     character.class.perceptionBoosts.forEach((boost) => {
-      let level = boost.level
+      const level = boost.level
       if (level <= character.level) prof = boost.proficiency
     })
 
@@ -294,7 +292,7 @@ export const upperLevelAbilityBoosts = [
 ]
 
 export function getBlankCharacter() {
-  let abilityBoosts: abilityBoost[] = [
+  const abilityBoosts: abilityBoost[] = [
     new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
     new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
     new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),

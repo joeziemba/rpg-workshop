@@ -1,7 +1,7 @@
 import React from "react"
 import cn from "classnames"
 
-interface Props {
+type NavButtonProps = {
   children?: React.ReactNode
   className?: string
   color: string
@@ -15,7 +15,7 @@ export const NavButton = ({
   color = "",
   id,
   onClick,
-}: Props) => {
+}: NavButtonProps) => {
   const classes = cn("px-4 py-2 rounded-sm transition-colors text-white", {
     "bg-red-900": color === "red",
     "hover:bg-red-900": color === "red",

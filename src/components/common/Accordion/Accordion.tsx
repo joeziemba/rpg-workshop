@@ -2,7 +2,13 @@ import React, { useState } from "react"
 import { CSSTransition } from "react-transition-group"
 import "./Accordion.scss"
 
-export const Accordion = ({ children, open, title }) => {
+type AccordionProps = {
+  children: Node
+  open: boolean
+  title: string
+}
+
+export const Accordion = ({ children, open, title }: AccordionProps) => {
   const [isOpen, setOpen] = useState(open)
   const toggleOpen = () => setOpen(!isOpen)
 

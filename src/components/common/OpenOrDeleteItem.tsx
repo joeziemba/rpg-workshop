@@ -1,11 +1,18 @@
 import React from "react"
 
+type OpenOrDeleteItemProps = {
+  children: React.ReactElement
+  deleteFunc: () => void
+  id: string
+  selectFunc: () => void
+}
+
 export const OpenOrDeleteItem = ({
-  id,
   children,
-  selectFunc,
   deleteFunc,
-}) => {
+  id,
+  selectFunc,
+}: OpenOrDeleteItemProps) => {
   return (
     <li
       className="block w-full group transition-colors flex hover:bg-gray-200"

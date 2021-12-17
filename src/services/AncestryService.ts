@@ -3,7 +3,7 @@ import { Ancestries } from "data/ancestries"
 
 export function applyNewAncestry(characterToUpdate, ancestryId) {
   // Make a clone to prevent side effect.
-  let character = cloneDeep(characterToUpdate)
+  const character = cloneDeep(characterToUpdate)
 
   // Remove any Ability Boosts from a previous Ancestry
   character.abilityBoosts = character.abilityBoosts.filter(

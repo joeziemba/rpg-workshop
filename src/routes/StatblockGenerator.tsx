@@ -15,6 +15,7 @@ import { StatblockAttack } from "data/models/StatblockAttack"
 import { Skill } from "data/skills"
 import { Ability } from "data/abilities"
 
+type ability = "str" | "dex" | "con" | "int" | "wis" | "cha"
 class abilityObject {
   constructor(
     public str = 10,
@@ -33,16 +34,16 @@ class abilityObject {
 }
 
 class Attack {
-  id = 1
-  title = "Longsword"
-  type = "Melee"
-  prof = true
-  reach = 5
-  targets = 1
-  dmgDie = 8
-  dieNum = 1
-  dmgType = "Slashing"
-  dex = false
+  public id = 1
+  public title = "Longsword"
+  public type: "Melee" | "Ranged" = "Melee"
+  public prof = true
+  public reach = 5
+  public targets = 1
+  public dmgDie = 8
+  public dieNum = 1
+  public dmgType = "Slashing"
+  public dex = false
 }
 
 class Feature {
@@ -57,91 +58,93 @@ class Feature {
 type Action = Feature | Attack
 
 export class Statblock {
-  public uid?: string
-  public id?: string
-  public exportView = false
-  public name = "Creature Name"
-  public size = "Medium"
-  public creatureType = "Humanoid"
-  public saves = {
-    str: false,
-    dex: false,
-    con: false,
-    int: false,
-    wis: false,
-    cha: false,
-  }
-  public abilities: abilityObject = {
-    str: 10,
-    strMod: 0,
-    dex: 10,
-    dexMod: 0,
-    con: 10,
-    conMod: 0,
-    int: 10,
-    intMod: 0,
-    wis: 10,
-    wisMod: 0,
-    cha: 10,
-    chaMod: 0,
-  }
-  public ac = {
-    score: 10,
-    support: "",
-  }
-  public hp = {
-    hitDie: 4,
-    dieNum: 1,
-  }
-  public calculatedHP = 0
-  public proficiency = 1
-  public speed = 30
-  public flySpeed = 0
-  public swimSpeed = 0
-  public skills: Skill[] = []
-  public conditionImmune = []
-  public immune = []
-  public resists = []
-  public vulnerable = []
-  public senses = []
-  public langs = ["Common"]
-  public challenge = ""
-  public xp = ""
-  public features: Feature[] = [new Feature()]
-  public actions: Action[] = [
-    {
-      id: 1,
-      title: "Longsword",
-      type: "Melee",
-      prof: true,
-      reach: 5,
-      targets: 1,
-      dmgDie: 8,
-      dieNum: 1,
-      dmgType: "Slashing",
+  constructor(
+    public uid?: string,
+    public id?: string,
+    public exportView = false,
+    public name = "Creature Name",
+    public size = "Medium",
+    public creatureType = "Humanoid",
+    public saves = {
+      str: false,
       dex: false,
+      con: false,
+      int: false,
+      wis: false,
+      cha: false,
     },
-    {
-      id: 2,
-      title: "Longbow",
-      type: "Ranged",
-      prof: true,
-      reach: 120,
-      targets: 1,
-      dmgDie: 8,
+    public abilities: abilityObject = {
+      str: 10,
+      strMod: 0,
+      dex: 10,
+      dexMod: 0,
+      con: 10,
+      conMod: 0,
+      int: 10,
+      intMod: 0,
+      wis: 10,
+      wisMod: 0,
+      cha: 10,
+      chaMod: 0,
+    },
+    public ac = {
+      score: 10,
+      support: "",
+    },
+    public hp = {
+      hitDie: 4,
       dieNum: 1,
-      dmgType: "Piercing",
-      dex: true,
     },
-  ]
-  public legendaryActPerRound = 1
-  public legendaryActions: Feature[] = [
-    new Feature(
-      "Legendary",
-      "This is a sample legendary action, change my content!",
-      "Legendary"
-    ),
-  ]
+    public calculatedHP = 0,
+    public proficiency = 1,
+    public speed = 30,
+    public flySpeed = 0,
+    public swimSpeed = 0,
+    public skills: Skill[] = [],
+    public conditionImmune = [],
+    public immune = [],
+    public resists = [],
+    public vulnerable = [],
+    public senses = [],
+    public langs = ["Common"],
+    public challenge = "",
+    public xp = "",
+    public features: Feature[] = [new Feature()],
+    public actions: Action[] = [
+      {
+        id: 1,
+        title: "Longsword",
+        type: "Melee",
+        prof: true,
+        reach: 5,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: "Slashing",
+        dex: false,
+      },
+      {
+        id: 2,
+        title: "Longbow",
+        type: "Ranged",
+        prof: true,
+        reach: 120,
+        targets: 1,
+        dmgDie: 8,
+        dieNum: 1,
+        dmgType: "Piercing",
+        dex: true,
+      },
+    ],
+    public legendaryActPerRound = 1,
+    public legendaryActions: Feature[] = [
+      new Feature(
+        "Legendary",
+        "This is a sample legendary action, change my content!",
+        "Legendary"
+      ),
+    ]
+  ) {}
 }
 
 interface Props {
@@ -184,7 +187,7 @@ export class StatblockGenerator extends Component<
         .then((response) => {
           const stats = response.data()
           if (!stats) throw new Error("No character found")
-          this.updateAttacksToNewFormat(stats)
+          this.updateAttacksToNewFormat(stats as Statblock)
           stats.uid = characterId
           this.setState(stats as Statblock, this.calcAbilityMods)
         })
@@ -251,7 +254,7 @@ export class StatblockGenerator extends Component<
 
   calcAbilityMods() {
     const newAbilities = new abilityObject()
-    const abArray = ["str", "dex", "con", "int", "wis", "cha"]
+    const abArray: ability[] = ["str", "dex", "con", "int", "wis", "cha"]
     abArray.forEach((ability) => {
       newAbilities[ability] = this.state.abilities[ability]
       newAbilities[ability + "Mod"] = Math.floor(
@@ -295,7 +298,7 @@ export class StatblockGenerator extends Component<
     this.setState({ calculatedHP })
   }
 
-  updatePropertyList(selected, arrayToUpdate) {
+  updatePropertyList(selected: string[], arrayToUpdate: string) {
     this.setState({
       ...this.state,
       [arrayToUpdate]: selected.sort(),
@@ -308,7 +311,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateFeature(e, featureId) {
+  updateFeature(e: { target: HTMLInputElement }, featureId: Guid) {
     const { name, value } = e.target
     const newFeatures = this.state.features.map((feat) => {
       if (feat.id === featureId) {
@@ -322,7 +325,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  addAction(actionType) {
+  addAction(actionType: "Melee" | "Ranged") {
     const newActions = [...this.state.actions]
 
     let newAction: Action
@@ -346,7 +349,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  toggleSave(save) {
+  toggleSave(save: ability) {
     this.setState({
       ...this.state,
       saves: {
@@ -372,13 +375,13 @@ export class StatblockGenerator extends Component<
 
     const newActions = actions.map((action) => {
       if (action.id === actionId) {
-        if (name === "content") {
-          action[name] = value
+        if (name === "content" && "content" in action) {
+          action.content = value
         } else if (name === "title") {
-          action[name] = value
+          action.title = value
         } else if ("dex" in action && name === "dex") {
           action.dex = !action.dex
-        } else {
+        } else if (name in action) {
           action[name] = value
         }
       }

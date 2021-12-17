@@ -1,15 +1,24 @@
-import React, { useEffect } from "react"
+import React, { ReactElement, useEffect } from "react"
 import FocusTrap from "focus-trap-react"
 import cn from "classnames"
 
+type ModalProps = {
+  children: ReactElement
+  color: string
+  closeFunction: () => void
+  large: boolean
+  show: boolean
+  title: string
+}
+
 export const Modal = ({
-  show,
-  large,
+  children,
   color = "bg-slate-800",
   closeFunction,
+  large,
+  show,
   title,
-  children,
-}) => {
+}: ModalProps) => {
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden"
@@ -17,7 +26,7 @@ export const Modal = ({
 
     return () => {
       // https://codepedia.info/detect-browser-in-javascript
-      let userAgent = navigator.userAgent
+      const userAgent = navigator.userAgent
       if (userAgent.match(/firefox|fxios/i)) {
         document.body.style.overflow = "auto"
       } else {

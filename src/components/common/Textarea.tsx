@@ -1,16 +1,28 @@
 import React from "react"
 
+type TextareaProps = {
+  fieldName: string
+  hideLabel: boolean
+  id: string
+  label: string
+  onChange: () => void
+  placeholder: string
+  rows: number
+  supportText: string
+  value: string
+}
+
 export const Textarea = ({
+  fieldName,
+  hideLabel,
   id,
   label,
-  hideLabel,
-  placeholder,
   onChange,
-  value,
-  fieldName,
+  placeholder,
   rows,
   supportText,
-}) => {
+  value,
+}: TextareaProps) => {
   return (
     <div className="form-group">
       {!hideLabel && <label htmlFor={id}>{label}</label>}

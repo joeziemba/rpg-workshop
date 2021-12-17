@@ -55,20 +55,19 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    // @ts-ignore
-    let { characterId } = this.props.match.params
+    const { characterId } = this.props.match.params
 
     if (characterId) {
       this.getCharacter(characterId)
     } else {
-      let character = getBlankCharacter()
+      const character = getBlankCharacter()
       this.setState({ character })
     }
   }
 
   async getCharacter(characterId) {
     const response = await firebaseService.getPF2Character(characterId)
-    let returnedCharacter = new character(response.data() as character)
+    const returnedCharacter = new character(response.data() as character)
     returnedCharacter.uid = characterId
 
     migrateToLatest(returnedCharacter)
@@ -86,7 +85,7 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   reset() {
-    let blankCharacter = getBlankCharacter()
+    const blankCharacter = getBlankCharacter()
     this.setState({ character: blankCharacter }, () => {
       this.props.history.push("/pf2/character-builder")
       toast("Cleared Sheet")
@@ -95,7 +94,7 @@ export class CharacterBuilder extends React.Component<any, any> {
 
   selectBackground(e) {
     if ([undefined, null, ""].includes(e.target.value)) return
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
 
     character.abilityBoosts = character.abilityBoosts.filter(
       (boost) => boost.source !== character.background.id
@@ -113,11 +112,11 @@ export class CharacterBuilder extends React.Component<any, any> {
 
     // Remove any trained skills that will now be trained by background
     if (character.class.name) {
-      let backgroundSkillNames = character.background.skillBoosts.map(
+      const backgroundSkillNames = character.background.skillBoosts.map(
         (b) => b.skill.name
       )
 
-      let classSkillsContainingBackgroundSkill =
+      const classSkillsContainingBackgroundSkill =
         character.skillBoosts.filter((skillBoost) =>
           backgroundSkillNames.includes(skillBoost.skill.name)
         )
@@ -144,7 +143,7 @@ export class CharacterBuilder extends React.Component<any, any> {
 
   selectClass(e) {
     if ([undefined, null, ""].includes(e.target.value)) return
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
 
     character.abilityBoosts = character.abilityBoosts.filter(
       (boost) => boost.source !== character.class.name
@@ -161,15 +160,18 @@ export class CharacterBuilder extends React.Component<any, any> {
     )
 
     // Make any class boost assigned by background a free boost
-    let newClassBoosts = character.class.skillBoosts.map((classBoost) => {
-      let isAssignedByBackground = character.background.skillBoosts.find(
-        (bb) => bb.skill.name === classBoost.skill.name
-      )
-      if (isAssignedByBackground)
-        return { ...classBoost, skill: { id: "Free" }, isStatic: false }
+    const newClassBoosts = character.class.skillBoosts.map(
+      (classBoost) => {
+        const isAssignedByBackground =
+          character.background.skillBoosts.find(
+            (bb) => bb.skill.name === classBoost.skill.name
+          )
+        if (isAssignedByBackground)
+          return { ...classBoost, skill: { id: "Free" }, isStatic: false }
 
-      return { ...classBoost }
-    })
+        return { ...classBoost }
+      }
+    )
 
     character.skillBoosts = character.skillBoosts.concat(newClassBoosts)
 
@@ -184,7 +186,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     })
 
     // Add blank class and skill feats
-    let blankFeats = this.blankCharacter.feats.filter(
+    const blankFeats = this.blankCharacter.feats.filter(
       (feat) => feat.type.includes("class") || feat.type.includes("skill")
     )
 
@@ -214,7 +216,7 @@ export class CharacterBuilder extends React.Component<any, any> {
 
     // Setup INT Skill boosts
     if (character.abilityMods.Intelligence > 0) {
-      let level1IntMods = character.abilityBoosts.filter(
+      const level1IntMods = character.abilityBoosts.filter(
         (boost) =>
           boost.ability === "Intelligence" &&
           (boost.source === "Level_1" ||
@@ -223,7 +225,7 @@ export class CharacterBuilder extends React.Component<any, any> {
             boost.source === character.ancestry.name)
       )
 
-      let intSkills = character.skillBoosts.filter(
+      const intSkills = character.skillBoosts.filter(
         (b) => b.source === "int"
       )
 
@@ -239,8 +241,8 @@ export class CharacterBuilder extends React.Component<any, any> {
       }
       if (intSkills.length > level1IntMods.length) {
         for (let i = 0; i < intSkills.length - level1IntMods.length; i++) {
-          let boost = intSkills.pop()
-          let index = character.skillBoosts.indexOf(boost)
+          const boost = intSkills.pop()
+          const index = character.skillBoosts.indexOf(boost)
           character.skillBoosts.splice(index, 1)
         }
       }
@@ -287,9 +289,9 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   boostAbility(e) {
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
 
-    let boost = character.abilityBoosts.find(
+    const boost = character.abilityBoosts.find(
       (boost) => boost.id === e.target.name
     )
 
@@ -299,14 +301,16 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   selectSkill(e) {
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
 
-    let skillId = e.target.value
-    let boostId = e.target.name
+    const skillId = e.target.value
+    const boostId = e.target.name
 
-    let skill = character.skills[skillId]
+    const skill = character.skills[skillId]
 
-    let boost = character.skillBoosts.find((boost) => boost.id === boostId)
+    const boost = character.skillBoosts.find(
+      (boost) => boost.id === boostId
+    )
     if (!boost || !skill) {
       return
     }
@@ -314,9 +318,9 @@ export class CharacterBuilder extends React.Component<any, any> {
     // If this is a Class Boost (level 1) boost AND the skill
     // is already trained (from a Background) do not update.
     // Character cannot be >trained at Lv1
-    let isIntBoost = boost.source === "int"
+    const isIntBoost = boost.source === "int"
 
-    let alreadyTrained = character.skillBoosts.filter(
+    const alreadyTrained = character.skillBoosts.filter(
       (boost) => boost.skill.name === skill.name
     )
     if (isIntBoost && alreadyTrained.length > 0) {
@@ -340,7 +344,7 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   selectFeat(featType, newFeat) {
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
     character.feats = character.feats.filter(
       (feat) => feat.type !== featType
     )
@@ -359,7 +363,7 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   deleteFeat(featToDelete) {
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
     // remove the feat
     character.feats = character.feats.filter(
       (feat) => feat.type !== featToDelete.type
@@ -379,13 +383,13 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   setLevel(e) {
-    let character = _.cloneDeep(this.state.character)
+    const character = _.cloneDeep(this.state.character)
     character.level = parseInt(e.target.value, 10)
     this.updateStats(character)
   }
 
   render() {
-    let { character } = this.state
+    const { character } = this.state
 
     if (_.isEmpty(character)) return null
 

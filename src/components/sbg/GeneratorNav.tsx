@@ -36,8 +36,11 @@ export class GeneratorNav extends React.Component<Props, State> {
   getCharacters(): void {
     firebaseService.load5eStatblocksForUser().then((snapshot) => {
       const statblocks: Statblock[] = []
+
       snapshot.forEach((doc) => {
-        statblocks.push({ ...doc.data(), uid: doc.id })
+        const data = doc.data()
+        data.uid = doc.id
+        statblocks.push(data as Statblock)
       })
       this.setState({ statblocks, showOpenModal: true })
     })
@@ -57,17 +60,17 @@ export class GeneratorNav extends React.Component<Props, State> {
   async saveStatblock(statblock: Statblock): Promise<any> {
     const savedStatblock = await firebaseService.saveStatblock(statblock)
     if (savedStatblock) {
-      savedStatblock.uid = savedStatblock.id
-      this.props.setStatblock(savedStatblock)
+      statblock.uid = savedStatblock.id
+      this.props.setStatblock(statblock)
       this.props.history.push(
         "/dnd5e/statblock-generator/" + savedStatblock.id
       )
     }
   }
 
-  async deleteStatblock(statblock: Statblock): Promise<any> {
-    await firebaseService.deleteStatblock(statblock.uid)
-    toast("Deleted " + statblock.name)
+  async deleteStatblock(uid: string, name: string) {
+    await firebaseService.deleteStatblock(uid)
+    toast("Deleted " + name)
     this.closeModal()
     this.getCharacters()
   }
@@ -129,13 +132,16 @@ export class GeneratorNav extends React.Component<Props, State> {
                 return (
                   <OpenOrDeleteItem
                     key={i}
-                    id={statblock.id}
+                    id={statblock.id || ""}
                     selectFunc={() => this.selectStatblock(statblock)}
                     deleteFunc={async () =>
-                      await this.deleteStatblock(statblock)
+                      await this.deleteStatblock(
+                        statblock.uid as string,
+                        statblock.name
+                      )
                     }
                   >
-                    {statblock.name}
+                    <>{statblock.name}</>
                   </OpenOrDeleteItem>
                 )
               })}

@@ -1,10 +1,15 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import firebase from "firebase"
 import { firebaseService } from "services/Firebase"
 import { LoginButton } from "../../../components/index"
 import "./TopBar.scss"
 
-export const TopBar = (props) => {
+type TopBarProps = {
+  currentUser: firebase.User
+}
+
+export const TopBar = ({ currentUser }: TopBarProps) => {
   const [showMenu, setShowMenu] = useState(false)
   return (
     <nav
@@ -18,7 +23,7 @@ export const TopBar = (props) => {
             RPG Workshop
           </Link>
         </div>
-        {props.currentUser ? (
+        {currentUser ? (
           <div className="relative group">
             <button
               onClick={() => setShowMenu(!showMenu)}
@@ -29,12 +34,11 @@ export const TopBar = (props) => {
                 id="profile-photo"
                 className="mr-4"
                 style={{
-                  backgroundImage:
-                    "url(" + props.currentUser.photoURL + ")",
+                  backgroundImage: "url(" + currentUser.photoURL + ")",
                 }}
               />
               <div id="profile-name" className="">
-                {props.currentUser.displayName}
+                {currentUser.displayName}
               </div>
             </button>
             {showMenu && (
