@@ -5,13 +5,15 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { UserContext } from "context"
 
-import { TopBar } from "components"
-import { firebaseService } from "services/Firebase"
-import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
-import { Home } from "routes/Home"
-import { StatblockGenerator } from "routes/StatblockGenerator"
-import { CharacterBuilder } from "routes/CharacterBuilder"
 import firebase from "firebase"
+import { firebaseService } from "services/Firebase"
+
+import { TopBar } from "components"
+import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
+
+import { Home } from "routes/Home"
+import { StatblockGenerator } from "routes/dnd5e/statblock-generator/StatblockGenerator"
+import { CharacterBuilder } from "routes/pf2/character-builder/CharacterBuilder"
 
 const App = () => {
   const [currentUser, setUser] = useState({} as firebase.User)

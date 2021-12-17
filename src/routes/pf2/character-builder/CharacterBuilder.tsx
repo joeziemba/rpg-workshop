@@ -1,11 +1,10 @@
 import React from "react"
 import _ from "lodash"
+
+import { BUILDER_VERSION, PUBLISHED_ON } from "BUILDER_VERSION"
 import { firebaseService } from "services/Firebase"
 import Classes from "data/classes"
 import { Ancestries } from "data/ancestries"
-import { migrateToLatest } from "../migrations"
-import { BUILDER_VERSION, PUBLISHED_ON } from "../BUILDER_VERSION"
-
 import {
   calculateAbilityMods,
   calculateAbilityScores,
@@ -28,6 +27,7 @@ import {
 
 import { toast } from "react-toastify"
 import { applyNewAncestry } from "services/AncestryService"
+import { migrateToLatest } from "migrations"
 
 export class CharacterBuilder extends React.Component<any, any> {
   blankCharacter

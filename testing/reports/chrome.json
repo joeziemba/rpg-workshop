@@ -1,0 +1,92 @@
+{
+  "startTime": "2021-12-17T03:33:51.510Z",
+  "endTime": "2021-12-17T03:35:02.332Z",
+  "userAgents": [
+    "Chrome 96.0.4664.110 / Windows 10"
+  ],
+  "passed": 7,
+  "total": 7,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "SBG",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.ts",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Statblock Generator",
+          "meta": {},
+          "errs": [],
+          "durationMs": 46489,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    },
+    {
+      "name": "PF2 - Assign Ancestries",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.ts",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Dwarf",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4023,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Elf",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3389,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Gnome",
+          "meta": {},
+          "errs": [],
+          "durationMs": 3587,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Goblin",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4473,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Human",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4034,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Halfling",
+          "meta": {},
+          "errs": [],
+          "durationMs": 4498,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "The \"stopOnFirstFail\" option from the configuration file will be ignored."
+  ]
+}

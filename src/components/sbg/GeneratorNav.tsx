@@ -3,7 +3,7 @@ import { toast } from "react-toastify"
 import { Modal, NavButton, OpenOrDeleteItem } from "components"
 import { UserContext } from "context"
 import { firebaseService } from "services/Firebase"
-import { Statblock } from "routes/StatblockGenerator"
+import { Statblock } from "routes/dnd5e/statblock-generator/StatblockGenerator"
 
 interface Props {
   exportView: boolean

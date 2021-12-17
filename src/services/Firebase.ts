@@ -2,7 +2,7 @@ import app from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
 import { toast } from "react-toastify"
-import { Statblock } from "routes/StatblockGenerator"
+import { Statblock } from "routes/dnd5e/statblock-generator/StatblockGenerator"
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
