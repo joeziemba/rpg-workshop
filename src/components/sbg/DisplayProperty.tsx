@@ -1,6 +1,18 @@
 import React from "react"
 
-export const DisplayProperty = ({ id, title, content, block }) => {
+type DisplayPropertyProps = {
+  block?: boolean
+  content: string
+  id: string
+  title: string
+}
+
+export const DisplayProperty = ({
+  id,
+  title,
+  content,
+  block,
+}: DisplayPropertyProps) => {
   if (block) {
     return (
       <div

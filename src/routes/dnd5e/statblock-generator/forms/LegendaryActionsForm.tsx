@@ -28,7 +28,6 @@ export const LegendaryActionsForm = () => {
           fieldName="legendaryActPerRound"
           onChange={updateState}
           value={stats.legendaryActPerRound}
-          name="legendaryActPerRound"
         />
         <input />
       </div>

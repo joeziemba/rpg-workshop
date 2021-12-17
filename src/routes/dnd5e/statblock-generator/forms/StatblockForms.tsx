@@ -1,15 +1,15 @@
 import React from "react"
 import { Accordion } from "components"
-import { BasicsForm } from "./FormSections/BasicsForm"
-import { AbilityScoresForm } from "./FormSections/AbilityScoresForm"
-import { FeatureForm } from "./FormSections/FeatureForm"
-import { ActionsForm } from "./FormSections/ActionsForm"
-import { LegendaryActionsForm } from "./FormSections/LegendaryActionsForm"
-import { PropertyForm } from "./FormSections/PropertiesForm"
+import { BasicsForm } from "./BasicsForm"
+import { AbilityScoresForm } from "./AbilityScoresForm"
+import { FeatureForm } from "./FeatureForm"
+import { ActionsForm } from "./ActionsForm"
+import { LegendaryActionsForm } from "./LegendaryActionsForm"
+import { PropertyForm } from "./PropertiesForm"
 
-export const StatBlockForm = () => {
+export const StatblockForms = () => {
   return (
-    <div id="StatBlockForm" className="w-11/12 text-sm">
+    <div id="StatblockForms" className="w-11/12 text-sm">
       <Accordion title="Basic Details" open>
         <BasicsForm />
       </Accordion>
@@ -36,5 +36,3 @@ export const StatBlockForm = () => {
     </div>
   )
 }
-
-export default StatBlockForm

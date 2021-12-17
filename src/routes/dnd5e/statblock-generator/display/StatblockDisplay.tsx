@@ -3,11 +3,11 @@ import { DisplayProperty, DisplayAttack } from "components"
 
 const orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]
 
-export const StatBlockDisplay = ({ stats, exportView }) => {
-  let dieNum = +stats.hp.dieNum
-  let mod = dieNum * stats.abilities.conMod
+export const StatblockDisplay = ({ stats, exportView }) => {
+  const dieNum = +stats.hp.dieNum
+  const mod = dieNum * stats.abilities.conMod
 
-  let hitPoints = `${stats.calculatedHP} (${dieNum}d${stats.hp.hitDie} ${
+  const hitPoints = `${stats.calculatedHP} (${dieNum}d${stats.hp.hitDie} ${
     mod < 0 ? "" : "+"
   } ${mod})`
 
@@ -26,7 +26,7 @@ export const StatBlockDisplay = ({ stats, exportView }) => {
 
   return (
     <div
-      id="StatBlockDisplay"
+      id="StatblockDisplay"
       className={`statblock shadow ${
         exportView ? "statblock--export" : ""
       }`}
@@ -58,8 +58,8 @@ export const StatBlockDisplay = ({ stats, exportView }) => {
 
       <div className="statblock__section red">
         {orderedAbilities.map((ability) => {
-          let score = stats.abilities[ability]
-          let mod = stats.abilities[ability + "Mod"]
+          const score = stats.abilities[ability]
+          const mod = stats.abilities[ability + "Mod"]
 
           return (
             <div className="ability" key={ability}>
@@ -197,4 +197,4 @@ export const StatBlockDisplay = ({ stats, exportView }) => {
   )
 }
 
-export default StatBlockDisplay
+export default StatblockDisplay

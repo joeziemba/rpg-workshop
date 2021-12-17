@@ -8,8 +8,8 @@ import { StatblockContext } from "context"
 import { firebaseService } from "services/Firebase"
 import "./StatblockGenerator.css"
 import { toast } from "react-toastify"
-import StatBlockDisplay from "StatblockGenerator/StatBlockDisplay"
-import StatBlockForm from "StatblockGenerator/StatBlockForm"
+import StatblockDisplay from "./display/StatblockDisplay"
+import { StatblockForms } from "./forms/StatblockForms"
 import { StatblockAction } from "data/models/StatblockAction"
 import { StatblockAttack } from "data/models/StatblockAttack"
 import { Skill } from "data/skills"
@@ -477,7 +477,7 @@ export class StatblockGenerator extends Component<
                 <div className="flex-1 flex-grow-2">
                   <div className="statblock-container--export">
                     <div className="statblock-container__inner--export">
-                      <StatBlockDisplay stats={this.state} exportView />
+                      <StatblockDisplay stats={this.state} exportView />
                     </div>
                   </div>
                 </div>
@@ -496,12 +496,12 @@ export class StatblockGenerator extends Component<
             {!this.state.exportView && (
               <div className="flex flex-wrap mt-12">
                 <div className="flex-1 mt-8" style={{ minWidth: "410px" }}>
-                  <StatBlockForm />
+                  <StatblockForms />
                 </div>
                 <div className="flex-1" style={{ minWidth: "" }}>
                   <div className="statblock-container">
                     <div className="statblock-container__inner">
-                      <StatBlockDisplay
+                      <StatblockDisplay
                         stats={this.state}
                         exportView={this.state.exportView}
                       />

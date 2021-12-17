@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { ReactElement, useState } from "react"
 import { CSSTransition } from "react-transition-group"
 import "./Accordion.scss"
 
 type AccordionProps = {
-  children: Node
-  open: boolean
+  children: ReactElement
+  open?: boolean
   title: string
 }
 

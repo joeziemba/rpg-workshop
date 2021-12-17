@@ -81,7 +81,7 @@ export const BasicsForm = () => {
           <SBG_Select
             id="hit-die-select"
             label={"Hit Die"}
-            options={[4, 6, 8, 10, 12, 20]}
+            options={["4", "6", "8", "10", "12", "20"]}
             value={stats.hp.hitDie}
             fieldName="hitDie"
             onChange={updateHP}

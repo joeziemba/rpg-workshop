@@ -2,10 +2,10 @@ import React, { useContext } from "react"
 import { NavButton } from "components"
 
 import { StatblockContext } from "context"
-import AttackForm from "../../components/sbg/AttackForm"
-import { FeatureBlock } from "../../components/sbg/FeatureBlock"
+import AttackForm from "components/sbg/AttackForm"
+import { FeatureBlock } from "components/sbg/FeatureBlock"
 
-export const ActionsForm = ({ legendary }) => {
+export const ActionsForm = ({ legendary = false }) => {
   const { stats, updateAction, deleteAction, addAction } =
     useContext(StatblockContext)
   return (
@@ -25,11 +25,12 @@ export const ActionsForm = ({ legendary }) => {
         }
         return (
           <FeatureBlock
-            key={i}
-            typeText="Action"
-            updateFunc={(e) => updateAction(e, action.id, legendary)}
             deleteFunc={() => deleteAction(action.id, legendary)}
             feature={action}
+            key={i}
+            index={i}
+            typeText="Action"
+            updateFunc={(e) => updateAction(e, action.id, legendary)}
           />
         )
       })}

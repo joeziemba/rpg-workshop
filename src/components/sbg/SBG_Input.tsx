@@ -5,7 +5,7 @@ type SBG_InputProps = {
   fieldName: string
   hideLabel?: boolean
   id: string
-  label: string
+  label?: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   supportText?: string
