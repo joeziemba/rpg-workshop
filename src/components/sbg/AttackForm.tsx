@@ -29,9 +29,9 @@ export const AttackForm = (props) => {
           fieldName={"type"}
           options={["Melee", "Ranged"]}
           value={props.action.type}
-          onChange={(e) =>
+          onChange={(e) => {
             props.updateAction(e, props.action.id, props.legendary)
-          }
+          }}
         />
       </div>
       <div className="col-span-1">
@@ -76,7 +76,7 @@ export const AttackForm = (props) => {
           id={"attack-dmg-die-select-" + props.index}
           label={"Dmg Die"}
           fieldName={"dmgDie"}
-          options={[4, 6, 8, 10, 12]}
+          options={["4", "6", "8", "10", "12"]}
           value={props.action.dmgDie}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)

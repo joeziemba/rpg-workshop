@@ -9,27 +9,29 @@ export const FeatureBlock = ({
   updateFunc,
   index,
 }) => {
+  const onChange = (e) => {
+    updateFunc(e, feature.id)
+  }
   return (
     <div className="feature-block relative grid grid-rows-1 grid-cols-12 gap-2 mx-1 mb-2">
       <div className="col-span-4">
         <SBG_Input
-          id={"feature-title-" + index}
-          type="text"
-          label={typeText}
-          value={feature.title}
           fieldName={"title"}
+          id={"feature-title-" + index}
+          label={typeText}
           onChange={(e) => updateFunc(e, feature.id)}
+          type="text"
+          value={feature.title}
         />
       </div>
       <div className="col-span-7">
         <Textarea
-          id={"feature-content-" + index}
-          type="text"
-          label={"Description"}
-          value={feature.content}
           fieldName={"content"}
+          id={"feature-content-" + index}
+          label={"Description"}
+          onChange={onChange}
           rows={2}
-          onChange={(e) => updateFunc(e, feature.id)}
+          value={feature.content}
         />
       </div>
       <button

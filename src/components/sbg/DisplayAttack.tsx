@@ -5,14 +5,14 @@ export const DisplayAttack = ({ action, id }) => {
   const {
     stats: { abilities, proficiency },
   } = useContext(StatblockContext)
-  let { dieNum, dmgDie, dex, reach, targets, dmgType } = action
+  const { dieNum, dmgDie, dex, reach, targets, dmgType } = action
   // Get hit mod
   const toHit =
     (dex ? Number(abilities.dexMod) : Number(abilities.strMod)) +
     Number(proficiency)
 
   // Get Damage Mod
-  let avg = (dieNum * dmgDie) / 2 + toHit
+  const avg = (dieNum * dmgDie) / 2 + toHit
 
   let operator = "+"
   let dmgMod = toHit
@@ -21,7 +21,7 @@ export const DisplayAttack = ({ action, id }) => {
     dmgMod = toHit * -1
   }
 
-  let damageString = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType.toLowerCase()}.`
+  const damageString = `${avg} (${dieNum}d${dmgDie} ${operator} ${dmgMod}) ${dmgType.toLowerCase()}.`
   return (
     <div
       className="statblock__property statblock__property--block"
