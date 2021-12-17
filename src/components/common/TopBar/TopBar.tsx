@@ -23,7 +23,7 @@ export const TopBar = ({ currentUser }: TopBarProps) => {
             RPG Workshop
           </Link>
         </div>
-        {currentUser ? (
+        {currentUser.displayName ? (
           <div className="relative group">
             <button
               onClick={() => setShowMenu(!showMenu)}
