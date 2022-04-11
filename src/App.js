@@ -16,9 +16,12 @@ const App = () => {
   const [currentUser, setUser] = useState(null)
 
   useEffect(() => {
-    firebase.auth.onAuthStateChanged((currentUser) => {
-      currentUser ? setUser(currentUser) : setUser(null)
-    })
+    if(!process.env.REACT_APP_API_KEY)      
+      setUser(null)
+    else
+      firebase.auth.onAuthStateChanged((currentUser) => {
+        currentUser ? setUser(currentUser) : setUser(null)
+      })
   }, [])
 
   return (
