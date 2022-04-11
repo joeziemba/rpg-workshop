@@ -10,5 +10,4 @@ services:
       - ./:/home/node/app
     ports:
       - "3000:3000"
-    command: "npm start:local"
-
+    command: "npm run start:local"
