@@ -15,6 +15,8 @@ const config = {
 
 class Firebase {
   constructor() {
+    /* Short circuit if no API Key provided */
+    if(!process.env.REACT_APP_API_KEY)      return
     app.initializeApp(config)
 
     this.auth = app.auth()
