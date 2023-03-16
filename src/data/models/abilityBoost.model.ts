@@ -1,4 +1,4 @@
-import { Ability } from "data/abilities"
+import { Ability } from "../abilities"
 import { Guid } from "js-guid"
 
 export interface IAbilityBoost {

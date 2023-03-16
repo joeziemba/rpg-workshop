@@ -1,8 +1,8 @@
 {
-  "startTime": "2021-12-17T18:22:03.506Z",
-  "endTime": "2021-12-17T18:22:54.290Z",
+  "startTime": "2023-03-16T01:47:45.450Z",
+  "endTime": "2023-03-16T01:48:34.751Z",
   "userAgents": [
-    "Chrome 96.0.4664.110 / Windows 10"
+    "Chrome 111.0.0.0 / Windows 10"
   ],
   "passed": 7,
   "total": 7,
@@ -17,7 +17,7 @@
           "name": "Statblock Generator",
           "meta": {},
           "errs": [],
-          "durationMs": 36509,
+          "durationMs": 35495,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -33,7 +33,7 @@
           "name": "Dwarf",
           "meta": {},
           "errs": [],
-          "durationMs": 2619,
+          "durationMs": 2482,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -42,7 +42,7 @@
           "name": "Elf",
           "meta": {},
           "errs": [],
-          "durationMs": 2409,
+          "durationMs": 2408,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -51,7 +51,7 @@
           "name": "Gnome",
           "meta": {},
           "errs": [],
-          "durationMs": 2397,
+          "durationMs": 2275,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -60,7 +60,7 @@
           "name": "Goblin",
           "meta": {},
           "errs": [],
-          "durationMs": 2281,
+          "durationMs": 2233,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -69,7 +69,7 @@
           "name": "Human",
           "meta": {},
           "errs": [],
-          "durationMs": 2170,
+          "durationMs": 2048,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -78,7 +78,7 @@
           "name": "Halfling",
           "meta": {},
           "errs": [],
-          "durationMs": 2314,
+          "durationMs": 2315,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
