@@ -2,7 +2,7 @@ import { Skill, Proficiencies } from "data/skills"
 import { Guid } from "js-guid"
 
 export interface ISkillBoost {
-  id: Guid | string
+  id: string | string
   skill: Skill
   proficiency: number
   isStatic: boolean
@@ -12,7 +12,7 @@ export interface ISkillBoost {
 }
 
 class SkillBoost {
-  public readonly id = new Guid()
+  public readonly id = new Guid().toString()
   public get isStatic() {
     return !!this.skill.name
   }

@@ -2,7 +2,7 @@ import { Ability } from "data/abilities"
 import { Guid } from "js-guid"
 
 export interface IAbilityBoost {
-  id: Guid | string
+  id: string | string
   type: Ability
   ability: Ability
   source: string
@@ -11,7 +11,7 @@ export interface IAbilityBoost {
 }
 
 export class AbilityBoost implements IAbilityBoost {
-  public readonly id = new Guid()
+  public readonly id = new Guid().toString()
   public readonly type
   constructor(
     public ability = Ability.FREE,

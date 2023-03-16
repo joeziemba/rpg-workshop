@@ -13,7 +13,7 @@ export interface Ancestry {
   heritages?: any
 }
 
-const AncestryNames = {
+export const AncestryNames = {
   Dwarf: "Dwarf",
   Elf: "Elf",
   Gnome: "Gnome",
@@ -22,7 +22,9 @@ const AncestryNames = {
   Halfling: "Halfling",
 }
 
-export const Ancestries: Record<keyof typeof AncestryNames, Ancestry> = {
+export type AncestryKey = keyof typeof AncestryNames
+
+export const Ancestries: Record<AncestryKey, Ancestry> = {
   Dwarf: {
     name: "Dwarf",
     hp: 10,

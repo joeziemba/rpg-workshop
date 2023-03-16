@@ -47,7 +47,7 @@ class Attack {
 }
 
 class Feature {
-  public id = new Guid()
+  public id = new Guid().toString()
   constructor(
     public title = "Sample",
     public content = "This is a sample feature, change my content!",
@@ -311,7 +311,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateFeature(e: { target: HTMLInputElement }, featureId: Guid) {
+  updateFeature(e: { target: HTMLInputElement }, featureId: string) {
     const { name, value } = e.target
     const newFeatures = this.state.features.map((feat) => {
       if (feat.id === featureId) {
@@ -361,7 +361,7 @@ export class StatblockGenerator extends Component<
 
   updateAction(
     e: { target: HTMLButtonElement },
-    actionId: Guid,
+    actionId: string,
     legendary: boolean
   ) {
     const { name, value } = e.target
@@ -421,7 +421,7 @@ export class StatblockGenerator extends Component<
     }
   }
 
-  deleteFeature(featureId: Guid) {
+  deleteFeature(featureId: string) {
     const newFeats = this.state.features.filter((f) => f.id !== featureId)
 
     this.setState({

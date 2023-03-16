@@ -26,13 +26,15 @@ export const ActionsForm = ({ legendary = false }) => {
         }
         return (
           <FeatureBlock
-            deleteFunc={() => deleteAction(action.id as Guid, legendary)}
+            deleteFunc={() =>
+              deleteAction(action.id.toString(), legendary)
+            }
             feature={action}
             key={i}
             index={i}
             typeText="Action"
             updateFunc={(e) =>
-              updateAction(e, action.id as Guid, legendary)
+              updateAction(e, action.id.toString(), legendary)
             }
           />
         )

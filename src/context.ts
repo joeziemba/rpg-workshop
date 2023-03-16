@@ -39,18 +39,18 @@ export type StatblockContextType = {
   updateHP: ChangeEventHandler<HTMLInputElement>
   updatePropertyList: (selected: string[], arrayToUpdate: string) => void
   addFeature: () => void
-  updateFeature: (event: ChangeEvent<HTMLInputElement>, id: Guid) => void
+  updateFeature: (event: ChangeEvent<HTMLInputElement>, id: string) => void
   addAction: (actionType: StatblockActionType) => void
   updateAction: (
     e: { target: HTMLButtonElement },
-    actionId: Guid,
+    actionId: string,
     legendary: boolean
   ) => void
   deleteAction: (
     actionId: StatblockAction["id"],
     isLegendary: boolean
   ) => void
-  deleteFeature: (id: Guid) => void
+  deleteFeature: (id: string) => void
   addLegendaryAction: (actionType: StatblockActionType) => void
   toggleSave: (save: AbilityKey) => void
 }

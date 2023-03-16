@@ -4,7 +4,7 @@ import _ from "lodash"
 import { BUILDER_VERSION, PUBLISHED_ON } from "BUILDER_VERSION"
 import { firebaseService } from "services/Firebase"
 import Classes from "data/classes"
-import { Ancestries, Ancestry } from "data/ancestries"
+import { Ancestries, Ancestry, AncestryKey } from "data/ancestries"
 import {
   calculateAbilityMods,
   calculateAbilityScores,
@@ -205,7 +205,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.updateStats(character)
   }
 
-  selectAncestry(newAncestry: Ancestry) {
+  selectAncestry(newAncestry: AncestryKey) {
     const updatedCharacter = applyNewAncestry(
       this.state.character,
       newAncestry
@@ -300,7 +300,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     const boost = character.abilityBoosts.find(
       (boost) => boost.id === e.target.name
     )
-
+    debugger
     boost.ability = e.target.value
 
     this.updateStats(character)
@@ -425,7 +425,6 @@ export class CharacterBuilder extends React.Component<any, any> {
             />
             <div className="pt-20 px-2 max-w-5xl mx-auto">
               <CharacterBasics
-                selectAncestry={this.selectAncestry}
                 selectBackground={this.selectBackground}
                 selectClass={this.selectClass}
                 updateName={this.updateName}

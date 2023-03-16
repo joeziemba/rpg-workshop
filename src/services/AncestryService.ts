@@ -1,7 +1,11 @@
 import { cloneDeep } from "lodash"
-import { Ancestries } from "data/ancestries"
+import { Ancestries, Ancestry, AncestryKey } from "data/ancestries"
+import { character } from "data/character"
 
-export function applyNewAncestry(characterToUpdate, ancestryId) {
+export function applyNewAncestry(
+  characterToUpdate: character,
+  newAncestryKey: AncestryKey
+) {
   // Make a clone to prevent side effect.
   const character = cloneDeep(characterToUpdate)
 
@@ -16,7 +20,7 @@ export function applyNewAncestry(characterToUpdate, ancestryId) {
   )
 
   // Set new Ancestry
-  character.ancestry = Ancestries[ancestryId]
+  character.ancestry = Ancestries[newAncestryKey]
 
   // Add Ability Boosts and Flaws for new Ancestry
   character.abilityBoosts = character.abilityBoosts.concat(

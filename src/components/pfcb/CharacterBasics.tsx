@@ -5,16 +5,16 @@ import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
 import { Card } from "./Card"
 import { Select } from "./Select"
+import { AncestryKey } from "data/ancestries"
 
 export const CharacterBasics = ({
-  selectAncestry,
   selectBackground,
   selectClass,
   character,
   setLevel,
   updateName,
 }) => {
-  const { Classes, Backgrounds, Ancestries } = useContext(
+  const { Classes, Backgrounds, Ancestries, selectAncestry } = useContext(
     PF2CharacterContext
   )
 
@@ -41,7 +41,9 @@ export const CharacterBasics = ({
                 id="ancestry-select"
                 isDefault={!character.ancestry.name}
                 name="ancestry-select"
-                onChange={selectAncestry}
+                onChange={(e) =>
+                  selectAncestry(e.target.value as AncestryKey)
+                }
                 value={character.ancestry.name || ""}
               >
                 <option value="">Choose Ancestry</option>
