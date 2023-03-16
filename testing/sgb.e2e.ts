@@ -10,7 +10,7 @@ fixture("SBG")
     const closeModalButton = Selector("#close-modal")
     // await tc.resizeWindow(1024, 768)
 
-    if (closeModalButton.exists) await tc.click(closeModalButton)
+    if (await closeModalButton.exists) await tc.click(closeModalButton)
   })
 
 test("Statblock Generator", async (tc) => {
