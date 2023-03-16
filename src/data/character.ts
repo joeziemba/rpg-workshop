@@ -4,7 +4,7 @@ import { Ability } from "./abilities"
 import { Skills } from "./skills"
 import { AbilityBoost } from "./models/abilityBoost.model"
 // import SaveBoost from "./models/SaveBoost"
-import SkillBoost from "./models/SkillBoost"
+import SkillBoost, { ISkillBoost } from "./models/SkillBoost"
 
 // class perceptionBoost {
 //   constructor(
@@ -38,8 +38,9 @@ export class character {
     [Saves.REF]: 0,
     [Saves.WILL]: 0,
   }
-  public skillBoosts: SkillBoost[] = []
+  public skillBoosts: ISkillBoost[] = []
   public proficiencyBoosts: [] = []
+  public perceptionProficiency = 0
 
   public abilities = {
     [Ability.STR]: 10,
@@ -117,6 +118,8 @@ export class character {
     { type: "general_15", level: 15 },
     { type: "general_19", level: 19 },
   ]
+
+  public builderVersion = ""
 
   constructor(data: character) {
     Object.keys(data).forEach((key) => {
@@ -247,10 +250,12 @@ export function calculateHP(character) {
   return hitPoints
 }
 
-export function calculateAbilityMods(character) {
-  const mods = {}
-
-  Object.keys(character.abilities).forEach((ability) => {
+export function calculateAbilityMods(character: {
+  abilities: character["abilities"]
+}): character["abilityMods"] {
+  const mods = {} as character["abilityMods"]
+  const abNames = Object.keys(character.abilities)
+  abNames.forEach((ability) => {
     mods[ability] = abMod(character.abilities[ability])
   })
 
@@ -261,7 +266,7 @@ export function abMod(abilityScore) {
   return Math.floor((abilityScore - 10) / 2)
 }
 
-export function calculatePerception(character) {
+export function calculatePerception(character: character) {
   let prof = 0
   if (character.class.perceptionBoosts)
     character.class.perceptionBoosts.forEach((boost) => {

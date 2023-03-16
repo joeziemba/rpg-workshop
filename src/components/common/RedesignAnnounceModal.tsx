@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react"
+import React, { ChangeEvent, useLayoutEffect, useState } from "react"
 import { Modal } from "components"
 import cn from "classnames"
 
@@ -13,7 +13,7 @@ export const RedesignAnnounceModal = () => {
     setShow(false)
   }
 
-  const clickDontShow = (e) => {
+  const clickDontShow = (e: ChangeEvent<HTMLInputElement>) => {
     setDontShowAgain(e.target.checked)
   }
 

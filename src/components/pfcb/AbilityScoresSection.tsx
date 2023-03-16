@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import _ from "lodash"
 import { Ability } from "data/abilities"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
+import { PF2CharacterContext } from "context"
 
-export const AbilityScoreSection = ({ character, boostAbility }) => {
+export const AbilityScoreSection = ({ character }) => {
+  const { boostAbility } = useContext(PF2CharacterContext)
   function freeAbilityOptions(source) {
     const { abilityBoosts } = character
     const freebies = abilityBoosts.filter(

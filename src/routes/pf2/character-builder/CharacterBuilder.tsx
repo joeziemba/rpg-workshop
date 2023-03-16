@@ -13,7 +13,7 @@ import {
   calculateHP,
   character,
 } from "data/character"
-import { Skills } from "data/skills"
+import { Skill, Skills } from "data/skills"
 import { Backgrounds } from "data/backgrounds"
 
 import { CharacterBuilderContext, PF2CharacterContext } from "context"
@@ -72,7 +72,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     }
   }
 
-  async getCharacter(characterId) {
+  async getCharacter(characterId: string) {
     const response = await firebaseService.getPF2Character(characterId)
     const returnedCharacter = new character(response.data() as character)
     returnedCharacter.uid = characterId
@@ -85,7 +85,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     return returnedCharacter
   }
 
-  updateName(e) {
+  updateName(e: InputEvent) {
     this.setState({
       character: { ...this.state.character, name: e.target.value },
     })
@@ -213,7 +213,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.updateStats(updatedCharacter)
   }
 
-  updateStats(character, callback?) {
+  updateStats(character: character, callback?: () => void) {
     const hasClass = !!character.class.name
     const hasAncestry = !!character.ancestry.name
     character.abilities = calculateAbilityScores(character)
@@ -240,16 +240,20 @@ export class CharacterBuilder extends React.Component<any, any> {
           character.skillBoosts.push({
             id: "int" + intSkills.length,
             source: "int",
-            skill: { id: "Free" },
+            skill: { id: "Free" } as Skill,
             proficiency: 2,
+            isStatic: false,
+            level: 1,
           })
         }
       }
       if (intSkills.length > level1IntMods.length) {
         for (let i = 0; i < intSkills.length - level1IntMods.length; i++) {
           const boost = intSkills.pop()
-          const index = character.skillBoosts.indexOf(boost)
-          character.skillBoosts.splice(index, 1)
+          if (boost) {
+            const index = character.skillBoosts.indexOf(boost)
+            character.skillBoosts.splice(index, 1)
+          }
         }
       }
     }
@@ -273,7 +277,11 @@ export class CharacterBuilder extends React.Component<any, any> {
     // Saves
     if (hasClass) {
       character.class.saveBoosts.forEach((boost) => {
-        if (parseInt(character.level, 10) >= parseInt(boost.level, 10)) {
+        let charLevel =
+          typeof character.level === "string"
+            ? parseInt(character.level, 10)
+            : character.level
+        if (charLevel >= parseInt(boost.level, 10)) {
           character.saves[boost.save] = boost.proficiency
         }
       })
@@ -408,6 +416,7 @@ export class CharacterBuilder extends React.Component<any, any> {
       selectFeat: this.selectFeat,
       deleteFeat: this.deleteFeat,
       getCharacter: this.getCharacter,
+      boostAbility: this.boostAbility,
       Classes,
       Ancestries,
       Backgrounds,
@@ -433,10 +442,7 @@ export class CharacterBuilder extends React.Component<any, any> {
               />
               <div className="flex flex-wrap">
                 <div className="flex-full md:flex-1 flex flex-col">
-                  <AbilityScoreSection
-                    character={this.state.character}
-                    boostAbility={this.boostAbility}
-                  />
+                  <AbilityScoreSection character={this.state.character} />
                   <FeatsSection />
                 </div>
                 <div className="flex-full md:flex-1">
