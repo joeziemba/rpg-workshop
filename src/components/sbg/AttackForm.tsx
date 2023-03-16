@@ -1,6 +1,7 @@
 import React from "react"
 import { SBG_Input, SBG_Select } from "components"
 import { CheckboxButton } from "./CheckboxButton"
+import { damageTypes } from "data/dnd5e-constants"
 
 export const AttackForm = (props) => {
   return (
@@ -88,7 +89,7 @@ export const AttackForm = (props) => {
           id={"attack-dmg-type-select-" + props.index}
           label={"Dmg Type"}
           fieldName={"dmgType"}
-          options={global.damageTypes}
+          options={damageTypes}
           value={props.action.dmgType}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)

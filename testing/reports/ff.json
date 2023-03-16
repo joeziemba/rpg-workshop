@@ -1,8 +1,8 @@
 {
-  "startTime": "2021-10-18T09:04:15.494Z",
-  "endTime": "2021-10-18T09:05:41.882Z",
+  "startTime": "2021-12-17T18:23:43.542Z",
+  "endTime": "2021-12-17T18:24:35.049Z",
   "userAgents": [
-    "Firefox 93.0 / Windows 10"
+    "Firefox 95.0 / Windows 10"
   ],
   "passed": 7,
   "total": 7,
@@ -10,14 +10,14 @@
   "fixtures": [
     {
       "name": "SBG",
-      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.js",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.ts",
       "meta": {},
       "tests": [
         {
           "name": "Statblock Generator",
           "meta": {},
           "errs": [],
-          "durationMs": 68493,
+          "durationMs": 38489,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -26,14 +26,14 @@
     },
     {
       "name": "PF2 - Assign Ancestries",
-      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.js",
+      "path": "C:\\Users\\jziem\\repos\\rpg-workshop\\testing\\main.e2e.ts",
       "meta": {},
       "tests": [
         {
           "name": "Dwarf",
           "meta": {},
           "errs": [],
-          "durationMs": 3252,
+          "durationMs": 2361,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -42,7 +42,7 @@
           "name": "Elf",
           "meta": {},
           "errs": [],
-          "durationMs": 2842,
+          "durationMs": 2194,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -51,7 +51,7 @@
           "name": "Gnome",
           "meta": {},
           "errs": [],
-          "durationMs": 3281,
+          "durationMs": 2276,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -60,7 +60,7 @@
           "name": "Goblin",
           "meta": {},
           "errs": [],
-          "durationMs": 2613,
+          "durationMs": 2117,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -69,7 +69,7 @@
           "name": "Human",
           "meta": {},
           "errs": [],
-          "durationMs": 2889,
+          "durationMs": 1888,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -78,7 +78,7 @@
           "name": "Halfling",
           "meta": {},
           "errs": [],
-          "durationMs": 2968,
+          "durationMs": 2140,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false

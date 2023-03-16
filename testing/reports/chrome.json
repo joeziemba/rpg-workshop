@@ -1,6 +1,6 @@
 {
-  "startTime": "2021-12-17T03:33:51.510Z",
-  "endTime": "2021-12-17T03:35:02.332Z",
+  "startTime": "2021-12-17T18:22:03.506Z",
+  "endTime": "2021-12-17T18:22:54.290Z",
   "userAgents": [
     "Chrome 96.0.4664.110 / Windows 10"
   ],
@@ -17,7 +17,7 @@
           "name": "Statblock Generator",
           "meta": {},
           "errs": [],
-          "durationMs": 46489,
+          "durationMs": 36509,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -33,7 +33,7 @@
           "name": "Dwarf",
           "meta": {},
           "errs": [],
-          "durationMs": 4023,
+          "durationMs": 2619,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -42,7 +42,7 @@
           "name": "Elf",
           "meta": {},
           "errs": [],
-          "durationMs": 3389,
+          "durationMs": 2409,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -51,7 +51,7 @@
           "name": "Gnome",
           "meta": {},
           "errs": [],
-          "durationMs": 3587,
+          "durationMs": 2397,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -60,7 +60,7 @@
           "name": "Goblin",
           "meta": {},
           "errs": [],
-          "durationMs": 4473,
+          "durationMs": 2281,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -69,7 +69,7 @@
           "name": "Human",
           "meta": {},
           "errs": [],
-          "durationMs": 4034,
+          "durationMs": 2170,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -78,7 +78,7 @@
           "name": "Halfling",
           "meta": {},
           "errs": [],
-          "durationMs": 4498,
+          "durationMs": 2314,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -86,7 +86,5 @@
       ]
     }
   ],
-  "warnings": [
-    "The \"stopOnFirstFail\" option from the configuration file will be ignored."
-  ]
+  "warnings": []
 }

@@ -4,6 +4,7 @@ import { NavButton } from "components"
 import { StatblockContext } from "context"
 import AttackForm from "components/sbg/AttackForm"
 import { FeatureBlock } from "components/sbg/FeatureBlock"
+import { Guid } from "js-guid"
 
 export const ActionsForm = ({ legendary = false }) => {
   const { stats, updateAction, deleteAction, addAction } =
@@ -25,12 +26,14 @@ export const ActionsForm = ({ legendary = false }) => {
         }
         return (
           <FeatureBlock
-            deleteFunc={() => deleteAction(action.id, legendary)}
+            deleteFunc={() => deleteAction(action.id as Guid, legendary)}
             feature={action}
             key={i}
             index={i}
             typeText="Action"
-            updateFunc={(e) => updateAction(e, action.id, legendary)}
+            updateFunc={(e) =>
+              updateAction(e, action.id as Guid, legendary)
+            }
           />
         )
       })}

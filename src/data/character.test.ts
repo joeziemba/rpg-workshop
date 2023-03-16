@@ -4,7 +4,7 @@ import {
   calculateHP,
   calculateAbilityScores,
   calculatePerception,
-} from "./classTemplate"
+} from "./character"
 const hpTests = [
   {
     testName: "lv 1 character with CON boost",

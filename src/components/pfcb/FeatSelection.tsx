@@ -12,17 +12,17 @@ export const FeatSelection = ({
   closeFunction,
 }) => {
   const [query, setQuery] = useState("")
-  const [feats, setFeats] = useState([])
+  const [feats, setFeats] = useState([] as any[])
 
   const filterFeatsBy = (feats, trait, level) => {
     return feats.filter((feat) => {
-      let hasTrait =
+      const hasTrait =
         !trait ||
         feat.traits
           .map((t) => t.toLowerCase())
           .includes(trait.toLowerCase())
 
-      let isLevel = +feat.reqLevel <= +level
+      const isLevel = +feat.reqLevel <= +level
 
       return hasTrait && isLevel
     })
@@ -51,7 +51,7 @@ export const FeatSelection = ({
         let hasMatchingTrait = false
 
         // Check traits for match
-        for (let trait of feat.traits)
+        for (const trait of feat.traits)
           if (trait.toLowerCase().includes(query.toLowerCase())) {
             hasMatchingTrait = true
             break
@@ -68,7 +68,7 @@ export const FeatSelection = ({
 
   useEffect(() => {
     let filteredFeats = _.cloneDeep(FEATS)
-    let [type] = featType.split("_")
+    const [type] = featType.split("_")
     // Filter to correct feat list
     filteredFeats = filterFeatsBy(
       filteredFeats,
@@ -77,11 +77,12 @@ export const FeatSelection = ({
     )
 
     // Additionally filter by query if present
-    if (query) filteredFeats = filterFeatsByQuery(filteredFeats)
+    if (query)
+      filteredFeats = filterFeatsByQuery(filteredFeats).sort(
+        (a, b) => Number(a.reqLevel) - Number(b.reqLevel)
+      )
 
-    setFeats(
-      filteredFeats.sort((a, b) => Number(a.reqLevel) - Number(b.reqLevel))
-    )
+    setFeats(filteredFeats)
   }, [
     query,
     character.ancestry.name,

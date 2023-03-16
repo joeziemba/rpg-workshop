@@ -13,51 +13,54 @@ export function v1_0_1(character) {
 
 export function v1_1_1(character) {
   // Map all old skillBoosts onto new skillBoost format
-  let reconstructedSkillBoosts = character.skillBoosts.map((oldBoost) => {
-    let existingBoost = CLASSES[character.class.name]?.skillBoosts.find(
-      (b) => b.id === oldBoost.id
-    )
-
-    if (!existingBoost)
-      existingBoost = Backgrounds[
-        character.background.name
-      ]?.skillBoosts.find((b) => b.id === oldBoost.id)
-
-    if (!existingBoost) {
-      let charTemplate = getBlankCharacter()
-      existingBoost = charTemplate.skillBoosts.find(
+  const reconstructedSkillBoosts = character.skillBoosts.map(
+    (oldBoost) => {
+      let existingBoost = CLASSES[character.class.name]?.skillBoosts.find(
         (b) => b.id === oldBoost.id
       )
+
+      if (!existingBoost)
+        existingBoost = Backgrounds[
+          character.background.name
+        ]?.skillBoosts.find((b) => b.id === oldBoost.id)
+
+      if (!existingBoost) {
+        const charTemplate = getBlankCharacter()
+        existingBoost = charTemplate.skillBoosts.find(
+          (b) => b.id === oldBoost.id
+        )
+      }
+
+      if (!existingBoost) return
+
+      const newBoost = cloneDeep(existingBoost)
+
+      // retain assigned skill
+      newBoost.isStatic = !!newBoost.skill.name
+
+      newBoost.skill = oldBoost.skill
+
+      return newBoost
     }
-
-    if (!existingBoost) return
-
-    let newBoost = cloneDeep(existingBoost)
-
-    // retain assigned skill
-    newBoost.isStatic = !!newBoost.skill.name
-
-    newBoost.skill = oldBoost.skill
-
-    return newBoost
-  })
+  )
 
   character.skillBoosts = reconstructedSkillBoosts.filter((b) => !!b)
 
   character.feats = character.feats.map((oldFeat) => {
     if (!oldFeat.name) return oldFeat
 
-    let newFeat = FEATS.find(
+    const newFeat = FEATS.find(
       (feat) => feat.name === oldFeat.name.split("[")[0].trim()
     )
     if (!newFeat) return oldFeat
     // retain feat type
+    // @ts-expect-error: need to use outdated type for migration purposes
     newFeat.type = oldFeat.type
     return newFeat
   })
   const uniqueVals = new Set(character.abilityBoosts.map((b) => b.id))
   if (character.abilityBoosts.length !== uniqueVals.size) {
-    let seen = []
+    const seen = [] as any[]
     // Check for duplicate abilities and remove
     character.abilityBoosts = character.abilityBoosts
       .map((boost) => {

@@ -1,36 +1,39 @@
 import { Ability } from "./abilities"
+import { AbilityBoost } from "./models/abilityBoost.model"
 
-export const Ancestries = {
+export interface Ancestry {
+  name: string
+  hp: number
+  size: string
+  speed: number
+  abilityBoosts: AbilityBoost[]
+  abilityFlaws: AbilityBoost[]
+  languages: string[]
+  traits: string[]
+  heritages?: any
+}
+
+const AncestryNames = {
+  Dwarf: "Dwarf",
+  Elf: "Elf",
+  Gnome: "Gnome",
+  Goblin: "Goblin",
+  Human: "Human",
+  Halfling: "Halfling",
+}
+
+export const Ancestries: Record<keyof typeof AncestryNames, Ancestry> = {
   Dwarf: {
     name: "Dwarf",
     hp: 10,
     size: "Medium",
     speed: 20,
     abilityBoosts: [
-      {
-        ability: Ability.CON,
-        source: "Dwarf",
-        id: "1",
-      },
-      {
-        ability: Ability.WIS,
-        source: "Dwarf",
-        id: "2",
-      },
-      {
-        ability: Ability.FREE,
-        source: "Dwarf",
-        id: "3",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.CON, "Dwarf", 1),
+      new AbilityBoost(Ability.WIS, "Dwarf", 1),
+      new AbilityBoost(Ability.FREE, "Dwarf", 1),
     ],
-    abilityFlaws: [
-      {
-        ability: Ability.CHA,
-        source: "Dwarf",
-        id: "1",
-      },
-    ],
+    abilityFlaws: [new AbilityBoost(Ability.CHA, "Dwarf", 1)],
     languages: ["Common", "Dwarven"],
     traits: ["Dwarf", "Humanoid"],
   },
@@ -40,30 +43,11 @@ export const Ancestries = {
     size: "Medium",
     speed: 30,
     abilityBoosts: [
-      {
-        ability: Ability.DEX,
-        source: "Elf",
-        id: "1",
-      },
-      {
-        ability: Ability.INT,
-        source: "Elf",
-        id: "2",
-      },
-      {
-        ability: Ability.FREE,
-        source: "Elf",
-        id: "3",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.DEX, "Elf", 1),
+      new AbilityBoost(Ability.INT, "Elf", 1),
+      new AbilityBoost(Ability.FREE, "Elf", 1),
     ],
-    abilityFlaws: [
-      {
-        ability: Ability.CON,
-        source: "Elf",
-        id: "1",
-      },
-    ],
+    abilityFlaws: [new AbilityBoost(Ability.CON, "Elf", 1)],
     languages: ["Common", "Elven"],
     traits: ["Elf", "Humanoid"],
   },
@@ -73,18 +57,11 @@ export const Ancestries = {
     size: "small",
     speed: 25,
     abilityBoosts: [
-      { ability: Ability.CON, source: "Gnome", id: "Gnome1" },
-      { ability: Ability.CHA, source: "Gnome", id: "Gnome2" },
-      {
-        ability: Ability.FREE,
-        source: "Gnome",
-        id: "Gnome3",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.CON, "Gnome", 1),
+      new AbilityBoost(Ability.CHA, "Gnome", 1),
+      new AbilityBoost(Ability.FREE, "Gnome", 1),
     ],
-    abilityFlaws: [
-      { ability: Ability.STR, source: "Gnome", id: "Gnome1" },
-    ],
+    abilityFlaws: [new AbilityBoost(Ability.STR, "Gnome", 1)],
     languages: ["Common"],
     traits: ["Gnome", "Humanoid"],
     heritages: {
@@ -103,31 +80,13 @@ export const Ancestries = {
     size: "Small",
     speed: 25,
     abilityBoosts: [
-      {
-        ability: Ability.DEX,
-        source: "Goblin",
-        id: "1",
-      },
-      {
-        ability: Ability.CHA,
-        source: "Goblin",
-        id: "2",
-      },
-      {
-        ability: Ability.FREE,
-        source: "Goblin",
-        id: "3",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.DEX, "Goblin", 1),
+      new AbilityBoost(Ability.CHA, "Goblin", 1),
+      new AbilityBoost(Ability.FREE, "Goblin", 1),
     ],
-    abilityFlaws: [
-      {
-        ability: Ability.WIS,
-        source: "Goblin",
-        id: "1",
-      },
-    ],
+    abilityFlaws: [new AbilityBoost(Ability.WIS, "Goblin", 1)],
     languages: ["Common", "Goblin"],
+    traits: [],
   },
   Human: {
     name: "Human",
@@ -135,18 +94,8 @@ export const Ancestries = {
     size: "medium",
     speed: 25,
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Human",
-        id: "Human1",
-        type: Ability.FREE,
-      },
-      {
-        ability: Ability.FREE,
-        source: "Human",
-        id: "Human2",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.FREE, "Human", 1),
+      new AbilityBoost(Ability.FREE, "Human", 1),
     ],
     abilityFlaws: [],
     languages: ["Common"],
@@ -162,35 +111,19 @@ export const Ancestries = {
     },
   },
   Halfling: {
-    name: "Halfling",
+    name: AncestryNames.Halfling,
     hp: 6,
     size: "Small",
     speed: 25,
     abilityBoosts: [
-      {
-        ability: Ability.DEX,
-        source: "Halfling",
-        id: "1",
-      },
-      {
-        ability: Ability.WIS,
-        source: "Halfling",
-        id: "2",
-      },
-      {
-        ability: Ability.FREE,
-        source: "Halfling",
-        id: "3",
-        type: Ability.FREE,
-      },
+      new AbilityBoost(Ability.DEX, AncestryNames.Halfling, 1),
+      new AbilityBoost(Ability.WIS, AncestryNames.Halfling, 1),
+      new AbilityBoost(Ability.FREE, AncestryNames.Halfling, 1),
     ],
     abilityFlaws: [
-      {
-        ability: Ability.STR,
-        source: "Halfling",
-        id: "1",
-      },
+      new AbilityBoost(Ability.STR, AncestryNames.Halfling, 1),
     ],
     languages: ["Common", "Halfling"],
+    traits: [],
   },
 }

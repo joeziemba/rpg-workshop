@@ -3,8 +3,16 @@ import { toast } from "react-toastify"
 import { UserContext } from "context"
 import { firebaseService } from "services/Firebase"
 import { Modal, NavButton, OpenOrDeleteItem } from "components"
+import { character } from "data/character"
 
-class SubNav extends React.Component {
+type SubNavProps = {
+  character: character
+  history: any
+  getCharacter: (id: string) => Promise<character>
+  reset: () => void
+}
+
+class SubNav extends React.Component<SubNavProps, any> {
   constructor(props) {
     super(props)
 
@@ -20,11 +28,9 @@ class SubNav extends React.Component {
   }
 
   async getCharacters() {
-    const snapshot = await firebaseService.getPF2CharactersForUser(
-      this.context.currentUser.uid
-    )
+    const snapshot = await firebaseService.getPF2CharactersForUser()
 
-    let characters = []
+    const characters: character[] = []
     snapshot.forEach((doc) => {
       characters.push({ ...doc.data(), uid: doc.id, id: doc.id })
     })
@@ -34,7 +40,7 @@ class SubNav extends React.Component {
 
   async saveCharacter() {
     if (this.props.character.name) {
-      let character = await firebaseService.savePF2Character(
+      const character = await firebaseService.savePF2Character(
         this.props.character
       )
       if (character)
@@ -68,17 +74,29 @@ class SubNav extends React.Component {
             Character Builder
           </h1>
 
-          <NavButton color="navy" onClick={this.props.reset}>
+          <NavButton
+            id="new-character"
+            color="navy"
+            onClick={this.props.reset}
+          >
             {this.context.currentUser ? "New" : "Clear Sheet"}
           </NavButton>
 
           {this.context.currentUser && (
             <React.Fragment>
-              <NavButton color="navy" onClick={this.saveCharacter}>
+              <NavButton
+                id="save-character"
+                color="navy"
+                onClick={this.saveCharacter}
+              >
                 Save
               </NavButton>
 
-              <NavButton color="navy" onClick={this.getCharacters}>
+              <NavButton
+                id="open-character"
+                color="navy"
+                onClick={this.getCharacters}
+              >
                 Open
               </NavButton>
             </React.Fragment>

@@ -1,7 +1,7 @@
 import React from "react"
 
 type OpenOrDeleteItemProps = {
-  children: React.ReactElement
+  children: React.ReactNode
   deleteFunc: () => void
   id: string
   selectFunc: () => void

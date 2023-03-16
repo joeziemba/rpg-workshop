@@ -1,12 +1,12 @@
-import React, { ReactElement, useEffect } from "react"
+import React, { useEffect } from "react"
 import FocusTrap from "focus-trap-react"
 import cn from "classnames"
 
 type ModalProps = {
-  children: ReactElement
-  color: string
+  children: React.ReactNode
   closeFunction: () => void
-  large: boolean
+  color?: string
+  large?: boolean
   show: boolean
   title: string
 }

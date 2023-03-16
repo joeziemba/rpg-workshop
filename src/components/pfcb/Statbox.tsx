@@ -1,19 +1,28 @@
 import React from "react"
 
+type StatboxProps = {
+  className?: string
+  children?: React.ReactNode
+  large?: boolean
+  secondary?: boolean
+  stat: string
+  title: string
+}
+
 const Statbox = ({
-  stat,
-  title,
-  large,
   className,
   children,
+  large,
   secondary,
-}) => {
+  stat,
+  title,
+}: StatboxProps) => {
   let classes = "c-statbox"
   if (large) classes += " c-statbox--large"
   if (secondary) classes += " c-statbox--secondary"
   classes += " " + className
 
-  let idRoot = title?.toLowerCase()
+  const idRoot = title?.toLowerCase()
 
   return (
     <div className={classes}>

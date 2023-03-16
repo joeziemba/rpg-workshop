@@ -1,4 +1,4 @@
-import React from "react"
+import React, { MouseEventHandler } from "react"
 import cn from "classnames"
 
 type NavButtonProps = {
@@ -6,7 +6,7 @@ type NavButtonProps = {
   className?: string
   color: string
   id: string
-  onClick(): void
+  onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 export const NavButton = ({

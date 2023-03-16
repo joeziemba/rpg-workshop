@@ -1,10 +1,10 @@
-import React, { Component } from "react"
+import React, { ChangeEvent, Component } from "react"
 import { RouteProps } from "react-router"
 import { Guid } from "js-guid"
 
 import { GeneratorNav } from "components"
 
-import { StatblockContext } from "context"
+import { StatblockActionType, StatblockContext } from "context"
 import { firebaseService } from "services/Firebase"
 import "./StatblockGenerator.css"
 import { toast } from "react-toastify"
@@ -147,16 +147,16 @@ export class Statblock {
   ) {}
 }
 
-interface Props {
+type StatblockGeneratorProps = {
   match: { params: { characterId: string } }
   history: { push(arg: string): void }
 }
 
 export class StatblockGenerator extends Component<
-  Props & RouteProps,
+  StatblockGeneratorProps & RouteProps,
   Statblock
 > {
-  constructor(props: Props) {
+  constructor(props: StatblockGeneratorProps) {
     super(props)
 
     this.state = new Statblock()
@@ -231,15 +231,15 @@ export class StatblockGenerator extends Component<
     toast("Sheet Cleared")
   }
 
-  updateState(e: { target: HTMLInputElement }) {
-    const { name, value }: { name: string; value: string } = e.target
+  updateState(event) {
+    const { name, value }: { name: string; value: string } = event.target
     this.setState({
       ...this.state,
       [name]: value,
     })
   }
 
-  updateAbility(ability: Ability, value: number) {
+  updateAbility(ability: AbilityKey, value: number) {
     this.setState(
       {
         abilities: {
@@ -325,7 +325,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  addAction(actionType: "Melee" | "Ranged") {
+  addAction(actionType: StatblockActionType) {
     const newActions = [...this.state.actions]
 
     let newAction: Action
@@ -399,7 +399,7 @@ export class StatblockGenerator extends Component<
     }
   }
 
-  deleteAction(actionId: Guid, legendary: boolean) {
+  deleteAction(actionId: StatblockAction["id"], legendary: boolean) {
     let actions: Action[]
 
     if (legendary) {

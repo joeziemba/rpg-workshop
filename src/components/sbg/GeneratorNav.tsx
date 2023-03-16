@@ -5,7 +5,7 @@ import { UserContext } from "context"
 import { firebaseService } from "services/Firebase"
 import { Statblock } from "routes/dnd5e/statblock-generator/StatblockGenerator"
 
-interface Props {
+type GeneratorNavProps = {
   exportView: boolean
   history: { push: (arg: string) => void }
   reset(): void
@@ -14,13 +14,16 @@ interface Props {
   toggleExportView(): void
 }
 
-interface State {
+type GeneratorNavState = {
   statblocks: Statblock[]
   showOpenModal: boolean
 }
 
-export class GeneratorNav extends React.Component<Props, State> {
-  constructor(props: Props) {
+export class GeneratorNav extends React.Component<
+  GeneratorNavProps,
+  GeneratorNavState
+> {
+  constructor(props: GeneratorNavProps) {
     super(props)
 
     this.state = {
@@ -57,7 +60,7 @@ export class GeneratorNav extends React.Component<Props, State> {
     toast("Opened " + statblock.name)
   }
 
-  async saveStatblock(statblock: Statblock): Promise<any> {
+  async saveStatblock(statblock: Statblock) {
     const savedStatblock = await firebaseService.saveStatblock(statblock)
     if (savedStatblock) {
       statblock.uid = savedStatblock.id

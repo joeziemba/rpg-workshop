@@ -4,7 +4,7 @@ import _ from "lodash"
 import { BUILDER_VERSION, PUBLISHED_ON } from "BUILDER_VERSION"
 import { firebaseService } from "services/Firebase"
 import Classes from "data/classes"
-import { Ancestries } from "data/ancestries"
+import { Ancestries, Ancestry } from "data/ancestries"
 import {
   calculateAbilityMods,
   calculateAbilityScores,
@@ -16,7 +16,7 @@ import {
 import { Skills } from "data/skills"
 import { Backgrounds } from "data/backgrounds"
 
-import { PF2CharacterContext } from "context"
+import { CharacterBuilderContext, PF2CharacterContext } from "context"
 import {
   AbilityScoreSection,
   FeatsSection,
@@ -28,6 +28,13 @@ import {
 import { toast } from "react-toastify"
 import { applyNewAncestry } from "services/AncestryService"
 import { migrateToLatest } from "migrations"
+
+interface InputEvent {
+  target: {
+    name: string
+    value: string
+  }
+}
 
 export class CharacterBuilder extends React.Component<any, any> {
   blankCharacter
@@ -92,7 +99,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     })
   }
 
-  selectBackground(e) {
+  selectBackground(e: InputEvent) {
     if ([undefined, null, ""].includes(e.target.value)) return
     const character = _.cloneDeep(this.state.character)
 
@@ -141,7 +148,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.updateStats(character)
   }
 
-  selectClass(e) {
+  selectClass(e: InputEvent) {
     if ([undefined, null, ""].includes(e.target.value)) return
     const character = _.cloneDeep(this.state.character)
 
@@ -198,11 +205,10 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.updateStats(character)
   }
 
-  selectAncestry(e) {
-    if ([undefined, null, ""].includes(e.target.value)) return
+  selectAncestry(newAncestry: Ancestry) {
     const updatedCharacter = applyNewAncestry(
       this.state.character,
-      e.target.value
+      newAncestry
     )
     this.updateStats(updatedCharacter)
   }
@@ -288,7 +294,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.setState({ character }, callback)
   }
 
-  boostAbility(e) {
+  boostAbility(e: InputEvent) {
     const character = _.cloneDeep(this.state.character)
 
     const boost = character.abilityBoosts.find(
@@ -300,7 +306,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.updateStats(character)
   }
 
-  selectSkill(e) {
+  selectSkill(e: InputEvent) {
     const character = _.cloneDeep(this.state.character)
 
     const skillId = e.target.value
@@ -382,7 +388,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.setState({ character })
   }
 
-  setLevel(e) {
+  setLevel(e: InputEvent) {
     const character = _.cloneDeep(this.state.character)
     character.level = parseInt(e.target.value, 10)
     this.updateStats(character)
@@ -393,7 +399,7 @@ export class CharacterBuilder extends React.Component<any, any> {
 
     if (_.isEmpty(character)) return null
 
-    const context = {
+    const contextValue: CharacterBuilderContext = {
       character,
       selectAncestry: this.selectAncestry,
       selectBackground: this.selectBackground,
@@ -410,7 +416,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     return (
       <div>
         <main className="">
-          <PF2CharacterContext.Provider value={context}>
+          <PF2CharacterContext.Provider value={contextValue}>
             <SubNav
               history={this.props.history}
               reset={this.reset}

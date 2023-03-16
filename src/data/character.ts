@@ -2,7 +2,7 @@ import _, { cloneDeep } from "lodash"
 import { Saves } from "./classes"
 import { Ability } from "./abilities"
 import { Skills } from "./skills"
-import { abilityBoost } from "./models/abilityBoost.model"
+import { AbilityBoost } from "./models/abilityBoost.model"
 // import SaveBoost from "./models/SaveBoost"
 import SkillBoost from "./models/SkillBoost"
 
@@ -58,33 +58,33 @@ export class character {
     [Ability.CHA]: 0,
   }
 
-  abilityBoosts: abilityBoost[] = [
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
+  abilityBoosts: AbilityBoost[] = [
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_5", 5),
+    new AbilityBoost(Ability.FREE, "Level_5", 5),
+    new AbilityBoost(Ability.FREE, "Level_5", 5),
+    new AbilityBoost(Ability.FREE, "Level_5", 5),
+    new AbilityBoost(Ability.FREE, "Level_10", 10),
+    new AbilityBoost(Ability.FREE, "Level_10", 10),
+    new AbilityBoost(Ability.FREE, "Level_10", 10),
+    new AbilityBoost(Ability.FREE, "Level_10", 10),
+    new AbilityBoost(Ability.FREE, "Level_15", 15),
+    new AbilityBoost(Ability.FREE, "Level_15", 15),
+    new AbilityBoost(Ability.FREE, "Level_15", 15),
+    new AbilityBoost(Ability.FREE, "Level_15", 15),
+    new AbilityBoost(Ability.FREE, "Level_20", 20),
+    new AbilityBoost(Ability.FREE, "Level_20", 20),
+    new AbilityBoost(Ability.FREE, "Level_20", 20),
+    new AbilityBoost(Ability.FREE, "Level_20", 20),
   ]
 
-  public abilityFlaws: abilityBoost[] = []
+  public abilityFlaws: AbilityBoost[] = []
 
   public skills = cloneDeep(Skills)
-  public feats = [
+  public feats: FeatSlot[] = [
     { type: "ancestry_1", level: 1 },
     { type: "ancestry_5", level: 5 },
     { type: "ancestry_9", level: 9 },
@@ -273,30 +273,30 @@ export function calculatePerception(character) {
 }
 
 export const upperLevelAbilityBoosts = [
-  new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_5", 5, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_10", 10, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_15", 15, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
-  new abilityBoost(Ability.FREE, "Level_20", 20, Ability.FREE),
+  new AbilityBoost(Ability.FREE, "Level_5", 5),
+  new AbilityBoost(Ability.FREE, "Level_5", 5),
+  new AbilityBoost(Ability.FREE, "Level_5", 5),
+  new AbilityBoost(Ability.FREE, "Level_5", 5),
+  new AbilityBoost(Ability.FREE, "Level_10", 10),
+  new AbilityBoost(Ability.FREE, "Level_10", 10),
+  new AbilityBoost(Ability.FREE, "Level_10", 10),
+  new AbilityBoost(Ability.FREE, "Level_10", 10),
+  new AbilityBoost(Ability.FREE, "Level_15", 15),
+  new AbilityBoost(Ability.FREE, "Level_15", 15),
+  new AbilityBoost(Ability.FREE, "Level_15", 15),
+  new AbilityBoost(Ability.FREE, "Level_15", 15),
+  new AbilityBoost(Ability.FREE, "Level_20", 20),
+  new AbilityBoost(Ability.FREE, "Level_20", 20),
+  new AbilityBoost(Ability.FREE, "Level_20", 20),
+  new AbilityBoost(Ability.FREE, "Level_20", 20),
 ]
 
 export function getBlankCharacter() {
-  const abilityBoosts: abilityBoost[] = [
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
-    new abilityBoost(Ability.FREE, "Level_1", 1, Ability.FREE),
+  const abilityBoosts: AbilityBoost[] = [
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
+    new AbilityBoost(Ability.FREE, "Level_1", 1),
     ...upperLevelAbilityBoosts,
   ]
 

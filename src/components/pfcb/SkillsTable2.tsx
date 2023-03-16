@@ -9,7 +9,7 @@ import { PF2CharacterContext } from "context"
 
 export const SkillsTable = () => {
   const { character } = useContext(PF2CharacterContext)
-  let upperLevelBoosts = character.skillBoosts
+  const upperLevelBoosts = character.skillBoosts
     .filter((boost) => Number(boost.level > 1))
     .sort((a, b) => a.level - b.level)
 
@@ -63,14 +63,14 @@ export const SkillsTable = () => {
       )}
 
       {Object.values(character.skills).map((skill, i) => {
-        if (!skill.source) skill.source = "Free"
-        let proficiencyBonus =
+        // if (!skill.source) skill.source = "Free"
+        const proficiencyBonus =
           skill.proficiency > 0 ? skill.proficiency + character.level : 0
-        let abilityMod = character.abilityMods[skill.modifier]
-        let totalMod = proficiencyBonus + abilityMod
+        const abilityMod = character.abilityMods[skill.modifier]
+        const totalMod = proficiencyBonus + abilityMod
         return (
           <div
-            key={skill + i}
+            key={skill.name + i}
             className={`flex items-center ${
               proficiencyBonus > 0 ? "font-bold" : ""
             } ${i % 2 !== 0 ? "bg-gray-200" : ""}`}
@@ -81,18 +81,20 @@ export const SkillsTable = () => {
             <div className="flex-1 flex justify-between">
               <Statbox stat={totalMod} title="Total" />
               <span className="m-2">=</span>
-              <Statbox stat={proficiencyBonus} title="Prof" />
+              <Statbox stat={proficiencyBonus.toString()} title="Prof" />
               <span className="m-2">+</span>
               <Statbox
                 stat={`${abilityMod}`}
-                title={Object.keys(Ability).find(
-                  (a) => Ability[a] === skill.modifier
-                )}
+                title={
+                  Object.keys(Ability).find(
+                    (a) => Ability[a] === skill.modifier
+                  ) || ""
+                }
               />
             </div>
 
             <div className="flex-1 flex justify-center">
-              <TEMLbuttons disabled skill={skill} />
+              <TEMLbuttons skill={skill} />
             </div>
           </div>
         )

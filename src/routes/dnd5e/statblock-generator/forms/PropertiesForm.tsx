@@ -1,4 +1,10 @@
 import { StatblockContext } from "context"
+import {
+  conditions,
+  damageTypes,
+  languages,
+  skills,
+} from "data/dnd5e-constants"
 import React, { useContext } from "react"
 import { Typeahead } from "react-bootstrap-typeahead"
 import "react-bootstrap-typeahead/css/Typeahead.css"
@@ -11,7 +17,7 @@ export const PropertyForm = () => {
         Skill Proficiencies
         <Typeahead
           multiple
-          options={global.skills.map((skill) => skill.name)}
+          options={skills.map((skill) => skill.name)}
           selected={stats.skills}
           onChange={(selected) => updatePropertyList(selected, "skills")}
         />
@@ -20,7 +26,7 @@ export const PropertyForm = () => {
         Condition Immunities
         <Typeahead
           multiple
-          options={global.conditions}
+          options={conditions}
           selected={stats.conditionImmune}
           onChange={(selected) =>
             updatePropertyList(selected, "conditionImmune")
@@ -31,7 +37,7 @@ export const PropertyForm = () => {
         Damage Immunities
         <Typeahead
           multiple
-          options={global.damageTypes}
+          options={damageTypes}
           selected={stats.immune}
           onChange={(selected) => updatePropertyList(selected, "immune")}
         />
@@ -40,7 +46,7 @@ export const PropertyForm = () => {
         Resistances
         <Typeahead
           multiple
-          options={global.damageTypes}
+          options={damageTypes}
           selected={stats.resists}
           onChange={(selected) => updatePropertyList(selected, "resists")}
         />
@@ -49,7 +55,7 @@ export const PropertyForm = () => {
         Vulnerabilities
         <Typeahead
           multiple
-          options={global.damageTypes}
+          options={damageTypes}
           selected={stats.vulnerable}
           onChange={(selected) =>
             updatePropertyList(selected, "vulnerable")
@@ -60,7 +66,7 @@ export const PropertyForm = () => {
         Languages
         <Typeahead
           multiple
-          options={global.languages}
+          options={languages}
           selected={stats.langs}
           onChange={(selected) => updatePropertyList(selected, "langs")}
         />

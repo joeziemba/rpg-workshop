@@ -1,17 +1,29 @@
 import React from "react"
 import cn from "classnames"
 
+type SelectProps = {
+  ariaLabel: string
+  center?: boolean
+  children: React.ReactNode
+  id: string
+  isDisabled?: boolean
+  isDefault?: boolean
+  name: string
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  value: string
+}
+
 export const Select = ({
-  children,
-  onChange,
-  value,
-  name,
-  isDefault,
   ariaLabel = "",
   center,
-  isDisabled,
+  children,
   id,
-}) => {
+  isDisabled,
+  isDefault,
+  name,
+  onChange,
+  value,
+}: SelectProps) => {
   const selectClasses = cn(
     "bg-gray-200 rounded-md w-full cursor-pointer",
     "hover:bg-gray-300 transition-colors",

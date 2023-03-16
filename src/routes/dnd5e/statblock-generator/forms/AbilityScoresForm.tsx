@@ -2,9 +2,17 @@ import React, { useContext } from "react"
 import { SBG_Select } from "components"
 import { StatblockContext } from "context"
 import { CheckboxButton } from "components/sbg/CheckboxButton"
+import { abilityScores } from "data/dnd5e-constants"
 
 export const AbilityScoresForm = () => {
-  const abilities = ["str", "dex", "con", "int", "wis", "cha"]
+  const abilities: AbilityKey[] = [
+    "str",
+    "dex",
+    "con",
+    "int",
+    "wis",
+    "cha",
+  ]
   const { stats, updateAbility, toggleSave } = useContext(StatblockContext)
   return (
     <div className="grid grid-rows-1 grid-cols-6 gap-4">
@@ -14,10 +22,10 @@ export const AbilityScoresForm = () => {
             <SBG_Select
               id={ability + "-select"}
               label={ability.toUpperCase()}
-              options={global.abilityScores}
-              value={stats.abilities[ability]}
+              options={abilityScores}
+              value={stats.abilities[ability].toString()}
               fieldName={ability}
-              onChange={(e) => updateAbility(ability, e.target.value)}
+              onChange={(e) => updateAbility(ability, +e.target.value)}
               center
             />
             <CheckboxButton

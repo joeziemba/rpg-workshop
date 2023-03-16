@@ -9,7 +9,7 @@ import firebase from "firebase"
 import { firebaseService } from "services/Firebase"
 
 import { TopBar } from "components"
-import { RedesignAnnounceModal } from "components/pfcb/_modals/RedesignAnnounceModal"
+import { RedesignAnnounceModal } from "components/common/RedesignAnnounceModal"
 
 import { Home } from "routes/Home"
 import { StatblockGenerator } from "routes/dnd5e/statblock-generator/StatblockGenerator"

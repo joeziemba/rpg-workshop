@@ -1,4 +1,4 @@
-global.creatureTypes = [
+export const creatureTypes = [
   "Aberration",
   "Beast",
   "Celestial",
@@ -15,12 +15,12 @@ global.creatureTypes = [
   "Undead",
 ]
 
-global.abilityScores = [
+export const abilityScores = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-]
+].map((x) => "" + x)
 
-global.damageTypes = [
+export const damageTypes = [
   "Acid",
   "Bludgeoning",
   "Cold",
@@ -36,7 +36,7 @@ global.damageTypes = [
   "Thunder",
 ]
 
-global.skills = [
+export const skills = [
   {
     name: "Athletics",
     ability: "str",
@@ -111,7 +111,7 @@ global.skills = [
   },
 ]
 
-global.languages = [
+export const languages = [
   "Common",
   "Dwarvish",
   "Elvish",
@@ -133,7 +133,7 @@ global.languages = [
   "Undercommon",
 ]
 
-global.conditions = [
+export const conditions = [
   "Blinded",
   "Charmed",
   "Deafened",

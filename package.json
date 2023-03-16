@@ -19,7 +19,7 @@
     "test:watch-cover": "npm run test -- --coverage --onlyChanged=false",
     "test": "craco test",
     "test:all": "craco test --watchAll=false --onlyChanged=false",
-    "e2e:chrome": "testcafe chrome testing/main.e2e.ts -r spec,json:testing/reports/chrome.json --sf --live",
+    "e2e:chrome": "testcafe chrome testing/main.e2e.ts -r spec,json:testing/reports/chrome.json --sf",
     "e2e:chrome:ci": "testcafe chrome:headless testing/main.e2e.ts -r spec,json:testing/reports/chrome.json --sf",
     "e2e:ff": "testcafe firefox:headless testing/main.e2e.ts -r spec,json:testing/reports/ff.json --sf",
     "e2e:edge": "testcafe edge testing/main.e2e.ts -r spec,json:testing/reports/edge.json --sf",

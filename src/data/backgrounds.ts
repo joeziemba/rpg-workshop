@@ -1,26 +1,29 @@
 import { Ability } from "./abilities"
+import { AbilityBoost, IAbilityBoost } from "./models/abilityBoost.model"
+import { ISkillBoost } from "./models/SkillBoost"
 import { Proficiencies } from "./skills"
 import { Skills } from "./skills"
 
-export const Backgrounds = {
+interface Background {
+  id: string
+  name: string
+  abilityBoosts: IAbilityBoost[]
+  skillBoosts: ISkillBoost[]
+  feat?: string
+}
+
+export const Backgrounds: Record<any, Background> = {
   Acolyte: {
     id: "Acolyte",
     name: "Acolyte",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Acolyte",
-        type: Ability.FREE,
-        id: "Acolyte1",
-        restrictTo: [Ability.INT, Ability.WIS],
-        exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.CHA],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Acolyte",
-        type: Ability.FREE,
-        id: "Acolyte2",
-      },
+      new AbilityBoost(Ability.FREE, "Acolyte", 1, [
+        Ability.STR,
+        Ability.DEX,
+        Ability.CON,
+        Ability.CHA,
+      ]),
+      new AbilityBoost(Ability.FREE, "Acolyte", 1),
     ],
     skillBoosts: [
       {
@@ -47,20 +50,13 @@ export const Backgrounds = {
     id: "Acrobat",
     name: "Acrobat",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Acrobat",
-        type: Ability.FREE,
-        id: "Acrobat1",
-        restrictTo: [Ability.STR, Ability.DEX],
-        exclude: [Ability.CON, Ability.INT, Ability.WIS, Ability.CHA],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Acrobat",
-        type: Ability.FREE,
-        id: "Acrobat2",
-      },
+      new AbilityBoost(Ability.FREE, "Acrobat", 1, [
+        Ability.CON,
+        Ability.INT,
+        Ability.WIS,
+        Ability.CHA,
+      ]),
+      new AbilityBoost(Ability.FREE, "Acrobat", 1),
     ],
     skillBoosts: [
       {
@@ -87,20 +83,13 @@ export const Backgrounds = {
     id: "AnimalWhisperer",
     name: "Animal Whisperer",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "AnimalWhisperer",
-        type: Ability.FREE,
-        id: "AnimalWhisperer1",
-        restrictTo: [Ability.WIS, Ability.CHA],
-        exclude: [Ability.CON, Ability.INT, Ability.STR, Ability.DEX],
-      },
-      {
-        ability: Ability.FREE,
-        source: "AnimalWhisperer",
-        type: Ability.FREE,
-        id: "AnimalWhisperer2",
-      },
+      new AbilityBoost(Ability.FREE, "AnimalWhisperer", 1, [
+        Ability.CON,
+        Ability.INT,
+        Ability.STR,
+        Ability.DEX,
+      ]),
+      new AbilityBoost(Ability.FREE, "AnimalWhisperer", 1),
     ],
     skillBoosts: [
       {
@@ -127,20 +116,13 @@ export const Backgrounds = {
     id: "Artisan",
     name: "Artisan",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Artisan",
-        type: Ability.FREE,
-        id: "Guild1",
-        restrictTo: [Ability.STR, Ability.INT],
-        exclude: [Ability.DEX, Ability.CON, Ability.WIS, Ability.CHA],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Artisan",
-        type: Ability.FREE,
-        id: "Guild2",
-      },
+      new AbilityBoost(Ability.FREE, "Artisan", 1, [
+        Ability.DEX,
+        Ability.CON,
+        Ability.WIS,
+        Ability.CHA,
+      ]),
+      new AbilityBoost(Ability.FREE, "Artisan", 1),
     ],
     skillBoosts: [
       {
@@ -167,20 +149,13 @@ export const Backgrounds = {
     id: "Artist",
     name: "Artist",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Artist",
-        type: Ability.FREE,
-        id: "Artist1",
-        restrictTo: [Ability.DEX, Ability.CHA],
-        exclude: [Ability.STR, Ability.CON, Ability.INT, Ability.WIS],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Artist",
-        type: Ability.FREE,
-        id: "Artist2",
-      },
+      new AbilityBoost(Ability.FREE, "Artist", 1, [
+        Ability.STR,
+        Ability.CON,
+        Ability.INT,
+        Ability.WIS,
+      ]),
+      new AbilityBoost(Ability.FREE, "Artist", 1),
     ],
     skillBoosts: [
       {
@@ -207,20 +182,13 @@ export const Backgrounds = {
     id: "Barkeep",
     name: "Barkeep",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Barkeep",
-        type: Ability.FREE,
-        id: "Barkeep1",
-        restrictTo: [Ability.CON, Ability.CHA],
-        exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.WIS],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Barkeep",
-        type: Ability.FREE,
-        id: "Barkeep2",
-      },
+      new AbilityBoost(Ability.FREE, "Barkeep", 1, [
+        Ability.STR,
+        Ability.DEX,
+        Ability.INT,
+        Ability.WIS,
+      ]),
+      new AbilityBoost(Ability.FREE, "Barkeep", 1),
     ],
     skillBoosts: [
       {
@@ -247,20 +215,13 @@ export const Backgrounds = {
     id: "Barrister",
     name: "Barrister",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Barrister",
-        type: Ability.FREE,
-        id: "Barrister1",
-        restrictTo: [Ability.INT, Ability.CHA],
-        exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Barrister",
-        type: Ability.FREE,
-        id: "Barrister2",
-      },
+      new AbilityBoost(Ability.FREE, "Barrister", 1, [
+        Ability.STR,
+        Ability.DEX,
+        Ability.CON,
+        Ability.WIS,
+      ]),
+      new AbilityBoost(Ability.FREE, "Barrister", 1),
     ],
     skillBoosts: [
       {
@@ -287,20 +248,13 @@ export const Backgrounds = {
     id: "BountyHunter",
     name: "Bounty Hunter",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "BountyHunter",
-        type: Ability.FREE,
-        id: "BountyHunter1",
-        restrictTo: [Ability.STR, Ability.WIS],
-        exclude: [Ability.DEX, Ability.CON, Ability.INT, Ability.CHA],
-      },
-      {
-        ability: Ability.FREE,
-        source: "BountyHunter",
-        type: Ability.FREE,
-        id: "BountyHunter2",
-      },
+      new AbilityBoost(Ability.FREE, "BountyHunter", 1, [
+        Ability.DEX,
+        Ability.CON,
+        Ability.INT,
+        Ability.CHA,
+      ]),
+      new AbilityBoost(Ability.FREE, "BountyHunter", 1),
     ],
     skillBoosts: [
       {
@@ -327,20 +281,13 @@ export const Backgrounds = {
     id: "Charlatan",
     name: "Charlatan",
     abilityBoosts: [
-      {
-        ability: Ability.FREE,
-        source: "Charlatan",
-        type: Ability.FREE,
-        id: "Charlatan1",
-        restrictTo: [Ability.INT, Ability.CHA],
-        exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
-      },
-      {
-        ability: Ability.FREE,
-        source: "Charlatan",
-        type: Ability.FREE,
-        id: "Charlatan2",
-      },
+      new AbilityBoost(Ability.FREE, "Charlatan", 1, [
+        Ability.STR,
+        Ability.DEX,
+        Ability.CON,
+        Ability.WIS,
+      ]),
+      new AbilityBoost(Ability.FREE, "Charlatan", 1),
     ],
     skillBoosts: [
       {
@@ -372,7 +319,6 @@ export const Backgrounds = {
         source: "Criminal",
         type: Ability.FREE,
         id: "Criminal1",
-        restrictTo: [Ability.INT, Ability.DEX],
         exclude: [Ability.STR, Ability.CON, Ability.WIS, Ability.CHA],
       },
       {
@@ -380,6 +326,7 @@ export const Backgrounds = {
         source: "Criminal",
         type: Ability.FREE,
         id: "Criminal2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -412,7 +359,6 @@ export const Backgrounds = {
         source: "Detective",
         type: Ability.FREE,
         id: "Detective1",
-        restrictTo: [Ability.INT, Ability.WIS],
         exclude: [Ability.STR, Ability.CON, Ability.DEX, Ability.CHA],
       },
       {
@@ -452,7 +398,6 @@ export const Backgrounds = {
         source: "Emissary",
         type: Ability.FREE,
         id: "Emissary1",
-        restrictTo: [Ability.INT, Ability.CHA],
         exclude: [Ability.STR, Ability.CON, Ability.DEX, Ability.WIS],
       },
       {
@@ -492,7 +437,6 @@ export const Backgrounds = {
         source: "Entertainer",
         type: Ability.FREE,
         id: "Entertainer1",
-        restrictTo: [Ability.DEX, Ability.CHA],
         exclude: [Ability.STR, Ability.CON, Ability.INT, Ability.WIS],
       },
       {
@@ -532,7 +476,6 @@ export const Backgrounds = {
         source: "Farmhand",
         type: Ability.FREE,
         id: "Farmhand1",
-        restrictTo: [Ability.CON, Ability.WIS],
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
       },
       {
@@ -572,7 +515,7 @@ export const Backgrounds = {
         source: "FieldMedic",
         type: Ability.FREE,
         id: "FieldMedic1",
-        restrictTo: [Ability.CON, Ability.WIS],
+
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
       },
       {
@@ -612,7 +555,7 @@ export const Backgrounds = {
         source: "FortuneTeller",
         type: Ability.FREE,
         id: "FortuneTeller1",
-        restrictTo: [Ability.INT, Ability.CHA],
+
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
       },
       {
@@ -651,7 +594,7 @@ export const Backgrounds = {
         source: "Gambler",
         type: Ability.FREE,
         id: "Gambler1",
-        restrictTo: [Ability.DEX, Ability.CHA],
+
         exclude: [Ability.STR, Ability.INT, Ability.CON, Ability.WIS],
       },
       {
@@ -690,7 +633,7 @@ export const Backgrounds = {
         source: "Gladiator",
         type: Ability.FREE,
         id: "Gladiator1",
-        restrictTo: [Ability.STR, Ability.CHA],
+
         exclude: [Ability.DEX, Ability.INT, Ability.CON, Ability.WIS],
       },
       {
@@ -730,7 +673,7 @@ export const Backgrounds = {
         source: "Guard",
         type: Ability.FREE,
         id: "Guard1",
-        restrictTo: [Ability.STR, Ability.CHA],
+
         exclude: [Ability.DEX, Ability.INT, Ability.WIS, Ability.CHA],
       },
       {
@@ -770,7 +713,7 @@ export const Backgrounds = {
         source: "Herbalist",
         type: Ability.FREE,
         id: "Herbalist1",
-        restrictTo: [Ability.CON, Ability.WIS],
+
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
       },
       {
@@ -810,7 +753,6 @@ export const Backgrounds = {
         source: "Hermit",
         type: Ability.FREE,
         id: "Hermit1",
-        restrictTo: [Ability.CON, Ability.INT],
         exclude: [Ability.STR, Ability.DEX, Ability.WIS, Ability.CHA],
       },
       {
@@ -850,7 +792,7 @@ export const Backgrounds = {
         source: "Hunter",
         type: Ability.FREE,
         id: "Hunter1",
-        restrictTo: [Ability.DEX, Ability.WIS],
+
         exclude: [Ability.STR, Ability.CON, Ability.INT, Ability.CHA],
       },
       {
@@ -890,7 +832,7 @@ export const Backgrounds = {
         source: "Laborer",
         type: Ability.FREE,
         id: "Laborer1",
-        restrictTo: [Ability.STR, Ability.CON],
+
         exclude: [Ability.DEX, Ability.INT, Ability.WIS, Ability.CHA],
       },
       {
@@ -930,7 +872,7 @@ export const Backgrounds = {
         source: "MartialDisciple",
         type: Ability.FREE,
         id: "MartialDisciple1",
-        restrictTo: [Ability.STR, Ability.DEX],
+
         exclude: [Ability.CON, Ability.INT, Ability.WIS, Ability.CHA],
       },
       {
@@ -970,7 +912,7 @@ export const Backgrounds = {
         source: "Merchant",
         type: Ability.FREE,
         id: "Merchant1",
-        restrictTo: [Ability.INT, Ability.CHA],
+
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
       },
       {
@@ -1009,7 +951,7 @@ export const Backgrounds = {
         source: "Miner",
         type: Ability.FREE,
         id: "Miner1",
-        restrictTo: [Ability.STR, Ability.WIS],
+
         exclude: [Ability.CON, Ability.INT, Ability.DEX, Ability.CHA],
       },
       {
@@ -1049,7 +991,7 @@ export const Backgrounds = {
         source: "Noble",
         type: Ability.FREE,
         id: "Noble1",
-        restrictTo: [Ability.INT, Ability.CHA],
+
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
       },
       {
@@ -1089,7 +1031,7 @@ export const Backgrounds = {
         source: "Nomad",
         type: Ability.FREE,
         id: "Nomad1",
-        restrictTo: [Ability.WIS, Ability.CON],
+
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.STR],
       },
       {
@@ -1128,7 +1070,7 @@ export const Backgrounds = {
         source: "Prisoner",
         type: Ability.FREE,
         id: "Prisoner1",
-        restrictTo: [Ability.STR, Ability.CON],
+
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.WIS],
       },
       {
@@ -1168,7 +1110,7 @@ export const Backgrounds = {
         source: "Sailor",
         type: Ability.FREE,
         id: "Sailor1",
-        restrictTo: [Ability.STR, Ability.DEX],
+
         exclude: [Ability.INT, Ability.CON, Ability.CHA, Ability.WIS],
       },
       {
@@ -1208,7 +1150,7 @@ export const Backgrounds = {
         source: "Scholar",
         type: Ability.FREE,
         id: "Scholar1",
-        restrictTo: [Ability.INT, Ability.WIS],
+
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.CHA],
       },
       {
@@ -1248,7 +1190,7 @@ export const Backgrounds = {
         source: "Scout",
         type: Ability.FREE,
         id: "Scout1",
-        restrictTo: [Ability.DEX, Ability.WIS],
+
         exclude: [Ability.STR, Ability.INT, Ability.CON, Ability.CHA],
       },
       {
@@ -1288,7 +1230,7 @@ export const Backgrounds = {
         source: "StreetUrchin",
         type: Ability.FREE,
         id: "StreetUrchin1",
-        restrictTo: [Ability.DEX, Ability.CON],
+
         exclude: [Ability.STR, Ability.INT, Ability.WIS, Ability.CHA],
       },
       {
@@ -1328,7 +1270,7 @@ export const Backgrounds = {
         source: "Tinker",
         type: Ability.FREE,
         id: "Tinker1",
-        restrictTo: [Ability.DEX, Ability.INT],
+
         exclude: [Ability.STR, Ability.WIS, Ability.CON, Ability.CHA],
       },
       {
@@ -1368,7 +1310,7 @@ export const Backgrounds = {
         source: "Warrior",
         type: Ability.FREE,
         id: "Warrior1",
-        restrictTo: [Ability.STR, Ability.CON],
+
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.WIS],
       },
       {

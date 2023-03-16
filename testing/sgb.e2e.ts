@@ -109,11 +109,9 @@ test("Statblock Generator", async (tc) => {
     dieNum: "2",
     dmgDie: "10",
     dmgType: "Piercing",
-    dex: false,
   })
 
   await openMenu(tc, "#accordion-legendary-actions")
-
   await testAddLegendaryAction(tc)
   await testAddLegendaryAction(tc)
   await testEditLegendaryAction(tc, 2, {
@@ -273,15 +271,15 @@ const testAddFeature = async (tc) => {
   success("added feature")
 }
 
-const deleteAction = async (tc, actionIndex) => {
-  const deleteButton = Selector("#delete-action-" + actionIndex)
-  await tc.click(deleteButton)
-}
+// const deleteAction = async (tc, actionIndex) => {
+//   const deleteButton = Selector("#delete-action-" + actionIndex)
+//   await tc.click(deleteButton)
+// }
 
 const editAttack = async (
   tc,
   attackIndex,
-  { title, type, targets, reach, dieNum, dmgDie, dmgType, dex }
+  { title, type, targets, reach, dieNum, dmgDie, dmgType }
 ) => {
   await tc
     .selectText(Selector("#attack-title-input-" + attackIndex))
@@ -384,8 +382,12 @@ const testEditLegendaryAction = async (
   actionIndex,
   { title, content }
 ) => {
-  const titleInput = Selector("#feature-title-" + actionIndex)
-  const contentInput = Selector("#feature-content-" + actionIndex)
+  const titleInput = Selector(
+    "#accordion-content-legendary-actions #feature-title-" + actionIndex
+  )
+  const contentInput = Selector(
+    "#accordion-content-legendary-actions #feature-content-" + actionIndex
+  )
   const actionDisplay = Selector(
     "#display-legendary-action-" + actionIndex
   )

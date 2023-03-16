@@ -2,10 +2,7 @@ import React from "react"
 import "./teml.scss"
 
 const TEMLbuttons = ({ skill }) => {
-  let { id, proficiency } = skill
-  if (id === "Lore") {
-    id += "_" + skill.type
-  }
+  const { proficiency } = skill
   return (
     <div className="c-teml">
       <div
@@ -30,13 +27,6 @@ const TEMLbuttons = ({ skill }) => {
       ></div>
     </div>
   )
-}
-
-TEMLbuttons.defaultProps = {
-  skill: {
-    id: "",
-    proficiency: 0,
-  },
 }
 
 export default TEMLbuttons

@@ -3,14 +3,20 @@ import { PF2CharacterContext } from "context"
 import { Skills } from "data/skills"
 import { Select } from "./Select"
 
-export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {
+export const FreeSkillBoosts = ({
+  boostSource,
+  boostLevel,
+}: {
+  boostSource: string
+  boostLevel?: number
+}) => {
   const {
     character: { skillBoosts, level },
     selectSkill,
   } = useContext(PF2CharacterContext)
 
   // Get skill boosts for the correct source and below character level
-  let availableBoosts = skillBoosts.filter((boost) => {
+  const availableBoosts = skillBoosts.filter((boost) => {
     return (
       boost.source === boostSource &&
       (!boostLevel || (boost.level <= level && boost.level === boostLevel))
@@ -23,7 +29,7 @@ export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {
       {availableBoosts.map((boost, i) => {
         return (
           <div
-            key={boost.id + i}
+            key={boost.id.toString() + i}
             className="px-2 lg:px-2"
             style={
               availableBoosts.length > 1
@@ -32,11 +38,13 @@ export const FreeSkillBoosts = ({ boostSource, boostLevel }) => {
             }
           >
             <Select
+              ariaLabel={"Skill Boost " + i}
+              center
+              id={boost.id.toString()}
               isDisabled={boost.isStatic}
               onChange={selectSkill}
-              name={boost.id}
+              name={boost.id.toString()}
               value={boost.skill.id}
-              center
             >
               <option value="FREE">&nbsp;</option>
               {Object.keys(Skills).map((skillName) => {

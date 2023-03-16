@@ -1,4 +1,15 @@
+import { Skill, Proficiencies } from "data/skills"
 import { Guid } from "js-guid"
+
+export interface ISkillBoost {
+  id: Guid | string
+  skill: Skill
+  proficiency: number
+  isStatic: boolean
+  level: number
+  source: string
+  type?: string
+}
 
 class SkillBoost {
   public readonly id = new Guid()

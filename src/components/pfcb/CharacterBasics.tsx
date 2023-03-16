@@ -14,7 +14,7 @@ export const CharacterBasics = ({
   setLevel,
   updateName,
 }) => {
-  let { Classes, Backgrounds, Ancestries } = useContext(
+  const { Classes, Backgrounds, Ancestries } = useContext(
     PF2CharacterContext
   )
 
@@ -37,11 +37,12 @@ export const CharacterBasics = ({
 
             <label className="px-4">
               <Select
+                ariaLabel="Ancestry"
                 id="ancestry-select"
+                isDefault={!character.ancestry.name}
+                name="ancestry-select"
                 onChange={selectAncestry}
                 value={character.ancestry.name || ""}
-                aria-label="Ancestry"
-                isDefault={!character.ancestry.name}
               >
                 <option value="">Choose Ancestry</option>
                 {Object.keys(Ancestries).map((ancestry) => (
@@ -54,10 +55,12 @@ export const CharacterBasics = ({
 
             <label className="px-4">
               <Select
+                ariaLabel="Background"
+                isDefault={!character.background.name}
+                id="background-select"
+                name="background-select"
                 onChange={selectBackground}
                 value={character.background.id || ""}
-                aria-label="Background"
-                isDefault={!character.background.name}
               >
                 <option value="">Choose Background</option>
                 {Object.keys(Backgrounds).map((background) => (
@@ -71,11 +74,12 @@ export const CharacterBasics = ({
             <div className="flex">
               <label className="flex-1 flex-grow-2 pl-4 pr-2">
                 <Select
-                  id="classSelect"
+                  ariaLabel="Class"
+                  id="class-select"
+                  isDefault={!character.class.name}
+                  name="class-select"
                   onChange={selectClass}
                   value={character.class.name || ""}
-                  aria-label="Class"
-                  isDefault={!character.class.name}
                 >
                   <option value="">Choose Class</option>
                   {Object.keys(Classes).map((class_name) => (
@@ -88,10 +92,11 @@ export const CharacterBasics = ({
 
               <label className="flex-1 pr-4 pl-2">
                 <Select
-                  id="levelSelect"
+                  ariaLabel="Level"
+                  id="level-select"
+                  name="level-select"
                   onChange={setLevel}
                   value={character.level}
-                  aria-label="Level"
                 >
                   {[...Array(21).keys()].slice(1).map((x, i) => (
                     <option value={i + 1} key={i + 1}>
@@ -184,15 +189,19 @@ const AC = ({ character }) => {
     }
     return ac
   }
-  let hasClass = !!character.class.name
+  const hasClass = !!character.class.name
   return (
     <div className="flex-initial flex items-center">
       <div className="flex-1">
-        <Statbox stat={calculateAC(character)} title="AC" large />
+        <Statbox
+          stat={calculateAC(character).toString()}
+          title="AC"
+          large
+        />
       </div>
       <div className="flex-1 flex-grow-2 flex items-center relative mr-2">
         <span className="mr-2">=</span>
-        <Statbox className="flex-1" stat={10} title="Base" />
+        <Statbox className="flex-1" stat={"10"} title="Base" />
         <span className="mx-2">+</span>
         <Statbox
           className="flex-1"
@@ -200,14 +209,14 @@ const AC = ({ character }) => {
           title="DEX"
         />
         <span className="mx-2">+</span>
-        <Statbox className="flex-1" stat={0} title="Item" />
+        <Statbox className="flex-1" stat={"0"} title="Item" />
         <span className="mx-2">+</span>
         <Statbox
           className="flex-1"
           stat={
             hasClass && character.class.defenses.unarmored > 0
               ? character.class.defenses.unarmored + character.level
-              : 0
+              : "0"
           }
           title={
             hasClass && character.class.defenses.unarmored > 0

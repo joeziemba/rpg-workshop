@@ -34,7 +34,7 @@ export const SaveRow = ({ character, saveType }) => {
     proficiencyBonus += character.saves[saveType] + character.level
   }
 
-  let totalBonus = proficiencyBonus + modifier
+  const totalBonus = proficiencyBonus + modifier
   return (
     <div className="flex-initial flex items-center">
       <div className="flex-1">
@@ -48,7 +48,11 @@ export const SaveRow = ({ character, saveType }) => {
           title={abilityAbbreviation}
         />
         <span className="mx-2">+</span>
-        <Statbox className="flex-1" stat={proficiencyBonus} title="PROF" />
+        <Statbox
+          className="flex-1"
+          stat={proficiencyBonus.toString()}
+          title="PROF"
+        />
       </div>
       <div className="flex-1 flex justify-around">
         <TEMLbuttons
@@ -57,7 +61,6 @@ export const SaveRow = ({ character, saveType }) => {
             id: saveName,
             name: saveName,
           }}
-          disabled
         />
       </div>
     </div>

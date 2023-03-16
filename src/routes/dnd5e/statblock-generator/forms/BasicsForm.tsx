@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { SBG_Input, SBG_Select } from "components"
 import { StatblockContext } from "context"
+import { creatureTypes } from "data/dnd5e-constants"
 
 export const BasicsForm = () => {
   const { stats, updateState, updateAC, updateHP } =
@@ -32,7 +33,7 @@ export const BasicsForm = () => {
           <SBG_Select
             id="type-select"
             label={"Creature Type"}
-            options={global.creatureTypes}
+            options={creatureTypes}
             value={stats.creatureType}
             onChange={updateState}
             fieldName="creatureType"
@@ -44,7 +45,7 @@ export const BasicsForm = () => {
             type="number"
             label={"Proficiency"}
             placeholder={""}
-            value={stats.proficiency}
+            value={stats.proficiency.toString()}
             fieldName="proficiency"
             onChange={updateState}
           />
@@ -58,7 +59,7 @@ export const BasicsForm = () => {
             id="ac-input"
             label={"Score"}
             placeholder={""}
-            value={stats.ac.score}
+            value={stats.ac.score.toString()}
             fieldName="score"
             onChange={updateAC}
             type="number"
@@ -82,8 +83,9 @@ export const BasicsForm = () => {
             id="hit-die-select"
             label={"Hit Die"}
             options={["4", "6", "8", "10", "12", "20"]}
-            value={stats.hp.hitDie}
+            value={stats.hp.hitDie.toString()}
             fieldName="hitDie"
+            //@ts-expect-error
             onChange={updateHP}
           />
           <SBG_Input
@@ -91,7 +93,7 @@ export const BasicsForm = () => {
             type="number"
             label={"Number of Dice"}
             placeholder={""}
-            value={stats.hp.dieNum}
+            value={stats.hp.dieNum.toString()}
             fieldName="dieNum"
             onChange={updateHP}
             className="mt-2"

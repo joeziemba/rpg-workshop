@@ -8,26 +8,27 @@ import { PlaceholderText } from "./PlaceholderText"
 
 export const AbilityScoreSection = ({ character, boostAbility }) => {
   function freeAbilityOptions(source) {
-    let { abilityBoosts } = character
-    let freebies = abilityBoosts.filter(
+    const { abilityBoosts } = character
+    const freebies = abilityBoosts.filter(
       (boost) => boost.type === Ability.FREE && boost.source === source
     )
     return freebies.map((boost, i) => {
-      let boostsFromSameSource = abilityBoosts.filter(
+      const boostsFromSameSource = abilityBoosts.filter(
         (b) => b.source === boost.source && b.id !== boost.id
       )
-      let excludedAbilities = boostsFromSameSource.map((b) => b.ability)
+      const excludedAbilities = boostsFromSameSource.map((b) => b.ability)
       if (boost.exclude) excludedAbilities.push(...boost.exclude)
 
       return (
         <div key={boost.id} className="flex-1 mx-2 lg:mx-2">
           <Select
+            ariaLabel={"Level 1 Ability Boost: " + i}
+            id={"Level 1 Ability Boost " + i}
+            center
+            isDefault={boost.ability == "Free"}
             onChange={boostAbility}
             name={boost.id}
-            aria-label={"Level 1 Ability Boost: " + i}
             value={boost.ability}
-            isDefault={boost.ability == "Free"}
-            center
           >
             <option value="FREE"></option>
             {Object.keys(Ability).map((ability) => {
@@ -52,10 +53,10 @@ export const AbilityScoreSection = ({ character, boostAbility }) => {
   function renderAbilities() {
     return Object.keys(Ability).map((abilityKey) => {
       if (abilityKey !== "FREE") {
-        let keyAbility = character.abilityBoosts.find(
+        const keyAbility = character.abilityBoosts.find(
           (b) => b.source === character.class.name
         )
-        let isKey =
+        const isKey =
           keyAbility && keyAbility.ability === Ability[abilityKey]
         return (
           <div

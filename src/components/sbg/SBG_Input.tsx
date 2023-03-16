@@ -1,16 +1,16 @@
-import React, { ChangeEvent } from "react"
+import { ChangeEventHandler } from "react"
 
-type SBG_InputProps = {
+interface SBG_InputProps {
   className?: string
   fieldName: string
   hideLabel?: boolean
   id: string
   label?: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: ChangeEventHandler<HTMLInputElement>
   placeholder?: string
   supportText?: string
   type: string
-  value: string
+  value: string | number
 }
 
 export const SBG_Input = ({

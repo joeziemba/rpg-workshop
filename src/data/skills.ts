@@ -1,13 +1,33 @@
 import { Ability } from "./abilities"
 
-export interface Skill {
+type SkillName =
+  | "Acrobatics"
+  | "Arcana"
+  | "Athletics"
+  | "Crafting"
+  | "Deception"
+  | "Diplomacy"
+  | "Intimidation"
+  | "Lore"
+  | "Medicine"
+  | "Nature"
+  | "Occultism"
+  | "Performance"
+  | "Religion"
+  | "Society"
+  | "Stealth"
+  | "Survival"
+  | "Thievery"
+
+export type Skill = {
   id: string
   name: string
   modifier: Ability
   proficiency: number
+  type?: string
 }
 
-export const Skills = {
+export const Skills: Record<SkillName, Skill> = {
   Acrobatics: {
     id: "Acrobatics",
     name: "Acrobatics",
