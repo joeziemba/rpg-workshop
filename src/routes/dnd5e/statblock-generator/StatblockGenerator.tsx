@@ -14,9 +14,17 @@ import { StatblockAction } from "data/models/StatblockAction"
 import { StatblockAttack } from "data/models/StatblockAttack"
 import { Skill } from "data/skills"
 import { Ability } from "data/abilities"
+import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
 
 type ability = "str" | "dex" | "con" | "int" | "wis" | "cha"
-class abilityObject {
+type abilityModKey =
+  | "strMod"
+  | "dexMod"
+  | "conMod"
+  | "intMod"
+  | "wisMod"
+  | "chaMod"
+class abilityObject implements IStringIndex {
   constructor(
     public str = 10,
     public strMod = 0,
@@ -46,7 +54,7 @@ class Attack {
   public dex = false
 }
 
-class Feature {
+export class Feature {
   public id = new Guid().toString()
   constructor(
     public title = "Sample",
@@ -55,7 +63,7 @@ class Feature {
   ) {}
 }
 
-type Action = Feature | Attack
+export type Action = Feature | Attack
 
 export class Statblock {
   constructor(
@@ -231,8 +239,8 @@ export class StatblockGenerator extends Component<
     toast("Sheet Cleared")
   }
 
-  updateState(event) {
-    const { name, value }: { name: string; value: string } = event.target
+  updateState(event: InputEventTarget) {
+    const { name, value } = event.target
     this.setState({
       ...this.state,
       [name]: value,
@@ -257,14 +265,14 @@ export class StatblockGenerator extends Component<
     const abArray: ability[] = ["str", "dex", "con", "int", "wis", "cha"]
     abArray.forEach((ability) => {
       newAbilities[ability] = this.state.abilities[ability]
-      newAbilities[ability + "Mod"] = Math.floor(
+      newAbilities[(ability + "Mod") as abilityModKey] = Math.floor(
         (this.state.abilities[ability] - 10) / 2
       )
     })
     this.setState({ abilities: newAbilities })
   }
 
-  updateAC(e: { target: HTMLInputElement }) {
+  updateAC(e: InputEventTarget) {
     const { name, value } = e.target
     this.setState({
       ac: {
@@ -274,7 +282,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateHP(e: { target: HTMLInputElement }) {
+  updateHP(e: InputEventTarget) {
     const { name, value } = e.target
     this.setState(
       {
@@ -311,13 +319,16 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateFeature(e: { target: HTMLInputElement }, featureId: string) {
-    const { name, value } = e.target
-    const newFeatures = this.state.features.map((feat) => {
-      if (feat.id === featureId) {
-        feat[name] = value
+  updateFeature(
+    { featureKey, value }: { featureKey: keyof Feature; value: string },
+    featureId: string
+  ) {
+    // const { name, value } = e.target
+    const newFeatures = this.state.features.map((feature) => {
+      if (feature.id === featureId) {
+        feature[featureKey] = value
       }
-      return feat
+      return feature
     })
 
     this.setState({
@@ -325,7 +336,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  addAction(actionType: StatblockActionType) {
+  addAction(actionType?: StatblockActionType) {
     const newActions = [...this.state.actions]
 
     let newAction: Action
@@ -359,11 +370,7 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateAction(
-    e: { target: HTMLButtonElement },
-    actionId: string,
-    legendary: boolean
-  ) {
+  updateAction(e: InputEventTarget, actionId: string, legendary: boolean) {
     const { name, value } = e.target
     let actions: Action[]
 
@@ -382,7 +389,7 @@ export class StatblockGenerator extends Component<
         } else if ("dex" in action && name === "dex") {
           action.dex = !action.dex
         } else if (name in action) {
-          action[name] = value
+          action[name as keyof Action] = value
         }
       }
       return action

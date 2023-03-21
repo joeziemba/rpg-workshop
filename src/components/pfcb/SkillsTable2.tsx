@@ -15,11 +15,11 @@ export const SkillsTable = () => {
 
   return (
     <Card title="Skills">
-      {(character.background.name ||
+      {(character.background?.name ||
         character.abilityMods.Intelligence > 0 ||
-        character.class.name) && (
+        character.class?.name) && (
         <div className="">
-          {character.background.name && (
+          {character.background?.name && (
             <>
               <SubHeading>
                 Background Skills: {character.background.name}
@@ -36,7 +36,7 @@ export const SkillsTable = () => {
               <FreeSkillBoosts boostSource="int" />
             </>
           )}
-          {character.class.name && (
+          {character.class?.name && (
             <>
               <SubHeading>Level 1 Class Skills</SubHeading>
               <FreeSkillBoosts

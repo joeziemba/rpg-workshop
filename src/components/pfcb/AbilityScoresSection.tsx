@@ -1,15 +1,16 @@
 import React, { useContext } from "react"
 import _ from "lodash"
-import { Ability } from "data/abilities"
+import { Ability, FullAbilityNames } from "data/abilities"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"
 import { PlaceholderText } from "./PlaceholderText"
 import { PF2CharacterContext } from "context"
+import { Ancestry, AncestryKey } from "data/ancestries"
 
-export const AbilityScoreSection = ({ character }) => {
-  const { boostAbility } = useContext(PF2CharacterContext)
-  function freeAbilityOptions(source) {
+export const AbilityScoreSection = () => {
+  const { boostAbility, character } = useContext(PF2CharacterContext)
+  function freeAbilityOptions(source: AncestryKey | string) {
     const { abilityBoosts } = character
     const freebies = abilityBoosts.filter(
       (boost) => boost.type === Ability.FREE && boost.source === source
@@ -33,7 +34,7 @@ export const AbilityScoreSection = ({ character }) => {
             value={boost.ability}
           >
             <option value="FREE"></option>
-            {Object.keys(Ability).map((ability) => {
+            {FullAbilityNames.map((ability) => {
               if (ability !== "FREE") {
                 return excludedAbilities.includes(
                   Ability[ability]
@@ -53,10 +54,10 @@ export const AbilityScoreSection = ({ character }) => {
   }
 
   function renderAbilities() {
-    return Object.keys(Ability).map((abilityKey) => {
+    return FullAbilityNames.map((abilityKey) => {
       if (abilityKey !== "FREE") {
         const keyAbility = character.abilityBoosts.find(
-          (b) => b.source === character.class.name
+          (b) => b.source === character.class?.name
         )
         const isKey =
           keyAbility && keyAbility.ability === Ability[abilityKey]
@@ -99,10 +100,10 @@ export const AbilityScoreSection = ({ character }) => {
 
       <SubHeading>
         Ancestry Boosts{" "}
-        {character.ancestry.name && " - " + character.ancestry.name}
+        {character.ancestry?.name && " - " + character.ancestry.name}
       </SubHeading>
       <div className="flex">
-        {_.isEmpty(character.ancestry) ? (
+        {!character.ancestry || _.isEmpty(character.ancestry) ? (
           <PlaceholderText>choose an ancestry above</PlaceholderText>
         ) : (
           freeAbilityOptions(character.ancestry.name)
@@ -111,18 +112,18 @@ export const AbilityScoreSection = ({ character }) => {
 
       <SubHeading>
         Background Boosts
-        {character.background.name && " - " + character.background.name}
+        {character.background?.name && " - " + character.background.name}
       </SubHeading>
       <div className="flex">
-        {!character.background.name ? (
+        {!character.background?.name ? (
           <PlaceholderText>choose a background above</PlaceholderText>
         ) : (
           freeAbilityOptions(character.background.id)
         )}
       </div>
 
-      {character.class.name &&
-        character.class.abilityBoosts[0].ability === Ability.FREE && (
+      {character.class?.name &&
+        character.class?.abilityBoosts[0].ability === Ability.FREE && (
           <>
             <SubHeading>
               Class Boost

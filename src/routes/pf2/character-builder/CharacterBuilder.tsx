@@ -28,21 +28,35 @@ import {
 import { toast } from "react-toastify"
 import { applyNewAncestry } from "services/AncestryService"
 import { migrateToLatest } from "migrations"
+import { RouteComponentProps, RouteProps } from "react-router"
+import { Ability } from "data/abilities"
 
-interface InputEvent {
+export interface InputEventTarget {
   target: {
     name: string
     value: string
   }
 }
 
-export class CharacterBuilder extends React.Component<any, any> {
+interface CharacterBuilderProps
+  extends RouteComponentProps<{
+    characterId: string
+  }> {}
+
+interface CharacterBuilderState {
+  character: character
+}
+
+export class CharacterBuilder extends React.Component<
+  CharacterBuilderProps,
+  CharacterBuilderState
+> {
   blankCharacter
-  constructor(props) {
+  constructor(props: CharacterBuilderProps) {
     super(props)
 
     this.state = {
-      character: {},
+      character: {} as character,
     }
 
     this.blankCharacter = getBlankCharacter()
@@ -85,7 +99,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     return returnedCharacter
   }
 
-  updateName(e: InputEvent) {
+  updateName(e: InputEventTarget) {
     this.setState({
       character: { ...this.state.character, name: e.target.value },
     })
@@ -99,27 +113,27 @@ export class CharacterBuilder extends React.Component<any, any> {
     })
   }
 
-  selectBackground(e: InputEvent) {
+  selectBackground(e: InputEventTarget) {
     if ([undefined, null, ""].includes(e.target.value)) return
     const character = _.cloneDeep(this.state.character)
 
     character.abilityBoosts = character.abilityBoosts.filter(
-      (boost) => boost.source !== character.background.id
+      (boost) => boost.source !== character.background?.id
     )
 
     character.skillBoosts = character.skillBoosts.filter(
-      (boost) => boost.source !== character.background.id
+      (boost) => boost.source !== character.background?.id
     )
 
     character.background = Backgrounds[e.target.value]
-
-    character.abilityBoosts = character.abilityBoosts.concat(
-      character.background.abilityBoosts
-    )
+    if (character.background)
+      character.abilityBoosts = character.abilityBoosts.concat(
+        character.background.abilityBoosts
+      )
 
     // Remove any trained skills that will now be trained by background
-    if (character.class.name) {
-      const backgroundSkillNames = character.background.skillBoosts.map(
+    if (character.class?.name) {
+      const backgroundSkillNames = character.background?.skillBoosts.map(
         (b) => b.skill.name
       )
 
@@ -133,54 +147,66 @@ export class CharacterBuilder extends React.Component<any, any> {
           `Removed ${skillBoost.skill.name} from Level ${
             skillBoost.level || 1
           } skills. It is now trained by your background: ${
-            character.background.name
+            character.background?.name
           }`
         )
-        skillBoost.skill = { id: "Free" }
+        skillBoost.skill = {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        }
         skillBoost.isStatic = false
       })
     }
 
     character.skillBoosts = character.skillBoosts.concat(
-      character.background.skillBoosts
+      character.background?.skillBoosts
     )
 
     this.updateStats(character)
   }
 
-  selectClass(e: InputEvent) {
+  selectClass(e: InputEventTarget) {
     if ([undefined, null, ""].includes(e.target.value)) return
     const character = _.cloneDeep(this.state.character)
 
     character.abilityBoosts = character.abilityBoosts.filter(
-      (boost) => boost.source !== character.class.name
+      (boost) => boost.source !== character.class?.name
     )
 
-    character.skillBoosts = character.skillBoosts.filter(
-      (boost) => !boost.source.includes(character.class.name)
-    )
+    if (character.class) {
+      character.skillBoosts = character.skillBoosts.filter(
+        (boost) => !boost.source.includes(character.class!.name)
+      )
+    }
 
     character.class = _.cloneDeep(Classes[e.target.value])
+    if (character.class) {
+      character.abilityBoosts = character.abilityBoosts.concat(
+        _.cloneDeep(character.class.abilityBoosts)
+      )
 
-    character.abilityBoosts = character.abilityBoosts.concat(
-      _.cloneDeep(character.class.abilityBoosts)
-    )
+      // Make any class boost assigned by background a free boost
+      const newClassBoosts = character.class.skillBoosts.map(
+        (classBoost) => {
+          const isAssignedByBackground =
+            character.background?.skillBoosts.find(
+              (bb) => bb.skill.name === classBoost.skill.name
+            )
+          if (isAssignedByBackground)
+            return {
+              ...classBoost,
+              skill: { id: "Free" } as Skill,
+              isStatic: false,
+            }
 
-    // Make any class boost assigned by background a free boost
-    const newClassBoosts = character.class.skillBoosts.map(
-      (classBoost) => {
-        const isAssignedByBackground =
-          character.background.skillBoosts.find(
-            (bb) => bb.skill.name === classBoost.skill.name
-          )
-        if (isAssignedByBackground)
-          return { ...classBoost, skill: { id: "Free" }, isStatic: false }
+          return { ...classBoost }
+        }
+      )
 
-        return { ...classBoost }
-      }
-    )
-
-    character.skillBoosts = character.skillBoosts.concat(newClassBoosts)
+      character.skillBoosts = character.skillBoosts.concat(newClassBoosts)
+    }
 
     // Remove old class and even skill feats
     character.feats = character.feats.filter((feat) => {
@@ -199,7 +225,7 @@ export class CharacterBuilder extends React.Component<any, any> {
 
     character.feats = character.feats.concat(blankFeats)
 
-    if (character.class.feats)
+    if (character.class?.feats)
       character.feats = character.feats.concat(character.class.feats)
 
     this.updateStats(character)
@@ -214,8 +240,8 @@ export class CharacterBuilder extends React.Component<any, any> {
   }
 
   updateStats(character: character, callback?: () => void) {
-    const hasClass = !!character.class.name
-    const hasAncestry = !!character.ancestry.name
+    const hasClass = !!character.class?.name
+    const hasAncestry = !!character.ancestry?.name
     character.abilities = calculateAbilityScores(character)
     character.abilityMods = calculateAbilityMods(character)
     character.hitPoints = calculateHP(character)
@@ -226,9 +252,9 @@ export class CharacterBuilder extends React.Component<any, any> {
         (boost) =>
           boost.ability === "Intelligence" &&
           (boost.source === "Level_1" ||
-            boost.source === character.background.name ||
-            boost.source === character.class.name ||
-            boost.source === character.ancestry.name)
+            boost.source === character.background?.name ||
+            boost.source === character.class?.name ||
+            boost.source === character.ancestry?.name)
       )
 
       const intSkills = character.skillBoosts.filter(
@@ -270,18 +296,18 @@ export class CharacterBuilder extends React.Component<any, any> {
     })
 
     // Speed
-    if (hasAncestry) {
+    if (character.ancestry?.speed) {
       character.speed = character.ancestry.speed
     }
 
     // Saves
     if (hasClass) {
-      character.class.saveBoosts.forEach((boost) => {
+      character.class?.saveBoosts.forEach((boost) => {
         let charLevel =
           typeof character.level === "string"
             ? parseInt(character.level, 10)
             : character.level
-        if (charLevel >= parseInt(boost.level, 10)) {
+        if (charLevel >= boost.level) {
           character.saves[boost.save] = boost.proficiency
         }
       })
@@ -296,25 +322,27 @@ export class CharacterBuilder extends React.Component<any, any> {
     character.feats = this.sortFeats(character.feats)
 
     // Ensure current Builder version
-    if (character.builderVersion < BUILDER_VERSION)
+    if (
+      character.builderVersion &&
+      character.builderVersion < BUILDER_VERSION
+    )
       character.builderVersion = BUILDER_VERSION
 
     this.setState({ character }, callback)
   }
 
-  boostAbility(e: InputEvent) {
+  boostAbility(e: InputEventTarget) {
     const character = _.cloneDeep(this.state.character)
 
     const boost = character.abilityBoosts.find(
       (boost) => boost.id === e.target.name
     )
-    debugger
-    boost.ability = e.target.value
+    if (boost) boost.ability = e.target.value as Ability
 
     this.updateStats(character)
   }
 
-  selectSkill(e: InputEvent) {
+  selectSkill(e: InputEventTarget) {
     const character = _.cloneDeep(this.state.character)
 
     const skillId = e.target.value
@@ -396,7 +424,7 @@ export class CharacterBuilder extends React.Component<any, any> {
     this.setState({ character })
   }
 
-  setLevel(e: InputEvent) {
+  setLevel(e: InputEventTarget) {
     const character = _.cloneDeep(this.state.character)
     character.level = parseInt(e.target.value, 10)
     this.updateStats(character)
@@ -420,6 +448,8 @@ export class CharacterBuilder extends React.Component<any, any> {
       Classes,
       Ancestries,
       Backgrounds,
+      setLevel: this.setLevel,
+      updateName: this.updateName,
     }
 
     return (
@@ -433,16 +463,10 @@ export class CharacterBuilder extends React.Component<any, any> {
               getCharacter={this.getCharacter}
             />
             <div className="pt-20 px-2 max-w-5xl mx-auto">
-              <CharacterBasics
-                selectBackground={this.selectBackground}
-                selectClass={this.selectClass}
-                updateName={this.updateName}
-                character={character}
-                setLevel={this.setLevel}
-              />
+              <CharacterBasics />
               <div className="flex flex-wrap">
                 <div className="flex-full md:flex-1 flex flex-col">
-                  <AbilityScoreSection character={this.state.character} />
+                  <AbilityScoreSection />
                   <FeatsSection />
                 </div>
                 <div className="flex-full md:flex-1">

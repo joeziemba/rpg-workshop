@@ -1,6 +1,10 @@
+declare type IStringIndex = {
+  [index: string]: any
+}
+
 declare type Feat = {
   name: string
-  level: number
+  level?: number
   source: string
   rarity: string
   prerequisites: string

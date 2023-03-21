@@ -1,17 +1,27 @@
-import React from "react"
+import React, { ChangeEventHandler } from "react"
 import { SBG_Input, Textarea } from "components"
 import "./FeatureBlock.scss"
+import {
+  Feature,
+  StatblockGenerator,
+} from "routes/dnd5e/statblock-generator/StatblockGenerator"
+import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
+
+export interface FeatureBlockProps {
+  deleteFunc: StatblockGenerator["deleteFeature"]
+  feature: Feature
+  index: number
+  typeText?: string
+  updateFunc: (e: InputEventTarget) => void
+}
 
 export const FeatureBlock = ({
   deleteFunc,
   feature,
+  index,
   typeText = "Feature",
   updateFunc,
-  index,
-}) => {
-  const onChange = (e) => {
-    updateFunc(e, feature.id)
-  }
+}: FeatureBlockProps) => {
   return (
     <div className="feature-block relative grid grid-rows-1 grid-cols-12 gap-2 mx-1 mb-2">
       <div className="col-span-4">
@@ -19,7 +29,7 @@ export const FeatureBlock = ({
           fieldName={"title"}
           id={"feature-title-" + index}
           label={typeText}
-          onChange={(e) => updateFunc(e, feature.id)}
+          onChange={updateFunc}
           type="text"
           value={feature.title}
         />
@@ -29,7 +39,7 @@ export const FeatureBlock = ({
           fieldName={"content"}
           id={"feature-content-" + index}
           label={"Description"}
-          onChange={onChange}
+          onChange={updateFunc}
           rows={2}
           value={feature.content}
         />

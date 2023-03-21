@@ -5,7 +5,7 @@ type StatboxProps = {
   children?: React.ReactNode
   large?: boolean
   secondary?: boolean
-  stat: string
+  stat: string | number
   title: string
 }
 

@@ -12,7 +12,7 @@ export const ActionsForm = ({ legendary = false }) => {
   return (
     <React.Fragment>
       {stats.actions.map((action, i) => {
-        if (["Melee", "Ranged"].includes(action.type)) {
+        if (!("content" in action)) {
           return (
             <AttackForm
               action={action}

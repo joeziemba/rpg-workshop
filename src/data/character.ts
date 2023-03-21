@@ -2,9 +2,13 @@ import _, { cloneDeep } from "lodash"
 import { Saves } from "./classes"
 import { Ability } from "./abilities"
 import { Skills } from "./skills"
-import { AbilityBoost } from "./models/abilityBoost.model"
+import { AbilityBoost, IAbilityBoost } from "./models/abilityBoost.model"
 // import SaveBoost from "./models/SaveBoost"
 import SkillBoost, { ISkillBoost } from "./models/SkillBoost"
+import SaveBoost from "./models/SaveBoost"
+import { Ancestry } from "./ancestries"
+import { PF2CharacterClass } from "types/pf2e/CharacterClass"
+import { Background } from "./backgrounds"
 
 // class perceptionBoost {
 //   constructor(
@@ -24,23 +28,25 @@ import SkillBoost, { ISkillBoost } from "./models/SkillBoost"
 // }
 
 export class character {
-  public uid = ""
+  public uid?: string
   public name = ""
   public level = 1
   public hitPoints = 0
   public speed = 0
 
-  public ancestry
-  public background
-  public class
+  public ancestry?: Ancestry
+  public background?: Background
+  public class?: PF2CharacterClass
   public saves = {
     [Saves.FORT]: 0,
     [Saves.REF]: 0,
     [Saves.WILL]: 0,
   }
   public skillBoosts: ISkillBoost[] = []
-  public proficiencyBoosts: [] = []
+  public proficiencyBoosts?: [] = []
   public perceptionProficiency = 0
+
+  public defenses = { unarmored: 0 }
 
   public abilities = {
     [Ability.STR]: 10,
@@ -119,16 +125,20 @@ export class character {
     { type: "general_19", level: 19 },
   ]
 
-  public builderVersion = ""
+  public builderVersion? = ""
 
-  constructor(data: character) {
-    Object.keys(data).forEach((key) => {
-      this[key] = data[key]
-    })
+  constructor(data?: character) {
+    if (data)
+      Object.keys(data).forEach((key) => {
+        this[key] = data[key]
+      })
   }
 }
 
-export function calculateAbilityScores(character) {
+export function calculateAbilityScores(character: {
+  abilityFlaws: character["abilityFlaws"]
+  abilityBoosts: character["abilityBoosts"]
+}) {
   // All abilities start at 10
   const abilities = {
     [Ability.STR]: 10,
@@ -142,35 +152,40 @@ export function calculateAbilityScores(character) {
   // Apply flaws first so boosts add correct points
   if (character.abilityFlaws)
     character.abilityFlaws.forEach((flaw) => {
-      abilities[flaw.ability] -= 2
+      if (flaw.ability !== Ability["FREE"]) {
+        abilities[flaw.ability] -= 2
+      }
     })
 
   character.abilityBoosts.forEach((boost) => {
-    // Ability boosts add 2, until 18 and then only 1
-    if (abilities[boost.ability] < 18) {
-      abilities[boost.ability] += 2
-    } else {
-      abilities[boost.ability] += 1
+    if (boost.ability !== Ability["FREE"]) {
+      // Ability boosts add 2, until 18 and then only 1
+      if (abilities[boost.ability] < 18) {
+        abilities[boost.ability] += 2
+      } else {
+        abilities[boost.ability] += 1
+      }
     }
   })
 
   return abilities
 }
 
-export function calculateHP(character) {
+export function calculateHP(character: character) {
   // Initialize HP at Ancestry value, or 0 if none chosen
-  let hitPoints = character.ancestry.hp || 0
+  let hitPoints = character.ancestry?.hp || 0
   // If class is chosen, add Class HP for every level
-  if (character.class.hp) hitPoints += character.class.hp * character.level
+  if (character.class?.hp)
+    hitPoints += character.class.hp * character.level
 
   // Calculate Ability scores for every level to add CON mod to HP
   // 1st
   const lv1boosts = character.abilityBoosts.filter(
     (boost) =>
       boost.source === "Level_1" ||
-      boost.source === character.background.name ||
-      boost.source === character.class.name ||
-      boost.source === character.ancestry.name
+      boost.source === character.background?.name ||
+      boost.source === character.class?.name ||
+      boost.source === character.ancestry?.name
   )
 
   const lv1scores = calculateAbilityScores({
@@ -186,9 +201,9 @@ export function calculateHP(character) {
     (boost) =>
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
-      boost.source === character.background.name ||
-      boost.source === character.class.name ||
-      boost.source === character.ancestry.name
+      boost.source === character.background?.name ||
+      boost.source === character.class?.name ||
+      boost.source === character.ancestry?.name
   )
 
   const lv5scores = calculateAbilityScores({
@@ -205,9 +220,9 @@ export function calculateHP(character) {
       boost.source === "Level_1" ||
       boost.source === "Level_5" ||
       boost.source === "Level_10" ||
-      boost.source === character.background.name ||
-      boost.source === character.class.name ||
-      boost.source === character.ancestry.name
+      boost.source === character.background?.name ||
+      boost.source === character.class?.name ||
+      boost.source === character.ancestry?.name
   )
 
   const lv10scores = calculateAbilityScores({
@@ -225,9 +240,9 @@ export function calculateHP(character) {
       boost.source === "Level_5" ||
       boost.source === "Level_10" ||
       boost.source === "Level_15" ||
-      boost.source === character.background.name ||
-      boost.source === character.class.name ||
-      boost.source === character.ancestry.name
+      boost.source === character.background?.name ||
+      boost.source === character.class?.name ||
+      boost.source === character.ancestry?.name
   )
 
   const lv15scores = calculateAbilityScores({
@@ -254,22 +269,23 @@ export function calculateAbilityMods(character: {
   abilities: character["abilities"]
 }): character["abilityMods"] {
   const mods = {} as character["abilityMods"]
-  const abNames = Object.keys(character.abilities)
+  const abNames = Object.keys(character.abilities) as Ability[]
   abNames.forEach((ability) => {
-    mods[ability] = abMod(character.abilities[ability])
+    if (ability !== Ability["FREE"])
+      mods[ability] = abMod(character.abilities[ability])
   })
 
   return mods
 }
 
-export function abMod(abilityScore) {
+export function abMod(abilityScore: number) {
   return Math.floor((abilityScore - 10) / 2)
 }
 
 export function calculatePerception(character: character) {
   let prof = 0
-  if (character.class.perceptionBoosts)
-    character.class.perceptionBoosts.forEach((boost) => {
+  if (character.class?.perceptionBoosts)
+    character.class?.perceptionBoosts.forEach((boost: SkillBoost) => {
       const level = boost.level
       if (level <= character.level) prof = boost.proficiency
     })
@@ -296,7 +312,7 @@ export const upperLevelAbilityBoosts = [
   new AbilityBoost(Ability.FREE, "Level_20", 20),
 ]
 
-export function getBlankCharacter() {
+export function getBlankCharacter(): character {
   const abilityBoosts: AbilityBoost[] = [
     new AbilityBoost(Ability.FREE, "Level_1", 1),
     new AbilityBoost(Ability.FREE, "Level_1", 1),
@@ -311,13 +327,7 @@ export function getBlankCharacter() {
     hitPoints: 0,
     speed: 0,
     perceptionProficiency: 0,
-    ancestry: {},
-    background: { skillBoosts: [] },
-    class: {
-      defenses: { unarmored: 0 },
-      skillBoosts: [],
-      proficiencyBoosts: [],
-    },
+    defenses: { unarmored: 0 },
     saves: {
       [Saves.FORT]: 0,
       [Saves.REF]: 0,
@@ -343,55 +353,100 @@ export function getBlankCharacter() {
     abilityFlaws: [],
     skillBoosts: [
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_3",
         source: "character_3",
         level: 3,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_5",
         source: "character_5",
         level: 5,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_7",
         source: "character_7",
         level: 7,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_9",
         source: "character_9",
         level: 9,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_11",
         source: "character_11",
         level: 11,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_13",
         source: "character_13",
         level: 13,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_15",
         source: "character_15",
         level: 15,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_17",
         source: "character_17",
         level: 17,
       },
       {
-        skill: { id: "Free" },
+        skill: {
+          id: "Free",
+          modifier: Ability.FREE,
+          name: "",
+          proficiency: 0,
+        },
         id: "character_19",
         source: "character_19",
         level: 19,

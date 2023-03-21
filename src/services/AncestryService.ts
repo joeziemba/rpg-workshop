@@ -11,12 +11,12 @@ export function applyNewAncestry(
 
   // Remove any Ability Boosts from a previous Ancestry
   character.abilityBoosts = character.abilityBoosts.filter(
-    (boost) => boost.source !== character.ancestry.name
+    (boost) => boost.source !== character.ancestry?.name
   )
 
   // Remove any Ability Flaws from a previous Ancestry
   character.abilityFlaws = character.abilityFlaws.filter(
-    (flaw) => flaw.source !== character.ancestry.name
+    (flaw) => flaw.source !== character.ancestry?.name
   )
 
   // Set new Ancestry
@@ -32,7 +32,7 @@ export function applyNewAncestry(
 
   // Clear old ancestry feats
   character.feats = character.feats.map((feat) => {
-    if (!feat.type.includes("ancestry")) return feat
+    if (feat.type !== "ancestry") return feat
     else return { type: feat.type, level: feat.level }
   })
 

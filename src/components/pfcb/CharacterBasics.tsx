@@ -1,22 +1,25 @@
 import React, { useContext } from "react"
-import { PF2CharacterContext } from "context"
+import { PF2CharacterContext, useCharacterBuilderContext } from "context"
 import { SaveRow } from "./SaveRow"
 import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { AncestryKey } from "data/ancestries"
+import { character } from "data/character"
 
-export const CharacterBasics = ({
-  selectBackground,
-  selectClass,
-  character,
-  setLevel,
-  updateName,
-}) => {
-  const { Classes, Backgrounds, Ancestries, selectAncestry } = useContext(
-    PF2CharacterContext
-  )
+export const CharacterBasics = () => {
+  const {
+    Classes,
+    Backgrounds,
+    Ancestries,
+    selectAncestry,
+    selectBackground,
+    selectClass,
+    character,
+    setLevel,
+    updateName,
+  } = useCharacterBuilderContext()
 
   return (
     <React.Fragment>
@@ -39,12 +42,12 @@ export const CharacterBasics = ({
               <Select
                 ariaLabel="Ancestry"
                 id="ancestry-select"
-                isDefault={!character.ancestry.name}
+                isDefault={!character.ancestry?.name}
                 name="ancestry-select"
                 onChange={(e) =>
                   selectAncestry(e.target.value as AncestryKey)
                 }
-                value={character.ancestry.name || ""}
+                value={character.ancestry?.name || ""}
               >
                 <option value="">Choose Ancestry</option>
                 {Object.keys(Ancestries).map((ancestry) => (
@@ -58,11 +61,11 @@ export const CharacterBasics = ({
             <label className="px-4">
               <Select
                 ariaLabel="Background"
-                isDefault={!character.background.name}
+                isDefault={!character.background?.name}
                 id="background-select"
                 name="background-select"
                 onChange={selectBackground}
-                value={character.background.id || ""}
+                value={character.background?.id || ""}
               >
                 <option value="">Choose Background</option>
                 {Object.keys(Backgrounds).map((background) => (
@@ -78,10 +81,10 @@ export const CharacterBasics = ({
                 <Select
                   ariaLabel="Class"
                   id="class-select"
-                  isDefault={!character.class.name}
+                  isDefault={!character.class?.name}
                   name="class-select"
                   onChange={selectClass}
-                  value={character.class.name || ""}
+                  value={character.class?.name || ""}
                 >
                   <option value="">Choose Class</option>
                   {Object.keys(Classes).map((class_name) => (
@@ -98,7 +101,7 @@ export const CharacterBasics = ({
                   id="level-select"
                   name="level-select"
                   onChange={setLevel}
-                  value={character.level}
+                  value={character.level.toString()}
                 >
                   {[...Array(21).keys()].slice(1).map((x, i) => (
                     <option value={i + 1} key={i + 1}>
@@ -114,13 +117,25 @@ export const CharacterBasics = ({
           <Card title="Stats">
             <div className="flex-initial flex items-center">
               <div className="flex-1">
-                <Statbox stat={character.level} title="Level" large />
+                <Statbox
+                  stat={character.level.toString()}
+                  title="Level"
+                  large
+                />
               </div>
               <div className="flex-1">
-                <Statbox stat={character.hitPoints} title="HP" large />
+                <Statbox
+                  stat={character.hitPoints.toString()}
+                  title="HP"
+                  large
+                />
               </div>
               <div className="flex-1">
-                <Statbox stat={character.speed} title="Speed" large />
+                <Statbox
+                  stat={character.speed.toString()}
+                  title="Speed"
+                  large
+                />
               </div>
             </div>
 
@@ -128,11 +143,11 @@ export const CharacterBasics = ({
               <div className="flex-1">
                 <Statbox
                   large
-                  stat={
+                  stat={(
                     character.perceptionProficiency +
                     character.abilityMods.Wisdom +
                     character.level
-                  }
+                  ).toString()}
                   title="PCPT"
                 />
               </div>
@@ -140,7 +155,7 @@ export const CharacterBasics = ({
                 <span className="flex-none mr-2">=</span>
                 <Statbox
                   className="flex-1"
-                  stat={character.abilityMods.Wisdom}
+                  stat={character.abilityMods.Wisdom.toString()}
                   title="WIS"
                 />
                 <span className="flex-none text-center mx-2">+</span>
@@ -161,7 +176,7 @@ export const CharacterBasics = ({
               </div>
             </div>
 
-            <AC character={character} />
+            <AC />
           </Card>
         </div>
         <div className="flex-full md:flex-1">
@@ -176,14 +191,15 @@ export const CharacterBasics = ({
   )
 }
 
-const AC = ({ character }) => {
-  function calculateAC(character) {
+const AC = () => {
+  const { character } = useCharacterBuilderContext()
+  function calculateAC(character: character) {
     let ac = 10
     ac += character.abilityMods.Dexterity
     // TODO this will need to be refactored to enable proficiencies with armor
 
     if (
-      character.class.defenses &&
+      character.class?.defenses &&
       character.class.defenses.unarmored > 0
     ) {
       ac += character.class.defenses.unarmored
@@ -191,7 +207,7 @@ const AC = ({ character }) => {
     }
     return ac
   }
-  const hasClass = !!character.class.name
+  const hasClass = !!character.class?.name
   return (
     <div className="flex-initial flex items-center">
       <div className="flex-1">
@@ -216,18 +232,21 @@ const AC = ({ character }) => {
         <Statbox
           className="flex-1"
           stat={
-            hasClass && character.class.defenses.unarmored > 0
-              ? character.class.defenses.unarmored + character.level
+            character.class?.defenses.unarmored &&
+            character.class?.defenses.unarmored > 0
+              ? character.class?.defenses.unarmored + character.level
               : "0"
           }
           title={
-            hasClass && character.class.defenses.unarmored > 0
+            character.class?.defenses.unarmored &&
+            character.class.defenses.unarmored > 0
               ? "Prof*"
               : "Prof"
           }
         />
 
-        {hasClass && character.class.defenses.unarmored > 0 ? (
+        {character.class?.defenses.unarmored &&
+        character.class.defenses.unarmored > 0 ? (
           <div
             style={{
               position: "absolute",

@@ -2,19 +2,34 @@ import React, { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
 import FEATS from "data/feats/allFeats.json"
 import { Modal } from "components"
+import { character } from "data/character"
+import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
+
+export interface FeatSelectionProps {
+  character: character
+  closeFunction: () => void
+  featLevel: string
+  featType: string
+  selectFeat: (feat: Feat) => void
+  show: boolean
+}
 
 export const FeatSelection = ({
-  featType,
-  featLevel,
   character,
+  closeFunction,
+  featLevel,
+  featType,
   selectFeat,
   show,
-  closeFunction,
-}) => {
+}: FeatSelectionProps) => {
   const [query, setQuery] = useState("")
-  const [feats, setFeats] = useState([] as any[])
+  const [feats, setFeats] = useState([] as Feat[])
 
-  const filterFeatsBy = (feats, trait, level) => {
+  const filterFeatsBy = (
+    feats: Feat[],
+    trait: string,
+    level: number | string
+  ) => {
     return feats.filter((feat) => {
       const hasTrait =
         !trait ||
@@ -32,20 +47,20 @@ export const FeatSelection = ({
     (featType) => {
       switch (featType) {
         case "ancestry":
-          return character.ancestry.name
+          return character.ancestry?.name || ""
         case "class":
-          return character.class.name
+          return character.class?.name || ""
         case "skill":
           return "Skill"
         default:
           return ""
       }
     },
-    [character.ancestry.name, character.class.name]
+    [character.ancestry?.name, character.class?.name]
   )
 
   const filterFeatsByQuery = useCallback(
-    (feats) => {
+    (feats: Feat[]) => {
       // Filter by query in traits or name
       return feats.filter((feat) => {
         let hasMatchingTrait = false
@@ -85,8 +100,8 @@ export const FeatSelection = ({
     setFeats(filteredFeats)
   }, [
     query,
-    character.ancestry.name,
-    character.class.name,
+    character.ancestry?.name,
+    character.class?.name,
     featType,
     filterFeatsByQuery,
     getFeatTag,
@@ -151,7 +166,11 @@ export const FeatSelection = ({
   )
 }
 
-const Search = ({ onChange, query }) => {
+interface SearchProps {
+  onChange: (value: string) => void
+  query: string
+}
+const Search = ({ onChange, query }: SearchProps) => {
   return (
     <div className="sticky top-0 w-full py-4 px-8 bg-white text-lg shadow-md">
       <label className="m-0">

@@ -1,6 +1,6 @@
 {
-  "startTime": "2023-03-16T02:19:51.212Z",
-  "endTime": "2023-03-16T02:20:52.557Z",
+  "startTime": "2023-03-21T20:04:45.626Z",
+  "endTime": "2023-03-21T20:05:35.761Z",
   "userAgents": [
     "Chrome 111.0.0.0 / Windows 10"
   ],
@@ -17,7 +17,7 @@
           "name": "Statblock Generator",
           "meta": {},
           "errs": [],
-          "durationMs": 42480,
+          "durationMs": 35976,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -33,7 +33,7 @@
           "name": "Dwarf",
           "meta": {},
           "errs": [],
-          "durationMs": 4323,
+          "durationMs": 2562,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -42,7 +42,7 @@
           "name": "Elf",
           "meta": {},
           "errs": [],
-          "durationMs": 3235,
+          "durationMs": 2385,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -51,7 +51,7 @@
           "name": "Gnome",
           "meta": {},
           "errs": [],
-          "durationMs": 2694,
+          "durationMs": 2311,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -60,7 +60,7 @@
           "name": "Goblin",
           "meta": {},
           "errs": [],
-          "durationMs": 2948,
+          "durationMs": 2270,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -69,7 +69,7 @@
           "name": "Human",
           "meta": {},
           "errs": [],
-          "durationMs": 2619,
+          "durationMs": 2098,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -78,7 +78,7 @@
           "name": "Halfling",
           "meta": {},
           "errs": [],
-          "durationMs": 2991,
+          "durationMs": 2497,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false

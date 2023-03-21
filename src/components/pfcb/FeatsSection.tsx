@@ -16,19 +16,19 @@ export const FeatsSection = () => {
   const [featType, setfeatType] = useState("")
   const [featLevel, setfeatLevel] = useState("")
 
-  const openFeatSelection = (featType, featLevel) => {
+  const openFeatSelection = (featType: string, featLevel: string) => {
     setfeatType(featType)
     setfeatLevel(featLevel)
     setShowFeatSelection(true)
   }
 
-  const localSelectFeat = (feat) => {
+  const localSelectFeat = (feat: Feat) => {
     selectFeat(featType, feat)
     setShowFeatSelection(false)
   }
 
-  const hasClass = !!character.class.name,
-    hasAncestry = !!character.ancestry.name
+  const hasClass = !!character.class?.name,
+    hasAncestry = !!character.ancestry?.name
 
   const classFeats: FeatSlot[] = [],
     ancestryFeats: FeatSlot[] = [],

@@ -4,7 +4,7 @@ import { ISkillBoost } from "./models/SkillBoost"
 import { Proficiencies } from "./skills"
 import { Skills } from "./skills"
 
-interface Background {
+export interface Background {
   id: string
   name: string
   abilityBoosts: IAbilityBoost[]
@@ -320,6 +320,7 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Criminal1",
         exclude: [Ability.STR, Ability.CON, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
@@ -360,12 +361,14 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Detective1",
         exclude: [Ability.STR, Ability.CON, Ability.DEX, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Detective",
         type: Ability.FREE,
         id: "Detective2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -399,12 +402,14 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Emissary1",
         exclude: [Ability.STR, Ability.CON, Ability.DEX, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Emissary",
         type: Ability.FREE,
         id: "Emissary2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -438,12 +443,14 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Entertainer1",
         exclude: [Ability.STR, Ability.CON, Ability.INT, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Entertainer",
         type: Ability.FREE,
         id: "Entertainer2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -477,12 +484,14 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Farmhand1",
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Farmhand",
         type: Ability.FREE,
         id: "Farmhand2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -515,14 +524,15 @@ export const Backgrounds: Record<any, Background> = {
         source: "FieldMedic",
         type: Ability.FREE,
         id: "FieldMedic1",
-
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "FieldMedic",
         type: Ability.FREE,
         id: "FieldMedic2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -555,14 +565,15 @@ export const Backgrounds: Record<any, Background> = {
         source: "FortuneTeller",
         type: Ability.FREE,
         id: "FortuneTeller1",
-
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "FortuneTeller",
         type: Ability.FREE,
         id: "FortuneTeller2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -594,14 +605,15 @@ export const Backgrounds: Record<any, Background> = {
         source: "Gambler",
         type: Ability.FREE,
         id: "Gambler1",
-
         exclude: [Ability.STR, Ability.INT, Ability.CON, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Gambler",
         type: Ability.FREE,
         id: "Gambler2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -633,14 +645,15 @@ export const Backgrounds: Record<any, Background> = {
         source: "Gladiator",
         type: Ability.FREE,
         id: "Gladiator1",
-
         exclude: [Ability.DEX, Ability.INT, Ability.CON, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Gladiator",
         type: Ability.FREE,
         id: "Gladiator2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -673,14 +686,15 @@ export const Backgrounds: Record<any, Background> = {
         source: "Guard",
         type: Ability.FREE,
         id: "Guard1",
-
         exclude: [Ability.DEX, Ability.INT, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Guard",
         type: Ability.FREE,
         id: "Guard2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -715,12 +729,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Herbalist1",
 
         exclude: [Ability.STR, Ability.DEX, Ability.INT, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Herbalist",
         type: Ability.FREE,
         id: "Herbalist2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -754,12 +770,14 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Hermit1",
         exclude: [Ability.STR, Ability.DEX, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Hermit",
         type: Ability.FREE,
         id: "Hermit2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -793,6 +811,7 @@ export const Backgrounds: Record<any, Background> = {
         type: Ability.FREE,
         id: "Hunter1",
 
+        level: 1,
         exclude: [Ability.STR, Ability.CON, Ability.INT, Ability.CHA],
       },
       {
@@ -800,6 +819,7 @@ export const Backgrounds: Record<any, Background> = {
         source: "Hunter",
         type: Ability.FREE,
         id: "Hunter2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -834,12 +854,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Laborer1",
 
         exclude: [Ability.DEX, Ability.INT, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Laborer",
         type: Ability.FREE,
         id: "Laborer2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -874,12 +896,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "MartialDisciple1",
 
         exclude: [Ability.CON, Ability.INT, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "MartialDisciple",
         type: Ability.FREE,
         id: "MartialDisciple2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -914,12 +938,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Merchant1",
 
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Merchant",
         type: Ability.FREE,
         id: "Merchant2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -953,12 +979,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Miner1",
 
         exclude: [Ability.CON, Ability.INT, Ability.DEX, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Miner",
         type: Ability.FREE,
         id: "Miner2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -993,12 +1021,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Noble1",
 
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Noble",
         type: Ability.FREE,
         id: "Noble2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1033,12 +1063,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Nomad1",
 
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.STR],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Nomad",
         type: Ability.FREE,
         id: "Nomad2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1072,12 +1104,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Prisoner1",
 
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Prisoner",
         type: Ability.FREE,
         id: "Prisoner2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1112,12 +1146,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Sailor1",
 
         exclude: [Ability.INT, Ability.CON, Ability.CHA, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Sailor",
         type: Ability.FREE,
         id: "Sailor2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1152,12 +1188,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Scholar1",
 
         exclude: [Ability.STR, Ability.DEX, Ability.CON, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Scholar",
         type: Ability.FREE,
         id: "Scholar2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1192,12 +1230,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Scout1",
 
         exclude: [Ability.STR, Ability.INT, Ability.CON, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Scout",
         type: Ability.FREE,
         id: "Scout2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1232,12 +1272,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "StreetUrchin1",
 
         exclude: [Ability.STR, Ability.INT, Ability.WIS, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "StreetUrchin",
         type: Ability.FREE,
         id: "StreetUrchin2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1272,12 +1314,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Tinker1",
 
         exclude: [Ability.STR, Ability.WIS, Ability.CON, Ability.CHA],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Tinker",
         type: Ability.FREE,
         id: "Tinker2",
+        level: 1,
       },
     ],
     skillBoosts: [
@@ -1312,12 +1356,14 @@ export const Backgrounds: Record<any, Background> = {
         id: "Warrior1",
 
         exclude: [Ability.INT, Ability.DEX, Ability.CHA, Ability.WIS],
+        level: 1,
       },
       {
         ability: Ability.FREE,
         source: "Warrior",
         type: Ability.FREE,
         id: "Warrior2",
+        level: 1,
       },
     ],
     skillBoosts: [
