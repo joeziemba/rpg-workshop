@@ -6,7 +6,7 @@ import { LoginButton } from "../../../components/index"
 import "./TopBar.scss"
 
 type TopBarProps = {
-  currentUser: firebase.User
+  currentUser?: firebase.User
 }
 
 export const TopBar = ({ currentUser }: TopBarProps) => {
@@ -23,7 +23,7 @@ export const TopBar = ({ currentUser }: TopBarProps) => {
             RPG Workshop
           </Link>
         </div>
-        {currentUser.displayName ? (
+        {currentUser ? (
           <div className="relative group">
             <button
               onClick={() => setShowMenu(!showMenu)}

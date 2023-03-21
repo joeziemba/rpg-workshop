@@ -1,4 +1,4 @@
-import app from "firebase/app"
+import app from "firebase"
 import "firebase/auth"
 import "firebase/firestore"
 import { toast } from "react-toastify"
@@ -120,10 +120,13 @@ class Firebase {
   }
 
   load5eStatblocksForUser() {
-    return this.db
-      .collection("5e-statblocks")
-      .where("userId", "==", this.currentUser?.uid)
-      .get()
+    if (this.currentUser?.uid) {
+      return this.db
+        .collection("5e-statblocks")
+        .where("userId", "==", this.currentUser.uid)
+        .get()
+    }
+    return Promise.reject("No current user")
   }
 
   async getStatblock(statblockID: string) {
@@ -168,10 +171,13 @@ class Firebase {
   }
 
   async getPF2CharactersForUser() {
-    return await this.db
-      .collection("pf2-characters")
-      .where("userId", "==", this.auth.currentUser?.uid)
-      .get()
+    if (this.auth.currentUser?.uid)
+      return await this.db
+        .collection("pf2-characters")
+        .where("userId", "==", this.auth.currentUser.uid)
+        .get()
+
+    return Promise.reject("No current user")
   }
 }
 

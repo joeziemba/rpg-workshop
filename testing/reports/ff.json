@@ -1,8 +1,8 @@
 {
-  "startTime": "2023-03-16T02:21:10.447Z",
-  "endTime": "2023-03-16T02:22:45.203Z",
+  "startTime": "2023-03-21T20:58:45.440Z",
+  "endTime": "2023-03-21T21:00:07.843Z",
   "userAgents": [
-    "Firefox 111.0 / Windows 10"
+    "Firefox 111.0 / Windows 11"
   ],
   "passed": 7,
   "total": 7,
@@ -17,7 +17,7 @@
           "name": "Statblock Generator",
           "meta": {},
           "errs": [],
-          "durationMs": 68682,
+          "durationMs": 61426,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -33,7 +33,7 @@
           "name": "Dwarf",
           "meta": {},
           "errs": [],
-          "durationMs": 4689,
+          "durationMs": 3345,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -42,7 +42,7 @@
           "name": "Elf",
           "meta": {},
           "errs": [],
-          "durationMs": 5240,
+          "durationMs": 3800,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -51,7 +51,7 @@
           "name": "Gnome",
           "meta": {},
           "errs": [],
-          "durationMs": 3575,
+          "durationMs": 3222,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -60,7 +60,7 @@
           "name": "Goblin",
           "meta": {},
           "errs": [],
-          "durationMs": 4075,
+          "durationMs": 3690,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -69,7 +69,7 @@
           "name": "Human",
           "meta": {},
           "errs": [],
-          "durationMs": 3679,
+          "durationMs": 2752,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false
@@ -78,7 +78,7 @@
           "name": "Halfling",
           "meta": {},
           "errs": [],
-          "durationMs": 4738,
+          "durationMs": 4091,
           "unstable": false,
           "screenshotPath": null,
           "skipped": false

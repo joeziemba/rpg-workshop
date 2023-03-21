@@ -16,11 +16,11 @@ import { StatblockGenerator } from "routes/dnd5e/statblock-generator/StatblockGe
 import { CharacterBuilder } from "routes/pf2/character-builder/CharacterBuilder"
 
 const App = () => {
-  const [currentUser, setUser] = useState({} as firebase.User)
+  const [currentUser, setUser] = useState<firebase.User>()
 
   useEffect(() => {
-    firebaseService.auth.onAuthStateChanged((currentUser) => {
-      currentUser ? setUser(currentUser) : setUser({} as firebase.User)
+    firebaseService.auth.onAuthStateChanged((user: firebase.User) => {
+      if (user) setUser(user)
       return
     })
   }, [])
