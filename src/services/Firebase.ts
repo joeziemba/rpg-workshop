@@ -16,14 +16,12 @@ const config = {
 
 class Firebase {
   public auth
-  public currentUser
   public db
   public googleProvider
   constructor() {
     app.initializeApp(config)
 
     this.auth = app.auth()
-    this.currentUser = app.auth().currentUser
     this.db = app.firestore()
     this.googleProvider = new app.auth.GoogleAuthProvider()
     this.signInWithGoogle = this.signInWithGoogle.bind(this)
@@ -105,7 +103,7 @@ class Firebase {
         toast.error("You can only save up to 5 statblocks.")
       } else {
         // assign user ID to character
-        preppedData.userId = this.currentUser?.uid
+        preppedData.userId = this.auth.currentUser?.uid
 
         const newStatblock = await this.db
           .collection("5e-statblocks")
@@ -120,10 +118,10 @@ class Firebase {
   }
 
   load5eStatblocksForUser() {
-    if (this.currentUser?.uid) {
+    if (this.auth.currentUser?.uid) {
       return this.db
         .collection("5e-statblocks")
-        .where("userId", "==", this.currentUser.uid)
+        .where("userId", "==", this.auth.currentUser?.uid)
         .get()
     }
     return Promise.reject("No current user")

@@ -11,8 +11,15 @@ import {
 import { Ability } from "data/abilities"
 import { StatblockAction } from "data/models/StatblockAction"
 import { CharacterBuilder } from "routes/pf2/character-builder/CharacterBuilder"
+import firebase from "firebase"
 
-export const UserContext = React.createContext({})
+interface IUserContext {
+  currentUser?: firebase.User
+}
+
+export const UserContext = React.createContext<IUserContext>(
+  {} as IUserContext
+)
 
 export const FirebaseContext = React.createContext(null)
 

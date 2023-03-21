@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     firebaseService.auth.onAuthStateChanged((user: firebase.User) => {
-      if (user) setUser(user)
+      setUser(user)
       return
     })
   }, [])

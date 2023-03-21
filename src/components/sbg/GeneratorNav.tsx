@@ -21,7 +21,8 @@ type GeneratorNavState = {
 
 export class GeneratorNav extends React.Component<
   GeneratorNavProps,
-  GeneratorNavState
+  GeneratorNavState,
+  typeof UserContext
 > {
   constructor(props: GeneratorNavProps) {
     super(props)
@@ -60,11 +61,13 @@ export class GeneratorNav extends React.Component<
     toast("Opened " + statblock.name)
   }
 
-  async saveStatblock(statblock: Statblock) {
-    const savedStatblock = await firebaseService.saveStatblock(statblock)
+  async saveStatblock() {
+    const savedStatblock = await firebaseService.saveStatblock(
+      this.props.statblock
+    )
     if (savedStatblock) {
-      statblock.uid = savedStatblock.id
-      this.props.setStatblock(statblock)
+      this.props.statblock.uid = savedStatblock.id
+      this.props.setStatblock(savedStatblock)
       this.props.history.push(
         "/dnd5e/statblock-generator/" + savedStatblock.id
       )
@@ -99,9 +102,7 @@ export class GeneratorNav extends React.Component<
               <NavButton
                 id="save-statblock-button"
                 color="red"
-                onClick={async () => {
-                  await this.saveStatblock(this.props.statblock)
-                }}
+                onClick={this.saveStatblock}
               >
                 Save
               </NavButton>
