@@ -167,11 +167,7 @@ export const CharacterBasics = () => {
               </div>
               <div className="flex-1 flex justify-around">
                 <TEMLbuttons
-                  skill={{
-                    proficiency: character.perceptionProficiency,
-                    id: "Perception",
-                    name: "Perception",
-                  }}
+                  proficiency={character.perceptionProficiency}
                 />
               </div>
             </div>

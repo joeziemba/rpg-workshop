@@ -1,6 +1,6 @@
 import { Ability } from "./abilities"
 
-type SkillName =
+export type SkillName =
   | "Acrobatics"
   | "Arcana"
   | "Athletics"

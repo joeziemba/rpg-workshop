@@ -67,7 +67,7 @@ export class GeneratorNav extends React.Component<
     )
     if (savedStatblock) {
       this.props.statblock.uid = savedStatblock.id
-      this.props.setStatblock(savedStatblock)
+      this.props.setStatblock(this.props.statblock)
       this.props.history.push(
         "/dnd5e/statblock-generator/" + savedStatblock.id
       )

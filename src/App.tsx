@@ -19,8 +19,8 @@ const App = () => {
   const [currentUser, setUser] = useState<firebase.User>()
 
   useEffect(() => {
-    firebaseService.auth.onAuthStateChanged((user: firebase.User) => {
-      setUser(user)
+    firebaseService.auth.onAuthStateChanged((user) => {
+      setUser(user ?? undefined)
       return
     })
   }, [])

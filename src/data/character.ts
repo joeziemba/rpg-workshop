@@ -28,7 +28,9 @@ import { Background } from "./backgrounds"
 // }
 
 export class character {
+  public id?: string
   public uid?: string
+  public userId?: string
   public name = ""
   public level = 1
   public hitPoints = 0
@@ -56,13 +58,14 @@ export class character {
     [Ability.WIS]: 10,
     [Ability.CHA]: 10,
   }
-  public abilityMods = {
+  public abilityMods: Record<Ability, number> = {
     [Ability.STR]: 0,
     [Ability.DEX]: 0,
     [Ability.CON]: 0,
     [Ability.INT]: 0,
     [Ability.WIS]: 0,
     [Ability.CHA]: 0,
+    [Ability.FREE]: 0,
   }
 
   abilityBoosts: AbilityBoost[] = [
@@ -130,6 +133,7 @@ export class character {
   constructor(data?: character) {
     if (data)
       Object.keys(data).forEach((key) => {
+        //@ts-expect-error
         this[key] = data[key]
       })
   }
@@ -348,6 +352,7 @@ export function getBlankCharacter(): character {
       [Ability.INT]: 0,
       [Ability.WIS]: 0,
       [Ability.CHA]: 0,
+      [Ability.FREE]: 0,
     },
     abilityBoosts: _.cloneDeep(abilityBoosts),
     abilityFlaws: [],

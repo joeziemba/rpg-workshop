@@ -6,6 +6,8 @@ export interface IBaseBoost {
   type: string
 }
 
+export type Save = "fortitude" | "will" | "reflex"
+
 export interface ISaveBoost extends IBaseBoost {
-  save: "fortitude" | "will" | "reflex"
+  save: Save
 }

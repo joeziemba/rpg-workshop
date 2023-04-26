@@ -12,11 +12,9 @@ import StatblockDisplay from "./display/StatblockDisplay"
 import { StatblockForms } from "./forms/StatblockForms"
 import { StatblockAction } from "data/models/StatblockAction"
 import { StatblockAttack } from "data/models/StatblockAttack"
-import { Skill } from "data/skills"
-import { Ability } from "data/abilities"
 import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
 
-type ability = "str" | "dex" | "con" | "int" | "wis" | "cha"
+export type ability = "str" | "dex" | "con" | "int" | "wis" | "cha"
 type abilityModKey =
   | "strMod"
   | "dexMod"
@@ -24,7 +22,7 @@ type abilityModKey =
   | "intMod"
   | "wisMod"
   | "chaMod"
-class abilityObject implements IStringIndex {
+export class abilityObject implements IStringIndex {
   constructor(
     public str = 10,
     public strMod = 0,
@@ -41,7 +39,7 @@ class abilityObject implements IStringIndex {
   ) {}
 }
 
-class Attack {
+export class Attack {
   public id = 1
   public title = "Longsword"
   public type: "Melee" | "Ranged" = "Melee"
@@ -108,7 +106,7 @@ export class Statblock {
     public speed = 30,
     public flySpeed = 0,
     public swimSpeed = 0,
-    public skills: Skill[] = [],
+    public skills: string[] = [],
     public conditionImmune = [],
     public immune = [],
     public resists = [],
@@ -370,7 +368,11 @@ export class StatblockGenerator extends Component<
     })
   }
 
-  updateAction(e: InputEventTarget, actionId: string, legendary: boolean) {
+  updateAction(
+    e: InputEventTarget,
+    actionId: string | number,
+    legendary: boolean
+  ) {
     const { name, value } = e.target
     let actions: Action[]
 

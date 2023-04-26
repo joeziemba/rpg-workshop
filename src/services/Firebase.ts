@@ -1,3 +1,4 @@
+import { character } from "data/character"
 import app from "firebase"
 import "firebase/auth"
 import "firebase/firestore"
@@ -134,7 +135,7 @@ class Firebase {
     await this.db.collection("5e-statblocks").doc(statblockID).delete()
   }
   // Pathfinder Methods
-  async savePF2Character(character, showToast = true) {
+  async savePF2Character(character: character, showToast = true) {
     if (character.uid) {
       await this.db
         .collection("pf2-characters")

@@ -1,8 +1,12 @@
+import { Skill } from "data/skills"
 import React from "react"
 import "./teml.scss"
 
-const TEMLbuttons = ({ skill }) => {
-  const { proficiency } = skill
+interface TEMLbuttonsProps {
+  proficiency: number
+}
+
+const TEMLbuttons = ({ proficiency }: TEMLbuttonsProps) => {
   return (
     <div className="c-teml">
       <div

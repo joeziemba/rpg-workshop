@@ -1,6 +1,6 @@
 import React from "react"
 
-export const SubHeading = ({ children }) => {
+export const SubHeading: React.FC = ({ children }) => {
   return (
     <h3
       className={

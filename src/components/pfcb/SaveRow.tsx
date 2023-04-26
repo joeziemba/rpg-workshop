@@ -1,8 +1,16 @@
+import { character } from "data/character"
+import SaveBoost from "data/models/SaveBoost"
 import React from "react"
+import { Save } from "types/pf2e/Boosts"
 import Statbox from "./Statbox"
 import TEMLbuttons from "./TEMLbuttons"
 
-export const SaveRow = ({ character, saveType }) => {
+interface SaveRowProps {
+  character: character
+  saveType: Save
+}
+
+export const SaveRow = ({ character, saveType }: SaveRowProps) => {
   let abilityAbbreviation, modifier, saveName
 
   switch (saveType) {
@@ -18,14 +26,13 @@ export const SaveRow = ({ character, saveType }) => {
       saveName = "FORT"
       break
     }
-    case "reflex": {
+    case "reflex":
+    default: {
       abilityAbbreviation = "DEX"
       modifier = character.abilityMods.Dexterity
       saveName = "REF"
       break
     }
-    default:
-      break
   }
 
   let proficiencyBonus = 0
@@ -55,13 +62,7 @@ export const SaveRow = ({ character, saveType }) => {
         />
       </div>
       <div className="flex-1 flex justify-around">
-        <TEMLbuttons
-          skill={{
-            proficiency: character.saves[saveType],
-            id: saveName,
-            name: saveName,
-          }}
-        />
+        <TEMLbuttons proficiency={character.saves[saveType]} />
       </div>
     </div>
   )

@@ -1,9 +1,25 @@
 import React from "react"
 import { DisplayProperty, DisplayAttack } from "components"
+import { ability, abilityObject, Statblock } from "../StatblockGenerator"
 
-const orderedAbilities = ["str", "dex", "con", "int", "wis", "cha"]
+const orderedAbilities: ability[] = [
+  "str",
+  "dex",
+  "con",
+  "int",
+  "wis",
+  "cha",
+]
 
-export const StatblockDisplay = ({ stats, exportView }) => {
+export interface StatblockDisplayProps {
+  stats: Statblock
+  exportView: boolean
+}
+
+export const StatblockDisplay = ({
+  stats,
+  exportView,
+}: StatblockDisplayProps) => {
   const dieNum = +stats.hp.dieNum
   const mod = dieNum * stats.abilities.conMod
 
@@ -17,7 +33,8 @@ export const StatblockDisplay = ({ stats, exportView }) => {
       return (
         ability.toUpperCase() +
         " +" +
-        (+stats.abilities[ability + "Mod"] + +stats.proficiency)
+        (+stats.abilities[(ability + "Mod") as ability] +
+          +stats.proficiency)
       )
 
     return null
@@ -59,7 +76,7 @@ export const StatblockDisplay = ({ stats, exportView }) => {
       <div className="statblock__section red">
         {orderedAbilities.map((ability) => {
           const score = stats.abilities[ability]
-          const mod = stats.abilities[ability + "Mod"]
+          const mod = stats.abilities[(ability + "Mod") as ability]
 
           return (
             <div className="ability" key={ability}>
@@ -149,7 +166,10 @@ export const StatblockDisplay = ({ stats, exportView }) => {
       <div className="statblock__section statblock__section--with-heading">
         <h3>Actions</h3>
         {stats.actions.map((action, i) => {
-          if (["Melee", "Ranged"].includes(action.type)) {
+          if (
+            !("content" in action) &&
+            ["Melee", "Ranged"].includes(action.type)
+          ) {
             return (
               <DisplayAttack
                 id={"display-action-" + i}
@@ -158,16 +178,16 @@ export const StatblockDisplay = ({ stats, exportView }) => {
               />
             )
           }
-
-          return (
-            <DisplayProperty
-              block
-              id={"display-action-" + i}
-              key={action.title + i}
-              title={action.title}
-              content={action.content}
-            />
-          )
+          if ("content" in action)
+            return (
+              <DisplayProperty
+                block
+                id={"display-action-" + i}
+                key={action.title + i}
+                title={action.title}
+                content={action.content}
+              />
+            )
         })}
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import _ from "lodash"
-import { Ability, FullAbilityNames } from "data/abilities"
+import { Ability, AbilityKeys } from "data/abilities"
 import { Card } from "./Card"
 import { Select } from "./Select"
 import { SubHeading } from "./SubHeading"
@@ -34,7 +34,7 @@ export const AbilityScoreSection = () => {
             value={boost.ability}
           >
             <option value="FREE"></option>
-            {FullAbilityNames.map((ability) => {
+            {AbilityKeys.map((ability) => {
               if (ability !== "FREE") {
                 return excludedAbilities.includes(
                   Ability[ability]
@@ -54,7 +54,7 @@ export const AbilityScoreSection = () => {
   }
 
   function renderAbilities() {
-    return FullAbilityNames.map((abilityKey) => {
+    return AbilityKeys.map((abilityKey) => {
       if (abilityKey !== "FREE") {
         const keyAbility = character.abilityBoosts.find(
           (b) => b.source === character.class?.name

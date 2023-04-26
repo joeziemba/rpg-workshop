@@ -1,7 +1,13 @@
 import { StatblockContext } from "context"
 import React, { useContext } from "react"
+import { Attack } from "routes/dnd5e/statblock-generator/StatblockGenerator"
 
-export const DisplayAttack = ({ action, id }) => {
+export interface DisplayAttackProps {
+  action: Attack
+  id: string
+}
+
+export const DisplayAttack = ({ action, id }: DisplayAttackProps) => {
   const {
     stats: { abilities, proficiency },
   } = useContext(StatblockContext)

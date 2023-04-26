@@ -2,8 +2,22 @@ import React from "react"
 import { SBG_Input, SBG_Select } from "components"
 import { CheckboxButton } from "./CheckboxButton"
 import { damageTypes } from "data/dnd5e-constants"
+import { StatblockAttack } from "data/models/StatblockAttack"
+import {
+  Action,
+  Attack,
+  StatblockGenerator,
+} from "routes/dnd5e/statblock-generator/StatblockGenerator"
 
-export const AttackForm = (props) => {
+interface AttackFormProps {
+  index: number
+  action: Attack
+  updateAction: StatblockGenerator["updateAction"]
+  deleteAction: StatblockGenerator["deleteAction"]
+  legendary: boolean
+}
+
+export const AttackForm = (props: AttackFormProps) => {
   return (
     <div
       className={
@@ -19,7 +33,11 @@ export const AttackForm = (props) => {
           value={props.action.title}
           fieldName={"title"}
           onChange={(e) =>
-            props.updateAction(e, props.action.id, props.legendary)
+            props.updateAction(
+              e,
+              props.action.id.toString(),
+              props.legendary
+            )
           }
         />
       </div>
@@ -31,7 +49,11 @@ export const AttackForm = (props) => {
           options={["Melee", "Ranged"]}
           value={props.action.type}
           onChange={(e) => {
-            props.updateAction(e, props.action.id, props.legendary)
+            props.updateAction(
+              e,
+              props.action.id.toString(),
+              props.legendary
+            )
           }}
         />
       </div>
@@ -78,7 +100,7 @@ export const AttackForm = (props) => {
           label={"Dmg Die"}
           fieldName={"dmgDie"}
           options={["4", "6", "8", "10", "12"]}
-          value={props.action.dmgDie}
+          value={props.action.dmgDie.toString()}
           onChange={(e) =>
             props.updateAction(e, props.action.id, props.legendary)
           }
@@ -111,7 +133,7 @@ export const AttackForm = (props) => {
         <button
           id={"delete-action-" + props.index}
           onClick={() =>
-            props.deleteAction(props.action.id, props.legendary)
+            props.deleteAction(props.action.id.toString(), props.legendary)
           }
           className="w-full text-sm text-center group hover:text-red-900"
         >

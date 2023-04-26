@@ -8,6 +8,6 @@ export enum Ability {
   FREE = "Free",
 }
 
-export const FullAbilityNames = Object.keys(Ability) as Array<
+export const AbilityKeys = Object.keys(Ability) as Array<
   keyof typeof Ability
 >

@@ -12,8 +12,13 @@ type SubNavProps = {
   reset: () => void
 }
 
-class SubNav extends React.Component<SubNavProps, any> {
-  constructor(props) {
+interface SubNavState {
+  characters: character[]
+  showOpenModal: boolean
+}
+
+class SubNav extends React.Component<SubNavProps, SubNavState> {
+  constructor(props: SubNavProps) {
     super(props)
 
     this.state = {
@@ -32,7 +37,7 @@ class SubNav extends React.Component<SubNavProps, any> {
 
     const characters: character[] = []
     snapshot.forEach((doc) => {
-      characters.push({ ...doc.data(), uid: doc.id, id: doc.id })
+      characters.push({ ...(doc.data() as character), uid: doc.id })
     })
     if (characters.length === 0) toast("You have no saved characters")
     this.setState({ characters, showOpenModal: characters.length > 0 })
@@ -50,13 +55,15 @@ class SubNav extends React.Component<SubNavProps, any> {
     }
   }
 
-  async deleteCharacter(character) {
-    await firebaseService.deletePF2Character(character.id)
-    await this.getCharacters()
-    toast("Deleted " + character.name)
+  async deleteCharacter(character: character) {
+    if (character.id) {
+      await firebaseService.deletePF2Character(character.id)
+      await this.getCharacters()
+      toast("Deleted " + character.name)
+    }
   }
 
-  async selectCharacter(id) {
+  async selectCharacter(id: string) {
     const character = await this.props.getCharacter(id)
     this.closeModal()
     toast("Opened " + character.name)
@@ -110,16 +117,17 @@ class SubNav extends React.Component<SubNavProps, any> {
             >
               <ul className="text-black">
                 {this.state.characters.map((character) => {
+                  if (!character.uid) {
+                    return null
+                  }
                   return (
                     <OpenOrDeleteItem
                       key={character.uid}
                       id={character.uid}
-                      selectFunc={async () =>
-                        await this.selectCharacter(character.uid)
+                      selectFunc={() =>
+                        this.selectCharacter(character.uid!)
                       }
-                      deleteFunc={async () =>
-                        await this.deleteCharacter(character)
-                      }
+                      deleteFunc={() => this.deleteCharacter(character)}
                     >
                       {character.name}
                     </OpenOrDeleteItem>
