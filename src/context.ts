@@ -29,7 +29,7 @@ export interface CharacterBuilderContext {
   boostAbility: CharacterBuilder["boostAbility"]
   character: character
   Classes: typeof Classes
-  deleteFeat: CharacterBuilder["deleteFeat"]
+  clearFeatSlot: CharacterBuilder["clearFeatSlot"]
   getCharacter: CharacterBuilder["getCharacter"]
   selectAncestry: CharacterBuilder["selectAncestry"]
   selectBackground: CharacterBuilder["selectBackground"]

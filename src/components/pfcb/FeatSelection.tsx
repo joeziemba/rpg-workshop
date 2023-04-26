@@ -8,7 +8,7 @@ import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
 export interface FeatSelectionProps {
   character: character
   closeFunction: () => void
-  featLevel: string
+  featLevel?: string
   featType: string
   selectFeat: (feat: Feat) => void
   show: boolean
@@ -28,7 +28,7 @@ export const FeatSelection = ({
   const filterFeatsBy = (
     feats: Feat[],
     trait: string,
-    level: number | string
+    level?: number | string
   ) => {
     return feats.filter((feat) => {
       const hasTrait =
@@ -37,7 +37,7 @@ export const FeatSelection = ({
           .map((t) => t.toLowerCase())
           .includes(trait.toLowerCase())
 
-      const isLevel = +feat.reqLevel <= +level
+      const isLevel = !level || +feat.reqLevel <= +level
 
       return hasTrait && isLevel
     })

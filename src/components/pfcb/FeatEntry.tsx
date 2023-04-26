@@ -1,15 +1,22 @@
-import React from "react"
+import { useCharacterBuilderContext } from "context"
 
-const FeatEntry = ({ addFeat, feat, deleteFeat }) => {
-  const add = () => addFeat(feat.type, feat.level)
-  const remove = () => {
-    deleteFeat(feat)
+export interface FeatEntryProps {
+  addFeat: (type: string, feat?: Feat) => void
+  featSlot: FeatSlot
+}
+
+const FeatEntry = ({ addFeat, featSlot }: FeatEntryProps) => {
+  const { clearFeatSlot } = useCharacterBuilderContext()
+  const { type, feat, level: slotLevel } = featSlot
+  const add = () => addFeat(type, feat)
+  const clearSlot = () => {
+    clearFeatSlot?.(featSlot)
   }
 
-  const isMisc = feat.type.includes("misc")
+  const isMisc = type.includes("misc")
   return (
     <div className="mx-4 mb-2 last:mb-0 border-b border-gray-300 pb-2">
-      {!feat.name ? (
+      {!feat?.name ? (
         <button
           onClick={add}
           className={
@@ -20,12 +27,12 @@ const FeatEntry = ({ addFeat, feat, deleteFeat }) => {
           aria-label="Choose Feat"
         >
           <i className="fas fa-plus text-sm mr-2" />
-          Choose {!isMisc && "Lv." + feat.level} Feat
+          Choose {!isMisc && "Lv." + slotLevel} Feat
         </button>
       ) : (
         <div className="grid grid-cols-8 gap 2">
           <span className="text-lg col-span-1 text-gray-400 pl-2">
-            {!isMisc && "Lv." + feat.level}
+            {!isMisc && "Lv." + slotLevel}
           </span>
           <span className="col-span-6">
             <p className="text-lg mb-1">{feat.name}</p>
@@ -33,7 +40,7 @@ const FeatEntry = ({ addFeat, feat, deleteFeat }) => {
             <p className="text-sm">{feat.desc}</p>
           </span>
           <button
-            onClick={remove}
+            onClick={clearSlot}
             className="col-span-1 text-gray-400 hover:text-red-700 rounded-md transition-colors"
             aria-label="Remove Feat"
             title="Delete"

@@ -16,7 +16,7 @@ declare type Feat = {
 
 // TODO: refactor app to use FeatSlot format for all feats
 declare type FeatSlot = {
-  level: number
+  level?: number | string
   type: string
   feat?: Feat
 }

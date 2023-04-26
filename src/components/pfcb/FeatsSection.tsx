@@ -9,16 +9,14 @@ import { Guid } from "js-guid"
 import { CharacterBuilder } from "routes/pf2/character-builder/CharacterBuilder"
 
 export const FeatsSection = () => {
-  const { character, selectFeat, deleteFeat } = useContext(
-    PF2CharacterContext
-  )
+  const { character, selectFeat } = useContext(PF2CharacterContext)
   const [showFeatSelection, setShowFeatSelection] = useState(false)
   const [featType, setfeatType] = useState("")
-  const [featLevel, setfeatLevel] = useState("")
+  const [featLevel, setfeatLevel] = useState<string | number>()
 
-  const openFeatSelection = (featType: string, featLevel: string) => {
+  const openFeatSelection = (featType: string, feat?: Feat) => {
     setfeatType(featType)
-    setfeatLevel(featLevel)
+    setfeatLevel(feat?.level?.toString())
     setShowFeatSelection(true)
   }
 
@@ -37,7 +35,7 @@ export const FeatsSection = () => {
     miscFeats: FeatSlot[] = []
 
   character.feats.forEach((feat) => {
-    if (feat.level > character.level) return
+    if (feat.level && feat.level > character.level) return
     const [type] = feat.type.split("_")
     switch (type) {
       case "class":
@@ -70,7 +68,6 @@ export const FeatsSection = () => {
 
       <FeatList
         addFunc={openFeatSelection}
-        deleteFeat={deleteFeat}
         featList={ancestryFeats}
         title="Ancestry Feats"
         noListMessage="choose an ancestry above"
@@ -79,7 +76,6 @@ export const FeatsSection = () => {
 
       <FeatList
         addFunc={openFeatSelection}
-        deleteFeat={deleteFeat}
         featList={classFeats}
         title="Class Feats"
         noListMessage="choose a class above"
@@ -88,7 +84,6 @@ export const FeatsSection = () => {
 
       <FeatList
         addFunc={openFeatSelection}
-        deleteFeat={deleteFeat}
         featList={skillFeats}
         title="Skill Feats"
         noListMessage="skill feats start at level 2"
@@ -97,15 +92,13 @@ export const FeatsSection = () => {
 
       <FeatList
         addFunc={openFeatSelection}
-        deleteFeat={deleteFeat}
         featList={miscFeats}
         title="Other Feats"
       />
 
       <FeatEntry
-        feat={{ type: "misc_" + Guid.newGuid() }}
+        featSlot={{ type: "misc_" + Guid.newGuid() }}
         addFeat={openFeatSelection}
-        deleteFeat={null}
       />
 
       <FeatSelection
@@ -113,7 +106,7 @@ export const FeatsSection = () => {
         closeFunction={() => setShowFeatSelection(false)}
         selectFeat={localSelectFeat}
         featType={featType}
-        featLevel={featLevel}
+        featLevel={featLevel?.toString()}
         character={character}
       />
     </Card>
@@ -121,8 +114,7 @@ export const FeatsSection = () => {
 }
 
 type FeatListProps = {
-  addFunc: (featType: string, featId: string) => void
-  deleteFeat: CharacterBuilder["deleteFeat"]
+  addFunc: (featType: string, feat?: Feat) => void
   featList: FeatSlot[]
   hideListIf?: boolean
   noListMessage?: string
@@ -130,7 +122,6 @@ type FeatListProps = {
 }
 const FeatList = ({
   addFunc,
-  deleteFeat,
   featList,
   hideListIf,
   noListMessage,
@@ -144,14 +135,7 @@ const FeatList = ({
           <PlaceholderText>{noListMessage}</PlaceholderText>
         ) : (
           featList.map((feat, i) => {
-            return (
-              <FeatEntry
-                key={i}
-                feat={feat}
-                addFeat={addFunc}
-                deleteFeat={deleteFeat}
-              />
-            )
+            return <FeatEntry key={i} featSlot={feat} addFeat={addFunc} />
           })
         )}
       </div>

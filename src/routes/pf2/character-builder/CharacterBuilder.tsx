@@ -13,7 +13,7 @@ import {
   calculateHP,
   character,
 } from "data/character"
-import { Skill, Skills } from "data/skills"
+import { Skill, Skills, SkillName } from "data/skills"
 import { Backgrounds } from "data/backgrounds"
 
 import { CharacterBuilderContext, PF2CharacterContext } from "context"
@@ -71,7 +71,7 @@ export class CharacterBuilder extends React.Component<
     this.reset = this.reset.bind(this)
     this.getCharacter = this.getCharacter.bind(this)
     this.selectFeat = this.selectFeat.bind(this)
-    this.deleteFeat = this.deleteFeat.bind(this)
+    this.clearFeatSlot = this.clearFeatSlot.bind(this)
     this.setLevel = this.setLevel.bind(this)
   }
 
@@ -181,6 +181,7 @@ export class CharacterBuilder extends React.Component<
       )
     }
 
+    // @ts-expect-error
     character.class = _.cloneDeep(Classes[e.target.value])
     if (character.class) {
       character.abilityBoosts = character.abilityBoosts.concat(
@@ -213,7 +214,12 @@ export class CharacterBuilder extends React.Component<
       // remove class feats
       if (feat.type.includes("class")) return false
       // remove even-numbered skill feats
-      if (feat.type.includes("skill") && feat.level % 2 === 0) return false
+      if (
+        feat.type.includes("skill") &&
+        feat.level &&
+        +feat.level % 2 === 0
+      )
+        return false
       // keep others
       return true
     })
@@ -288,7 +294,7 @@ export class CharacterBuilder extends React.Component<
     character.skills = _.cloneDeep(Skills)
     character.skillBoosts.forEach((skillBoost) => {
       if (skillBoost.skill.id !== "Free") {
-        character.skills[skillBoost.skill.id].proficiency += 2
+        character.skills[skillBoost.skill.id as SkillName].proficiency += 2
 
         if (skillBoost.skill.id === "Lore")
           character.skills[skillBoost.skill.id].type = skillBoost.type
@@ -348,7 +354,7 @@ export class CharacterBuilder extends React.Component<
     const skillId = e.target.value
     const boostId = e.target.name
 
-    const skill = character.skills[skillId]
+    const skill = character.skills[skillId as SkillName]
 
     const boost = character.skillBoosts.find(
       (boost) => boost.id === boostId
@@ -385,37 +391,43 @@ export class CharacterBuilder extends React.Component<
     this.updateStats(character)
   }
 
-  selectFeat(featType, newFeat) {
+  selectFeat(featType: FeatSlot["type"], newFeat: Feat) {
     const character = _.cloneDeep(this.state.character)
     character.feats = character.feats.filter(
       (feat) => feat.type !== featType
     )
-    newFeat.type = featType
-    newFeat.level = featType.split("_")[1]
-    character.feats.push(newFeat)
+    const newSlot: FeatSlot = {
+      type: featType,
+      feat: newFeat,
+      level: +featType.split("_")[1],
+    }
+
+    character.feats.push(newSlot)
     character.feats = this.sortFeats(character.feats)
 
     this.setState({ character })
   }
 
-  sortFeats(feats) {
+  sortFeats(feats: FeatSlot[]) {
     return feats.sort((a, b) => {
-      return a.level - b.level
+      //@ts-expect-error
+      return +a.level - +b.level
     })
   }
 
-  deleteFeat(featToDelete) {
+  clearFeatSlot(featSlotToClear: FeatSlot) {
     const character = _.cloneDeep(this.state.character)
+
     // remove the feat
     character.feats = character.feats.filter(
-      (feat) => feat.type !== featToDelete.type
+      (feat) => feat.type !== featSlotToClear.type
     )
 
-    // if not a misc feed, at placeholder back
-    if (!featToDelete.type.includes("misc")) {
+    // if not a misc feed, re-add the slot
+    if (!featSlotToClear.type.includes("misc")) {
       character.feats.push({
-        type: featToDelete.type,
-        level: featToDelete.level,
+        type: featSlotToClear.type,
+        level: featSlotToClear.level,
       })
     }
 
@@ -442,7 +454,7 @@ export class CharacterBuilder extends React.Component<
       selectClass: this.selectClass,
       selectSkill: this.selectSkill,
       selectFeat: this.selectFeat,
-      deleteFeat: this.deleteFeat,
+      clearFeatSlot: this.clearFeatSlot,
       getCharacter: this.getCharacter,
       boostAbility: this.boostAbility,
       Classes,
