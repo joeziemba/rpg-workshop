@@ -4,7 +4,6 @@ declare type IStringIndex = {
 
 declare type Feat = {
   name: string
-  level?: number
   source: string
   rarity: string
   prerequisites: string
@@ -16,7 +15,7 @@ declare type Feat = {
 
 // TODO: refactor app to use FeatSlot format for all feats
 declare type FeatSlot = {
-  level?: number | string
+  level: number
   type: string
   feat?: Feat
 }

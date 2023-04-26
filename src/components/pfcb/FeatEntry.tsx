@@ -1,24 +1,28 @@
 import { useCharacterBuilderContext } from "context"
+import { usePF2FeatSelectionContext } from "context/PF2FeatSelectionContext"
 
 export interface FeatEntryProps {
-  addFeat: (type: string, feat?: Feat) => void
   featSlot: FeatSlot
 }
 
-const FeatEntry = ({ addFeat, featSlot }: FeatEntryProps) => {
+const FeatEntry = ({ featSlot }: FeatEntryProps) => {
   const { clearFeatSlot } = useCharacterBuilderContext()
-  const { type, feat, level: slotLevel } = featSlot
-  const add = () => addFeat(type, feat)
+  const { openFeatSelectionModal } = usePF2FeatSelectionContext()
+  const { feat } = featSlot
+
   const clearSlot = () => {
     clearFeatSlot?.(featSlot)
   }
 
-  const isMisc = type.includes("misc")
+  const isMisc = featSlot.type.includes("misc")
+
   return (
     <div className="mx-4 mb-2 last:mb-0 border-b border-gray-300 pb-2">
       {!feat?.name ? (
         <button
-          onClick={add}
+          onClick={() =>
+            openFeatSelectionModal(featSlot.level, featSlot.type)
+          }
           className={
             "w-full px-4 py-3 rounded-md  " +
             "bg-gray-200 text-gray-400 " +
@@ -27,12 +31,12 @@ const FeatEntry = ({ addFeat, featSlot }: FeatEntryProps) => {
           aria-label="Choose Feat"
         >
           <i className="fas fa-plus text-sm mr-2" />
-          Choose {!isMisc && "Lv." + slotLevel} Feat
+          Choose {!isMisc && "Lv." + featSlot.level} Feat
         </button>
       ) : (
         <div className="grid grid-cols-8 gap 2">
           <span className="text-lg col-span-1 text-gray-400 pl-2">
-            {!isMisc && "Lv." + slotLevel}
+            {!isMisc && "Lv." + featSlot.level}
           </span>
           <span className="col-span-6">
             <p className="text-lg mb-1">{feat.name}</p>
@@ -43,7 +47,7 @@ const FeatEntry = ({ addFeat, featSlot }: FeatEntryProps) => {
             onClick={clearSlot}
             className="col-span-1 text-gray-400 hover:text-red-700 rounded-md transition-colors"
             aria-label="Remove Feat"
-            title="Delete"
+            title="Remove Feat"
           >
             <i className="fas fa-minus-square"></i>
           </button>

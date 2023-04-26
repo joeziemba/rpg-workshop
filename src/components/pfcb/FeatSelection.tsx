@@ -1,34 +1,31 @@
-import React, { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback } from "react"
 import _ from "lodash"
 import FEATS from "data/feats/allFeats.json"
 import { Modal } from "components"
-import { character } from "data/character"
-import { InputEventTarget } from "routes/pf2/character-builder/CharacterBuilder"
+import { useCharacterBuilderContext } from "context"
 
 export interface FeatSelectionProps {
-  character: character
   closeFunction: () => void
-  featLevel?: string
-  featType: string
-  selectFeat: (feat: Feat) => void
+  featLevel?: FeatSlot["level"]
+  featType: FeatSlot["type"]
   show: boolean
 }
 
 export const FeatSelection = ({
-  character,
   closeFunction,
   featLevel,
   featType,
-  selectFeat,
   show,
 }: FeatSelectionProps) => {
+  const { character, selectFeat } = useCharacterBuilderContext()
+
   const [query, setQuery] = useState("")
   const [feats, setFeats] = useState([] as Feat[])
 
   const filterFeatsBy = (
     feats: Feat[],
     trait: string,
-    level?: number | string
+    level?: FeatSlot["level"]
   ) => {
     return feats.filter((feat) => {
       const hasTrait =
@@ -37,7 +34,7 @@ export const FeatSelection = ({
           .map((t) => t.toLowerCase())
           .includes(trait.toLowerCase())
 
-      const isLevel = !level || +feat.reqLevel <= +level
+      const isLevel = !level || +feat.reqLevel <= level
 
       return hasTrait && isLevel
     })
@@ -108,6 +105,11 @@ export const FeatSelection = ({
     featLevel,
   ])
 
+  const selectAndClose = (feat: Feat) => {
+    selectFeat(featType, feat)
+    closeFunction()
+  }
+
   return (
     <Modal show={show} closeFunction={closeFunction} title="Feats" large>
       <Search onChange={setQuery} query={query} />
@@ -121,7 +123,7 @@ export const FeatSelection = ({
             >
               <div className="col-span-2 flex items-center group">
                 <button
-                  onClick={() => selectFeat(feat)}
+                  onClick={() => selectAndClose(feat)}
                   className={
                     "h-full w-full text-5xl text-gray-300 text-center " +
                     "group-hover:text-blue-900 transition-colors"

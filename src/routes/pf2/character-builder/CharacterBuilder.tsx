@@ -30,6 +30,7 @@ import { applyNewAncestry } from "services/AncestryService"
 import { migrateToLatest } from "migrations"
 import { RouteComponentProps, RouteProps } from "react-router"
 import { Ability } from "data/abilities"
+import { PF2FeatSelectionContextProvider } from "context/PF2FeatSelectionContext"
 
 export interface InputEventTarget {
   target: {
@@ -410,7 +411,6 @@ export class CharacterBuilder extends React.Component<
 
   sortFeats(feats: FeatSlot[]) {
     return feats.sort((a, b) => {
-      //@ts-expect-error
       return +a.level - +b.level
     })
   }
@@ -468,24 +468,26 @@ export class CharacterBuilder extends React.Component<
       <div>
         <main className="">
           <PF2CharacterContext.Provider value={contextValue}>
-            <SubNav
-              history={this.props.history}
-              reset={this.reset}
-              character={character}
-              getCharacter={this.getCharacter}
-            />
-            <div className="pt-20 px-2 max-w-5xl mx-auto">
-              <CharacterBasics />
-              <div className="flex flex-wrap">
-                <div className="flex-full md:flex-1 flex flex-col">
-                  <AbilityScoreSection />
-                  <FeatsSection />
-                </div>
-                <div className="flex-full md:flex-1">
-                  <SkillsTable />
+            <PF2FeatSelectionContextProvider>
+              <SubNav
+                history={this.props.history}
+                reset={this.reset}
+                character={character}
+                getCharacter={this.getCharacter}
+              />
+              <div className="pt-20 px-2 max-w-5xl mx-auto">
+                <CharacterBasics />
+                <div className="flex flex-wrap">
+                  <div className="flex-full md:flex-1 flex flex-col">
+                    <AbilityScoreSection />
+                    <FeatsSection />
+                  </div>
+                  <div className="flex-full md:flex-1">
+                    <SkillsTable />
+                  </div>
                 </div>
               </div>
-            </div>
+            </PF2FeatSelectionContextProvider>
           </PF2CharacterContext.Provider>
         </main>
         <footer className="w-full p-4 text-sm bg-gray-700 text-gray-300">

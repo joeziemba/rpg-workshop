@@ -80,11 +80,27 @@ export function v1_1_1(character: character) {
   character.builderVersion = "1.1.1"
 }
 
-function v1_3_0(character: character) {
+function v1_1_3(character: character) {
   character.feats.forEach((feat) => {
     feat.level = +feat.type.split("_")[1]
   })
   character.builderVersion = "1.1.3"
+}
+
+function v1_1_4(character: character) {
+  // Migrate feats to FeatSlot format
+
+  //@ts-expect-error
+  character.feats = character.feats.map((oldFeat) => {
+    const { level, type, ...feat } = oldFeat
+    return {
+      level,
+      type,
+      feat: { ...feat },
+    }
+  })
+
+  character.builderVersion = "1.1.4"
 }
 
 export function migrateToLatest(character: character) {
@@ -98,6 +114,10 @@ export function migrateToLatest(character: character) {
     v1_1_1(character)
   }
   if (character.builderVersion < "1.1.3") {
-    v1_3_0(character)
+    v1_1_3(character)
+  }
+
+  if (character.builderVersion < "1.1.4") {
+    v1_1_4(character)
   }
 }
