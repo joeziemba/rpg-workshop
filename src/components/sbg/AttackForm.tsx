@@ -32,13 +32,13 @@ export const AttackForm = (props: AttackFormProps) => {
           placeholder={""}
           value={props.action.title}
           fieldName={"title"}
-          onChange={(e) =>
+          onChange={(e) => {
             props.updateAction(
               e,
               props.action.id.toString(),
               props.legendary
             )
-          }
+          }}
         />
       </div>
       <div className="col-span-2">

@@ -383,7 +383,7 @@ export class StatblockGenerator extends Component<
     }
 
     const newActions = actions.map((action) => {
-      if (action.id === actionId) {
+      if (action.id.toString() === actionId.toString()) {
         if (name === "content" && "content" in action) {
           action.content = value
         } else if (name === "title") {
